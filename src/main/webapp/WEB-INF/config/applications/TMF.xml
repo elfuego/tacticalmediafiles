@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application PUBLIC "-//MMBase//DTD application config 1.1//EN" "http://www.mmbase.org/dtd/application_1_1.dtd">
+<application name="TMF" maintainer="tacticalmediafiles.net" version="1" auto-deploy="false">
+  <requirements>
+    <requires name="Resources" maintainer="mmbase.org" version="1" />
+		<!-- <requires name="Media" maintainer="mediaproject.mmbase.org" version="1" /> -->
+  </requirements>
+
+  <neededbuilderlist>
+    <builder maintainer="mmbase.org"  version="0">insrel</builder>
+    <builder maintainer="www.mmbase.org"  version="0">posrel</builder>
+    
+    <builder maintainer="debalie.org"  version="1">person</builder>
+    <builder maintainer="debalie.org"  version="1">organisation</builder>
+    <builder maintainer="debalie.org"  version="1">type</builder>
+    <builder maintainer="debalie.org"  version="1">copyright</builder>
+    <builder maintainer="debalie.org"  version="1">work</builder>
+    <builder maintainer="mmbase.org"  version="0">email</builder>
+    <builder maintainer="mmbase.org"  version="0">picture</builder>
+    <builder maintainer="balie.org"  version="0">mediametadata</builder>
+    <builder maintainer="debalie.org"  version="1">article</builder>
+    <builder maintainer="balie.org"  version="0">metadata</builder>
+    <builder maintainer="debalie.org"  version="1">dates</builder>
+    <builder maintainer="debalie.org"  version="1">media</builder>
+    <builder maintainer="debalie.org"  version="1">event</builder>
+    <builder maintainer="mmbase.org"  version="1">rolerel</builder>
+    <builder maintainer="debalie.org"  version="1">file</builder>
+    <builder maintainer="debalie.org"  version="1">url</builder>
+    <builder maintainer="debalie.org"  version="1">keyword</builder>
+    <builder maintainer="debalie.org"  version="1">campaign</builder>
+    <builder maintainer="debalie.org"  version="1">address</builder>
+  </neededbuilderlist>
+
+  <neededreldeflist>
+    <reldef source="related" target="related" direction="bidirectional" guisourcename="Related" guitargetname="Related" />
+    <reldef source="posrel" target="posrel" direction="bidirectional" guisourcename="Posrel" guitargetname="Posrel" builder="posrel" />
+  </neededreldeflist>
+
+  <allowedrelationlist>
+    <relation from="article" to="type" type="related" />
+    <!-- <relation from="article" to="person" type="author" /> -->
+    <relation from="article" to="person" type="related" />
+    <relation from="article" to="dates" type="related" />
+    <relation from="article" to="organisation" type="related" />
+    <relation from="article" to="copyright" type="related" />
+    <relation from="article" to="file" type="related" />
+    <relation from="article" to="event" type="related" />
+    <relation from="article" to="artefact" type="related" />
+    <relation from="file" to="copyright" type="related" />
+    <relation from="media" to="copyright" type="related" />
+    <relation from="file" to="picture" type="related" />
+    <relation from="file" to="media" type="related" />
+    <relation from="file" to="artefact" type="related" />
+    <relation from="file" to="type" type="related" />    
+    <relation from="file" to="article" type="related" />
+    <relation from="file" to="work" type="related" />
+    <relation from="artefact" to="copyright" type="related" />
+    <relation from="media" to="type" type="related" />
+    <relation from="artefact" to="file" type="related" />
+    <relation from="artefact" to="work" type="related" />
+    <relation from="artefact" to="article" type="related" />
+    <relation from="event" to="type" type="related" />
+    <relation from="event" to="dates" type="related" />
+    <relation from="event" to="organisation" type="related" />
+    <relation from="event" to="person" type="related" />
+    <relation from="event" to="person" type="coordinator" />
+    <relation from="event" to="keyword" type="related" />
+    <relation from="event" to="address" type="related" />
+    <relation from="event" to="article" type="related" />
+    <relation from="organisation" to="address" type="related" />
+    <relation from="organisation" to="type" type="related" />    
+    <relation from="organisation" to="person" type="related" />
+    <relation from="media" to="picture" type="posrel" />
+    <relation from="organisation" to="article" type="related" />
+    <relation from="organisation" to="dates" type="related" />
+    <relation from="organisation" to="event" type="related" />
+    <relation from="person" to="type" type="related" />
+    <relation from="person" to="dates" type="related" />
+    <relation from="person" to="address" type="related" />
+    <relation from="person" to="article" type="related" />
+    <relation from="event" to="file" type="related" />
+    <relation from="person" to="organisation" type="related" />
+    <relation from="person" to="event" type="related" />
+    <relation from="work" to="article" type="related" />
+    <relation from="work" to="person" type="related" />
+    <relation from="work" to="person" type="author" />
+    <relation from="work" to="type" type="related" />
+    <relation from="work" to="file" type="related" />    
+    <relation from="work" to="artefact" type="related" />
+    <relation from="work" to="organisation" type="related" />
+    <relation from="work" to="copyright" type="related" />
+    <relation from="work" to="dates" type="related" />
+    <relation from="media" to="mediaproviders" type="related" />
+    <relation from="media" to="file" type="related" />
+    <relation from="work" to="event" type="related" />
+    <relation from="person" to="url" type="related" />
+    <relation from="event" to="event" type="contains" />
+    <relation from="article" to="keyword" type="related" />
+    <relation from="work" to="keyword" type="related" />    
+    <relation from="artefact" to="keyword" type="related" />
+    <relation from="file" to="keyword" type="related" />
+    <relation from="picture" to="keyword" type="related" />
+    <relation from="event" to="picture" type="posrel" />
+    <relation from="article" to="picture" type="posrel" />
+    <relation from="work" to="picture" type="posrel" />
+    <relation from="file" to="picture" type="posrel" />
+    <relation from="person" to="picture" type="posrel" />
+    <relation from="organisation" to="picture" type="posrel" />
+    <relation from="media" to="videofragments" type="posrel" />
+    <relation from="artefact" to="person" type="author" />
+    <relation from="campaign" to="keyword" type="related" />
+    <relation from="article" to="url" type="related" />
+    <relation from="event" to="url" type="related" />
+    <relation from="person" to="keyword" type="related" />
+    <relation from="article" to="media" type="related" />
+    <relation from="campaign" to="article" type="related" />
+    <relation from="campaign" to="person" type="related" />
+    <relation from="campaign" to="event" type="related" />
+    <relation from="campaign" to="organisation" type="related" />
+    <relation from="campaign" to="url" type="related" />
+    <relation from="campaign" to="picture" type="posrel" />
+    <relation from="campaign" to="work" type="related" />
+    <relation from="campaign" to="file" type="related" />
+  </allowedrelationlist>
+
+  <datasourcelist>
+    <datasource builder="insrel" path="TMF/insrel.xml" />         
+    <datasource builder="artefact" path="TMF/artefact.xml" />       
+    <datasource builder="person" path="TMF/person.xml" />         
+    <datasource builder="organisation" path="TMF/organisation" />   
+    <datasource builder="type" path="TMF/type" />           
+    <datasource builder="copyright" path="TMF/copyright" />      
+    <datasource builder="work" path="TMF/work" />           
+    <datasource builder="picture" path="TMF/picture" />        
+    <datasource builder="mediametadata" path="TMF/mediametadata" />  
+    <datasource builder="article" path="TMF/article" />        
+    <datasource builder="metadata" path="TMF/metadata" />       
+    <datasource builder="dates" path="TMF/dates" />          
+    <datasource builder="media" path="TMF/media" />          
+    <datasource builder="posrel" path="TMF/posrel" />         
+    <datasource builder="event" path="TMF/event" />          
+    <datasource builder="file" path="TMF/file" />           
+    <datasource builder="url" path="TMF/url" />            
+    <datasource builder="keyword" path="TMF/keyword" />        
+    <datasource builder="campaign" path="TMF/campaign" />
+    <datasource builder="address" path="TMF/address" />	   
+  </datasourcelist>
+
+  <relationsourcelist />
+
+  <contextsourcelist><contextsource path="/tmp" type="full" goal="backup" /></contextsourcelist>
+
+  <description><![CDATA[Installs builders and relations for the TMF archive website.
+  This application uses the Resource-application, the Media application (downloadable at mmbase.org) and the cloudcontextsecurity application.
+  ]]></description>
+
+  <install-notice><![CDATA[TMF installed.
+  ]]></install-notice>
+</application>
