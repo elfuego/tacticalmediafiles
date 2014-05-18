@@ -6,7 +6,7 @@
   <description>
   </description>
 
-  <display-name>Bare webapp</display-name>
+  <display-name>TMF webapplication</display-name>
 
   <context-param>
     <param-name>mmbase.taglib.eval_body_include</param-name>
@@ -19,25 +19,15 @@
   </context-param>
 
   <context-param>
-    <param-name>mmbase.taglib.function.nonExistance</param-name>
-    <param-value>exception</param-value>
-  </context-param>
-
-  <context-param>
     <param-name>stall-server</param-name>
     <param-value>false</param-value>
   </context-param>
 
-  <context-param>
-    <param-name>mmbase.servlet.images.addfilename</param-name>
-    <param-value>yes</param-value>
-  </context-param>
   <!-- some for attachments -->
   <context-param>
     <param-name>mmbase.servlet.attachments.addfilename</param-name>
     <param-value>yes</param-value>
   </context-param>
-
 
 
   <filter>
