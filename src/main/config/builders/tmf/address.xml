@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<builder
+	xmlns="http://www.mmbase.org/xmlns/builder"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mmbase.org/xmlns/builder
+						http://www.mmbase.org/xmlns/builder.xsd"
+	name="address" maintainer="debalie.org" version="1" extends="object">
+
+	<status>active</status>
+	
+	<searchage>1400</searchage>
+	
+	<names>
+		<singular xml:lang="en">Address</singular>
+	    <singular xml:lang="nl">Adres</singular>
+		<plural xml:lang="nl">Addressen</plural>
+		<plural xml:lang="en">Adresses</plural>
+	</names>
+	
+	<descriptions>
+		<description xml:lang="nl">Addressen</description>
+		<description xml:lang="en">Adresses</description>
+	</descriptions>
+	
+	<properties>
+	    <property name="max-nodes-from-query">1000</property>
+	</properties>
+	
+	<fieldlist>
+		
+		<field name="created" readonly="true" state="system">
+			<gui>
+				<guiname xml:lang="nl">Aanmaak Datum</guiname>
+				<guiname xml:lang="en">Creation Date</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>3</input><list>3</list><search>3</search>
+				</positions>
+			</editor>
+            <datatype base="created" xmlns="http://www.mmbase.org/xmlns/datatypes">
+              <default value="now" />
+            </datatype>
+		</field>
+		
+		<field name="name">
+			<gui>
+				<guiname xml:lang="nl">Naam</guiname>
+				<guiname xml:lang="en">Name</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>1</input><list>1</list><search>1</search>
+				</positions>
+			</editor>
+            <datatype base="line" xmlns="http://www.mmbase.org/xmlns/datatypes">
+              <maxLength value="255" />
+            </datatype>
+		</field>
+				
+		<field name="street">
+			<gui>
+				<guiname xml:lang="nl">Straat en Nummer</guiname>
+				<guiname xml:lang="en">Street and Number</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>2</input><list>2</list><search>2</search>
+				</positions>
+			</editor>
+            <datatype base="eline" xmlns="http://www.mmbase.org/xmlns/datatypes">
+              <maxLength value="255" />
+            </datatype>
+		</field>
+
+		<field name="zipcode">
+			<gui>
+				<guiname xml:lang="nl">PostCode</guiname>
+				<guiname xml:lang="en">ZipCode</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>3</input><list>3</list><search>3</search>
+				</positions>
+			</editor>
+            <datatype base="eline" xmlns="http://www.mmbase.org/xmlns/datatypes">
+              <maxLength value="24" />
+            </datatype>
+		</field>
+		
+		<field name="city">
+			<gui>
+				<guiname xml:lang="nl">Stad</guiname>
+				<guiname xml:lang="en">City</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>4</input><list>4</list><search>4</search>
+				</positions>
+			</editor>
+            <datatype base="eline" xmlns="http://www.mmbase.org/xmlns/datatypes">
+              <maxLength value="255" />
+            </datatype>
+		</field>
+		
+		<field name="region">
+			<gui>
+				<guiname xml:lang="nl">Regio</guiname>
+				<guiname xml:lang="en">Region</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>3</input><list>3</list><search>3</search>
+				</positions>
+			</editor>
+            <datatype base="eline" xmlns="http://www.mmbase.org/xmlns/datatypes">
+              <maxLength value="255" />
+            </datatype>
+		</field>
+		
+		<field name="country">
+			<gui>
+				<guiname xml:lang="nl">Land</guiname>
+				<guiname xml:lang="en">Country</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>5</input><list>5</list><search>5</search>
+				</positions>
+			</editor>
+            <datatype base="eline" xmlns="http://www.mmbase.org/xmlns/datatypes">
+              <maxLength value="255" />
+            </datatype>
+		</field>
+		
+		<field name="phone">
+			<gui>
+				<guiname xml:lang="nl">Telefoon</guiname>
+				<guiname xml:lang="en">Telephone</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>6</input><list>6</list><search>6</search>
+				</positions>
+			</editor>
+            <datatype base="eline" xmlns="http://www.mmbase.org/xmlns/datatypes">
+              <maxLength value="255" />
+            </datatype>
+		</field>
+		
+		<field name="mobile">
+			<gui>
+				<guiname xml:lang="nl">Mobiel</guiname>
+				<guiname xml:lang="en">Mobile</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>7</input><list>7</list><search>7</search>
+				</positions>
+			</editor>
+            <datatype base="eline" xmlns="http://www.mmbase.org/xmlns/datatypes">
+              <maxLength value="255" />
+            </datatype>
+		</field>
+		
+		<field name="fax">
+			<gui>
+				<guiname xml:lang="nl">Fax</guiname>
+				<guiname xml:lang="en">Fax</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>8</input><list>8</list><search>8</search></positions>
+			</editor>
+            <datatype base="eline" xmlns="http://www.mmbase.org/xmlns/datatypes">
+              <maxLength value="255" />
+            </datatype>
+		</field>
+		
+		<field name="email">
+			<gui>
+				<guiname xml:lang="nl">E-mail</guiname>
+				<guiname xml:lang="en">E-mail</guiname>
+			</gui>
+			<editor>
+				<positions>
+					<input>9</input><list>9</list><search>9</search>
+				</positions>
+			</editor>
+			<datatype base="emailaddress" xmlns="http://www.mmbase.org/xmlns/datatypes" />
+		</field>
+	</fieldlist>
+</builder>
