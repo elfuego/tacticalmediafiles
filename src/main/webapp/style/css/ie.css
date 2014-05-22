@@ -1,0 +1,36 @@
+	input.SearchNav {
+		margin-top: -15px ;
+	}
+	
+	ul.NavigationMenu2 {
+		width: 70px ;
+		padding-right: 20px ;
+	}
+	
+		ul.NavigationMenu li {
+			padding: 0px 4px ;
+		}
+
+		div.videothumb1 table td a {
+			font-family: Georgia ;
+			font-size: 10px ;
+			line-height: 12px ;
+		}
+
+		div.videothumb2 table td a {
+			font-family: Georgia ;
+			font-size: 10px ;
+			line-height: 12px ;
+		}
+
+		div.videothumb3 table td a {
+			font-family: Georgia ;
+			font-size: 10px ;
+			line-height: 12px ;
+		}
+
+		div.videothumb4 table td a {
+			font-family: Georgia ;
+			font-size: 10px ;
+			line-height: 12px ;
+		}

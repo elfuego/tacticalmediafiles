@@ -1,0 +1,79 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    expires="120" type="text/html" language="client" postprocessor="none">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+<mm:cloud>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+<head>
+  <title>tacticalmediafiles.net</title>
+  <meta name="description" content="Tactical Media Files." />
+  <meta name="keywords" content="" />
+  <meta name="robots" content="all" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
+  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
+  <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/ie.css')}" />
+  <![endif]-->
+</head>
+<body>
+<div class="GlobalContainer">
+  <div class="TopContainer">
+
+    <!-- Navigation -->
+    <div class="NavigationContainer">
+      <ul class="NavigationMenu">
+        <li><a href="article.jsp?objectnumber=38519&amp;pagetype=about" class="sel">ABOUT</a></li>
+        <li><a href="listing.jsp?pagetype=events">EVENTS</a></li>
+        <li><a href="listing.jsp?pagetype=campaigns">CAMPAIGNS</a></li>
+        <li><a href="video.jsp?pagetype=videos">VIDEOS</a></li>
+        <li><a href="listing.jsp?pagetype=texts">TEXTS</a></li>
+        <li><a href="http://blog.tacticalmediafiles.net/" target="_blank">BLOG</a></li>
+        <li><a href="listing.jsp?pagetype=new">NEW</a></li>
+      </ul>
+      <ul class="NavigationMenu2">
+        <li>
+          <form class="NavSearch" name="Search" action="search.jsp" method="post">
+            <input type="hidden" name="pagetype" value="search" />
+            <input type="text" name="query" class="SearchNav" id="SearchNav" value="SEARCH" onfocus="SearchFocus();" />
+          </form>
+        </li>
+      </ul>
+    </div>
+		<div class="clearBoth">
+		</div>
+
+<!-- Lines -->
+		<div class="TopLinesContainer">
+			<div class="TopLineCol1">
+			</div>
+			<div class="TopLineCol2">
+			</div>
+			<div class="TopLineCol3">
+			</div>
+			<div class="TopLineCol4">
+			</div>
+			<div class="TopLineCol5">
+			</div>
+		</div>
+		<div class="clearBoth">
+		</div>
+
+	<div class="clearBoth">
+	</div>
+
+
+  </div>
+</div>
+<div id="content">
+  About tacticalmediafiles.net 
+</div>
+</body>
+</html>
+</mm:cloud>
+</mm:content>

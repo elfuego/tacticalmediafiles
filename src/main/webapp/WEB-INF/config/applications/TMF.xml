@@ -17,7 +17,6 @@
     <builder maintainer="debalie.org"  version="1">work</builder>
     <builder maintainer="mmbase.org"  version="0">email</builder>
     <builder maintainer="mmbase.org"  version="0">picture</builder>
-    <builder maintainer="balie.org"  version="0">mediametadata</builder>
     <builder maintainer="debalie.org"  version="1">article</builder>
     <builder maintainer="balie.org"  version="0">metadata</builder>
     <builder maintainer="debalie.org"  version="1">dates</builder>
@@ -132,7 +131,6 @@
     <datasource builder="copyright" path="TMF/copyright" />      
     <datasource builder="work" path="TMF/work" />           
     <datasource builder="picture" path="TMF/picture" />        
-    <datasource builder="mediametadata" path="TMF/mediametadata" />  
     <datasource builder="article" path="TMF/article" />        
     <datasource builder="metadata" path="TMF/metadata" />       
     <datasource builder="dates" path="TMF/dates" />          
