@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE builder PUBLIC "-//MMBase/DTD builder config 1.1//EN" "http://www.mmbase.org/dtd/builder_1_1.dtd">
-<builder extends="object" maintainer="debalie.org" name="file" version="1">
+<builder
+    xmlns="http://www.mmbase.org/xmlns/builder"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mmbase.org/xmlns/builder
+                        http://www.mmbase.org/xmlns/builder.xsd"
+    name="article" maintainer="tacticalmediafiles.net" version="1" extends="object">
 
 	<status>active</status>
 	
-	<classfile>Attachments</classfile>
+	<class>Attachments</class>
 	
 	<searchage>1400</searchage>
 	
@@ -30,7 +35,6 @@
 			<gui>
 				<guiname xml:lang="en">Title</guiname>
 				<guiname xml:lang="nl">Titel</guiname>
-				<guitype>string</guitype>
 			</gui>
 			<editor>
 				<positions>
@@ -50,7 +54,6 @@
 			<gui>
 				<guiname xml:lang="en">Description</guiname>
 				<guiname xml:lang="nl">Omschrijving</guiname>
-				<guitype>field</guitype>
 			</gui>
 			<editor>
 				<positions>
@@ -70,7 +73,6 @@
 			<gui>
 				<guiname xml:lang="en">MimeType</guiname>
 				<guiname xml:lang="nl">MimeType</guiname>
-				<guitype>string</guitype>
 			</gui>
 			<editor>
 				<positions>
@@ -90,7 +92,6 @@
 			<gui>
 				<guiname xml:lang="en">Filename</guiname>
 				<guiname xml:lang="nl">Bestandsnaam</guiname>
-				<guitype>string</guitype>
 			</gui>
 			<editor>
 				<positions>
@@ -110,7 +111,6 @@
 			<gui>
 				<guiname xml:lang="en">Size</guiname>
 				<guiname xml:lang="nl">Grootte</guiname>
-				<guitype>integer</guitype>
 			</gui>
 			<editor>
 				<positions>
@@ -128,7 +128,6 @@
 			<gui>
 				<guiname xml:lang="en">File</guiname>
 				<guiname xml:lang="nl">Bestand</guiname>
-				<guitype>newfile</guitype>
 			</gui>
 			<editor>
 				<positions>
@@ -156,7 +155,6 @@
 			<gui>
 				<guiname xml:lang="nl">PlaatjesType</guiname>
 				<guiname xml:lang="en">ImageType</guiname>
-				<guitype>string</guitype>
 			</gui>
 			<editor>
 				<positions>
@@ -172,7 +170,6 @@
 			<gui>
 				<guiname xml:lang="nl">Trefwoorden</guiname>
 				<guiname xml:lang="en">Keywords</guiname>
-				<guitype>string</guitype>
 			</gui>
 			<editor>
 				<positions>

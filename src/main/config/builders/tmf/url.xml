@@ -26,7 +26,7 @@
   </properties>
 
   <fieldlist>
-    <field>
+    <field name="title">
  
       <gui>
         <guiname xml:lang="nl">Titel</guiname>
@@ -43,27 +43,26 @@
           <search>1</search>
         </positions>
       </editor>
-      <db>
-        <name xml:lang="en">title</name>
-        <type key="false" notnull="true" size="255" state="persistent">STRING</type>
-      </db>
+      <datatype base="field" xmlns="http://www.mmbase.org/xmlns/datatypes">
+        <maxLength value="255" />
+      </datatype>
     </field>
 
 	
-		<field>
-			<gui>
-				<guiname xml:lang="nl">Aanmaak Datum</guiname>
-				<guiname xml:lang="en">Creation Date</guiname>
-			</gui>
-			<editor>
-				<positions>
-					<input>3</input><list>3</list><search>3</search>
-				</positions>
-			</editor>
-            <datatype base="created" xmlns="http://www.mmbase.org/xmlns/datatypes">
-              <default value="now" />
-            </datatype>
-		</field>
+    <field name="created" readonly="true" state="system">
+        <gui>
+            <guiname xml:lang="nl">Aanmaak Datum</guiname>
+            <guiname xml:lang="en">Creation Date</guiname>
+        </gui>
+        <editor>
+            <positions>
+                <input>3</input><list>3</list><search>3</search>
+            </positions>
+        </editor>
+        <datatype base="created" xmlns="http://www.mmbase.org/xmlns/datatypes">
+          <default value="now" />
+        </datatype>
+    </field>
 		
     <field name="description">
       <gui>

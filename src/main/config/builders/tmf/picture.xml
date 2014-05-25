@@ -31,7 +31,7 @@
 	
 	<fieldlist>
 		
-		<field name="created">
+		<field name="created" readonly="true" state="system">
 			<gui>
 				<guiname xml:lang="nl">Aanmaak Datum</guiname>
 				<guiname xml:lang="en">Creation Date</guiname>

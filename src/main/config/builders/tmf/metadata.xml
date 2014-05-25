@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE builder PUBLIC "-//MMBase/DTD builder config 1.1//EN" "http://www.mmbase.org/dtd/builder_1_1.dtd">
-<builder extends="object" maintainer="balie.org" name="metadata" version="0">
+<builder
+    xmlns="http://www.mmbase.org/xmlns/builder"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mmbase.org/xmlns/builder
+                        http://www.mmbase.org/xmlns/builder.xsd"
+    name="metatdata" maintainer="tacticalmediafiles.net" version="1" extends="object">
   <!-- Builder configuration for metadata -->
   <!-- Status of the builder: active or inactive -->
   <status>active</status>
   <!-- Classname of the builder.
 This is a optional tag, it names the classfile to use for this builder
 Providing an alternate buidler class allows you to add or change support routines. -->
-  <classfile>Dummy</classfile>
   <!-- The default maximum age of objects in a search
 used by some MMBase editors to limit the results of a search -->
   <searchage>1400</searchage>
@@ -42,12 +46,12 @@ Once defined, it is a good practice to keep the same order.
 This counts especially when you convert buidler configurations using builder inheritance. -->
   <fieldlist>
     <!-- field definition for field 4 : theme -->
+    
     <field name="theme">
       <!-- gui related -->
       <gui>
         <guiname xml:lang="nl">Thema</guiname>
         <guiname xml:lang="en">Theme</guiname>
-        <guitype>string</guitype>
       </gui>
       <!-- editor related -->
       <editor>
@@ -71,7 +75,6 @@ This counts especially when you convert buidler configurations using builder inh
       <gui>
         <guiname xml:lang="nl">Trefwoorden</guiname>
         <guiname xml:lang="en">Keywords</guiname>
-        <guitype>string</guitype>
       </gui>
       <!-- editor related -->
       <editor>
