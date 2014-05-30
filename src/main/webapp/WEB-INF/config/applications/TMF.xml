@@ -14,14 +14,13 @@
     <builder maintainer="debalie.org"  version="1">organisation</builder>
     <builder maintainer="debalie.org"  version="1">type</builder>
     <builder maintainer="debalie.org"  version="1">copyright</builder>
-    <builder maintainer="mmbase.org"  version="0">email</builder>
-    <builder maintainer="mmbase.org"  version="0">picture</builder>
+    <builder maintainer="mmbase.org"   version="0">email</builder>
+    <builder maintainer="mmbase.org"   version="0">picture</builder>
     <builder maintainer="debalie.org"  version="1">article</builder>
-    <builder maintainer="balie.org"  version="0">metadata</builder>
+    <builder maintainer="balie.org"    version="0">metadata</builder>
     <builder maintainer="debalie.org"  version="1">dates</builder>
     <builder maintainer="debalie.org"  version="1">media</builder>
     <builder maintainer="debalie.org"  version="1">event</builder>
-    <builder maintainer="mmbase.org"  version="1">rolerel</builder>
     <builder maintainer="debalie.org"  version="1">file</builder>
     <builder maintainer="debalie.org"  version="1">url</builder>
     <builder maintainer="debalie.org"  version="1">keyword</builder>
@@ -33,8 +32,9 @@
   </neededbuilderlist>
 
   <neededreldeflist>
-    <reldef source="related" target="related" direction="bidirectional" guisourcename="Related" guitargetname="Related" />
-    <reldef source="posrel" target="posrel" direction="bidirectional" guisourcename="Posrel" guitargetname="Posrel" builder="posrel" />
+    <reldef source="related"     target="related" direction="bidirectional" guisourcename="Related" guitargetname="Related"             builder="insrel" />
+    <reldef source="posrel"      target="posrel" direction="bidirectional" guisourcename="Posrel" guitargetname="Posrel"                builder="posrel" />
+    <reldef source="coordinator" target="coordinator" direction="bidirectional" guisourcename="Coordinator" guitargetname="Coordinator" builder="insrel" />
   </neededreldeflist>
 
   <allowedrelationlist>
