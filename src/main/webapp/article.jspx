@@ -11,8 +11,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
 <head>
-  <title>tacticalmediafiles.net</title>
-  <meta name="description" content="Tactical Media Files." />
+  <title>Tactical Media Files</title>
+  <meta name="description" content="Tactical Media Files" />
   <meta name="keywords" content="" />
   <meta name="robots" content="all" />
   <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
@@ -45,34 +45,116 @@
         </li>
       </ul>
     </div>
-		<div class="clearBoth">
-		</div>
-
-<!-- Lines -->
-		<div class="TopLinesContainer">
-			<div class="TopLineCol1">
-			</div>
-			<div class="TopLineCol2">
-			</div>
-			<div class="TopLineCol3">
-			</div>
-			<div class="TopLineCol4">
-			</div>
-			<div class="TopLineCol5">
-			</div>
-		</div>
-		<div class="clearBoth">
-		</div>
-
-	<div class="clearBoth">
-	</div>
-
-
+    <div class="clearBoth"><!-- empty --></div>
+    <div class="TopLinesContainer">
+        <div class="TopLineCol1"><!-- empty --></div>
+        <div class="TopLineCol2"><!-- empty --></div>
+        <div class="TopLineCol3"><!-- empty --></div>
+        <div class="TopLineCol4"><!-- empty --></div>
+        <div class="TopLineCol5"><!-- empty --></div>
+    </div>
+    <div class="clearBoth"><!-- empty --></div>
+	<div class="clearBoth"><!-- empty --></div>
   </div>
+  <div class="ArticleContainer">
+	
+	<div class="clearBoth"><!-- empty --></div>
+    <div class="ArticleSpacer"><!-- empty --></div>
+    <div class="ArticleTMFLogo">
+      <a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo-small.gif')}" alt="Tactical Media Files Logo" /></a> 
+    </div>
+    
+    <!-- Article Title -->
+    <div class="ArticleTitleContainer">
+        <div class="ArticleTitlePositioner"><!-- empty --></div>
+        <div class="ArticleTitle">
+            <h1 class="Title">WikiLeaks statement on the mass recording of Afghan telephone calls by the NSA </h1>
+        </div>
+        <div class="ArticleLabel"><img src="${mm:link('/style/images/labels/event.png')}" alt="event" /></div>
+    </div><!-- EOF .ArticleTitleContainer -->
+    <div style="clear: right ;"><!-- empty --></div>
+    <div class="ArticleSpacer2"> </div>
+
+    <!-- Article Author + Summary -->
+    <div class="ArticleSummaryContainer">
+        <div class="ArticleAuthor">Wikileaks <br /></div>
+        <div class="ArticleSummary">
+            <p class="Summary">
+              My friends, each of you is a single cel in the great body of the State. And today, that great body has purged itself of parasites. We have triumphed over the unprincipled dissemination of facts. The thugs and wreckers have been cast out. And the poisenous weeds of disinformation have been consigned to the dustbin of history. Let each and every cell rejoice!
+            </p>
+        </div>
+    </div><!-- EOF .ArticleSummaryContainer -->
+    <div class="clearBoth"><!-- empty --></div>
+    <div class="ArticleSpacer"><!-- empty --></div>
+
+    <!-- Article Content -->
+	<div class="ArticleContent">
+        <!-- All the stuff on the left of an article -->
+		<div class="ArticleLinksContainer">
+            <div class="ArticleLeftLine"><!-- empty --></div>
+            <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/share.gif')}" alt="Share" /></div>
+            <br /> 
+			<h5>share</h5>
+
+            <br /><br /><br />
+            <div class="ArticleLeftLine"><!-- empty --></div>
+            <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/links.gif')}" alt="Links" /></div>
+            <br /> 
+            <h5>person</h5>
+            <a href="http://www.tacticalmediafiles.net/article.jsp?objectnumber=47808">Person link</a><br /><br /> 
+            <h5>link</h5>
+            <a href="http://www.tacticalmediafiles.net" target="_new"> Website link</a><br /><br /> 
+            <img src="${mm:link('/style/images/x.gif')}" alt="X" />
+            <br /><br /><br /> 
+        </div>
+
+        <div class="ArticleLinksContainer">
+            <div class="ArticleLeftLine"><!-- empty --></div>
+            <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/images.gif')}" alt="Images" /></div>
+        </div>
+
+        <div class="ArticleImageContainer">
+            <div class="ArticleImageLabel">
+                <p class="filelabel">leakslogo_square.jpg</p>
+                <br /> 
+                <a title="Leaks" href="http://www.tacticalmediafiles.net/picture.jsp?objectnumber=48386" target="_new"><img src="./artikel2_files/wikilogo_square.jpg" /></a>
+                <br /><br /> 
+            </div>
+        </div>
+        <div class="ArticleImage"><img src="${mm:link('/style/images/x.gif')}" alt="X" /></div>
+		<!-- End of Left Stuff -->
+        
+        <!-- Article Text -->
+        <div style="padding-left: 280px ;">
+            <p class="Text">
+            My friends, each of you is a single cel in the great body of the State. And today, that great body has purged itself of parasites. We have triumphed over the unprincipled dissemination of facts. The thugs and wreckers have been cast out. And the poisenous weeds of disinformation have been consigned to the dustbin of history. Let each and every cell rejoice!
+                <br /><br />
+            For today we celebrate the first glorious anniversary of the Information Purification Directive! We have created, for the first time in all history, a garden of pure ideology, where each worker may bloom secure from the pests of contradictory and confusing truths. Our Unification of Thought is a more powerfull weapon than any fleet or army on Earth! We are one people. With one will. One resolve. One cause. Our enemies shall talk themselves to death. And we will bury them with their own confusion! 
+                <br /><br />
+            My friends, each of you is a single cel in the great body of the State. And today, that great body has purged itself of parasites. We have triumphed over the unprincipled dissemination of facts. The thugs and wreckers have been cast out. And the poisenous weeds of disinformation have been consigned to the dustbin of history. Let each and every cell rejoice!
+                <br /><br />
+            For today we celebrate the first glorious anniversary of the Information Purification Directive! We have created, for the first time in all history, a garden of pure ideology, where each worker may bloom secure from the pests of contradictory and confusing truths. Our Unification of Thought is a more powerfull weapon than any fleet or army on Earth! We are one people. With one will. One resolve. One cause. Our enemies shall talk themselves to death. And we will bury them with their own confusion! 
+                <br /><br />
+            My friends, each of you is a single cel in the great body of the State. And today, that great body has purged itself of parasites. We have triumphed over the unprincipled dissemination of facts. The thugs and wreckers have been cast out. And the poisenous weeds of disinformation have been consigned to the dustbin of history. Let each and every cell rejoice!
+                <br /><br />
+            For today we celebrate the first glorious anniversary of the Information Purification Directive! We have created, for the first time in all history, a garden of pure ideology, where each worker may bloom secure from the pests of contradictory and confusing truths. Our Unification of Thought is a more powerfull weapon than any fleet or army on Earth! We are one people. With one will. One resolve. One cause. Our enemies shall talk themselves to death. And we will bury them with their own confusion! 
+
+
+            </p>
+        </div>
+        
+        <div style="text-align: right ; margin-top: 15px ;"><img src="${mm:link('/style/images/x-blue.gif')}" alt="X" /></div>
+        <div class="clearBoth"><!-- empty --></div>
+        <div class="clearBoth"><!-- empty --></div>
+        <div class="ArticleSpacer"><!-- empty --></div>
+        
+    </div><!-- EOF .ArticleContent -->
+    
+    <div class="clearBoth"><!-- empty --></div>
+    
+  </div><!-- EOF .ArticleContainer -->
 </div>
-<div id="content">
-  About tacticalmediafiles.net 
-</div>
+
 </body>
 </html>
 </mm:cloud>

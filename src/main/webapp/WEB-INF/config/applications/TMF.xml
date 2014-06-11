@@ -75,10 +75,8 @@
     <relation from="event" to="file" type="related" />
     <relation from="person" to="organisation" type="related" />
     <relation from="person" to="event" type="related" />
-    <relation from="media" to="mediaproviders" type="related" />
     <relation from="media" to="file" type="related" />
     <relation from="person" to="url" type="related" />
-    <relation from="event" to="event" type="contains" />
     <relation from="article" to="keyword" type="related" />
     <relation from="file" to="keyword" type="related" />
     <relation from="picture" to="keyword" type="related" />
@@ -97,7 +95,7 @@
     <relation from="videofragments" to="event" type="related" />
     <relation from="videofragments" to="organisation" type="related" />
     <relation from="videofragments" to="article" type="related" />
-    <relation from="videofragments" to="templates" type="related" />
+    <!-- <relation from="videofragments" to="templates" type="related" /> -->
     <relation from="videofragments" to="url" type="posrel" />
 
     <relation from="campaign" to="keyword" type="related" />
@@ -136,8 +134,8 @@
   </datasourcelist>
 
   <relationsourcelist>
-    <datasource builder="insrel" path="TMF/insrel.xml" />         
-    <datasource builder="posrel" path="TMF/posrel.xml" />         
+    <relationsource builder="insrel" path="TMF/insrel.xml" />         
+    <relationsource builder="posrel" path="TMF/posrel.xml" />         
   </relationsourcelist>
 
   <contextsourcelist>
@@ -145,10 +143,12 @@
     <!-- <contextsource path="/tmp" type="full" goal="backup" /> -->
   </contextsourcelist>
 
-  <description><![CDATA[Installs builders and relations for the TMF archive website.
-  This application uses the Resource-application, the Media application (downloadable at mmbase.org) and the cloudcontextsecurity application.
-  ]]></description>
+  <afterdeployment />
 
-  <install-notice><![CDATA[TMF installed.
-  ]]></install-notice>
+  <description>
+    Installs builders and relations for the TMF archive website.
+    This application uses the Resource-application, the Media application (downloadable at mmbase.org) and the cloudcontextsecurity application.
+  </description>
+
+  <install-notice>TMF installed.</install-notice>
 </application>
