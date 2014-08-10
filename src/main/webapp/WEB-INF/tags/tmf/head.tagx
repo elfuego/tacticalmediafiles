@@ -1,0 +1,37 @@
+<jsp:root
+    version="2.0"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    >
+  <jsp:directive.tag
+      display-name="head"
+      description="Head of html document"
+      />
+  <jsp:directive.attribute name="title"
+                           description="An extra text to add to the page's title"
+                           />
+    <mm:formatter xslt="xslt/framework/head.xslt" escape="none">
+      <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <mm:cloudinfo type="mmbaseversion">
+          <meta name="MMBase" content="${_}" />
+        </mm:cloudinfo>
+        <mm:time time="now" format=":FULL.FULL">
+          <meta name="Calculate" content="${_}" />
+        </mm:time>
+        <meta name="ContextRoot" content="${mm:link('/')}" />
+        <title>
+          <c:choose>
+            <c:when test="${! empty title}">${title}</c:when>
+            <c:otherwise>Tactical Media Files</c:otherwise>
+          </c:choose>
+        </title>
+        <link href="${mm:link('/style/css/tmf.css')}" rel="stylesheet" type="text/css" />
+        <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
+        <jsp:include page="/mmbase/jquery/jquery.jspx" />
+        <script src="${mm:link('/style/js/main.js.jsp')}" type="text/javascript"><jsp:text><!-- help ie --></jsp:text></script>
+        <jsp:doBody />
+      </head>
+    </mm:formatter>
+</jsp:root>
