@@ -1,0 +1,28 @@
+<jsp:root
+    version="2.0"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    >
+  
+  <jsp:directive.tag
+      display-name="googleanalytics"
+      description="Tag to include all that is needed to track visitors with Google Analytics."
+      />
+
+      <mm:import id="key">gacode</mm:import>
+      <mm:import id="property_gacode"><mm:function referids="_node@node,key@key" nodemanager="properties" name="get" /></mm:import>
+      
+      <c:if test="${!empty property_gacode}">
+        
+        <script type="text/javascript" src="http://www.google-analytics.com/ga.js"><jsp:text><!-- help ie --></jsp:text></script>
+        <script src="${mm:link('/style/js/analytics.js')}" type="text/javascript"><jsp:text><!-- help ie --></jsp:text></script>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', '${property_gacode}']);
+          _gaq.push(['_trackPageview']);
+        </script>
+        
+      </c:if>
+
+</jsp:root>

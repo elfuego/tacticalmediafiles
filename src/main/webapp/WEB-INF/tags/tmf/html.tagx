@@ -81,11 +81,30 @@
         </tmf:head>
 
         <body class="${styleClass}">
-          
-          
-          <tmf:footer />
-          <tmf:googleanalytics />
-          
+          <div class="GlobalContainer">
+            <div class="TopContainer">
+              
+              <tmf:navigation-container />
+
+              <div class="ArticleContainer">
+              <c:choose>
+                <c:when test="${empty page}">
+                  <jsp:invoke fragment="body"  /> 
+                </c:when>
+                <c:otherwise>
+                  <mm:node referid="page">
+                    <jsp:invoke fragment="body"  />
+                  </mm:node>
+                </c:otherwise>
+              </c:choose>
+
+              </div><!-- /.ArticleContainer -->
+              
+              <tmf:footer />
+              <!-- tmf:googleanalytics / -->
+            
+            </div>
+          </div>
         </body>
       </html>
     </mm:cloud>

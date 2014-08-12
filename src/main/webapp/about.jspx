@@ -1,0 +1,29 @@
+<jsp:root
+    version="2.0"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
+
+  <mm:import externid="n">article_about</mm:import>
+  <mm:import externid="cacheable"  />
+
+  <tmf:html
+      cacheable="${cacheable}"
+      styleClass="about">
+
+    <jsp:attribute name="title">About</jsp:attribute>
+
+    <jsp:attribute name="head">
+        <!-- nothing here yet -->
+    </jsp:attribute>
+
+    <jsp:attribute name="body">
+      
+      <h2>page : ${_node.number}</h2> 
+      
+      
+    </jsp:attribute>
+    
+  </tmf:html>
+</jsp:root>

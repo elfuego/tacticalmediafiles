@@ -23,7 +23,7 @@
         <meta name="ContextRoot" content="${mm:link('/')}" />
         <title>
           <c:choose>
-            <c:when test="${! empty title}">${title}</c:when>
+            <c:when test="${! empty title}">${title}Tactical Media Files</c:when>
             <c:otherwise>Tactical Media Files</c:otherwise>
           </c:choose>
         </title>
