@@ -1,0 +1,90 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="article-relations"
+      description="Related content of an article (or also other content pages?)"
+      />
+
+      <mm:escaper id="myfilesize" type="filesize">
+        <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
+      </mm:escaper>
+
+
+    <div class='ArticleLinksContainer'>
+      <div class="ArticleLeftLine"><!-- empty --></div>
+      <div class='ArticleLinksLabel'>
+        <img src="${mm:link('/style/images/labels/links.gif')}" alt="Links" />
+      </div>
+      
+      <!-- file -->
+      <mm:relatednodescontainer role="related" type="file" searchdirs="destination">
+          <!-- <mm:constraint field="number" operator="IN" value="<%=banvalueset%>" inverse="true"/> -->
+          <mm:relatednodes>
+            <h5>file</h5>
+            <mm:attachment>
+              <span class="filelabel">
+                <mm:field name="filename" />,
+                <mm:field name="size" escape="myfilesize" />              
+              </span><br />
+              <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
+            </mm:attachment>
+
+          </mm:relatednodes>
+      </mm:relatednodescontainer> 	
+
+
+      <!-- organisation -->
+      <mm:relatednodescontainer role="related" type="organisation" searchdirs="destination">
+          <!-- <mm:constraint field="number" operator="IN" value="<%=banvalueset%>" inverse="true"/> -->
+          <mm:relatednodes>
+            <h5>organisation</h5>
+            <mm:link page="article.jspx" referids="_node@nr">
+              <a href="${_}" class="small"><mm:field name="name" /></a><br /><br />
+            </mm:link>
+          </mm:relatednodes>
+      </mm:relatednodescontainer> 	
+      
+      <!-- author ? -->
+      
+      <!-- article -->
+      <mm:relatednodescontainer role="related" type="article" searchdirs="destination">
+          <!-- <mm:constraint field="number" operator="IN" value="<%=banvalueset%>" inverse="true"/> -->
+          <mm:sortorder field="title" direction="UP" />
+          <mm:relatednodes>
+            <h5>article</h5>
+            <mm:link page="article.jspx" referids="_node@nr">
+              <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
+            </mm:link>
+          </mm:relatednodes>
+      </mm:relatednodescontainer> 	
+
+      
+      <!-- campaign -->
+      <mm:relatednodescontainer role="related" type="campaign" searchdirs="source">
+          <!-- <mm:constraint field="number" operator="IN" value="<%=banvalueset%>" inverse="true"/> -->
+          <mm:relatednodes>
+            <h5>campaign</h5>
+            <mm:link page="article.jspx" referids="_node@nr">
+              <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
+            </mm:link>
+            
+          </mm:relatednodes>
+      </mm:relatednodescontainer> 	
+    
+      <!-- url -->
+      <mm:relatednodescontainer role="related" type="url" searchdirs="destination">
+          <!-- <mm:constraint field="number" operator="IN" value="<%=banvalueset%>" inverse="true"/> -->
+          <mm:relatednodes>
+            <h5>link</h5>
+            <a href="${_node.url}" class="small" target="_new"><mm:field name="title" /></a><br /><br />
+          </mm:relatednodes>
+      </mm:relatednodescontainer> 	
+    
+
+
+    </div>
+</jsp:root>

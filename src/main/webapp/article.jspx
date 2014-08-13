@@ -108,6 +108,10 @@
             <br /><br /><br /> 
         </div>
 
+<mm:relatednodescontainer path="posrel,picture">
+  <mm:sortorder field="posrel.pos" />
+  <mm:relatednodes>		
+        
         <div class="ArticleLinksContainer">
             <div class="ArticleLeftLine"><!-- empty --></div>
             <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/images.gif')}" alt="Images" /></div>
@@ -115,7 +119,7 @@
 
         <div class="ArticleImageContainer">
             <div class="ArticleImageLabel">
-                <p class="filelabel">leakslogo_square.jpg</p>
+                <p class="filelabel"><mm:field name="filename" /> ..</p>
                 <br /> 
                 <a title="Leaks" href="http://www.tacticalmediafiles.net/picture.jsp?objectnumber=48386" target="_new"><img src="./artikel2_files/wikilogo_square.jpg" /></a>
                 <br /><br /> 
@@ -123,6 +127,9 @@
         </div>
         <div class="ArticleImage"><img src="${mm:link('/style/images/x.gif')}" alt="X" /></div>
 		<!-- End of Left Stuff -->
+
+</mm:relatednodes>        
+</mm:relatednodescontainer>
         
         <!-- Article Text -->
         <div style="padding-left: 280px ;">
