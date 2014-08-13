@@ -5,25 +5,75 @@
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
-  <mm:import externid="n">article_about</mm:import>
+  <mm:import externid="n" id="page">article_about</mm:import>
   <mm:import externid="cacheable"  />
-
+  
+  <mm:node referid="page">
+    <mm:field name="title" id="page_title" write="false" />
+  </mm:node>
+  
   <tmf:html
       cacheable="${cacheable}"
       styleClass="about">
-
-    <jsp:attribute name="title">About</jsp:attribute>
-
+    
+    <jsp:attribute name="title">${page_title}</jsp:attribute>
+    
     <jsp:attribute name="head">
         <!-- nothing here yet -->
     </jsp:attribute>
 
     <jsp:attribute name="body">
-      
-      <h2>page : ${_node.number}</h2> 
-      
-      
+      <mm:node referid="page">
+
+        <tmf:article-header />
+
+        <div class="ArticleContent">
+        
+
+          <!-- All the stuff on the left of an article -->
+          <div class="ArticleLinksContainer">
+              <div class="ArticleLeftLine"><!-- empty --></div>
+              <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/share.gif')}" alt="Share" /></div>
+              <br /> 
+              <h5>share</h5>
+
+              <br /><br /><br />
+              <div class="ArticleLeftLine"><!-- empty --></div>
+              <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/links.gif')}" alt="Links" /></div>
+              <br /> 
+              <h5>person</h5>
+              <a href="http://www.tacticalmediafiles.net/article.jsp?objectnumber=47808">Person link</a><br /><br /> 
+              <h5>link</h5>
+              <a href="http://www.tacticalmediafiles.net" target="_new"> Website link</a><br /><br /> 
+              <img src="${mm:link('/style/images/x.gif')}" alt="X" />
+              <br /><br /><br /> 
+          </div>
+
+          <div class="ArticleLinksContainer">
+              <div class="ArticleLeftLine"><!-- empty --></div>
+              <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/images.gif')}" alt="Images" /></div>
+          </div>
+
+          <div class="ArticleImageContainer">
+              <div class="ArticleImageLabel">
+                  <p class="filelabel">leakslogo_square.jpg</p>
+                  <br /> 
+                  <a title="Leaks" href="http://www.tacticalmediafiles.net/picture.jsp?objectnumber=48386" target="_new"><img src="./artikel2_files/wikilogo_square.jpg" /></a>
+                  <br /><br /> 
+              </div>
+          </div>
+          <div class="ArticleImage"><img src="${mm:link('/style/images/x.gif')}" alt="X" /></div>
+          <!-- End of Left Stuff -->
+          
+        
+          <div style="padding-left: 280px ;">
+              <p class="Text">
+                <mm:field name="body" escape="none" />
+              </p>
+          </div><!-- EOF .Text -->
+        </div><!-- EOF .ArticleContent -->
+
+      </mm:node>
     </jsp:attribute>
-    
   </tmf:html>
 </jsp:root>

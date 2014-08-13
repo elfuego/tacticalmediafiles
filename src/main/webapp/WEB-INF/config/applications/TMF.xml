@@ -35,11 +35,13 @@
     <reldef source="related"     target="related" direction="bidirectional" guisourcename="Related" guitargetname="Related"             builder="insrel" />
     <reldef source="posrel"      target="posrel" direction="bidirectional" guisourcename="Posrel" guitargetname="Posrel"                builder="posrel" />
     <reldef source="coordinator" target="coordinator" direction="bidirectional" guisourcename="Coordinator" guitargetname="Coordinator" builder="insrel" />
+    <reldef source="author"      target="author" direction="bidirectional" guisourcename="Author" guitargetname="Author"                builder="insrel" />
   </neededreldeflist>
 
   <allowedrelationlist>
+    <relation from="article"  to="person" type="author" />
+    <relation from="campaign" to="person" type="author" />
     <relation from="article" to="type" type="related" />
-    <!-- <relation from="article" to="person" type="author" /> -->
     <relation from="article" to="person" type="related" />
     <relation from="article" to="dates" type="related" />
     <relation from="article" to="organisation" type="related" />

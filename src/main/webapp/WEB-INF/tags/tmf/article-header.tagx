@@ -1,0 +1,49 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="article-header"
+      description="Header part of (article) page"
+      />
+
+  
+    
+    <div class="clearBoth"><!-- empty --></div>
+    <div class="ArticleSpacer"><!-- empty --></div>
+    <div class="ArticleTMFLogo">
+      <a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo-small.gif')}" alt="Tactical Media Files" /></a> 
+    </div>
+
+    <!-- Article Title -->
+    <div class="ArticleTitleContainer">
+        <div class="ArticleTitlePositioner"><!-- empty --></div>
+        <div class="ArticleTitle">
+            <h1 class="Title">${_node.title}</h1>
+        </div>
+        <div class="ArticleLabel">
+          <img src="${mm:link('/style/images/labels/event.png')}" alt="event" />
+        </div>
+    </div><!-- EOF .ArticleTitleContainer -->
+    <div style="clear: right ;"><!-- empty --></div>
+    <div class="ArticleSpacer2"> </div>
+
+    <!-- Article Author + Summary -->
+    <div class="ArticleSummaryContainer">
+        <div class="ArticleAuthor">
+        
+          <!-- related person with author rel -->
+        
+        </div>
+        <div class="ArticleSummary">
+            <p class="Summary">
+              <mm:field name="intro" escape="none" />
+            </p>
+        </div>
+    </div><!-- EOF .ArticleSummaryContainer -->
+    <div class="clearBoth"><!-- empty --></div>
+    <div class="ArticleSpacer"><!-- empty --></div>
+
+</jsp:root>
