@@ -9,6 +9,22 @@
       description="Header part of (article) page"
       />
 
+  <jsp:directive.attribute
+      name="title"
+      description="Title of this article or page"
+      />
+  <jsp:directive.attribute
+      name="label"
+      description="Article label, like event, list etc."
+      />
+  <jsp:directive.attribute
+      name="intro"
+      description="Article summary"
+      />
+  <jsp:directive.attribute
+      name="author"
+      description="Author or authors"
+      />
   
     
     <div class="clearBoth"><!-- empty --></div>
@@ -21,10 +37,12 @@
     <div class="ArticleTitleContainer">
         <div class="ArticleTitlePositioner"><!-- empty --></div>
         <div class="ArticleTitle">
-            <h1 class="Title">${_node.title}</h1>
+            <h1 class="Title">${title}</h1>
         </div>
         <div class="ArticleLabel">
-          <img src="${mm:link('/style/images/labels/event.png')}" alt="event" />
+          <mm:link page="/style/images/labels/${label}.png">
+            <img src="${_}" alt="${label}" />
+          </mm:link>
         </div>
     </div><!-- EOF .ArticleTitleContainer -->
     <div style="clear: right ;"><!-- empty --></div>
@@ -33,15 +51,15 @@
     <!-- Article Author + Summary -->
     <div class="ArticleSummaryContainer">
         <div class="ArticleAuthor">
-        
+          ${author}
           <!-- related person with author rel -->
         
         </div>
-        <div class="ArticleSummary">
-            <p class="Summary">
-              <mm:field name="intro" escape="none" />
-            </p>
-        </div>
+        <c:if test="${!empty intro}">
+          <div class="ArticleSummary">
+              <p class="Summary">${intro}</p>
+          </div>
+        </c:if>
     </div><!-- EOF .ArticleSummaryContainer -->
     <div class="clearBoth"><!-- empty --></div>
     <div class="ArticleSpacer"><!-- empty --></div>

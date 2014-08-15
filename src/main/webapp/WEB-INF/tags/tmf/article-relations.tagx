@@ -14,8 +14,34 @@
       </mm:escaper>
 
 
-    <div class='ArticleLinksContainer'>
+    <div class="ArticleLinksContainer">
       <div class="ArticleLeftLine"><!-- empty --></div>
+
+      <div class="ArticleLinksLabel">
+          <img src="${mm:link('/style/images/labels/share.gif')}" alt="Share" />
+      </div>
+      <br />
+      <h5>share</h5>	
+      <!-- AddThis Button BEGIN -->
+      <div class="addthis_toolbox addthis_default_style shift_left">
+          <a class="addthis_button_twitter"> twitter</a><br /><br />
+          <a class="addthis_button_delicious"> delicious</a><br /><br />
+      </div>
+      <div class="addthis_toolbox addthis_default_style shift_left">
+          <a class="addthis_button_facebook"> facebook</a><br /><br />
+          <a class="addthis_button_digg"> digg</a><br /><br />
+      </div>
+      <div class="addthis_toolbox addthis_default_style shift_left">
+          <a class="addthis_button_wordpress"> wordpress</a><br /><br />    
+          <a class="addthis_button_more"> more</a><br /><br />      
+      </div>
+      <div class="clearBoth"><!-- empty --></div>
+      <img alt="X" src="${mm:link('/style/images/x.gif')}" />
+      <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+      <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dac50ed7378a87b"><!-- empty --></script>
+      <!-- AddThis Button END -->
+
+
       <div class='ArticleLinksLabel'>
         <img src="${mm:link('/style/images/labels/links.gif')}" alt="Links" />
       </div>
@@ -26,11 +52,10 @@
           <mm:relatednodes>
             <h5>file</h5>
             <mm:attachment>
-              <span class="filelabel">
-                <mm:field name="filename" />,
-                <mm:field name="size" escape="myfilesize" />              
-              </span><br />
-              <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
+              <a href="${_}" class="small"><mm:field name="title" /></a>
+              <span class="filelabel"> 
+                <mm:field name="filename" />, <mm:field name="size" escape="myfilesize" />
+              </span><br /><br />
             </mm:attachment>
 
           </mm:relatednodes>

@@ -1,0 +1,72 @@
+<jsp:root
+    version="2.0"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
+
+  <mm:import externid="type">article</mm:import>
+  <mm:import externid="cacheable"  />
+    
+  <tmf:html
+      cacheable="${cacheable}"
+      styleClass="about">
+    
+    <jsp:attribute name="title">Articles</jsp:attribute>
+    
+    <jsp:attribute name="head">
+        <!-- nothing here yet -->
+    </jsp:attribute>
+
+    <jsp:attribute name="body">
+      <mm:node number="article_about">
+
+        <tmf:article-header title="List of whatever"
+                            label="articles" />
+
+        <div class="SearchSpacer2"><!-- empty --></div>
+        <div class="SearchResultsLeft">
+          <tmf:tagcloud />
+        </div><!-- EOF .SearchResultsLeft -->
+        
+        <div class="SearchResults">
+          
+          <mm:import id="max">20</mm:import>
+          <mm:import externid="offset">0</mm:import>
+
+          <mm:listnodescontainer type="article">
+            <mm:sortorder field="number" direction="DOWN" />
+            <div class="SearchTypes"><mm:size id="total" /> ARTICLES</div>
+            <mm:maxnumber value="${max}" />
+            <mm:offset value="${offset}" />
+            <mm:listnodes>
+              <h5>article</h5>
+              <a class="medium" href="#node${_node.number}"><mm:field name="title" /></a>
+              <mm:field name="subtitle"><mm:isnotempty><br /><mm:write/></mm:isnotempty></mm:field>
+              <!-- <mm:relatednodes role="author" searchdir="destination" type="person">
+                <mm:first><br /></mm:first><mm:first inverse="true">, </mm:first><mm:field name="firstname"/> <mm:field name="prefix"/> <mm:field name="sirname"/>
+                </mm:relatednodes> -->
+              <mm:relatednodes type="keyword">
+                <mm:first><br /><b>Keywords: </b></mm:first> 
+                <mm:field name="keyword" /><mm:last inverse="true">, </mm:last>
+              </mm:relatednodes>
+              <br /><br /><br />
+            </mm:listnodes>
+          </mm:listnodescontainer>
+          
+          <tmf:pager total="${total}" max="${max}" offset="${offset}" />
+        
+        </div><!-- EOF .SearchResults -->
+
+    	<div class="clearBoth"><!-- empty --></div>
+    	<div class="SearchSpacer"><!-- empty --></div>
+    	<div style="text-align: right ;"><img src="${mm:link('/style/images/x-blue.gif')}" alt="x blue" /></div>
+    	<div class="SearchSpacer"><!-- empty --></div>
+        <div class="SearchBottomLineLeft"><hr /></div>
+        <div class="SearchBottomLineRight"><hr /></div>
+    	<div class="clearBoth"><!-- empty --></div> <br />
+    	
+      </mm:node>
+    </jsp:attribute>
+  </tmf:html>
+</jsp:root>

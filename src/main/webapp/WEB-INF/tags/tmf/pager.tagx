@@ -1,0 +1,103 @@
+<jsp:root 
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+
+  <jsp:directive.tag
+      display-name="pager"
+      description="Tag to page in a list."
+      />
+      
+  <jsp:directive.attribute name="total"  type="java.lang.Integer"
+                           description="Total number of results in list" />
+  <jsp:directive.attribute name="max"    type="java.lang.Integer"
+                           description="Maximum items per page" />
+  <jsp:directive.attribute name="offset" type="java.lang.Integer"
+                           description="Page offset" />
+  <jsp:directive.attribute name="maxpages"
+                           description="Maximum of numbered pages to produce" />
+  <jsp:directive.attribute name="baseurl"
+                           description="Url with needed parameters" />
+  <jsp:directive.attribute name="fragment"
+                           description="Fragment part of the url, to switch to the right tab" />
+
+  <c:if test="${empty baseurl}"><mm:url id="baseurl" absolute="context" write="false" /></c:if>
+  
+  <c:if test="${total > max}">
+    <c:if test="${offset != 0}">
+      <mm:link referid="baseurl">
+        <mm:param name="offset">0</mm:param>
+        <mm:param name="max">${max}</mm:param>
+        <a href="${_}${empty fragment ? '' : fragment}" class="first">«« first</a>
+      </mm:link>
+      <mm:link referid="baseurl">
+        <mm:param name="offset">${offset - max}</mm:param>
+        <mm:param name="max">${max}</mm:param>
+        <a href="${_}${empty fragment ? '' : fragment}" class="previous">« previous</a>
+      </mm:link>
+    </c:if>
+    
+
+    <c:set var="maxnrs"   value="${empty maxpages ? '16' : maxpages}" />
+    <c:set var="pages"    value="${total / max}" />
+    <c:set var="maxpages" value="${maxnrs / 2}" />
+
+    <c:set var="begin"    value="0" />
+    <c:set var="end"      value="${(total - 1) / max}" />
+    
+    <c:if test="${pages gt maxnrs}">
+      <c:choose>
+        <c:when test="${offset - (maxpages * max) gt 0 and offset + (maxpages * max) lt total}">
+          <!-- away from 0 (in middle) -->
+          <c:set var="begin" value="${(offset / max) - maxpages}" />
+          <c:set var="end"   value="${(offset / max) + maxpages}" />
+        </c:when>
+        <c:when test="${offset + (maxpages * max) gt total}">
+          <!-- at the end -->
+          <c:set var="begin" value="${pages - maxnrs}" />
+          <c:set var="end"   value="${pages}" />
+        </c:when>
+        <c:otherwise>
+          <!-- against 0 -->
+          <c:set var="begin" value="0" />
+          <c:set var="end"   value="${maxnrs}" />
+        </c:otherwise>
+      </c:choose>
+    </c:if>
+
+    
+    <c:forEach var="index" begin="${begin}" end="${end}">
+      <c:choose>
+        <c:when test="${(index * max) == offset}">
+          <c:if test="${pages gt 1}">
+            <strong>${(index + 1)}</strong>
+          </c:if>
+        </c:when>
+        <c:otherwise>
+          <mm:link referid="baseurl">
+            <mm:param name="offset">${(index * max)}</mm:param>
+            <mm:param name="max">${max}</mm:param>
+            <a href="${_}${empty fragment ? '' : fragment}">${(index + 1)}</a>
+          </mm:link>
+        </c:otherwise>
+      </c:choose>
+    </c:forEach>
+    
+    
+    <c:if test="${(total - offset) > max}">
+      <mm:link referid="baseurl">
+        <mm:param name="offset">${offset + max}</mm:param>
+        <mm:param name="max">${max}</mm:param>
+        <a href="${_}${empty fragment ? '' : fragment}" class="next">next »</a>
+      </mm:link>
+      <mm:link referid="baseurl">
+        <mm:param name="offset">${total - (total mod max) ge total ? total - max : total - (total mod max)}</mm:param>
+        <mm:param name="max">${max}</mm:param>
+        <a href="${_}${empty fragment ? '' : fragment}" class="last">last »»</a>
+      </mm:link>
+    </c:if>
+  </c:if>
+  
+
+</jsp:root>

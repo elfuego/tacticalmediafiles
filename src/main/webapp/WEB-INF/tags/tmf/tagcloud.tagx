@@ -1,0 +1,29 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="article-header"
+      description="Header part of (article) page"
+      />
+      
+    <div id="tagcloud">
+      <h2>TAGCLOUD</h2>
+      
+      <mm:listnodescontainer type="keyword">
+        <mm:constraint field="relationcount" value="0" operator="GREATER" />
+        <mm:sortorder field="keyword" direction="UP" />
+        <ul>
+        <mm:listnodes>
+          <li class="tag_${1 + (_node.relationcount / 4) gt 9 ? '9' : 1 + (_node.relationcount / 4)}">
+            <a href="#"><mm:field name="keyword" /></a>
+          </li>
+        </mm:listnodes>
+        </ul>
+      </mm:listnodescontainer>
+    
+    </div>
+    
+</jsp:root>

@@ -25,28 +25,14 @@
     <jsp:attribute name="body">
       <mm:node referid="page">
 
-        <tmf:article-header />
+        <tmf:article-header title="${_node.title}"
+                            intro="${_node.intro}"
+                            label="about" />
 
         <div class="ArticleContent">
         
 
           <!-- All the stuff on the left of an article -->
-          <div class="ArticleLinksContainer">
-              <div class="ArticleLeftLine"><!-- empty --></div>
-              <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/share.gif')}" alt="Share" /></div>
-              <br /> 
-              <h5>share</h5>
-              <br /><br /><br />
-              <div class="ArticleLeftLine"><!-- empty --></div>
-              <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/links.gif')}" alt="Links" /></div>
-              <br /> 
-              <h5>person</h5>
-              <a href="http://www.tacticalmediafiles.net/article.jsp?objectnumber=47808">Person link</a><br /><br /> 
-              <h5>link</h5>
-              <a href="http://www.tacticalmediafiles.net" target="_new"> Website link</a><br /><br /> 
-              <img src="${mm:link('/style/images/x.gif')}" alt="X" />
-              <br /><br /><br /> 
-          </div>
 
           <tmf:article-relations />
           
