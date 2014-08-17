@@ -30,7 +30,6 @@
         <tmf:header-article />
 
         <div class="ArticleContent">
-          intro : <mm:field name="intro" escape="none" /> : intro        
 
           <!-- All the stuff on the left of an article -->
 

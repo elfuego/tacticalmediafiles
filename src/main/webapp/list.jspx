@@ -7,13 +7,15 @@
 
   <mm:import externid="t" id="type">article</mm:import>
   <mm:import externid="cacheable"  />
+  
+  <mm:nodeinfo type="plural_guitype" nodetype="${type}" id="type_plural" write="false" />
     
   <tmf:html
       cacheable="${cacheable}"
       styleClass="about">
     
     
-    <jsp:attribute name="title">Listing</jsp:attribute>
+    <jsp:attribute name="title">${type_plural}</jsp:attribute>
     
     <jsp:attribute name="head">
         <!-- nothing here yet -->
@@ -21,7 +23,7 @@
 
     <jsp:attribute name="body">
 
-        <tmf:header-simple title="Nieuwe list template title" label="listing" />
+        <tmf:header-simple title="${type_plural}" label="listing" />
 
         <div class="SearchSpacer2"><!-- empty --></div>
         <div class="SearchResultsLeft">
@@ -37,13 +39,19 @@
             <mm:sortorder field="number" direction="DOWN" />
             <div class="SearchTypes">
               <mm:size id="total" /> <!-- ARTICLES ${type} --> 
-              <mm:nodeinfo type="plural_guitype" nodetype="${type}" /> 
+              ${type_plural}
             </div>
             <mm:maxnumber value="${max}" />
             <mm:offset value="${offset}" />
             <mm:listnodes>
               <h5>${type}</h5>
-              <a class="medium" href="#node${_node.number}"><mm:field name="title" /></a>
+              
+              <mm:link page="article">
+                <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                <a class="medium" href="${_}"><mm:field name="title" /></a>
+              </mm:link>
+              
               <mm:field name="subtitle"><mm:isnotempty><br /><mm:write/></mm:isnotempty></mm:field>
               <!-- <mm:relatednodes role="author" searchdir="destination" type="person">
                 <mm:first><br /></mm:first><mm:first inverse="true">, </mm:first><mm:field name="firstname"/> <mm:field name="prefix"/> <mm:field name="sirname"/>

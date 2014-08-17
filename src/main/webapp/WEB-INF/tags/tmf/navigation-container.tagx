@@ -13,10 +13,10 @@
     <div class="NavigationContainer">
       <ul class="NavigationMenu">
         <li><a href="article.jsp?objectnumber=38519&amp;pagetype=about" class="sel">ABOUT</a></li>
-        <li><a href="listing.jsp?pagetype=events">EVENTS</a></li>
-        <li><a href="listing.jsp?pagetype=campaigns">CAMPAIGNS</a></li>
+        <li><a href="${mm:link('/events/')}">EVENTS</a></li>
+        <li><a href="${mm:link('/campaigns')}">CAMPAIGNS</a></li>
         <li><a href="video.jsp?pagetype=videos">VIDEOS</a></li>
-        <li><a href="listing.jsp?pagetype=texts">TEXTS</a></li>
+        <li><a href="${mm:link('/articles/')}">TEXTS</a></li>
         <li><a href="http://blog.tacticalmediafiles.net/" target="_blank">BLOG</a></li>
         <li><a href="listing.jsp?pagetype=new">NEW</a></li>
       </ul>

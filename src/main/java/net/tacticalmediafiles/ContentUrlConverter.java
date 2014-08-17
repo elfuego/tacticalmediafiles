@@ -4,11 +4,7 @@ package net.tacticalmediafiles;
 
 import org.mmbase.bridge.Cloud;
 import org.mmbase.bridge.Node;
-import org.mmbase.framework.Block;
-import org.mmbase.framework.Component;
-import org.mmbase.framework.ComponentRepository;
-import org.mmbase.framework.Framework;
-import org.mmbase.framework.FrameworkException;
+import org.mmbase.framework.*;
 import org.mmbase.framework.basic.BasicFramework;
 import org.mmbase.framework.basic.BasicUrl;
 import org.mmbase.framework.basic.DirectoryUrlConverter;
@@ -17,6 +13,7 @@ import org.mmbase.util.functions.Parameter;
 import org.mmbase.util.functions.Parameters;
 import org.mmbase.util.logging.Logger;
 import org.mmbase.util.logging.Logging;
+import org.mmbase.util.transformers.Identifier;
 
 import java.util.List;
 import java.util.Map;
@@ -31,18 +28,20 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
     private static final long serialVersionUID = 0L;
     private static final Logger log = Logging.getLoggerInstance(ContentUrlConverter.class);
 
+    private boolean useTitle = true;
+    private static Identifier trans = new Identifier();
+    private String wsReplacer = "-";
+
     /* piece of path that leads to edit environment of user account, e.g. /user/[username]/edit */
     protected String type = "article";
 
     public ContentUrlConverter(BasicFramework fw) {
         super(fw);
-        setDirectory("/" + type + "/");
-        log.info("### setDirectory " + type);
 
         Component tmf = ComponentRepository.getInstance().getComponent("tmf");
         if (tmf == null) throw new IllegalStateException("No such component tmf");
 
-        addBlock(tmf.getBlock(type));
+        addBlock(tmf.getBlock("article"));
     }
  
     @Override
@@ -52,8 +51,19 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
     }
 
     public void setType(String t) {
-        log.info("### setType " + t);
         type = t;
+    }
+
+    public void setUseTitle(boolean t) {
+        useTitle = t;
+    }
+
+    public void setWhitespaceReplacer(String ws) {
+        wsReplacer = ws;
+        trans = new Identifier();
+        {
+            trans.setWhitespaceReplacer(ws);
+        }
     }
 
     public static final Parameter<Node> NODE = new Parameter<Node>("n", Node.class);
@@ -81,9 +91,11 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
             
             Cloud cloud = n.getCloud();
 
-            //b.append("/").append(trans.transform(n.getStringValue("name")));
-            b.append(n.getStringValue("name"));
-            
+            b.append(n.getStringValue("number"));
+            if (useTitle) {
+                b.append("/").append(trans.transform(n.getStringValue("title")));
+            }
+
             if (log.isDebugEnabled()) {
                 log.debug("b now: " + b.toString());
             }
