@@ -1,33 +1,131 @@
-<mm:content 
-    xmlns:jsp="http://java.sun.com/JSP/Page"
+<jsp:root
+    version="2.0"
     xmlns:c="http://java.sun.com/jsp/jstl/core"
-    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
-    xmlns:mm-sr="urn:jsptagdir:/WEB-INF/tags/mm/searchrelate"
-    expires="0" type="text/html" language="client" postprocessor="none">
-<jsp:output doctype-root-element="html"
-      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
-      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
-<mm:cloud>
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
-<head>
-  <title>tacticalmediafiles.net - video</title>
+  <mm:import externid="n" id="media">video_default</mm:import>
+  <mm:import externid="cacheable"  />
+  
+  <mm:node referid="media">
+    <mm:field name="title" id="media_title" write="false" />
+  </mm:node>
+  
+  <tmf:html
+      cacheable="${cacheable}"
+      styleClass="video">
+    
+    <jsp:attribute name="title">${media_title}</jsp:attribute>
+    
+    <jsp:attribute name="head">
+        <!-- nothing here yet -->
+    </jsp:attribute>
 
-  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon"  />
-<style type="text/css">
-body
-{
-	font-size: small;
-	font-family: sans-serif;
-}
-</style>
-</head>
-<body>
-<div id="content">
-  tacticalmediafiles.net video page
-</div>
-</body>
-</html>
-</mm:cloud>
-</mm:content>
+    <jsp:attribute name="body">
+      <mm:node referid="media">
+        <div class="VideoContainer">
+          <div class="VideoSpacer"><!-- empty --></div>
+          
+          <!-- List of Large thumbs: browse videos -->
+          <div class="VideoBrowse">
+            <div class="VideoBrowseList">
+              <div id="VideoBrowseMask2"><!-- empty --></div>
+              <div id="VideoBrowseMask1">
+                <div class="VideoTMFLogo">
+                  <a href="index.jsp"><img src="${mm:link('/style/images/tmf-logo.gif')}" width="195" height="121" alt="Tactical Media Files" /></a>
+                </div>
+                <div class="VideoBrowseLabel">
+                  <img src="${mm:link('/style/images/labels/browse-video.png')}" alt="Browse Video" />
+                </div>  					
+			  </div>
+
+              <div class="VideoBrowseNext">
+                <a href="#" onclick="moveleft()"><img src="${mm:link('/style/images/next.gif')}" alt="Next" border="0" /></a>
+              </div>
+              <div class="VideoBrowsePrevious">
+                <a href="#" onclick="moveright()"><img src="${mm:link('/style/images/previous.gif')}" alt="Previous" border="0" /></a>
+              </div>
+            </div><!-- EOF .VideoBrowseList -->
+          </div><!-- EOF .VideoBrowse -->
+          
+          <div class="clearBoth"><!-- empty --></div>
+          <div class="VideoSpacer"><!-- empty --></div>
+   
+          <!-- Currently playing video -->
+          <div class="VideoPlaying">
+            <div class="VideoPlayingLabelTitleMarkers">
+              <div class="VideoPlayingLabel">					
+                <img src="${mm:link('/style/images/labels/playing.png')}" alt="Playing" />					
+              </div>
+          
+              <div class="VideoPlayingTitle">
+                  <h2 class="Title">Introduction to the Institute for Applied Autonomy</h2>
+                  <span><br />07min.</span>
+              </div>
+          
+              <div class="clearBoth"><!-- empty --></div>
+          
+              <div class="VideoMarkerNote">
+                  jump to a section of the video using the markers below
+              </div>
+          
+              <div class="clearBoth"><!-- empty --></div>
+          
+              <!-- Video Markers -->
+              <table id="list_Deelnemers" class="VideoMarkerList" border="0">
+                <tbody><tr>
+                  <td class="liout" valign="top">[07:44]</td>
+                  <td valign="top"><a href="#" id="0" class="linkg">IAA Research Overview </a></td>
+                </tr><tr>
+                  <td></td>
+                </tr>
+              </tbody></table>
+              
+			</div><!-- EOF .VideoPlayingLabelTitleMarkers -->
+			<div class="VideoPlayer">
+			  <div id="player">
+			    <video >
+			      <!-- VIDEO HERE -->
+			    </video>
+			  </div>
+              <div class="VideoSpacer3"><!-- empty --></div>
+              <p class="Summary">
+                  A 7 minute, 47 second introduction to IAA research.
+              </p>
+              <p style="text-align: right ;">
+                  <br /><br />
+                  <img src="${mm:link('/style/images/x-big.gif')}" alt="X" />
+              </p>
+			</div><!-- EOF .VideoPlayer -->
+          </div><!-- EOF .VideoPlaying -->
+          
+          <div class="VideoLeftContainer">
+			<div class="VideoRelatedTopbar"><!-- empty --></div>
+			<div class="VideoRelatedLabel">
+              <img src="${mm:link('/style/images/labels/related.gif')}" alt="Related" />
+			</div>
+   		    <div id="related2media">
+              <br /><br /><br />
+              <h5>article</h5> 
+              <a href="#" onclick="window.open('article.jsp?objectnumber=40592','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;">
+                Contestational Robotics
+              </a>
+              <h5>article</h5>
+              <a href="#" onclick="window.open('article.jsp?objectnumber=52924','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;">
+                Engaging Ambivalence
+              </a> 
+    		</div>		
+			<div class="clearBoth"><!-- empty --></div>
+		  </div><!-- EOF .VideoLeftContainer -->
+          <br />
+          <img src="${mm:link('/style/images/x.gif')}" alt="X" />
+          <br /><br />
+          <div class="clearBoth"><!-- empty --></div>
+          
+        </div><!-- EOF .VideoContainer -->
+        <div class="clearBoth"><!-- empty --></div>
+      </mm:node>
+    </jsp:attribute>
+  </tmf:html>
+</jsp:root>

@@ -74,7 +74,7 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
     }
 
     /**
-     * Generates a nice url for 'tags'.
+     * Generates a nice url
      */
     @Override
     protected void getNiceDirectoryUrl(StringBuilder b,
@@ -87,9 +87,9 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
         }
         if (block.getName().equals("article")) {
             Node n = frameworkParameters.get(NODE);
-            if (n == null) throw new IllegalStateException("No tag parameter used in " + frameworkParameters);
+            if (n == null) throw new IllegalStateException("No node (n) parameter used in " + frameworkParameters);
             
-            Cloud cloud = n.getCloud();
+            //Cloud cloud = n.getCloud();
 
             b.append(n.getStringValue("number"));
             if (useTitle) {
@@ -116,15 +116,19 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
             result.append("/list.jspx?t=" + type);
         } else {
             result.append("/article.jspx?n=");
+            Cloud cloud = frameworkParameters.get(Parameter.CLOUD);
 
             if (path.size() > 0) {          // article/[nodennr]/title
                 final String nr = path.get(0);    // nodenumber is first element
                 if (log.isDebugEnabled()) {
                     log.debug("nr: " + nr);
                 }
-                
-                result.append(nr);
 
+                if (cloud.hasNode(nr)) {    // works also for aliasses
+                    result.append(nr);
+                } else {
+                    return Url.NOT;
+                }
  
             } else {
                 if (log.isDebugEnabled()) { 
