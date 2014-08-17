@@ -6,7 +6,7 @@
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
   <mm:import externid="n" id="media">video_default</mm:import>
-  <mm:import externid="cacheable"  />
+  <mm:import externid="cacheable" />
   
   <mm:node referid="media">
     <mm:field name="title" id="media_title" write="false" />
@@ -20,6 +20,14 @@
     
     <jsp:attribute name="head">
         <!-- nothing here yet -->
+        <style type="text/css">
+         video { 
+            background-color: #000;
+        }
+         h2.Title {
+           text-shadow: 2px 2px #fff;
+         }
+        </style>
     </jsp:attribute>
 
     <jsp:attribute name="body">
@@ -58,40 +66,35 @@
               <div class="VideoPlayingLabel">					
                 <img src="${mm:link('/style/images/labels/playing.png')}" alt="Playing" />					
               </div>
-          
               <div class="VideoPlayingTitle">
-                  <h2 class="Title">Introduction to the Institute for Applied Autonomy</h2>
-                  <span><br />07min.</span>
+                  <h2 class="Title"><mm:field name="title" /></h2>
+                  <span><br /><mm:field name="duration"><mm:time format="mm"/>min.</mm:field></span>
               </div>
-          
               <div class="clearBoth"><!-- empty --></div>
-          
               <div class="VideoMarkerNote">
                   jump to a section of the video using the markers below
               </div>
-          
               <div class="clearBoth"><!-- empty --></div>
-          
               <!-- Video Markers -->
               <table id="list_Deelnemers" class="VideoMarkerList" border="0">
                 <tbody><tr>
                   <td class="liout" valign="top">[07:44]</td>
-                  <td valign="top"><a href="#" id="0" class="linkg">IAA Research Overview </a></td>
+                  <td valign="top"><a href="#" id="0" class="linkg">IAA Research Overview</a></td>
                 </tr><tr>
                   <td></td>
                 </tr>
               </tbody></table>
-              
 			</div><!-- EOF .VideoPlayingLabelTitleMarkers -->
+			
 			<div class="VideoPlayer">
 			  <div id="player">
-			    <video >
+			    <video width="480" height="360">
 			      <!-- VIDEO HERE -->
 			    </video>
 			  </div>
               <div class="VideoSpacer3"><!-- empty --></div>
               <p class="Summary">
-                  A 7 minute, 47 second introduction to IAA research.
+                <mm:field name="description" escape="none" />
               </p>
               <p style="text-align: right ;">
                   <br /><br />
@@ -100,11 +103,9 @@
 			</div><!-- EOF .VideoPlayer -->
           </div><!-- EOF .VideoPlaying -->
           
-          <div class="VideoLeftContainer">
+          <div class="VideoLeftContainer" style="margin-top:0;">
 			<div class="VideoRelatedTopbar"><!-- empty --></div>
-			<div class="VideoRelatedLabel">
-              <img src="${mm:link('/style/images/labels/related.gif')}" alt="Related" />
-			</div>
+			<div class="VideoRelatedLabel"><img src="${mm:link('/style/images/labels/related.gif')}" alt="Related" /></div>
    		    <div id="related2media">
               <br /><br /><br />
               <h5>article</h5> 
@@ -118,8 +119,8 @@
     		</div>		
 			<div class="clearBoth"><!-- empty --></div>
 		  </div><!-- EOF .VideoLeftContainer -->
-          <br />
-          <img src="${mm:link('/style/images/x.gif')}" alt="X" />
+          
+          <br /><img src="${mm:link('/style/images/x.gif')}" alt="X" />
           <br /><br />
           <div class="clearBoth"><!-- empty --></div>
           

@@ -24,34 +24,27 @@ import java.util.Map;
  * @author André van Toly
  * @version $Id:  $
  */
-public class ContentUrlConverter extends DirectoryUrlConverter {
+public class MediaUrlConverter extends DirectoryUrlConverter {
     private static final long serialVersionUID = 0L;
-    private static final Logger log = Logging.getLoggerInstance(ContentUrlConverter.class);
+    private static final Logger log = Logging.getLoggerInstance(MediaUrlConverter.class);
 
     private boolean useTitle = true;
     private static Identifier trans = new Identifier();
     private String wsReplacer = "-";
 
-    /* piece of path that leads to edit environment of user account, e.g. /user/[username]/edit */
-    protected String type = "article";
-
-    public ContentUrlConverter(BasicFramework fw) {
+    public MediaUrlConverter(BasicFramework fw) {
         super(fw);
 
         Component tmf = ComponentRepository.getInstance().getComponent("tmf");
         if (tmf == null) throw new IllegalStateException("No such component tmf");
 
-        addBlock(tmf.getBlock("article"));
+        addBlock(tmf.getBlock("media"));
     }
  
     @Override
     public int getDefaultWeight() {
         int q = super.getDefaultWeight();
         return Math.max(q, q + 1000);
-    }
-
-    public void setType(String t) {
-        type = t;
     }
 
     public void setUseTitle(boolean t) {
@@ -85,10 +78,10 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
             log.debug("" + parameters + frameworkParameters);
             log.debug("Found tmf block " + block);
         }
-        if (block.getName().equals("article")) {
+        if (block.getName().equals("media")) {
             Node n = frameworkParameters.get(NODE);
             if (n == null) throw new IllegalStateException("No node (n) parameter used in " + frameworkParameters);
-            
+
             b.append(n.getStringValue("number"));
             if (useTitle) {
                 b.append("/").append(trans.transform(n.getStringValue("title")));
@@ -110,12 +103,12 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
 
         StringBuilder result = new StringBuilder();
         if (path.size() == 0) {
-            result.append("/list.jspx?t=" + type);
+            result.append("/video.jspx");
         } else {
-            result.append("/article.jspx?n=");
+            result.append("/video.jspx?n=");
             Cloud cloud = frameworkParameters.get(Parameter.CLOUD);
 
-            if (path.size() > 0) {          // article/[nodennr]/title
+            if (path.size() > 0) {          // video/[nodennr]/title
                 final String nr = path.get(0);    // nodenumber is first element
                 if (log.isDebugEnabled()) {
                     log.debug("nr: " + nr);

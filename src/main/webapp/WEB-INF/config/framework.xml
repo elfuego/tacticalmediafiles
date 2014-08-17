@@ -37,6 +37,13 @@
     <param name="directory">/campaigns/</param>
     <param name="type">campaign</param><!-- type of content -->
   </urlconverter>
+  
+  <urlconverter class="net.tacticalmediafiles.MediaUrlConverter">
+    <description xml:lang="en">
+      The urlconverter for media
+    </description>
+    <param name="directory">/video/</param>
+  </urlconverter>
 
   <urlconverter class="org.mmbase.framework.basic.MMBaseUrlConverter">
     <description xml:lang="en">

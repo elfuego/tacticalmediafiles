@@ -40,6 +40,18 @@
     </body>
   </block>
   -->
+  
+  <block name="media"
+         classification="mmbase.tmf"
+         mimetype="text/html">
+    <title xml:lang="en">Media</title>
+    <title xml:lang="nl">Media</title>
+    <description xml:lang="en">Media or video item</description>
+    <description xml:lang="nl">Media of video item</description>
+    <body jsp="video.jspx">
+      <param name="n" type="org.mmbase.bridge.Node" />
+    </body>
+  </block>
 
  
 </component>
