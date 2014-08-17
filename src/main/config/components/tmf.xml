@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<component
+    name="tmf"
+    defaultblock="article"
+    version="1"
+    xmlns="http://www.mmbase.org/xmlns/component"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mmbase.org/xmlns/component
+                        http://www.mmbase.org/xmlns/component.xsd">
+
+  <description xml:lang="en">Tactical Media Files</description>
+  <description xml:lang="nl">Tactical Media Files</description>
+
+  <title xml:lang="nl">tmf</title>
+  <title xml:lang="en">tmf</title>
+
+  <block name="article"
+         classification="mmbase.tmf"
+         mimetype="text/html">
+    <title xml:lang="en">Article</title>
+    <title xml:lang="nl">Artikel</title>
+    <description xml:lang="en"></description>
+    <description xml:lang="nl"></description>
+    <body jsp="article.jspx">
+      <param name="n" type="org.mmbase.bridge.Node" />
+    </body>
+  </block>
+
+  <!--
+  <block name="articles"
+         classification="mmbase.tmf"
+         mimetype="text/html">
+    <title xml:lang="en">Articles</title>
+    <title xml:lang="nl">Artikelen</title>
+    <description xml:lang="en">List</description>
+    <description xml:lang="nl">Lijst</description>
+    <body jsp="list.jspx">
+      <param name="type" type="String" />
+    </body>
+  </block>
+  -->
+
+ 
+</component>

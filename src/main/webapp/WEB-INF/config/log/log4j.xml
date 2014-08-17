@@ -64,6 +64,9 @@
     <appender-ref ref="pagedebug" />
   </logger>
  -->
+  <logger name="net.tacticalmediafiles" >
+    <level class="&mmlevel;" value="debug" />
+  </logger>
   
   <root>
     <level class="&mmlevel;" value="info" />

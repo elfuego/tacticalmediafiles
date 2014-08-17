@@ -5,24 +5,23 @@
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
-  <mm:import externid="type">article</mm:import>
+  <mm:import externid="t" id="type">article</mm:import>
   <mm:import externid="cacheable"  />
     
   <tmf:html
       cacheable="${cacheable}"
       styleClass="about">
     
-    <jsp:attribute name="title">Articles</jsp:attribute>
+    
+    <jsp:attribute name="title">Listing</jsp:attribute>
     
     <jsp:attribute name="head">
         <!-- nothing here yet -->
     </jsp:attribute>
 
     <jsp:attribute name="body">
-      <mm:node number="article_about">
 
-        <tmf:article-header title="List of whatever"
-                            label="articles" />
+        <tmf:header-simple title="Nieuwe list template title" label="listing" />
 
         <div class="SearchSpacer2"><!-- empty --></div>
         <div class="SearchResultsLeft">
@@ -34,13 +33,16 @@
           <mm:import id="max">20</mm:import>
           <mm:import externid="offset">0</mm:import>
 
-          <mm:listnodescontainer type="article">
+          <mm:listnodescontainer type="${type}">
             <mm:sortorder field="number" direction="DOWN" />
-            <div class="SearchTypes"><mm:size id="total" /> ARTICLES</div>
+            <div class="SearchTypes">
+              <mm:size id="total" /> <!-- ARTICLES ${type} --> 
+              <mm:nodeinfo type="plural_guitype" nodetype="${type}" /> 
+            </div>
             <mm:maxnumber value="${max}" />
             <mm:offset value="${offset}" />
             <mm:listnodes>
-              <h5>article</h5>
+              <h5>${type}</h5>
               <a class="medium" href="#node${_node.number}"><mm:field name="title" /></a>
               <mm:field name="subtitle"><mm:isnotempty><br /><mm:write/></mm:isnotempty></mm:field>
               <!-- <mm:relatednodes role="author" searchdir="destination" type="person">
@@ -66,7 +68,6 @@
         <div class="SearchBottomLineRight"><hr /></div>
     	<div class="clearBoth"><!-- empty --></div> <br />
     	
-      </mm:node>
     </jsp:attribute>
   </tmf:html>
 </jsp:root>

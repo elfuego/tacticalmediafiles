@@ -1,168 +1,81 @@
-<mm:content 
-    xmlns:jsp="http://java.sun.com/JSP/Page"
+<jsp:root
+    version="2.0"
     xmlns:c="http://java.sun.com/jsp/jstl/core"
-    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
-    expires="120" type="text/html" language="client" postprocessor="none">
-<jsp:output doctype-root-element="html"
-      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
-      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
-<mm:cloud>
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
-<head>
-  <title>Tactical Media Files</title>
-  <meta name="description" content="Tactical Media Files" />
-  <meta name="keywords" content="" />
-  <meta name="robots" content="all" />
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
-  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
-  <!--[if IE]>
-    <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/ie.css')}" />
-  <![endif]-->
-</head>
-<body>
-<div class="GlobalContainer">
-  <div class="TopContainer">
-
-    <!-- Navigation -->
-    <div class="NavigationContainer">
-      <ul class="NavigationMenu">
-        <li><a href="article.jsp?objectnumber=38519&amp;pagetype=about" class="sel">ABOUT</a></li>
-        <li><a href="listing.jsp?pagetype=events">EVENTS</a></li>
-        <li><a href="listing.jsp?pagetype=campaigns">CAMPAIGNS</a></li>
-        <li><a href="video.jsp?pagetype=videos">VIDEOS</a></li>
-        <li><a href="listing.jsp?pagetype=texts">TEXTS</a></li>
-        <li><a href="http://blog.tacticalmediafiles.net/" target="_blank">BLOG</a></li>
-        <li><a href="listing.jsp?pagetype=new">NEW</a></li>
-      </ul>
-      <ul class="NavigationMenu2">
-        <li>
-          <form class="NavSearch" name="Search" action="search.jsp" method="post">
-            <input type="hidden" name="pagetype" value="search" />
-            <input type="text" name="query" class="SearchNav" id="SearchNav" value="SEARCH" onfocus="SearchFocus();" />
-          </form>
-        </li>
-      </ul>
-    </div>
-    <div class="clearBoth"><!-- empty --></div>
-    <div class="TopLinesContainer">
-        <div class="TopLineCol1"><!-- empty --></div>
-        <div class="TopLineCol2"><!-- empty --></div>
-        <div class="TopLineCol3"><!-- empty --></div>
-        <div class="TopLineCol4"><!-- empty --></div>
-        <div class="TopLineCol5"><!-- empty --></div>
-    </div>
-    <div class="clearBoth"><!-- empty --></div>
-	<div class="clearBoth"><!-- empty --></div>
-  </div>
-  <div class="ArticleContainer">
-	
-	<div class="clearBoth"><!-- empty --></div>
-    <div class="ArticleSpacer"><!-- empty --></div>
-    <div class="ArticleTMFLogo">
-      <a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo-small.gif')}" alt="Tactical Media Files Logo" /></a> 
-    </div>
+  <mm:import externid="n" id="page">article_about</mm:import>
+  <mm:import externid="cacheable"  />
+  
+  <mm:node referid="page">
+    <mm:field name="title" id="page_title" write="false" />
+  </mm:node>
+  
+  <tmf:html
+      cacheable="${cacheable}"
+      styleClass="about">
     
-    <!-- Article Title -->
-    <div class="ArticleTitleContainer">
-        <div class="ArticleTitlePositioner"><!-- empty --></div>
-        <div class="ArticleTitle">
-            <h1 class="Title">WikiLeaks statement on the mass recording of Afghan telephone calls by the NSA </h1>
-        </div>
-        <div class="ArticleLabel"><img src="${mm:link('/style/images/labels/event.png')}" alt="event" /></div>
-    </div><!-- EOF .ArticleTitleContainer -->
-    <div style="clear: right ;"><!-- empty --></div>
-    <div class="ArticleSpacer2"> </div>
+    <jsp:attribute name="title">${page_title}</jsp:attribute>
+    
+    <jsp:attribute name="head">
+        <!-- nothing here yet -->
+    </jsp:attribute>
 
-    <!-- Article Author + Summary -->
-    <div class="ArticleSummaryContainer">
-        <div class="ArticleAuthor">Wikileaks <br /></div>
-        <div class="ArticleSummary">
-            <p class="Summary">
-              My friends, each of you is a single cel in the great body of the State. And today, that great body has purged itself of parasites. We have triumphed over the unprincipled dissemination of facts. The thugs and wreckers have been cast out. And the poisenous weeds of disinformation have been consigned to the dustbin of history. Let each and every cell rejoice!
-            </p>
-        </div>
-    </div><!-- EOF .ArticleSummaryContainer -->
-    <div class="clearBoth"><!-- empty --></div>
-    <div class="ArticleSpacer"><!-- empty --></div>
+    <jsp:attribute name="body">
+      <mm:node referid="page">
 
-    <!-- Article Content -->
-	<div class="ArticleContent">
-        <!-- All the stuff on the left of an article -->
-		<div class="ArticleLinksContainer">
-            <div class="ArticleLeftLine"><!-- empty --></div>
-            <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/share.gif')}" alt="Share" /></div>
-            <br /> 
-			<h5>share</h5>
-
-            <br /><br /><br />
-            <div class="ArticleLeftLine"><!-- empty --></div>
-            <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/links.gif')}" alt="Links" /></div>
-            <br /> 
-            <h5>person</h5>
-            <a href="http://www.tacticalmediafiles.net/article.jsp?objectnumber=47808">Person link</a><br /><br /> 
-            <h5>link</h5>
-            <a href="http://www.tacticalmediafiles.net" target="_new"> Website link</a><br /><br /> 
-            <img src="${mm:link('/style/images/x.gif')}" alt="X" />
-            <br /><br /><br /> 
-        </div>
-
-<mm:relatednodescontainer path="posrel,picture">
-  <mm:sortorder field="posrel.pos" />
-  <mm:relatednodes>		
+        <mm:import id="n_intro"><mm:field name="intro" /></mm:import>
         
-        <div class="ArticleLinksContainer">
-            <div class="ArticleLeftLine"><!-- empty --></div>
-            <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/images.gif')}" alt="Images" /></div>
-        </div>
+        <tmf:header-article />
 
-        <div class="ArticleImageContainer">
-            <div class="ArticleImageLabel">
-                <p class="filelabel"><mm:field name="filename" /> ..</p>
-                <br /> 
-                <a title="Leaks" href="http://www.tacticalmediafiles.net/picture.jsp?objectnumber=48386" target="_new"><img src="./artikel2_files/wikilogo_square.jpg" /></a>
-                <br /><br /> 
+        <div class="ArticleContent">
+          intro : <mm:field name="intro" escape="none" /> : intro        
+
+          <!-- All the stuff on the left of an article -->
+
+          <tmf:article-relations />
+          
+          <!-- posrel,picture -->
+          <mm:relatednodescontainer path="posrel,picture">
+            <div class="ArticleLinksContainer">
+                <div class="ArticleLeftLine"><!-- empty --></div>
+                <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/images.gif')}" alt="Images" /></div>
             </div>
-        </div>
-        <div class="ArticleImage"><img src="${mm:link('/style/images/x.gif')}" alt="X" /></div>
-		<!-- End of Left Stuff -->
 
-</mm:relatednodes>        
-</mm:relatednodescontainer>
+            <mm:sortorder field="posrel.pos" />
+            <mm:relatednodes>		
+
+                  <div class="ArticleImageContainer">
+                    <div class="ArticleImageLabel">
+                      <p class="filelabel"><mm:field name="title" /></p>
+                      <mm:image mode="img" template="s(414)" />
+                      <!-- <a title="Leaks" href="http://www.tacticalmediafiles.net/picture.jsp?objectnumber=48386" target="_new"><img src="./artikel2_files/wikilogo_square.jpg" /></a> -->
+                    </div>
+                  </div>
+
+            </mm:relatednodes>
+            <div class="ArticleImage"><img src="${mm:link('/style/images/x.gif')}" alt="X" /></div>
+          </mm:relatednodescontainer>
+          <!-- EOF posrel,picture -->
+
+          <!-- End of Left Stuff -->
+          
         
-        <!-- Article Text -->
-        <div style="padding-left: 280px ;">
-            <p class="Text">
-            My friends, each of you is a single cel in the great body of the State. And today, that great body has purged itself of parasites. We have triumphed over the unprincipled dissemination of facts. The thugs and wreckers have been cast out. And the poisenous weeds of disinformation have been consigned to the dustbin of history. Let each and every cell rejoice!
-                <br /><br />
-            For today we celebrate the first glorious anniversary of the Information Purification Directive! We have created, for the first time in all history, a garden of pure ideology, where each worker may bloom secure from the pests of contradictory and confusing truths. Our Unification of Thought is a more powerfull weapon than any fleet or army on Earth! We are one people. With one will. One resolve. One cause. Our enemies shall talk themselves to death. And we will bury them with their own confusion! 
-                <br /><br />
-            My friends, each of you is a single cel in the great body of the State. And today, that great body has purged itself of parasites. We have triumphed over the unprincipled dissemination of facts. The thugs and wreckers have been cast out. And the poisenous weeds of disinformation have been consigned to the dustbin of history. Let each and every cell rejoice!
-                <br /><br />
-            For today we celebrate the first glorious anniversary of the Information Purification Directive! We have created, for the first time in all history, a garden of pure ideology, where each worker may bloom secure from the pests of contradictory and confusing truths. Our Unification of Thought is a more powerfull weapon than any fleet or army on Earth! We are one people. With one will. One resolve. One cause. Our enemies shall talk themselves to death. And we will bury them with their own confusion! 
-                <br /><br />
-            My friends, each of you is a single cel in the great body of the State. And today, that great body has purged itself of parasites. We have triumphed over the unprincipled dissemination of facts. The thugs and wreckers have been cast out. And the poisenous weeds of disinformation have been consigned to the dustbin of history. Let each and every cell rejoice!
-                <br /><br />
-            For today we celebrate the first glorious anniversary of the Information Purification Directive! We have created, for the first time in all history, a garden of pure ideology, where each worker may bloom secure from the pests of contradictory and confusing truths. Our Unification of Thought is a more powerfull weapon than any fleet or army on Earth! We are one people. With one will. One resolve. One cause. Our enemies shall talk themselves to death. And we will bury them with their own confusion! 
+          <div style="padding-left: 280px ;">
+              <p class="Text">
+                <mm:field name="body" escape="paragraph(Text)" />
+              </p>
+          </div><!-- EOF .Text -->
 
-
-            </p>
-        </div>
+          <div style="text-align: right; margin-top: 15px ;"><img src="${mm:link('/style/images/x-blue.gif')}" alt="X" /></div>
+          <div class="clearBoth"><!-- empty --></div>
+          <div class="clearBoth"><!-- empty --></div>
+          <div class="ArticleSpacer"><!-- empty --></div>
         
-        <div style="text-align: right ; margin-top: 15px ;"><img src="${mm:link('/style/images/x-blue.gif')}" alt="X" /></div>
-        <div class="clearBoth"><!-- empty --></div>
-        <div class="clearBoth"><!-- empty --></div>
-        <div class="ArticleSpacer"><!-- empty --></div>
-        
-    </div><!-- EOF .ArticleContent -->
-    
-    <div class="clearBoth"><!-- empty --></div>
-    
-  </div><!-- EOF .ArticleContainer -->
-</div><!-- EOF .GlobalContainer -->
+        </div><!-- EOF .ArticleContent -->
 
-</body>
-</html>
-</mm:cloud>
-</mm:content>
+      </mm:node>
+    </jsp:attribute>
+  </tmf:html>
+</jsp:root>

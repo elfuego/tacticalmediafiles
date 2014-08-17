@@ -1,47 +1,59 @@
-/*
-
-This file is part of TMF.
-
-*/
+/* This file is part of TMF. */
 
 package net.tacticalmediafiles;
 
-import java.util.*;
-import javax.servlet.http.HttpServletRequest;
-
-import org.mmbase.util.transformers.CharTransformer;
-import org.mmbase.util.transformers.Identifier;
-import org.mmbase.bridge.*;
-
-import org.mmbase.framework.*;
-import org.mmbase.framework.basic.DirectoryUrlConverter;
+import org.mmbase.bridge.Cloud;
+import org.mmbase.bridge.Node;
+import org.mmbase.framework.Block;
+import org.mmbase.framework.Component;
+import org.mmbase.framework.ComponentRepository;
+import org.mmbase.framework.Framework;
+import org.mmbase.framework.FrameworkException;
 import org.mmbase.framework.basic.BasicFramework;
-import org.mmbase.framework.basic.Url;
 import org.mmbase.framework.basic.BasicUrl;
-import org.mmbase.bridge.util.SearchUtil;
-import org.mmbase.util.functions.*;
-import org.mmbase.util.logging.*;
+import org.mmbase.framework.basic.DirectoryUrlConverter;
+import org.mmbase.framework.basic.Url;
+import org.mmbase.util.functions.Parameter;
+import org.mmbase.util.functions.Parameters;
+import org.mmbase.util.logging.Logger;
+import org.mmbase.util.logging.Logging;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * UrlConverter that can filter and create urls for TMF.
  *
  * @author André van Toly
- * @version $Id: ContentUrlConverter.java 45504 2011-03-02 20:48:29Z michiel $
+ * @version $Id:  $
  */
 public class ContentUrlConverter extends DirectoryUrlConverter {
     private static final long serialVersionUID = 0L;
     private static final Logger log = Logging.getLoggerInstance(ContentUrlConverter.class);
 
+    /* piece of path that leads to edit environment of user account, e.g. /user/[username]/edit */
+    protected String type = "article";
+
     public ContentUrlConverter(BasicFramework fw) {
         super(fw);
-        setDirectory("/article/");
-        addBlock(ComponentRepository.getInstance().getComponent("tmf").getBlock("article"));
+        setDirectory("/" + type + "/");
+        log.info("### setDirectory " + type);
+
+        Component tmf = ComponentRepository.getInstance().getComponent("tmf");
+        if (tmf == null) throw new IllegalStateException("No such component tmf");
+
+        addBlock(tmf.getBlock(type));
     }
  
     @Override
     public int getDefaultWeight() {
         int q = super.getDefaultWeight();
         return Math.max(q, q + 1000);
+    }
+
+    public void setType(String t) {
+        log.info("### setType " + t);
+        type = t;
     }
 
     public static final Parameter<Node> NODE = new Parameter<Node>("n", Node.class);
@@ -63,7 +75,7 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
             log.debug("" + parameters + frameworkParameters);
             log.debug("Found tmf block " + block);
         }
-        if (block.getName().equals("tag")) {
+        if (block.getName().equals("article")) {
             Node n = frameworkParameters.get(NODE);
             if (n == null) throw new IllegalStateException("No tag parameter used in " + frameworkParameters);
             
@@ -86,31 +98,19 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
     public Url getFilteredInternalDirectoryUrl(List<String>  path, Map<String, ?> params, Parameters frameworkParameters) throws FrameworkException {
         if (log.isDebugEnabled()) log.debug("path pieces: " + path + ", path size: " + path.size());
 
-        HttpServletRequest request = frameworkParameters.get(Parameter.REQUEST);
-
         StringBuilder result = new StringBuilder();
         if (path.size() == 0) {
-            return Url.NOT; // handled by mmsite
+            //return Url.NOT; // handled by mmsite
+            result.append("/list.jspx?t=" + type);
         } else {
-            result.append("/tag.jspx?n=");
+            result.append("/article.jspx?n=");
 
-            String last = path.get(path.size() - 1); // last element can contain language
-            path.set(path.size() - 1, last);    // put it back
-
-            if (path.size() > 0) {
-                final String tagname = path.get(0);    // tagName is first element
+            if (path.size() > 0) {          // article/[nodennr]/title
+                final String nr = path.get(0);    // nodenumber is first element
                 if (log.isDebugEnabled()) {
-                    log.debug("tagname: " + tagname);
+                    log.debug("nr: " + nr);
                 }
                 
-                final Cloud cloud = frameworkParameters.get(Parameter.CLOUD);
-                final Node node = SearchUtil.findNode(cloud, "tags", "name", tagname);
-                if (node == null) {
-                    log.debug("No tag with name" + tagname);
-                    return Url.NOT;
-                }
-                frameworkParameters.set(NODE, node);
-                String nr = "" + node.getNumber();
                 result.append(nr);
 
  

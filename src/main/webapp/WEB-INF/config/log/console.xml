@@ -44,8 +44,8 @@
     <level class="&mmlevel;" value ="warn" />
   </logger>
 
-  <logger name="eu.openimages" >
-    <level class="&mmlevel;" value ="info" />
+  <logger name="net.tacticalmediafiles" >
+    <level class="&mmlevel;" value ="debug" />
   </logger>
 
   <logger name="STDERR">

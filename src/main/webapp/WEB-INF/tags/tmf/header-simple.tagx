@@ -1,0 +1,38 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="header-simple"
+      description="Header part of (article) page"
+      />
+  <jsp:directive.attribute name="title"  type="java.lang.String"
+                           description="Title of this piece" />
+  <jsp:directive.attribute name="label"  type="java.lang.String"
+                           description="Type or label" />
+                           
+                           
+    <div class="clearBoth"><!-- empty --></div>
+    <div class="ArticleSpacer"><!-- empty --></div>
+    <div class="ArticleTMFLogo">
+      <a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="195" height="121" /></a> 
+    </div>
+
+    <!-- Article Title -->
+    <div class="ArticleTitleContainer">
+        <div class="ArticleTitlePositioner"><!-- empty --></div>
+        <div class="ArticleTitle">
+          <h1 class="Title">${title}</h1>
+        </div>
+        <div class="ArticleLabel">
+          <mm:link page="/style/images/labels/${empty label ? 'article' : label}.png">
+            <img src="${_}" alt="${empty label ? 'article' : label}" />
+          </mm:link>
+        </div>
+    </div><!-- EOF .ArticleTitleContainer -->
+    <div style="clear: right ;"><!-- empty --></div>
+    <div class="ArticleSpacer2"><!-- empty --></div>
+
+</jsp:root>
