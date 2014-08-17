@@ -15,3 +15,5 @@ the site on localhost:8080 with the terminal command:
 
   mvn jetty:run
 
+The webapplication can run on a HSQL - no configuration needed - or 
+MySQL database - adopt its settings from jetty-env.xml. 
