@@ -197,7 +197,19 @@
       <classifier>classes</classifier>
       <scope>provided</scope>
     </dependency> -->
+    <dependency>
+      <groupId>org.mmbase</groupId>
+      <artifactId>mmbase-media</artifactId>
+      <version>${mmbase.version}</version>
+      <type>war</type>
+    </dependency>
     
+    <dependency>
+      <groupId>org.mmbase</groupId>
+      <artifactId>mmbase-streams</artifactId>
+      <version>${mmbase.version}</version>
+      <type>war</type>
+    </dependency>
     <!-- <dependency>
       <groupId>org.mmbase</groupId>
       <artifactId>mmbase-media</artifactId>

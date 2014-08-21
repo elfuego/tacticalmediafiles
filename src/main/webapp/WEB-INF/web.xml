@@ -94,6 +94,24 @@
     <load-on-startup>3</load-on-startup>
   </servlet>
 
+  <servlet>
+    <servlet-name>files</servlet-name>
+    <servlet-class>org.mmbase.servlet.FileServlet</servlet-class>
+    <init-param>
+      <param-name>listings</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>comparator</param-name>
+      <param-value>org.mmbase.servlet.FileNameComparator</param-value>
+    </init-param>
+    <init-param>
+      <param-name>ignore</param-name>
+      <param-value>.*/\.web[/]?.*</param-value>
+    </init-param>
+    <load-on-startup>4</load-on-startup>
+  </servlet>
+  
   <!-- mapping for version-request -->
   <servlet-mapping>
     <servlet-name>version</servlet-name>
@@ -111,6 +129,36 @@
     <servlet-name>attachments</servlet-name>
     <url-pattern>/mmbase/attachments/*</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>files</servlet-name>
+    <url-pattern>/files/*</url-pattern>
+  </servlet-mapping>
+  
+  <!-- <mime-mapping>
+   <extension>ogv</extension>
+   <mime-type>video/ogg</mime-type>
+  </mime-mapping> -->
+  <mime-mapping>
+   <extension>m4v</extension>
+   <mime-type>video/x-m4v</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>meta</extension>
+    <mime-type>text/plain</mime-type>
+  </mime-mapping>
+  <!-- <mime-mapping>
+    <extension>m3u8</extension>
+    <mime-type>application/x-mpegURL</mime-type>
+  </mime-mapping> 
+  <mime-mapping>
+    <extension>ts</extension>
+    <mime-type>video/MP2T</mime-type>
+  </mime-mapping> -->
+  <mime-mapping>
+    <extension>webm</extension>
+    <mime-type>video/webm</mime-type>
+  </mime-mapping>
 
   <welcome-file-list>
     <welcome-file>index.jspx</welcome-file>
