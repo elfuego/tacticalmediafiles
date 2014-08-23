@@ -1,6 +1,7 @@
-target
 data
+html
 src/main/webapp/WEB-INF/config/applications
+target
 *.bbprojectd/
 *.iws
 *.ipr
