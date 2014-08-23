@@ -27,19 +27,29 @@
     </body>
   </block>
 
-  <!--
-  <block name="articles"
+  <block name="content"
          classification="mmbase.tmf"
          mimetype="text/html">
-    <title xml:lang="en">Articles</title>
-    <title xml:lang="nl">Artikelen</title>
-    <description xml:lang="en">List</description>
-    <description xml:lang="nl">Lijst</description>
+    <title xml:lang="en">Content</title>
+    <title xml:lang="nl">Content</title>
+    <description xml:lang="en">Content item: article, event, campaign</description>
+    <description xml:lang="nl">Content item: artikel, event, campagne</description>
+    <body jsp="content.jspx"><!-- TODO: copy article? -->
+      <param name="n" type="org.mmbase.bridge.Node" />
+    </body>
+  </block>
+
+  <block name="list"
+         classification="mmbase.tmf"
+         mimetype="text/html">
+    <title xml:lang="en">List</title>
+    <title xml:lang="nl">List</title>
+    <description xml:lang="en">List content</description>
+    <description xml:lang="nl">Lijst van content</description>
     <body jsp="list.jspx">
       <param name="type" type="String" />
     </body>
   </block>
-  -->
   
   <block name="media"
          classification="mmbase.tmf"

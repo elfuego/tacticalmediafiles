@@ -3,7 +3,8 @@
 <application name="TMF" maintainer="tacticalmediafiles.net" version="1" auto-deploy="false">
   <requirements>
     <requires name="Resources" maintainer="mmbase.org" version="1" />
-    <!-- <requires name="Media" maintainer="mediaproject.mmbase.org" version="1" /> -->
+    <requires name="Media" maintainer="mediaproject.mmbase.org" version="1" />
+    <requires name="Streams" maintainer="streams.mmbase.org" version="6" />
   </requirements>
 
   <neededbuilderlist>
@@ -28,7 +29,7 @@
     <builder maintainer="debalie.org"  version="1">address</builder>
     
     <builder maintainer="mmbase.org"  version="1">mediafragments</builder>
-    <builder maintainer="mmbase.org"  version="1">videofragments</builder>
+    <builder maintainer="mmbase.org"  version="1">video</builder>
   </neededbuilderlist>
 
   <neededreldeflist>
@@ -40,7 +41,6 @@
 
   <allowedrelationlist>
     <relation from="article"  to="person" type="author" />
-    <relation from="campaign" to="person" type="author" />
     <relation from="article" to="type" type="related" />
     <relation from="article" to="person" type="related" />
     <relation from="article" to="dates" type="related" />
@@ -88,17 +88,17 @@
     <relation from="person" to="picture" type="posrel" />
     <relation from="organisation" to="picture" type="posrel" />
     
-    <relation from="media" to="videofragments" type="posrel" />
-    <relation from="videofragments" to="videofragments" type="posrel" />
-    <relation from="videofragments" to="person" type="posrel" />
-    <relation from="videofragments" to="url" type="posrel" />
-    <relation from="videofragments" to="metadata" type="related" />
-    <relation from="videofragments" to="file" type="related" />
-    <relation from="videofragments" to="event" type="related" />
-    <relation from="videofragments" to="organisation" type="related" />
-    <relation from="videofragments" to="article" type="related" />
-    <!-- <relation from="videofragments" to="templates" type="related" /> -->
-    <relation from="videofragments" to="url" type="posrel" />
+    <relation from="media" to="video" type="posrel" />
+    <relation from="video" to="video" type="posrel" />
+    <relation from="video" to="person" type="posrel" />
+    <relation from="video" to="url" type="posrel" />
+    <relation from="video" to="metadata" type="related" />
+    <relation from="video" to="file" type="related" />
+    <relation from="video" to="event" type="related" />
+    <relation from="video" to="organisation" type="related" />
+    <relation from="video" to="article" type="related" />
+    <!-- <relation from="video" to="templates" type="related" /> -->
+    <relation from="video" to="url" type="posrel" />
 
     <relation from="campaign" to="keyword" type="related" />
     <relation from="article" to="url" type="related" />
@@ -106,6 +106,7 @@
     <relation from="person" to="keyword" type="related" />
     <relation from="article" to="media" type="related" />
     <relation from="campaign" to="article" type="related" />
+    <relation from="campaign" to="person" type="author" />
     <relation from="campaign" to="person" type="related" />
     <relation from="campaign" to="event" type="related" />
     <relation from="campaign" to="organisation" type="related" />
@@ -132,7 +133,7 @@
     <datasource builder="address" path="TMF/address.xml" />	   
     
     <datasource builder="mediafragments" path="TMF/mediafragments.xml" />
-    <datasource builder="videofragments" path="TMF/videofragments.xml" />
+    <datasource builder="video" path="TMF/video.xml" />
   </datasourcelist>
 
   <relationsourcelist>
