@@ -32,7 +32,7 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
     private static Identifier trans = new Identifier();
     private String wsReplacer = "-";
 
-    /* piece of path that leads to edit environment of user account, e.g. /user/[username]/edit */
+    /* piece of path that leads to all content of this type, e.g. /user/[content]/edit */
     protected String type = "article";
 
     public ContentUrlConverter(BasicFramework fw) {
@@ -41,7 +41,7 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
         Component tmf = ComponentRepository.getInstance().getComponent("tmf");
         if (tmf == null) throw new IllegalStateException("No such component tmf");
 
-        addBlock(tmf.getBlock("article"));
+        addBlock(tmf.getBlock("content"));
     }
  
     @Override
@@ -85,7 +85,7 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
             log.debug("" + parameters + frameworkParameters);
             log.debug("Found tmf block " + block);
         }
-        if (block.getName().equals("article")) {
+        if (block.getName().equals("content")) {
             Node n = frameworkParameters.get(NODE);
             if (n == null) throw new IllegalStateException("No node (n) parameter used in " + frameworkParameters);
             
@@ -112,7 +112,7 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
         if (path.size() == 0) {
             result.append("/list.jspx?t=" + type);
         } else {
-            result.append("/article.jspx?n=");
+            result.append("/content.jspx?n=");
             Cloud cloud = frameworkParameters.get(Parameter.CLOUD);
 
             if (path.size() > 0) {          // article/[nodennr]/title

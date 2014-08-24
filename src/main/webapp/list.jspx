@@ -46,7 +46,7 @@
             <mm:listnodes>
               <h5>${type}</h5>
               
-              <mm:link page="article">
+              <mm:link page="content">
                 <mm:frameworkparam name="component">tmf</mm:frameworkparam>
                 <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
                 <a class="medium" href="${_}"><mm:field name="title" /></a>

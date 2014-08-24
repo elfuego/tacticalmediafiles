@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <component
     name="tmf"
-    defaultblock="article"
+    defaultblock="list"
     version="1"
     xmlns="http://www.mmbase.org/xmlns/component"
     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -15,18 +15,6 @@
   <title xml:lang="nl">tmf</title>
   <title xml:lang="en">tmf</title>
 
-  <block name="article"
-         classification="mmbase.tmf"
-         mimetype="text/html">
-    <title xml:lang="en">Article</title>
-    <title xml:lang="nl">Artikel</title>
-    <description xml:lang="en"></description>
-    <description xml:lang="nl"></description>
-    <body jsp="article.jspx">
-      <param name="n" type="org.mmbase.bridge.Node" />
-    </body>
-  </block>
-
   <block name="content"
          classification="mmbase.tmf"
          mimetype="text/html">
@@ -34,7 +22,7 @@
     <title xml:lang="nl">Content</title>
     <description xml:lang="en">Content item: article, event, campaign</description>
     <description xml:lang="nl">Content item: artikel, event, campagne</description>
-    <body jsp="content.jspx"><!-- TODO: copy article? -->
+    <body jsp="content.jspx">
       <param name="n" type="org.mmbase.bridge.Node" />
     </body>
   </block>
