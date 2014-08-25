@@ -1,0 +1,112 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    expires="120" type="text/html"
+    language="client">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.1//EN"
+      doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+<mm:cloud method="http" logon="admin" >
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Convert</title>
+  <style type="text/css">
+  body {font-family: sans-serif;}
+  </style>
+</head>
+<body>
+
+<h1>Convert</h1>
+<mm:import externid="convert" />
+<p>
+  media convertert
+  <mm:link>
+    <mm:param name="commit">true</mm:param>
+    <a href="${_}">commit</a>
+  </mm:link>
+</p>
+  
+      <!-- <mm:listnodescontainer type="event">
+        <h2> <mm:size id="total" /> events</h2>
+        <ol>
+        <mm:listnodes>
+          <li>
+            
+            <mm:field name="number" /> - <mm:field name="title" />
+            <mm:relatednodescontainer type="category" role="posrel" searchdirs="source">
+              <mm:constraint field="number" value="mmbase_news_general" operator="EQUAL" />
+              <mm:import id="rels" reset="true"><mm:size /></mm:import>
+            </mm:relatednodescontainer>
+            rels: <strong>${rels}</strong>
+            <c:if test="${rels lt 1 and convert eq 'ok'}">
+              <mm:node id="thisevent" number="$_node.number" />    
+              <mm:createrelation source="news_general" destination="thisevent" role="posrel">
+                <mm:setfield name="pos">1</mm:setfield>
+              </mm:createrelation>
+              : converted
+            </c:if>
+            
+          </li>
+        </mm:listnodes>
+        </ol>
+      </mm:listnodescontainer> -->
+
+  <mm:import externid="commit">false</mm:import>
+  <mm:transaction commitonclose="$commit">
+
+      <mm:listnodescontainer type="video">
+        <h2><mm:size /> videos</h2>
+        <mm:maxnumber value="1" />
+        <ol>
+        <mm:listnodes id="video">
+          <li>
+            
+            <mm:field name="number" /> - 
+            <mm:import id="title" reset="true"><mm:field name="title" /></mm:import>
+
+            <mm:import id="handle" reset="true"><mm:field name="handle" /></mm:import>
+            
+            <mm:createnode type="mediafragments" id="mediafr" >
+              <mm:setfield name="title"><mm:write referid="title" /></mm:setfield>
+              <mm:setfield name="subtitle"><mm:write referid="title" /></mm:setfield>
+            </mm:createnode>
+            <mm:createrelation source="video" destination="mediafr" role="related" />
+            
+            
+            
+            ${title} : ${handle}
+            
+            <c:set var="split" value="${fn:split(handle, '/')}" />
+            <c:set var="len" value="${fn:length(split)}" />
+            <br />
+            file: <strong>${split[len - 1]}</strong>
+            
+            <!-- TODO: replace with handle! is just test -->
+            <c:set var="url" value="Dolfijnen.mp4" />
+            
+            <!-- get new media node, make url, download stream, submit and transcode it -->
+            <mm:node number="$mediafr">
+              <mm:import id="source_url">
+                <mm:functioncontainer>
+                  <mm:param name="url">${url}</mm:param>
+                  <mm:function name="download" />
+                </mm:functioncontainer>
+              </mm:import>
+            </mm:node>
+
+            
+          </li>
+        </mm:listnodes>
+        </ol>
+      </mm:listnodescontainer>
+
+
+  </mm:transaction>
+
+</body>
+</html>
+</mm:cloud>
+</mm:content>
