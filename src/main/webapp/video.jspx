@@ -266,24 +266,20 @@
 			<div class="VideoRelatedLabel"><img src="${mm:link('/style/images/labels/related.gif')}" alt="Related" /></div>
    		    <div id="related2media">
               <br /><br /><br />
-              <h5>article</h5> 
-              <a href="#" onclick="window.open('article.jsp?objectnumber=40592','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;">
-                Contestational Robotics
-              </a>
-              <h5>article</h5>
-              <a href="#" onclick="window.open('article.jsp?objectnumber=52924','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;">
-                Engaging Ambivalence
-              </a> 
 <!--
-<mm:relatednodes type="person" searchdir="DESTINATION"><h5>person</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="firstname"/> <mm:field name="prefix"/> <mm:field name="sirname"/></a></mm:relatednodes>
-			<mm:relatednodes type="person" searchdir="SOURCE"><h5>person</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="firstname"/> <mm:field name="prefix"/> <mm:field name="sirname"/></a></mm:relatednodes>
-			<mm:relatednodes type="article" searchdir="DESTINATION"><h5>article</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-  		<mm:relatednodes type="article" searchdir="SOURCE"><h5>article</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-			<mm:relatednodes type="event" searchdir="DESTINATION"><h5>event</h5> <a href="#" onclick="window.open('<mm:url page="event.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-  		<mm:relatednodes type="event" searchdir="SOURCE"><h5>event</h5> <a href="#" onclick="window.open('<mm:url page="event.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-			<mm:relatednodes type="campaign" searchdir="DESTINATION"><h5>campaign</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-  		<mm:relatednodes type="campaign" searchdir="SOURCE"><h5>campaign</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-  		<mm:relatednodes type="url" searchdir="DESTINATION"><h5>extern</h5><a href="#" onclick="window.open('<mm:field name="url" />"><mm:field name="title"/></mm:relatednodes>				
+        <mm:relatednodes type="person" searchdir="destination">
+          <h5>person</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="firstname"/> <mm:field name="prefix"/> <mm:field name="sirname"/></a>
+        </mm:relatednodes>
+        <mm:relatednodes type="person" searchdir="source">
+          <h5>person</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="firstname"/> <mm:field name="prefix"/> <mm:field name="sirname"/></a>
+        </mm:relatednodes>
+        <mm:relatednodes type="article" searchdir="destination"><h5>article</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+  		<mm:relatednodes type="article" searchdir="source"><h5>article</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+        <mm:relatednodes type="event" searchdir="destination"><h5>event</h5> <a href="#" onclick="window.open('<mm:url page="event.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+  		<mm:relatednodes type="event" searchdir="source"><h5>event</h5> <a href="#" onclick="window.open('<mm:url page="event.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+        <mm:relatednodes type="campaign" searchdir="destination"><h5>campaign</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+  		<mm:relatednodes type="campaign" searchdir="source"><h5>campaign</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+  		<mm:relatednodes type="url" searchdir="destination"><h5>extern</h5><a href="#" onclick="window.open('<mm:field name="url" />"><mm:field name="title"/></mm:relatednodes>
 -->
 
     		</div>		

@@ -42,7 +42,7 @@
     <description xml:lang="en">
       The urlconverter for video content.
     </description>
-    <param name="directory">/video/</param>
+    <param name="directory">/videos/</param>
     <param name="whitespaceReplacer">-</param>
   </urlconverter>
 
