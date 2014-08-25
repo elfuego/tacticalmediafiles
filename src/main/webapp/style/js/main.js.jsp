@@ -15,13 +15,12 @@ $(document).ready(function() {
     
     /* Init oiplayer only when there is video or audio tag */
     if ($('video').length || $('audio').length) {
-        $('.main-column').oiplayer({
+        /* $('.main-column').oiplayer({
             'server' : '<mm:url page="/" absolute="true" />',
             'jar' : '/oiplayer/plugins/cortado-ovt-stripped-0.6.0.jar',
             'flash' : '/oiplayer/plugins/flowplayer-3.2.7.swf',
             'controls' : 'top'
-        });
-        initPlayStats();
+        }); */
     }
     
 });

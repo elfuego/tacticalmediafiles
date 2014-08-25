@@ -9,7 +9,7 @@
   <mm:import externid="cacheable" />
   
   <mm:node referid="media">
-    <mm:field name="title" id="media_title" write="false" />
+    <mm:import id="media_title" reset="true"><mm:field name="title" escape="inline" /></mm:import>
   </mm:node>
   
   <tmf:html
@@ -19,25 +19,54 @@
     <jsp:attribute name="title">${media_title}</jsp:attribute>
     
     <jsp:attribute name="head">
-        <!-- nothing here yet -->
-        <style type="text/css">
-         video { 
-            background-color: #000;
-        }
-         h2.Title {
-           text-shadow: 2px 2px #fff;
-         }
-        </style>
+      
+      <!-- nothing here yet -->
+      <style type="text/css">
+      video { 
+          background-color: #000;
+      }
+      h2.Title {
+          text-shadow: 2px 2px #fff;
+      }
+
+      .videocontainerheight { 
+          height: 192px; 
+          width: 1px;
+          float: left;
+      }
+      ul.videomarkers
+      {
+        list-style: none;
+        font-size: 0.8em;
+      }
+      ul.videomarkers li
+      {
+        list-style: none;
+        margin: 0;
+      }
+      </style>
+
+      <!-- link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf_r.css')}" / -->
+      
+      <script type="text/javascript" src="${mm:link('/style/js_v2/alg.js')}"><!-- empty --></script>
+      <script type="text/javascript" src="${mm:link('/style/js_v2/pM_v2_full.js')}"><!-- empty --></script>
+      <script type="text/javascript" src="${mm:link('/style/js_v2/array_v2_m.js')}"><!-- empty --></script>
+      <script type="text/javascript" src="${mm:link('/style/js_v2/form_but_ful.js')}"><!-- empty --></script>
+      <script type="text/javascript" src="${mm:link('/style/js_v2/form_beh.js')}"><!-- empty --></script>
+      <script type="text/javascript" src="${mm:link('/style/js_v2/mE.js')}"><!-- empty --></script>
+
     </jsp:attribute>
 
     <jsp:attribute name="body">
       <mm:node referid="media">
         <div class="VideoContainer">
-          <div class="VideoSpacer"><!-- empty --></div>
+		  <div class="videocontainerheight"><!-- empty --></div>
+          <div class="VideoSpacer"><!-- empty --> </div>
           
-          <!-- List of Large thumbs: browse videos -->
+          <!-- ### ### ### List of Large thumbs: browse videos ### ### ### -->
           <div class="VideoBrowse">
             <div class="VideoBrowseList">
+              
               <div id="VideoBrowseMask2"><!-- empty --></div>
               <div id="VideoBrowseMask1">
                 <div class="VideoTMFLogo">
@@ -47,6 +76,105 @@
                   <img src="${mm:link('/style/images/labels/browse-video.png')}" alt="Browse Video" />
                 </div>  					
 			  </div>
+
+              <!-- List of Thumbnails with Titles -->
+              <div class="VideoBrowseTable1" id="thumbs1">
+                <mm:listnodescontainer type="media">
+                  <mm:sortorder field="title" direction="UP" />
+                  <mm:offset value="0" />
+                  <mm:maxnumber value="4" />
+                  <mm:listnodes>
+                    <c:set var="index"><mm:index /></c:set>
+                    <div class="videothumb${index}">
+                      <mm:import id="pic" reset="true"></mm:import>
+                      <mm:link page="media">
+                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                        <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                        <a href="${_}">
+                          <mm:relatednodes type="picture" max="1">
+                            <mm:import id="pic" reset="true">ok</mm:import>
+                            <mm:image mode="img" width="150" height="100" crop="middle" />
+                            <!-- <mm:image template="s(150x100!)" /> -->
+                            <!-- <img src=""  alt='<mm:field name="title" />' width="150" height="100" /> -->
+                          </mm:relatednodes>
+                          <mm:isempty referid="pic">
+                            <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="150" height="100" />
+                          </mm:isempty>
+                        </a><br />
+                        <table width="158" cellpadding="4">
+                          <tr><td><mm:field name="title" /></td></tr>
+                        </table>
+                      </mm:link>
+                    </div>
+                  </mm:listnodes>		
+                </mm:listnodescontainer>
+              </div><!-- EOF .VideoBrowseTable1 -->
+
+              <div class="VideoBrowseTable2" id="thumbs2">
+                <mm:listnodescontainer type="media">
+                  <mm:sortorder field="title" direction="UP" />
+                  <mm:offset value="4" />
+                  <mm:maxnumber value="4" />
+                  <mm:listnodes>
+                    <c:set var="index"><mm:index /></c:set>
+                    <div class="videothumb${index}">
+                      <mm:import id="pic" reset="true"></mm:import>
+                      <mm:link page="media">
+                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                        <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                        <a href="${_}">
+                          <mm:relatednodes type="picture" max="1">
+                            <mm:import id="pic" reset="true">ok</mm:import>
+                            <mm:image mode="img" width="150" height="100" crop="middle" />
+                            <!-- <mm:image template="s(150x100!)" /> -->
+                            <!-- <img src=""  alt='<mm:field name="title" />' width="150" height="100" /> -->
+                          </mm:relatednodes>
+                          <mm:isempty referid="pic">
+                            <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="150" height="100" />
+                          </mm:isempty>
+                        </a><br />
+                        <table width="158" cellpadding="4">
+                          <tr><td><mm:field name="title" /></td></tr>
+                        </table>
+                      </mm:link>
+                    </div>
+                  </mm:listnodes>		
+                </mm:listnodescontainer>
+              </div><!-- EOF .VideoBrowseTable2 -->
+
+              <div class="VideoBrowseTable3" id="thumbs3">
+                <mm:listnodescontainer type="media">
+                  <mm:sortorder field="title" direction="UP" />
+                  <mm:offset value="8" />
+                  <mm:maxnumber value="4" />
+                  <mm:listnodes>
+                    <c:set var="index"><mm:index /></c:set>
+                    <div class="videothumb${index}">
+                      <mm:import id="pic" reset="true"></mm:import>
+                      
+                      <mm:link page="media">
+                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                        <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                        <a href="${_}">
+                          <mm:relatednodes type="picture" max="1">
+                            <mm:import id="pic" reset="true">ok</mm:import>
+                            <mm:image mode="img" width="150" height="100" crop="middle" />
+                            <!-- <mm:image template="s(150x100!)" /> -->
+                            <!-- <img src=""  alt='<mm:field name="title" />' width="150" height="100" /> -->
+                          </mm:relatednodes>
+                          <mm:isempty referid="pic">
+                            <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="150" height="100" />
+                          </mm:isempty>
+                        </a><br />
+                        <table width="158" cellpadding="4">
+                          <tr><td><mm:field name="title" /></td></tr>
+                        </table>
+                      </mm:link>
+                      
+                    </div>
+                  </mm:listnodes>		
+                </mm:listnodescontainer>
+              </div><!-- EOF .VideoBrowseTable3 -->
 
               <div class="VideoBrowseNext">
                 <a href="#" onclick="moveleft()"><img src="${mm:link('/style/images/next.gif')}" alt="Next" border="0" /></a>
@@ -60,7 +188,7 @@
           <div class="clearBoth"><!-- empty --></div>
           <div class="VideoSpacer"><!-- empty --></div>
    
-          <!-- Currently playing video -->
+          <!-- ### ### ### current playing video ### ### ### -->
           <div class="VideoPlaying">
             <div class="VideoPlayingLabelTitleMarkers">
               <div class="VideoPlayingLabel">					
@@ -71,25 +199,55 @@
                   <span><br /><mm:field name="duration"><mm:time format="mm"/>min.</mm:field></span>
               </div>
               <div class="clearBoth"><!-- empty --></div>
-              <div class="VideoMarkerNote">
-                  jump to a section of the video using the markers below
-              </div>
-              <div class="clearBoth"><!-- empty --></div>
+              
               <!-- Video Markers -->
-              <table id="list_Deelnemers" class="VideoMarkerList" border="0">
+
+              <mm:relatednodescontainer type="video" role="posrel" searchdirs="destination">
+                <mm:sortorder field="start" direction="UP" />
+
+                <div class="VideoMarkerNote">
+                    jump to a section of the video using the markers below
+                </div>
+
+                <ul class="videomarkers">
+                <mm:relatednodes>
+                  <li>
+                    [<tmf:duration milliseconds="${_node.start}" />]
+                    <a href="#" class="linkg"><mm:field name="title" /></a>
+                  </li>
+                </mm:relatednodes>
+                </ul>
+              </mm:relatednodescontainer>
+              
+              <!--<table id="list_Deelnemers" class="VideoMarkerList" border="0">
                 <tbody><tr>
                   <td class="liout" valign="top">[07:44]</td>
                   <td valign="top"><a href="#" id="0" class="linkg">IAA Research Overview</a></td>
                 </tr><tr>
                   <td></td>
                 </tr>
-              </tbody></table>
+              </tbody></table> -->
 			</div><!-- EOF .VideoPlayingLabelTitleMarkers -->
 			
 			<div class="VideoPlayer">
 			  <div id="player">
-			    <video width="480" height="360">
+
+                <mm:relatednodes type="picture" max="1">
+                  <mm:import id="poster"><mm:image width="480" height="360" crop="middle" /></mm:import>
+                  <!-- <mm:image template="s(150x100!)" /> -->
+                  <!-- <img src=""  alt='<mm:field name="title" />' width="150" height="100" /> -->
+                </mm:relatednodes>
+                <mm:isempty referid="poster">
+                </mm:isempty>
+
+			    <video width="480" height="360" poster="${poster}" controls="controls">
 			      <!-- VIDEO HERE -->
+			      
+			      <mm:field name="handle">
+			        <source src="${mm:escape('text/xml', _)}" type="video/quicktime" />
+			        <!-- <source src="${mm:escape('text/xml', _.URL)}" type="${_.mimeType}${codecs}" /> -->
+			      </mm:field>
+			      
 			    </video>
 			  </div>
               <div class="VideoSpacer3"><!-- empty --></div>
@@ -116,6 +274,18 @@
               <a href="#" onclick="window.open('article.jsp?objectnumber=52924','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;">
                 Engaging Ambivalence
               </a> 
+<!--
+<mm:relatednodes type="person" searchdir="DESTINATION"><h5>person</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="firstname"/> <mm:field name="prefix"/> <mm:field name="sirname"/></a></mm:relatednodes>
+			<mm:relatednodes type="person" searchdir="SOURCE"><h5>person</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="firstname"/> <mm:field name="prefix"/> <mm:field name="sirname"/></a></mm:relatednodes>
+			<mm:relatednodes type="article" searchdir="DESTINATION"><h5>article</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+  		<mm:relatednodes type="article" searchdir="SOURCE"><h5>article</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+			<mm:relatednodes type="event" searchdir="DESTINATION"><h5>event</h5> <a href="#" onclick="window.open('<mm:url page="event.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+  		<mm:relatednodes type="event" searchdir="SOURCE"><h5>event</h5> <a href="#" onclick="window.open('<mm:url page="event.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+			<mm:relatednodes type="campaign" searchdir="DESTINATION"><h5>campaign</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+  		<mm:relatednodes type="campaign" searchdir="SOURCE"><h5>campaign</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
+  		<mm:relatednodes type="url" searchdir="DESTINATION"><h5>extern</h5><a href="#" onclick="window.open('<mm:field name="url" />"><mm:field name="title"/></mm:relatednodes>				
+-->
+
     		</div>		
 			<div class="clearBoth"><!-- empty --></div>
 		  </div><!-- EOF .VideoLeftContainer -->

@@ -67,10 +67,11 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
     }
 
     public static final Parameter<Node> NODE = new Parameter<Node>("n", Node.class);
+    public static final Parameter<String> TYPE = new Parameter<String>("t", String.class);
 
     @Override
     public Parameter[] getParameterDefinition() {
-        return new Parameter[] {Parameter.REQUEST, Framework.COMPONENT, Framework.BLOCK, Parameter.CLOUD, NODE};
+        return new Parameter[] {Parameter.REQUEST, Framework.COMPONENT, Framework.BLOCK, Parameter.CLOUD, NODE, TYPE};
     }
 
     /**
@@ -80,15 +81,20 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
     protected void getNiceDirectoryUrl(StringBuilder b,
                                                  Block block,
                                                  Parameters parameters,
-                                                 Parameters frameworkParameters,  boolean action) throws FrameworkException {
+                                                 Parameters frameworkParameters, boolean action) throws FrameworkException {
         if (log.isDebugEnabled()) {
-            log.debug("" + parameters + frameworkParameters);
+            //log.debug("" + parameters + frameworkParameters);
             log.debug("Found tmf block " + block);
         }
         if (block.getName().equals("content")) {
             Node n = frameworkParameters.get(NODE);
+            String t = frameworkParameters.get(TYPE);
             if (n == null) throw new IllegalStateException("No node (n) parameter used in " + frameworkParameters);
-            
+            if (t == null) throw new IllegalStateException("No type (t) parameter used in " + frameworkParameters);
+
+            // replace begin of path with type
+            b.replace(1, b.indexOf("/", 2), t);
+
             b.append(n.getStringValue("number"));
             if (useTitle) {
                 b.append("/").append(trans.transform(n.getStringValue("title")));
@@ -106,7 +112,10 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
      */
     @Override
     public Url getFilteredInternalDirectoryUrl(List<String>  path, Map<String, ?> params, Parameters frameworkParameters) throws FrameworkException {
-        if (log.isDebugEnabled()) log.debug("path pieces: " + path + ", path size: " + path.size());
+        if (log.isDebugEnabled()) {
+            log.debug("path pieces: " + path + ", path size: " + path.size());
+            log.debug("@@ type here " + frameworkParameters.get(TYPE) );
+        }
 
         StringBuilder result = new StringBuilder();
         if (path.size() == 0) {

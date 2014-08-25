@@ -1294,3 +1294,256 @@ div.picturePicture
 }
 
 .shift_left a { margin: 1px 0 0 -18px; }
+
+/* ######## video ###### */
+
+
+
+div.VideoTMFLogo
+{
+	position: absolute;
+	top: 0px;
+	right: 73px;
+	z-index: 10;
+}
+
+div.VideoBrowse { float: right; }
+
+div.VideoBrowseLabel
+{
+	spacing: 4px;
+	float: right;
+	width: 62px;
+	border-top: 3px solid #CCCCCC;
+	padding-top: 10px;
+	text-align: right;
+	z-index: 2;
+	margin-right: 4px;
+}
+
+#VideoBrowseMask1
+{
+	position: absolute;
+	left: -1000px;
+	top: -3px;
+	width: 1000px;
+	height: 160px;
+	background-color: #FFF;
+	z-index: 6;
+}
+
+#VideoBrowseMask2
+{
+	position: absolute;
+	left: 632px;
+	top: 0px;
+	width: 1000px;
+	height: 160px;
+	background-color: #FFF;
+	z-index: 6;
+}
+
+div.VideoBrowseList
+{
+	float: right;
+	width: 632px;
+	background-color: #F2F2F2;
+	position: relative;
+	border-top: 3px solid #CCCCCC;
+}
+
+div.VideoBrowseTable1
+{
+	position: absolute;
+	top: 0px;
+	left: -632px;
+	border-collapse: collapse;
+	margin-top: 0px;
+	margin-left: 0px;
+	z-index: 5;
+}
+
+div.VideoBrowseTable2
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border-collapse: collapse;
+	margin-top: 0px;
+	margin-left: 0px;
+	z-index: 5;
+}
+
+div.VideoBrowseTable3
+{
+	position: absolute;
+	top: 0px;
+	left: 632px;
+	border-collapse: collapse;
+	margin-top: 0px;
+	margin-left: 0px;
+	z-index: 5;
+}
+
+div.videothumb1
+{
+	position: absolute;
+	padding: 0px;
+	padding-top: 0px;
+	left: 3px;
+	width: 158px;
+}
+
+div.videothumb2
+{
+	position: absolute;
+	padding: 0px;
+	padding-top: 0px;
+	left: 161px;
+	width: 158px;
+}
+
+div.videothumb3
+{
+	position: absolute;
+	padding: 0px;
+	padding-top: 0px;
+	left: 319px;
+	width: 158px;
+}
+
+div.videothumb4
+{
+	position: absolute;
+	padding: 0px;
+	padding-top: 0px;
+	left: 477px;
+	width: 158px;
+}
+
+div.VideoBrowsePrevious
+{
+	position: absolute;
+	bottom: -60px;
+	left: 20px;
+	opacity: 0.6;
+	z-index: 6;
+}
+
+div.VideoBrowseNext
+{
+	position: absolute;
+	bottom: -60px;
+	right: 20px;
+	opacity: 0.6;
+	z-index: 6;
+}
+
+div.VideoSpacer { height: 35px; }
+div.VideoSpacer3 { height: 20px; }
+
+div.VideoPlaying
+{
+	display: block;
+	float: right;
+	width: 697px;
+	padding: 0 0 100px 0;
+}
+
+div.VideoPlayingLabelTitleMarkers
+{
+	float: left;
+	width: 213px;
+}
+
+div.VideoPlayingLabel
+{
+	float: left;
+	width: 62px;
+	border-top: 6px solid #CCCCCC;
+	padding-top: 10px;
+	text-align: right;
+}
+
+div.VideoPlayingTitle
+{
+	background-color: #F2F2F2;
+	float: right;
+	width: 127px;
+	padding: 10px;
+	border-top: 6px solid #CCCCCC;
+}
+
+div.VideoMarkerNote
+{
+	float: right;
+	width: 147px;
+	font-size: 10px;
+	color: #CCCCCC;
+	padding: 3px 0px;
+	line-height: 14px;
+}
+
+table.VideoMarkerList { width: 215px; }
+
+table.VideoMarkerList tr td
+{
+	font-size: 10px;
+	color: #000000;
+	padding: 2px;
+}
+
+td.VideoMarkerTime
+{
+	width: 57px;
+	text-align: right;
+	vertical-align: top;
+}
+
+table.VideoMarkerList tr.VideoActiveMarker td
+{
+	font-weight: bold;
+	color: #000000;
+}
+
+table.VideoMarkerList tr.VideoActiveMarker td.ActiveTitle { background-color: #F2F2F2; }
+
+div.VideoPlayer
+{
+	float: right;
+	width: 480px;
+	height: auto;
+	border-top: 6px solid #CCCCCC;
+}
+
+div.VideoPlayerBox { text-align: right; }
+
+div.VideoLeftContainer
+{
+	float: left;
+	width: 199px;
+}
+
+div.VideoRelatedTopbar
+{
+	float: left;
+	width: 132px;
+	border-top: 3px solid #CCCCCC;
+}
+
+div.VideoRelatedLabel
+{
+	float: right;
+	width: 63px;
+	border-top: 3px solid #CCCCCC;
+	padding-top: 10px;
+}
+
+div.VideoLinks
+{
+	float: left;
+	clear: right;
+	font-size: 10px;
+	padding-top: 10px;
+	overflow: hidden;
+}

@@ -40,9 +40,10 @@
   
   <urlconverter class="net.tacticalmediafiles.MediaUrlConverter">
     <description xml:lang="en">
-      The urlconverter for media
+      The urlconverter for video content.
     </description>
     <param name="directory">/video/</param>
+    <param name="whitespaceReplacer">-</param>
   </urlconverter>
 
   <urlconverter class="org.mmbase.framework.basic.MMBaseUrlConverter">

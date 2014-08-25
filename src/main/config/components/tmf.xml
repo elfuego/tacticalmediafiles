@@ -15,18 +15,6 @@
   <title xml:lang="nl">tmf</title>
   <title xml:lang="en">tmf</title>
 
-  <block name="content"
-         classification="mmbase.tmf"
-         mimetype="text/html">
-    <title xml:lang="en">Content</title>
-    <title xml:lang="nl">Content</title>
-    <description xml:lang="en">Content item: article, event, campaign</description>
-    <description xml:lang="nl">Content item: artikel, event, campagne</description>
-    <body jsp="content.jspx">
-      <param name="n" type="org.mmbase.bridge.Node" />
-    </body>
-  </block>
-
   <block name="list"
          classification="mmbase.tmf"
          mimetype="text/html">
@@ -38,7 +26,20 @@
       <param name="type" type="String" />
     </body>
   </block>
-  
+
+  <block name="content"
+         classification="mmbase.tmf"
+         mimetype="text/html">
+    <title xml:lang="en">Content</title>
+    <title xml:lang="nl">Content</title>
+    <description xml:lang="en">Content item: article, event, campaign</description>
+    <description xml:lang="nl">Content item: artikel, event, campagne</description>
+    <body jsp="content.jspx">
+      <param name="n"    type="org.mmbase.bridge.Node" />
+      <param name="t"    type="String" />
+    </body>
+  </block>
+
   <block name="media"
          classification="mmbase.tmf"
          mimetype="text/html">
@@ -50,6 +51,5 @@
       <param name="n" type="org.mmbase.bridge.Node" />
     </body>
   </block>
-
  
 </component>
