@@ -1,0 +1,1045 @@
+/** GLOBAL LAYOUT **/
+body, div, p, table, tr, td, ul, li, h1, h2, h3, h4, h5, input, textarea {
+	margin: 0px ;
+	padding: 0px ;
+	font-family: Lucida Grande, Verdana ;
+	font-size: 11px ;
+	color: #444444 ;
+}
+
+td{
+	padding: 3px 5px;
+}
+form {
+	margin: 0px ;
+}
+
+div.GlobalContainer {
+	width: 900px ;
+	margin: 0 auto ;
+	overflow: hidden;
+}
+
+div.PictureContainer {
+	width: 900px ;
+	margin: 0 auto ;
+}
+	div.TopContainer {
+	
+	}
+	
+		div.TopLinesContainer {
+		}
+			div.TopLineCol1 {
+				float: left ;
+				width: 199px ;
+				height: 3px ;
+				background-color: #CCCCCC ;
+				margin-right: 4px ;
+			}
+			
+			div.TopLineCol1a {
+				float: left ;
+				width: 132px ;
+				height: 3px ;
+				background-color: #CCCCCC ;
+				margin-right: 4px ;
+			}
+			
+			div.TopLineCol1b {
+				float: left ;
+				width: 63px ;
+				height: 3px ;
+				background-color: #CCCCCC ;
+				margin-right: 4px ;
+			}
+			
+			div.TopLineCol2 {
+				float: left ;
+				width: 62px ;
+				height: 3px ;
+				background-color: #CCCCCC ;
+				margin-right: 4px ;
+			}
+			
+			div.TopLineCol3 {
+				float: left ;
+				width: 65px ;
+				height: 3px ;
+				background-color: #CCCCCC ;
+				margin-right: 4px ;
+			}
+			
+			div.TopLineCol4 {
+				float: left ;
+				width: 78px ;
+				height: 3px ;
+				background-color: #CCCCCC ;
+				margin-right: 4px ;
+			}
+			
+			div.TopLineCol3-4 {
+				float: left ;
+				width: 147px ;
+				height: 3px ;
+				background-color: #CCCCCC ;
+				margin-right: 4px ;
+			}
+			
+			div.TopLineCol5 {
+				float: left ;
+				width: 480px ;
+				height: 3px ;
+				background-color: #CCCCCC ;
+			}
+			
+			div.TopLineCol5Search {
+				float: left ;
+				width: 480px ;
+				height: 3px ;
+				background-color: #F2F2F2 ;
+			}
+		
+		/** SEARCH **/
+
+		div.TopSearchContainer {
+			float: right ;
+			width: 558px ;
+		}
+		
+			div.TopSearchLabel {
+				float: left ;
+				width: 78px ;
+				position: relative ;
+			}
+			
+				img.SearchLabel {
+					position: absolute ;
+					right: 5px ;
+					top: 8px ;
+				}
+			
+			div.TopSearchForm {
+				float: right ;
+				width: 480px ;
+				background-color: #F2F2F2 ;
+				height: 35px ;
+			}
+			
+			form.searchform {
+				margin: 0px ;
+				padding: 5px 10px ;
+			}
+			
+				input.SearchInputSmall {
+					border: 0px ;
+					font-size: 11px ;
+					margin: 0px ;
+					padding: 0px ;
+					height: 17px ;
+				}
+				
+				span.searchtexts {
+					font-size: 10px ;
+					color: #AAA ;
+				}
+				
+				select.searchfor {
+					font-size: 11px ;
+					width: 75px ;
+				}
+				
+				select.searchsortby {
+					font-size: 11px ;
+					width: 75px ;
+				}
+.playIcon{
+	position: relative;
+	left:-66px;
+	top:-30px;
+}
+
+	hr {
+		border: 0px ;
+		color: #CCCCCC ;
+		background-color: #CCCCCC ;
+		height: 3px ;
+		margin: 0px ;
+		padding: 0px ;
+	}
+	
+	hr.thick {
+		border: 0px ;
+		color: #CCCCCC ;
+		background-color: #CCCCCC ;
+		height: 6px ;
+		margin: 0px ;
+		padding: 0px ;
+	}
+
+	.clearBoth {
+		clear: both ;
+		height: 0px ;
+		overflow: hidden ;
+	}
+
+	h1.Title {
+		font-family: Georgia ;
+		color: #00ADEE ;
+		font-size: 23px ;
+		font-weight: normal ;
+		line-height: 28px ;
+	}
+	
+	h2.Title {
+		font-family: Georgia ;
+		color: #00ADEE ;
+		font-size: 16px ;
+		font-weight: bold ;
+		line-height: 22px ;
+		display: inline ;
+	}
+
+	h5 {
+		font-size: 10px ;
+		color: #CCCCCC ;
+		font-weight: normal ;
+	}
+	
+	a {
+		color: #00ADEE ;
+		text-decoration: none ;
+		font-weight: normal ;
+	}
+	
+	a.small {
+		font-size: 10px ;
+	}
+	
+	a.medium {
+		font-size: 12px ;
+	}
+	
+	span.filelabel, p.filelabel {
+		font-family: Courier ;
+		color: #CCCCCC ;
+		font-size: 10px ;
+		margin-bottom: 5px ;
+	}
+	
+	img, a img {
+		border: 0px ;
+	}
+	
+	p.Summary {
+		font-family: Georgia ;
+		font-size: 14px ;
+		font-style: italic ;
+		line-height: 24px ;
+		padding: 3px ;
+		color: #3A3A3A ;
+	}
+	
+	p.Text {
+		font-size: 12px ;
+		font-family: Lucida Grande, Verdana ;
+		line-height: 18px ;
+	}
+/** NAVIGATION **/
+
+div.NavigationContainer {
+	background-color: #F2F2F2 ;
+	width: 480px ;
+	height: 35px ;
+	float: right ;
+}
+
+	ul.NavigationMenu {
+		float: left ;
+		list-style: none ;
+		margin: 0px ;
+		margin-top: 12px ;
+		padding: 0px ;
+		padding-left: 10px ;
+	}
+	
+	ul.NavigationMenu2 {
+		float: right ;
+		width: 70px ;
+		text-align: center ;
+		list-style: none ;
+		margin: 0px ;
+		margin-top: 12px ;
+		padding: 0px ;
+		padding-right: 30px ;
+	}
+	
+		ul.NavigationMenu li {
+			display: inline ;
+			margin: 0px ;
+			font-size: 11px ;
+			font-weight: bold ;
+			padding: 0px 4px ;
+			color: #CCCCCC ;
+		}
+		
+		ul.NavigationMenu2 li {
+			display: inline ;
+			margin: 0px ;
+			font-size: 11px ;
+			font-weight: bold ;
+			padding: 0px 5px ;
+			color: #CCCCCC ;
+			text-align: center ;
+		}
+		
+			ul.NavigationMenu li a {
+				letter-spacing: -0.2px ;
+				color: #AAA ;
+			}
+			
+			ul.NavigationMenu li a:hover {
+				color: #616161 ;
+			}
+			
+			ul.NavigationMenu li a.sel {
+				color: #616161 ;
+			}
+			
+			ul.NavigationMenu li a.sel:hover {
+				color: #616161 ;
+			}
+			
+			input.SearchNav {
+				display: inline ;
+				font-size: 11px ;
+				font-weight: bold ;
+				width: 70px ;
+				border: 0px ;
+				margin: 0px ;
+				padding: 0px ;
+				color: #CCCCCC ;
+				text-align: center ;
+			}
+			
+			input.SearchNav2 {
+				display: inline ;
+				font-size: 11px ;
+				font-weight: bold ;
+				width: 70px ;
+				border: 0px ;
+				margin: 0px ;
+				padding: 0px ;
+				color: #3A3A3A ;
+			}
+			
+			form.NavSearch {
+				display: inline ;
+				margin: 0px ;
+				padding: 0px ;
+			}
+
+.allvideos {
+		display: block;
+		position: relative;
+		top: -430px;
+		left: 414px;
+	}
+/** ARTICLE **/
+
+div.ArticleContainer {
+
+}
+
+
+div.ArticleTMFLogo {
+	float: left ;
+	width: 200px ;
+	margin-top: -5px ;
+}
+
+div.ArticleTitleContainer {
+	float: right ;
+	width: 697px ;
+}
+
+	div.ArticleTitlePositioner {
+		height: 60px ;
+	}
+
+	div.ArticleLabel {
+		float: left ;		
+		width: 62px ;
+		border-top: 6px solid #CCCCCC ;
+		padding-top: 10px ;
+		text-align: right;
+	}
+
+	div.ArticleTitle {
+		background-color: #F2F2F2 ;
+		float: right ;
+		width: 620px ;
+		padding: 5px ;
+		border-top: 6px solid #CCCCCC ;
+	}
+	
+div.ArticleSummaryContainer {
+	width: 632px ;
+	float: right ;
+}
+
+	div.ArticleAuthor {
+		font-family: Georgia ;
+		font-size: 10px ;
+		font-weight: bold ;
+		text-transform: uppercase ;
+		color: #000000 ;
+		float: left ;
+		width: 145px ;
+		padding-top: 8px ;
+	}
+	
+	div.ArticleSummary {
+		width: 480px ;
+		float: right ;
+	}
+
+div.ArticleSpacer {
+	height: 40px ;
+}
+
+div.ArticleSpacer2 {
+	height: 35px ;
+}
+
+div.ArticleLeftContainer {
+	float: left ;
+	width: 270px ;
+}
+
+	div.ArticleLeftLine {
+		float: left ;
+		width: 200px ;
+		border-top: 3px solid #CCCCCC ;
+	}
+
+	div.ArticleLinksContainer {
+		float: left ;
+		clear: left ;
+		width: 270px ;
+		padding-right: 10px ;
+	}
+
+		div.ArticleLinksMover {
+			float: left ;
+			width: 200px ;
+			height: 12px ;
+		}
+
+	/*
+	div.ArticleLinks {
+		float: left ;
+		width: 200px ;
+		font-size: 10px ;
+		border-top: 3px solid #CCCCCC ;
+		padding-top: 10px ;
+	}
+	*/
+	
+	div.ArticleLinksLabel {
+		float: right ;
+		width: 65px ;
+		border-top: 3px solid #CCCCCC ;
+		padding-top: 10px ;
+	}
+	
+	div.ArticleImage {
+		float: left ;
+		clear: left ;
+		padding-right: 10px ;
+	}
+	
+	div.ArticleImageLabel {
+		float: left ;
+		width: 270px ;
+	}
+	
+	div.ArticleImageContainer {
+		float: left ;
+		clear: left ;
+		padding-right: 10px ;
+		width: 415px ;
+	}
+	
+	div.ArticleLeftFiller {
+		float: left ;
+		clear: left ;
+		width: 270px ;
+		padding-right: 10px ;
+	}
+	
+div.ArticleContent {
+	width: 900px ;
+}
+/** VIDEO **/
+
+
+div.VideoTMFLogo {
+	position: absolute ;
+	top: 0px;
+	right: 73px;
+	z-index: 10;
+}
+
+div.VideoBrowse {
+	float: right ;
+}
+
+	div.VideoBrowseLabel {
+		spacing: 4px;
+		float: right ;
+		width: 62px ;
+		border-top: 3px solid #CCCCCC ;
+		padding-top: 10px ;
+		text-align: right ;
+		z-index: 2;
+		margin-right: 4px ;
+	}
+
+
+
+#VideoBrowseMask1	{
+			position: absolute;
+			left: -1000px;
+			top: -3px;
+			width: 1000px;
+			height: 160px;
+			background-color: #FFF;
+			z-index: 6;
+		}
+
+#VideoBrowseMask2	{
+			position: absolute;
+			left: 632px;
+			top: 0px;
+			width: 1000px;
+			height: 160px;
+			background-color: #FFF;
+			z-index: 6;
+		}
+	
+	div.VideoBrowseList {
+		float: right ;
+		width: 632px ;
+		background-color: #F2F2F2 ;
+		position: relative ;
+		border-top: 3px solid #CCCCCC ;
+	}
+		
+		div.VideoBrowseTable1 {
+			position: absolute ;
+			top: 0px ;
+			left: -632px ;
+			border-collapse: collapse ;
+			margin-top: 0px ;
+			margin-left: 0px ;
+			z-index: 5;
+		}
+
+		div.VideoBrowseTable2 {
+			position: absolute ;
+			top: 0px ;
+			left: 0px ;
+			border-collapse: collapse ;
+			margin-top: 0px ;
+			margin-left: 0px ;
+			z-index: 5;
+		}
+
+		div.VideoBrowseTable3 {
+			position: absolute ;
+			top: 0px ;
+			left: 632px ;
+			border-collapse: collapse ;
+			margin-top: 0px ;
+			margin-left: 0px ;
+			z-index: 5;
+		}		
+
+		div.videothumb1 {
+			position: absolute ;
+			padding: 0px;
+			padding-top: 0px;
+			left: 3px ;
+			width: 158px;			
+		}
+
+		div.videothumb2 {
+			position: absolute ;
+			padding: 0px;
+			padding-top: 0px;
+			left: 161px ;
+			width: 158px;	
+		}
+		
+		div.videothumb3 {
+			position: absolute ;
+			padding: 0px;
+			padding-top: 0px;
+			left: 319px ;
+			width: 158px;	
+		}
+
+		div.videothumb4 {
+			position: absolute ;
+			padding: 0px;
+			padding-top: 0px;
+			left: 477px ;
+			width: 158px;		
+		}
+
+		div.VideoBrowsePrevious {
+			position: absolute ;
+			bottom: -60px ;
+			left: 20px ;
+			opacity: 0.6 ;
+			z-index: 6;
+		}
+		
+		div.VideoBrowseNext {
+			position: absolute ;
+			bottom: -60px ;
+			right: 20px ;
+			opacity: 0.6 ;
+			z-index: 6;
+		}
+
+div.VideoSpacer {
+	height: 35px ;
+}
+
+
+div.VideoSpacer3 {
+	height: 20px ;
+}
+
+div.VideoPlaying {
+	display: block;
+	float: right ;
+	width: 697px ;
+	padding: 0 0 100px 0;
+}
+
+	div.VideoPlayingLabelTitleMarkers {
+		float: left ;
+		width: 213px ;
+	}
+		div.VideoPlayingLabel {
+			float: left ;
+			width: 62px ;
+			border-top: 6px solid #CCCCCC ;
+			padding-top: 10px ;
+			text-align: right ;
+		}
+		
+		div.VideoPlayingTitle {
+			background-color: #F2F2F2 ;
+			float: right ;
+			width: 127px ;
+			padding: 10px ;
+			border-top: 6px solid #CCCCCC ;
+		}
+		
+		div.VideoMarkerNote {
+			float: right ;
+			width: 147px ;
+			font-size: 10px ;
+			color: #CCCCCC ;
+			padding: 3px 0px ;
+			line-height: 14px ;
+		}
+		
+		table.VideoMarkerList {
+			width: 215px ;
+		}
+		
+		table.VideoMarkerList tr td {
+			font-size: 10px ;
+			color: #000000 ;
+			padding: 2px ;
+		}
+		
+		td.VideoMarkerTime {
+			width: 57px ;
+			text-align: right ;
+			vertical-align: top ;
+		}
+		
+		table.VideoMarkerList tr.VideoActiveMarker td {
+			font-weight: bold ;
+			color: #000000 ;
+		}
+		
+		table.VideoMarkerList tr.VideoActiveMarker td.ActiveTitle {
+			background-color: #F2F2F2 ;
+		}
+		
+	
+	div.VideoPlayer {
+		float: right ;
+		width: 480px ;
+		height: auto;
+		border-top: 6px solid #CCCCCC ;
+	}
+	
+		div.VideoPlayerBox {
+			text-align: right ;
+		}
+
+div.VideoLeftContainer {
+	float: left ;
+	width: 199px ;
+
+}
+	
+	div.VideoRelatedTopbar {
+		float: left ;
+		width: 132px ;
+		border-top: 3px solid #CCCCCC ;
+	}
+
+	div.VideoRelatedLabel {
+		float: right ;
+		width: 63px ;
+		border-top: 3px solid #CCCCCC ;
+		padding-top: 10px ;
+	}
+	
+	div.VideoLinks {
+		float: left ;
+		clear: right ;
+		font-size: 10px ;
+		padding-top: 10px ;
+	overflow: hidden;
+	}
+
+/** HOME **/
+
+div.HomeContainer {
+
+}
+
+	div.HomeTMFLogo {
+		float: right ;
+		margin-top: 33px ;
+	}
+
+	div.HomeSummary {
+		width: 470px ;
+		padding: 20px 5px ;
+	}
+	
+	div.HomeArchive {
+		float: right ;
+		width: 631px ;
+	}
+	
+		div.HomeArchiveLabel {
+			float: left ;
+			width: 146px ;
+			padding-top: 10px ;
+			text-align: right ;
+			border-top: 6px solid #CCCCCC ;
+		}
+		
+		div.HomeArchiveLists {
+			float: right ;
+			width: 480px ;
+			border-top: 6px solid #CCCCCC ;
+			background-color: #F2F2F2 ;
+			position: relative ;
+		}
+		
+			div.HomeArchivePrevious {
+				position: absolute ;
+				bottom: 6px ;
+				left: 3px ;
+			}
+			
+			div.HomeArchiveNext {
+				position: absolute ;
+				bottom: 6px ;
+				right: 3px ;
+			}
+		
+			table.HomeArchiveTable {
+				border-collapse: collapse ;
+				margin-left: -2px ;
+			}
+			
+			table.HomeArchiveTable tr td {
+				padding: 2px ;
+				padding-top: 0px ;
+			}
+			
+			table.HomeArchiveTable tr.HomeArchiveTitle td {
+				height: 24px ;
+				text-align: center ;
+				padding-top: 0px ;
+				padding-bottom: 0px ;
+			}
+	
+	div.HomeSpacer {
+		height: 80px ;
+	}
+	
+	div.HomeLeft {
+		float: left ;
+		width: 334px ;
+	}
+	
+		div.HomeNewsLabel {
+			float: right ;
+			width: 65px ;
+			padding-top: 15px ;
+			border-top: 3px solid #CCCCCC ;
+		}
+	
+		div.HomeLeftItem {
+			margin-bottom: 35px ;
+		}
+	
+			div.HomeLeftItemTitle {
+				float: left ;
+				width: 265px ;
+				border-top: 3px solid #CCCCCC ;
+				padding-top: 10px ;
+			}
+			
+			div.HomeLeftItemText {
+				float: left ;
+				width: 265px ;
+				font-size: 12px ;
+				font-family: Lucida Grande, Verdana ;
+				line-height: 18px ;
+			}
+			
+			div.HomeLeftItemDate {
+				float: right ;
+				width: 65px ;
+				color: #7D7D7D ;
+				line-height: 20px ;
+				font-size: 8px ;
+			}
+		
+	div.HomeFeatured {
+		float: right ;
+		width: 562px ;
+	}
+
+		div.HomeFeaturedLabel {
+			float: left ;
+			width: 78px ;
+			text-align: right ;
+			padding-top: 10px ;
+			border-top: 3px solid #CCCCCC ;
+		}
+		
+		div.HomeFeaturedList {
+			float: right ;
+			width: 480px ;
+		}
+		
+			div.HomeFeaturedItem {
+				border-top: 3px solid #CCCCCC ;
+			}
+		
+			div.HomeFeaturedPhoto {
+				position: relative ;
+				text-align: right ;
+			}
+		
+			div.HomeFeaturedPhotoOverlay {
+				position: absolute ;
+				bottom: 0px ;
+				left: 0px ;
+				background-color: white ;
+				width: 480px ;
+				height: 55px ;
+				opacity: 0.8 ;
+			}
+			
+				div.HomeFeaturedPhotoType {
+					position: absolute ;
+					bottom: 30px ;
+					left: 10px ;
+				}
+				
+				div.HomeFeaturedPhotoAuthor {
+					position: absolute ;
+					bottom: 10px ;
+					left: 10px ;
+					font-family: Georgia ;
+					font-size: 10px ;
+					font-weight: bold ;
+					text-transform: uppercase ;
+				}
+		
+			div.HomeFeaturedItemTitle {
+				padding: 10px ;
+				background-color: #F2F2F2 ;
+			}
+			
+			div.HomeFeaturedItemText {
+				padding: 10px ;
+			}
+			
+			p.ReadFullArticle {
+				text-align: right ;
+				margin-top: 15px ;
+			}
+		
+/** SEARCH PAGE **/
+
+div.SearchContainer {
+
+}
+
+	div.SearchSpacer0 {
+		float: right ;
+		width: 500px ;
+		height: 100px ;
+	}
+
+	div.SearchTMFLogo {
+		clear: left ;
+		float: left ;
+		width: 200px ;
+		margin-top: 35px ;
+	}
+
+	div.SearchSpacer {
+		height: 40px ;
+	}
+	
+	div.SearchSpacer2 {
+		height: 15px ;
+	}
+	
+	div.SearchBarContainer {
+		clear: right ;
+	}
+	
+		div.SearchLabel {
+			float: right ;
+			width: 62px ;
+			border-top: 6px solid #CCCCCC ;
+			padding-top: 10px ;
+			text-align: right ;
+		}
+	
+		div.SearchField {
+			background-color: #F2F2F2 ;
+			float: right ;
+			width: 132px ;
+			height: 22px ;
+			padding: 8px ;
+			border-top: 6px solid #CCCCCC ;
+			margin-left: 4px ;
+		}
+			
+			input.SearchInput {
+				display: inline ;
+				font-size: 11px ;
+				font-weight: bold ;
+				height: 15px ;
+				width: 100% ;
+				border: 0px ;
+				margin: 0px ;
+				margin-top: 1px ;
+				padding: 0px ;
+			}
+	
+		div.SearchOptions {
+			background-color: #F2F2F2 ;
+			float: right ;
+			width: 470px ;
+			min-height: 22px ;
+			padding: 5px ;
+			border-top: 6px solid #CCCCCC ;
+			margin-left: 4px ;
+		}
+	
+			div.SearchSimpleLinks {
+				float: left ;
+				width: 350px ;
+				margin-top: 6px ;
+			}
+			
+			div.SearchSimpleAdvanced {
+				float: right ;
+				width: 120px ;
+				margin-top: 6px ;
+			}
+			
+			ul.SearchSimpleOptions {
+				list-style: none ;
+				margin: 0px ;
+			}
+			
+			ul.SearchSimpleOptions li {
+				display: inline ;
+				margin-right: 8px ;
+			}
+			
+			div.SearchAdvanced {
+				padding-left: 20px ;
+				display: none ;
+			}
+			
+			div.SearchAdvanced2 {
+				padding-left: 20px ;
+				display: block ;
+			}
+			
+			input.SearchSubmit {
+				background-color: #CCCCCC ;
+				color: #3A3A3A ;
+				font-weight: bold ;
+				border: 0px ;
+				padding: 0px 3px ;
+				margin-bottom: 10px ;
+			}
+			
+			input.SearchInputRadio {
+				vertical-align: bottom ;
+			}
+			
+	
+	
+	div.SearchResults {
+		float: right ;
+		width: 470px ;
+		padding: 5px ;
+	}
+	
+
+	div.SearchBottomLineLeft {
+		float: left ;
+		width: 200px ;
+	}
+	
+	div.SearchBottomLineRight {
+		float: right ;
+		width: 696px ;
+	}
+
+.openplayer:hover{
+	color: #000;
+}
+
+
+.openplayer{
+	color: #333;
+}
+
