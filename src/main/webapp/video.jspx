@@ -79,7 +79,7 @@
 
               <!-- List of Thumbnails with Titles -->
               <div class="VideoBrowseTable1" id="thumbs1">
-                <mm:listnodescontainer type="media">
+                <mm:listnodescontainer type="video">
                   <mm:sortorder field="title" direction="UP" />
                   <mm:offset value="0" />
                   <mm:maxnumber value="4" />
@@ -111,7 +111,7 @@
               </div><!-- EOF .VideoBrowseTable1 -->
 
               <div class="VideoBrowseTable2" id="thumbs2">
-                <mm:listnodescontainer type="media">
+                <mm:listnodescontainer type="video">
                   <mm:sortorder field="title" direction="UP" />
                   <mm:offset value="4" />
                   <mm:maxnumber value="4" />
@@ -143,7 +143,7 @@
               </div><!-- EOF .VideoBrowseTable2 -->
 
               <div class="VideoBrowseTable3" id="thumbs3">
-                <mm:listnodescontainer type="media">
+                <mm:listnodescontainer type="video">
                   <mm:sortorder field="title" direction="UP" />
                   <mm:offset value="8" />
                   <mm:maxnumber value="4" />
@@ -202,12 +202,16 @@
               
               <!-- Video Markers -->
 
-              <mm:relatednodescontainer type="video" role="posrel" searchdirs="destination">
-                <mm:sortorder field="start" direction="UP" />
+              <mm:relatednodescontainer type="fragment" role="posrel" searchdirs="destination">
+                <mm:sortorder field="number" direction="UP" />
 
-                <div class="VideoMarkerNote">
-                    jump to a section of the video using the markers below
-                </div>
+                <mm:size>
+                  <mm:isgreaterthan value="0">
+                    <div class="VideoMarkerNote">
+                      jump to a section of the video using the markers below
+                    </div>
+                  </mm:isgreaterthan>
+                </mm:size>
 
                 <ul class="videomarkers">
                 <mm:relatednodes>

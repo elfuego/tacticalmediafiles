@@ -34,11 +34,7 @@
           
           <mm:import id="max">20</mm:import>
           <mm:import externid="offset">0</mm:import>
-          
-          <c:if test="${type eq 'video'}">
-            <mm:import id="type" reset="true">media</mm:import>
-          </c:if>
-          
+                    
           <mm:listnodescontainer type="${type}">
             <mm:sortorder field="number" direction="DOWN" />
             <div class="SearchTypes">
@@ -48,10 +44,10 @@
             <mm:maxnumber value="${max}" />
             <mm:offset value="${offset}" />
             <mm:listnodes>
-              <h5>${type eq 'media' ? 'video' : type}</h5>
+              <h5>${type}</h5>
               
               <c:choose>
-                <c:when test="${type eq 'media'}">
+                <c:when test="${type eq 'video'}">
                   <mm:link page="media">
                     <mm:frameworkparam name="component">tmf</mm:frameworkparam>
                     <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
