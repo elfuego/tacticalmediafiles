@@ -19,10 +19,17 @@
 </head>
 <body>
 
-  <h1>Convert</h1>
+  <h1>Convert media/video</h1>
   <mm:import externid="convert" />
   <p>
-    media convertert
+    media convertert<br />
+    
+    read field handle from video,
+    put that in a mediasources,
+    create mediasources, mediafragments and streamsources from it,
+    related mediafragments to video
+    and use that to display video stream in html5 video element.
+    
     <mm:link>
       <mm:param name="commit">true</mm:param>
       <a href="${_}">commit</a>
@@ -42,14 +49,13 @@
             
             <mm:field name="number" /> - 
             <mm:import id="title" reset="true"><mm:field name="title" /></mm:import>
-
             <mm:import id="handle" reset="true"><mm:field name="handle" /></mm:import>
             
-            <mm:createnode type="mediafragments" id="mediafr" >
+            <!-- <mm:createnode type="mediafragments" id="mediafr" >
               <mm:setfield name="title"><mm:write referid="title" /></mm:setfield>
               <mm:setfield name="subtitle"><mm:write referid="title" /></mm:setfield>
-            </mm:createnode>
-            <mm:createrelation source="video" destination="mediafr" role="related" />
+            </mm:createnode> -->
+            <!-- <mm:createrelation source="video" destination="mediafr" role="related" /> -->
             
             
             
@@ -61,18 +67,43 @@
             file: <strong>${split[len - 1]}</strong>
             
             <!-- TODO: replace with handle! is just test -->
-            <c:set var="url" value="Dolfijnen.mp4" />
-            
+            <c:set var="url" value="dolfijnen.mp4" />
+            url : ${url}
             <!-- get new media node, make url, download stream, submit and transcode it -->
-            <mm:node number="$mediafr">
+            <!-- <mm:node number="$mediafr">
               <mm:import id="source_url">
                 <mm:functioncontainer>
                   <mm:param name="url">${url}</mm:param>
                   <mm:function name="download" />
                 </mm:functioncontainer>
               </mm:import>
-            </mm:node>
+            </mm:node> -->
+            <mm:createnode id="newsource" type="streamsources">
+              <mm:setfield name="title"><mm:write referid="title" /></mm:setfield>
+              <mm:setfield name="url">/mediafiles/${url}</mm:setfield>
+              <mm:setfield name="mediaprovider">default.provider</mm:setfield>
+            </mm:createnode>
+            
+            <mm:node referid="newsource">
+              <mm:voidfunction name="waitUntilRecognized" />
+              
+              <mm:log level="info">Mediafragment title: <mm:field name="title" /></mm:log>
+              <div>
+              
+                Submitted ${_node} URL: ${_node.url} FS: ${_node.filesize}
+                <!-- <mm:hasfunction name="changeUrl">
+                  <mm:functioncontainer>
+                    <mm:booleanfunction name="changeUrl" referids="url">
+                      <p class="msg stay">Updated url field with changeUrl '${url}' (without transcoding).</p>
+                    </mm:booleanfunction>
+                  </mm:functioncontainer>
+                </mm:hasfunction> -->
 
+                media: <mm:field name="mediafragment" id="media" />
+                
+               <mm:field name="title" /> -
+              <mm:field name="url" /></div>
+            </mm:node>
             
           </li>
         </mm:listnodes>

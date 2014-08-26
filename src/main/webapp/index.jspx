@@ -24,7 +24,7 @@ body { font-family: sans-serif; }
   <h1>tacticalmediafiles.net</h1>
   <a href="${mm:link('/mmbase/')}">MMBase</a>
   - <a href="list.jspx">list</a>
-  - <a href="about.jspx">about</a>
+  - <a href="article.jsp?objectnumber=38519">about</a>
   
 </div>
 </body>
