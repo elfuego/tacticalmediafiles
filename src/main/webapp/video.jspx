@@ -2,6 +2,7 @@
     version="2.0"
     xmlns:c="http://java.sun.com/jsp/jstl/core"
     xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
@@ -244,15 +245,14 @@
                 <mm:isempty referid="poster">
                 </mm:isempty>
 
-			    <video width="480" height="360" poster="${poster}" controls="controls">
-			      <!-- VIDEO HERE -->
-			      
-			      <mm:field name="handle">
-			        <source src="${mm:escape('text/xml', _)}" type="video/quicktime" />
-			        <!-- <source src="${mm:escape('text/xml', _.URL)}" type="${_.mimeType}${codecs}" /> -->
-			      </mm:field>
-			      
-			    </video>
+                <!-- this mediafragment contains the -->
+                <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
+                  <mm:maxnumber value="1" />
+                  <mm:relatednodes>
+                    <tmf:video width="480" height="360" poster="${poster}" />
+                  </mm:relatednodes>
+                </mm:relatednodescontainer>
+
 			  </div>
               <div class="VideoSpacer3"><!-- empty --></div>
               <p class="Summary">

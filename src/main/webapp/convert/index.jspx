@@ -38,7 +38,7 @@
 
 
   <mm:import externid="commit">false</mm:import>
-  <mm:transaction commitonclose="$commit">
+  <mm:transaction name="mytrans" commitonclose="$commit">
 
       <mm:listnodescontainer type="video">
         <h2><mm:size /> videos</h2>
@@ -78,19 +78,28 @@
                 </mm:functioncontainer>
               </mm:import>
             </mm:node> -->
-            <mm:createnode id="newsource" type="streamsources">
+            <mm:createnode id="newsource" type="streamsources" commitonclose="true">
               <mm:setfield name="title"><mm:write referid="title" /></mm:setfield>
-              <mm:setfield name="url">/mediafiles/${url}</mm:setfield>
               <mm:setfield name="mediaprovider">default.provider</mm:setfield>
             </mm:createnode>
-            
             <mm:node referid="newsource">
+              <div style="border:1px solid #ccc;">
+              <mm:field name="title" />
               <mm:voidfunction name="waitUntilRecognized" />
-              
               <mm:log level="info">Mediafragment title: <mm:field name="title" /></mm:log>
-              <div>
               
-                Submitted ${_node} URL: ${_node.url} FS: ${_node.filesize}
+              <mm:hasfunction name="changeUrl">
+                <mm:booleanfunction name="changeUrl" referids="url">
+                  <p style="border:1px solid #c00;">
+                    Updated url with changeUrl '${url}' and state <!-- '${form_state}'. -->
+                    Submitted ${_node} URL: ${_node.url} FS: ${_node.filesize}
+                  </p>
+                </mm:booleanfunction>
+              </mm:hasfunction>
+              <mm:hasfunction name="changeUrl" inverse="true">
+                - Does not have func -
+              </mm:hasfunction>
+              
                 <!-- <mm:hasfunction name="changeUrl">
                   <mm:functioncontainer>
                     <mm:booleanfunction name="changeUrl" referids="url">
@@ -100,9 +109,11 @@
                 </mm:hasfunction> -->
 
                 media: <mm:field name="mediafragment" id="media" />
+                <mm:createrelation source="video" destination="media" role="related" />
                 
-               <mm:field name="title" /> -
-              <mm:field name="url" /></div>
+                  <mm:field name="title" /> -
+                  url: <mm:field name="url" />
+              </div>
             </mm:node>
             
           </li>
