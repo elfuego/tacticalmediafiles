@@ -1,0 +1,209 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    expires="120" type="text/html"
+    language="client">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.1//EN"
+      doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+<mm:cloud method="http" logon="admin" >
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Convert</title>
+  <style type="text/css">
+  body {font-family: sans-serif;}
+  </style>
+</head>
+<body>
+
+<jsp:scriptlet> pageContext.setAttribute("enumStates", org.mmbase.applications.media.State.values()); </jsp:scriptlet>
+
+<h2>Edit streams</h2>
+<p>Edit streams, like changing stream url to match it with (new) location on filesystem.</p>
+        
+<mm:import externid="nr" />
+<mm:import externid="submit" />
+
+<mm:import externid="max">10</mm:import>
+<mm:import externid="offset">0</mm:import>
+
+<mm:import externid="form_url" />
+<mm:import externid="form_state" />
+<mm:import externid="form_title" />
+
+<mm:url referids="nr,max?,offset?" id="formlink" absolute="true" write="false" escapeamps="false" />
+
+<mm:present referid="nr">
+  <mm:notpresent referid="submit">
+    <mm:node number="$nr">
+
+      <mm:form id="form" page="$formlink">
+    
+        <h3>[<mm:field name="number" />] <mm:nodeinfo type="guitype" /></h3>
+        <p>
+          When you change the url of a media (stream) source, 
+          make sure it matches correctly with the exact same name as on its file on your filesystem. 
+          Or you won't be able to transcode, download or play it.<br />
+          
+          The final url is typically : (media)provider + url<br />
+          For example: http://localhost:8080/files/ + 12/123.Movie-720p.mpeg = http://localhost:8080/12/123.Movie-720p.mpeg
+        </p>
+        <fieldset>
+
+
+          <mm:hasfield name="title">
+            <mm:fieldlist fields="title">
+              <c:set var="fld_name"><mm:fieldinfo type="name" /></c:set>
+              <div class="${fld_name}">
+                <mm:fieldinfo type="forid">
+                  <label for="${_}" class="${fld_name}"><mm:fieldinfo type="guiname" /></label>
+                </mm:fieldinfo>
+                <p class="info"><mm:fieldinfo type="description" escape="inline" /></p>
+                <mm:fieldinfo type="guivalue" escape="none" />
+              </div>
+            </mm:fieldlist>
+          </mm:hasfield>
+
+          
+          <mm:fieldlist fields="url">
+            <div class="url">
+              <label for="my_url">Edit url</label>
+              <p class="info">
+                The url has to be exactly the same as on your filesystem. 
+                Excluding the media provider (that is without http://server etc.).
+              </p>
+              <mm:import id="my_url" reset="true"><mm:field name="url" /></mm:import>
+              <input type="text" id="mm_form_url" name="form_url" value="${my_url}" />
+            </div>
+          </mm:fieldlist>
+          
+          <div class="state">
+            <label for="my_state">
+              State (<mm:field name="state" id="mediastate" />)
+            </label>
+            <p class="info">
+              State of a media item, like original (uploaded) media is source, 
+              media being transcoded is busy etc.
+            </p>
+            <select name="form_state" id="my_state">
+              <c:forEach var="st" items="${enumStates}">
+                <mm:option value="${st.value}" compare="${mediastate}">${st}</mm:option>
+              </c:forEach>
+            </select>
+          </div>
+          
+          <mm:hasfield name="mediaprovider">
+            <mm:fieldlist fields="mediaprovider">
+              <c:set var="fld_name"><mm:fieldinfo type="name" /></c:set>
+              <div class="${fld_name}">
+                <mm:fieldinfo type="forid">
+                  <label for="${_}" class="${fld_name}"><mm:fieldinfo type="guiname" /></label>
+                </mm:fieldinfo>
+                <p class="info"><mm:fieldinfo type="description" escape="inline" /></p>
+                <mm:fieldinfo type="input" />
+              </div>
+            </mm:fieldlist>          
+          </mm:hasfield>
+
+          <mm:fieldlist fields="format,url,filesize">
+            <c:set var="fld_name"><mm:fieldinfo type="name" /></c:set>
+            <div class="${fld_name}">
+              <mm:fieldinfo type="forid">
+                <label for="${_}" class="${fld_name}"><mm:fieldinfo type="guiname" /></label>
+              </mm:fieldinfo>
+              <p class="info"><mm:fieldinfo type="description" escape="inline" /></p>
+              <mm:fieldinfo type="guivalue" escape="none" />
+            </div>
+          </mm:fieldlist>
+      
+        </fieldset>
+        
+        <mm:maywrite>
+          <fieldset class="buttons">
+            <input name="nr" type="hidden" value="${nr}" />
+            <div>
+              <input type="submit" name="submit" value="Save" class="submit" />
+            </div>
+          </fieldset>
+        </mm:maywrite>
+      
+      </mm:form>
+    </mm:node>
+  </mm:notpresent>
+
+  <mm:present referid="submit">
+    <mm:node number="$nr">
+      <h3><mm:field name="number" /> : <mm:nodeinfo type="guitype" /> </h3>
+      
+      <mm:setfield name="state">${form_state}</mm:setfield>
+
+      <mm:hasfunction name="changeUrl" inverse="true">
+        <mm:setfield name="url">${form_url}</mm:setfield>
+        <p class="msg stay">Updated url field '${form_url}' and state '${form_state}'.</p>
+      </mm:hasfunction>
+      
+      <mm:hasfunction name="changeUrl">
+        <mm:booleanfunction name="changeUrl" referids="form_url@url">
+          <p class="msg stay">Updated url with changeUrl '${form_url}' and state '${form_state}'.</p>
+        </mm:booleanfunction>
+      </mm:hasfunction>
+        
+    </mm:node>
+  </mm:present>
+    
+</mm:present>
+
+
+<mm:listnodescontainer type="mediafragments">
+<mm:sortorder field="number" direction="DOWN" />
+<mm:size id="total" write="false" />
+<mm:maxnumber value="$max" />
+<mm:offset value="$offset" />
+<ol start="${offset + 1}">
+  <mm:listnodes>
+    <li>
+      <p><strong><mm:field name="title" /> </strong>
+      <mm:link page="/mmbase/edit/my_editors/edit_object.jsp?nr=${_node}"> <a href="${_}">my_editors</a></mm:link>
+      <br />
+      <mm:relatednodescontainer type="mediasources" role="related" searchdirs="destination">
+        <ul>
+        <mm:relatednodes>
+          <li>
+          
+          <mm:link referids="max?,offset?">
+            <mm:param name="nr"><mm:field name="number" /></mm:param>
+            <strong><mm:field name="state"><mm:fieldinfo type="guivalue" escape="lowercase" /></mm:field> </strong>
+            <mm:field name="url" />
+            (<mm:nodeinfo type="type" />)
+            <a href="${_}">edit</a> 
+          </mm:link>
+
+
+          </li>
+        </mm:relatednodes>
+        </ul>
+      </mm:relatednodescontainer>
+      </p>
+
+    </li>
+  </mm:listnodes>
+
+  
+</ol>
+</mm:listnodescontainer>
+
+<mm:url id="pageurl" />
+
+<p class="pager">
+  <tmf:pager total="${total}" offset="${offset}" max="${max}" baseurl="${pageurl}" />
+</p>
+
+          
+</body>
+</html>
+</mm:cloud>
+</mm:content>

@@ -1,0 +1,76 @@
+<jsp:root 
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+
+  <jsp:directive.tag
+      display-name="video"
+      description="HTML 5 video tag"
+      />
+  <jsp:directive.attribute name="width"  description="Width of player" />
+  <jsp:directive.attribute name="height" description="Height of player" />
+  <jsp:directive.attribute name="length" description="Length of video fragment in milliseconds" />
+  <jsp:directive.attribute name="poster" description="Image, preview, thumnail" type="java.lang.String" />
+  
+  <jsp:directive.variable name-given="embedtag" scope="AT_END" />
+      
+
+   <!-- urls for source elements in video tag -->
+   <mm:import id="mediaurls">
+     <mm:functioncontainer>
+       <mm:param name="format">WEBM,OGV,MP4,OGG,M3U8</mm:param>
+       <mm:listfunction name="filteredurls" varStatus="status">
+         <c:set var="str_format">${mm:escape('lowercase', _.format)}</c:set>
+         <mm:node number="${_.source.number}">
+           <c:choose>
+             <c:when test="${!empty _.codec and fn:indexOf(_.codec,'H264') gt -1}">
+               <c:set var="codecs">; codecs=avc1.42E01E,mp4a.40.2</c:set>
+             </c:when>
+             <c:when test="${!empty _.codec and _.codec ne 'UNKNOWN'}">
+               <c:set var="codecs">; codecs=${mm:escape('lowercase', _.codec)}</c:set>
+               <c:if test="${!empty _.acodec and _.acodec ne 'UNKNOWN'}">
+                 <c:set var="codecs">${codecs},${mm:escape('lowercase', _.acodec)}</c:set>
+               </c:if>
+             </c:when>
+             <c:otherwise><c:set var="codecs" value="" /></c:otherwise>
+           </c:choose>
+           <c:if test="${!empty _.URL and _.available}">
+             <source src="${mm:escape('text/xml', _.URL)}" type="${_.mimeType}${codecs}" />
+           </c:if>
+           <c:if test="${!empty _.URL and status.index eq 1}">
+             <c:set var="first_source">${mm:escape('text/xml', _.URL)}</c:set>
+           </c:if>
+         </mm:node>
+       </mm:listfunction>
+     </mm:functioncontainer>
+   </mm:import>
+
+   <c:choose>
+     <c:when test="${!empty mediaurls}">
+       <video controls="controls"
+              class="oip_ea_duration_${length / 1000} oip_ea_start_0 oip_ea_id_${_node.number}"
+              width="${width}"
+              height="${height}"
+              poster="${poster}">
+         <mm:write referid="mediaurls" escape="none" />
+         <span class="html5warning">You need a browser that understands the html5 video tag to play this item.</span>
+       </video>
+     </c:when>
+     <c:otherwise>
+       <div class="video inavailable" style="background-image: url(${poster});">
+         <p>
+           <jsp:text>No video sources available (yet, probably still transcoding).</jsp:text>
+           <!-- c:if test="${!empty unsupported}">
+             <jsp:text>Unsupported original media file.</jsp:text>
+           </c:if -->
+         </p>
+       </div>
+     </c:otherwise>
+   </c:choose>
+
+
+
+
+</jsp:root>
