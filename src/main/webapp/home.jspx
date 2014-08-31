@@ -5,17 +5,15 @@
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
-  <mm:import externid="t" id="type">article</mm:import>
   <mm:import externid="cacheable"  />
   
-  <mm:nodeinfo type="plural_guitype" nodetype="${type}" id="type_plural" write="false" />
-    
+   
   <tmf:html
       cacheable="${cacheable}"
       styleClass="about">
     
     
-    <jsp:attribute name="title">${type_plural}</jsp:attribute>
+    <jsp:attribute name="title">Home</jsp:attribute>
     
     <jsp:attribute name="head">
         <!-- nothing here yet -->
@@ -27,8 +25,8 @@
 	<div class="clearBoth"><!-- empty --></div>
 	<div class="HomeContainer">
 
-		<div class='HomeSummary'>
-			<p class='Summary'>
+		<div class="HomeSummary">
+			<p class="Summary">
 				Welcome to the Tactical Media Files, a 'living archive' for Tactical Media's 
 				present, past and future. More than an archive, TMF is an active news and 
 				documentation tool for the evolving practices of tactical media. 
@@ -78,23 +76,92 @@
                 <!-- constraints="type.number=38197"  directions="down" -->
 				<mm:list>
   				  <div class="HomeLeftItemTitle">
-					<h2 class="Title"><a href="#"><mm:field name="event.title"/></a></h2>
+					<h2 class="Title"><a href="#"><mm:field name="event.title" escape="inline" /></a></h2>
 				  </div>
   				  <div class="HomeLeftItemBox">
 					<div class="HomeLeftItemText">
-						<mm:field name="event.intro"/>	<br /><br />
+                      <mm:field name="event.intro" escape="none" /><br /><br />
 					</div>
 					<div class="HomeLeftItemDate">
 					  <mm:field name="event.created"><mm:time format="dd-MM-yyyy" /></mm:field>
   				    </div>
                   </div>
                 </mm:list>
-            </mm:listcontainer>
+              </mm:listcontainer>
             <div class="clearBoth"><!-- empty --></div>
             
           </div><!-- EOF .HomeLeftItem -->
 		</div><!-- EOF .HomeLeft -->
-		
+
+		<!-- Home Features Items -->
+		<div class="HomeFeatured">
+          <div class="HomeFeaturedLabel"><img src="${mm:link('/style/images/labels/featured.gif')}" alt="Featured" /></div>
+
+          <div class="HomeFeaturedList">
+            <mm:node number="special">
+              <mm:listrelations>
+                <mm:relatednode> 
+                  <mm:nodeinfo type="type" id="type" write="false" />
+                
+                  <div class="HomeFeaturedItemText">
+                    <c:choose>
+                      <c:when test="${type eq 'video'}">
+                        <div class="HomeFeaturedPhoto">
+                          <a href="#">
+                            <mm:relatednodes type="picture" searchdir="destination" max="1">
+                              <mm:image template="s(480)+part(0,0,480,360)" mode="img" />
+                              <div class="HomeFeaturedPhotoOverlay">
+                                <div class="HomeFeaturedPhotoAuthor"><mm:field name="title" /></div>
+                                <div class="HomeFeaturedPhotoType"><img src="./images/labels/.png" /></div>
+                              </div>
+                            </mm:relatednodes>	
+                          </a>
+                        </div>
+                        <div class="HomeFeaturedItemTitle">
+                          <h1 class="Title"><mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield></h1>
+                        </div>
+                        <p class="Summary">
+                          <mm:hasfield name="description"><mm:field name="description" escape="none" /></mm:hasfield>
+                        </p>
+                      </c:when>
+                      <c:otherwise>
+                        <div class="HomeFeaturedPhoto">
+                          <a href="#">
+                            <mm:relatednodes type="picture" searchdir="destination" max="1">
+                              <mm:image template="s(480)+part(0,0,480,360)" mode="img" />
+                              <div class="HomeFeaturedPhotoOverlay">
+                                <div class="HomeFeaturedPhotoAuthor"><mm:field name="title" /></div>
+                                <div class="HomeFeaturedPhotoType"><img src="./images/labels/.png" /></div>
+                              </div>
+                            </mm:relatednodes>	
+                          </a>
+                        </div>
+                        <div class="HomeFeaturedItemTitle">
+                          <h1 class="Title"><mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield></h1>
+                        </div>
+
+                        <p class="Summary">
+                          <mm:hasfield name="intro"><mm:field name="intro" escape="none" /></mm:hasfield>
+                          <mm:hasfield name="biography"><mm:field name="biography" escape="none" /></mm:hasfield>
+                        </p>
+              
+                        <p style="text-align: right;">
+                          <a href="#"><img src="./images/read-full-article.gif" alt="Read Full Article" /></a>
+                        </p>
+                      </c:otherwise>
+                    </c:choose>
+                    <br /><br />
+                  </div>
+
+                
+                </mm:relatednode> 
+              </mm:listrelations>
+            </mm:node>
+          </div>
+          <div class="clearBoth"><!-- empty --></div>
+          <hr />
+          <br />
+		</div><!-- EOF .HomeFeatured -->
     </div><!-- EOF .HomeContainer -->
 
     </jsp:attribute>
