@@ -71,7 +71,7 @@
               <div id="VideoBrowseMask2"><!-- empty --></div>
               <div id="VideoBrowseMask1">
                 <div class="VideoTMFLogo">
-                  <a href="index.jsp"><img src="${mm:link('/style/images/tmf-logo.gif')}" width="195" height="121" alt="Tactical Media Files" /></a>
+                  <a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo.gif')}" width="195" height="121" alt="Tactical Media Files" /></a>
                 </div>
                 <div class="VideoBrowseLabel">
                   <img src="${mm:link('/style/images/labels/browse-video.png')}" alt="Browse Video" />

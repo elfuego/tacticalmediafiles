@@ -1,0 +1,47 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="top-searchcontainer"
+      description="Search right after navigation at top"
+      />
+  
+
+    <!-- Search -->
+    <div class="TopSearchContainer">
+        <div class="TopSearchLabel">
+            <img src="${mm:link('/style/images/labels/search.png')}" alt="Search" class="SearchLabel" />
+        </div>
+    
+        <div class="TopSearchForm">
+            <form class="searchform" id="searchform" action="search.jsp" method="post">
+                <input type="hidden" name="pagetype" value="search" />
+                <input type="text" name="query" value="" class="SearchInputSmall" />
+                <img src="${mm:link('/style/images/go.png')}" alt="Go" onclick="document.getElementById('searchform').submit();" style="vertical-align: bottom;" />
+                
+                <span class="searchtexts">criterium</span>
+            
+                <select name="searchfor" class="searchfor">
+                    <option value="all">all</option>
+                    <option value="texts">texts</option>
+                    <option value="people">people</option>
+                    <option value="images">images</option>
+                    <option value="videos">videos</option>
+                </select>
+            
+                <span class="searchtexts">sort by</span>
+
+                <select name="searchsortby" class="searchsortby">
+                    <option value="date">date</option>
+                    <option value="alphabet">alphabet</option>
+                    <option value="type">type of result</option>
+                </select>
+            </form>
+        </div>
+    </div>
+
+
+</jsp:root>

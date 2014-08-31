@@ -1,0 +1,44 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="thumblist-home"
+      description="List with thumbs based on keywords and related objects"
+      />
+
+  <jsp:directive.attribute name="offset"  description="Offset of list" />
+
+    <mm:listnodescontainer type="keyword" searchdirs="source">
+      <mm:maxnumber value="4" />
+      <mm:sortorder field="keyword" direction="UP" />
+      <mm:offset value="${offset}" />
+      <mm:listnodes>
+        <c:set var="index"><mm:index /></c:set>
+        <div class="videothumb${index}">
+    
+          <mm:relatedcontainer path="object,picture" 
+            fields="object.number,picture.number" searchdirs="source,destination">
+            <mm:maxnumber value="1" />
+            <mm:related>
+              <mm:node element="object">
+                <c:set var="thumb_type"><mm:nodeinfo type="plural_guitype" escape="lowercase" /></c:set>
+                <mm:url page="content" write="false" id="plink">
+                  <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                  <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                  <mm:frameworkparam name="t">${thumb_type}</mm:frameworkparam> <!-- TODO: replace this ugliness ! -->
+                </mm:url>
+              </mm:node>
+              <mm:node element="picture">
+                <a href="${plink}"><mm:image mode="img" width="112" height="68" crop="middle" /></a>
+              </mm:node>
+            </mm:related>
+          </mm:relatedcontainer>
+          <a href="search.jsp?query=${_node.keyword}"><mm:field name="keyword" /></a>
+        </div>
+      </mm:listnodes>
+    </mm:listnodescontainer>
+
+</jsp:root>
