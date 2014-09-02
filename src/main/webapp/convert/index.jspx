@@ -3,6 +3,7 @@
     xmlns:c="http://java.sun.com/jsp/jstl/core"
     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     expires="120" type="text/html"
     language="client">
 <jsp:output doctype-root-element="html"
@@ -15,113 +16,120 @@
   <title>Convert</title>
   <style type="text/css">
   body {font-family: sans-serif;}
+  
+  div.pager > a,
+  div.pager > strong { margin-right: 8px;}
   </style>
 </head>
 <body>
 
   <h1>Convert media/video</h1>
   <mm:import externid="convert" />
+
+  <mm:import externid="commit">false</mm:import>
+  <mm:import id="max">10</mm:import>
+  <mm:import externid="offset">0</mm:import>
+  
   <p>
-    media convertert<br />
+    media convertert : <br />
     
-    read field handle from video,
-    put that in a mediasources,
-    create mediasources, mediafragments and streamsources from it,
-    related mediafragments to video
-    and use that to display video stream in html5 video element.
+    reads field handle from video,
+    create mediafragment,
+    relats mediafragments to video,
+    runs function create sources that creates a streamsources node and puts url in it, 
+    relates that to mediafragment.
+    <br />
+    in mmbase admin > streams > batch transcodeer the streams can be transcoded to files to play in browser
     
-    <mm:link>
-      <mm:param name="commit">true</mm:param>
+    <mm:link referids="max,offset">
+      <mm:param name="commit">${commit ? 'false' : 'true'}</mm:param>
       <a href="${_}">commit</a>
     </mm:link>
   </p>
 
 
-  <mm:import externid="commit">false</mm:import>
-  <mm:transaction name="mytrans" commitonclose="$commit">
-
       <mm:listnodescontainer type="video">
-        <h2><mm:size /> videos</h2>
-        <mm:maxnumber value="1" />
+        <h2><mm:size id="total" /> videos</h2>
+        <mm:maxnumber value="${max}" />
+        <mm:offset value="${offset}" />
+
         <ol>
-        <mm:listnodes id="video">
+        <mm:listnodes>
           <li>
             
-            <mm:field name="number" /> - 
+            <!-- check for mediafr -->
+            <mm:field name="title" />
+            <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
+              <mm:import id="rels" reset="true"><mm:size /></mm:import>
+              <mm:relatednodes>
+               - related to media : <mm:field name="gui()" escape="none" />
+              </mm:relatednodes>
+            </mm:relatednodescontainer>
+            
+            <mm:import id="video" reset="true"><mm:field name="number" /></mm:import>
             <mm:import id="title" reset="true"><mm:field name="title" /></mm:import>
             <mm:import id="handle" reset="true"><mm:field name="handle" /></mm:import>
+            <mm:import id="duration" reset="true"><mm:field name="duration" /></mm:import>
+            <mm:import id="created" reset="true"><mm:field name="created"><mm:time format=":MEDIUM" /></mm:field></mm:import>
+            <mm:import id="description" reset="true"><mm:field name="description" /></mm:import>
             
-            <!-- <mm:createnode type="mediafragments" id="mediafr" >
-              <mm:setfield name="title"><mm:write referid="title" /></mm:setfield>
-              <mm:setfield name="subtitle"><mm:write referid="title" /></mm:setfield>
-            </mm:createnode> -->
-            <!-- <mm:createrelation source="video" destination="mediafr" role="related" /> -->
-            
-            
-            
-            ${title} : ${handle}
-            
-            <c:set var="split" value="${fn:split(handle, '/')}" />
-            <c:set var="len" value="${fn:length(split)}" />
-            <br />
-            file: <strong>${split[len - 1]}</strong>
-            
-            <!-- TODO: replace with handle! is just test -->
-            <c:set var="url" value="dolfijnen.mp4" />
-            url : ${url}
-            <!-- get new media node, make url, download stream, submit and transcode it -->
-            <!-- <mm:node number="$mediafr">
-              <mm:import id="source_url">
-                <mm:functioncontainer>
-                  <mm:param name="url">${url}</mm:param>
-                  <mm:function name="download" />
-                </mm:functioncontainer>
-              </mm:import>
-            </mm:node> -->
-            <mm:createnode id="newsource" type="streamsources" commitonclose="true">
-              <mm:setfield name="title"><mm:write referid="title" /></mm:setfield>
-              <mm:setfield name="mediaprovider">default.provider</mm:setfield>
-            </mm:createnode>
-            <mm:node referid="newsource">
-              <div style="border:1px solid #ccc;">
-              <mm:field name="title" />
-              <mm:voidfunction name="waitUntilRecognized" />
-              <mm:log level="info">Mediafragment title: <mm:field name="title" /></mm:log>
-              
-              <mm:hasfunction name="changeUrl">
-                <mm:booleanfunction name="changeUrl" referids="url">
-                  <p style="border:1px solid #c00;">
-                    Updated url with changeUrl '${url}' and state <!-- '${form_state}'. -->
-                    Submitted ${_node} URL: ${_node.url} FS: ${_node.filesize}
-                  </p>
-                </mm:booleanfunction>
-              </mm:hasfunction>
-              <mm:hasfunction name="changeUrl" inverse="true">
-                - Does not have func -
-              </mm:hasfunction>
-              
-                <!-- <mm:hasfunction name="changeUrl">
-                  <mm:functioncontainer>
-                    <mm:booleanfunction name="changeUrl" referids="url">
-                      <p class="msg stay">Updated url field with changeUrl '${url}' (without transcoding).</p>
-                    </mm:booleanfunction>
-                  </mm:functioncontainer>
-                </mm:hasfunction> -->
 
-                media: <mm:field name="mediafragment" id="media" />
-                <mm:createrelation source="video" destination="media" role="related" />
-                
-                  <mm:field name="title" /> -
-                  url: <mm:field name="url" />
-              </div>
-            </mm:node>
+              <c:choose>
+                <c:when test="${rels > 0}">
+                  done  
+                </c:when>
+                <c:otherwise>
+                  
+                  <mm:transaction commitonclose="$commit">
+                    <mm:node number="${video}" id="videonode">
+                      <mm:field name="number" />
+                    </mm:node>
+
+                    <c:set var="split" value="${fn:split(handle, '/')}" />
+                    <c:set var="len" value="${fn:length(split)}" />
+                    <br />file: <strong>${split[len - 1]}</strong>
+            
+                    <!-- TODO: replace with handle! is just test -->
+                    <c:set var="url" value="${split[len - 1]}" />
+                    <br />url : ${url}
+
+                    <mm:createnode type="mediafragments" id="mediafr" >
+                      <mm:setfield name="title"><mm:write referid="title" /></mm:setfield>
+                      <mm:setfield name="subtitle">${url}</mm:setfield>
+                      <mm:setfield name="intro">${created} ${duration}</mm:setfield>
+                      <mm:setfield name="body"><mm:write referid="description" /></mm:setfield>
+                    </mm:createnode>
+                    <mm:createrelation source="videonode" destination="mediafr" role="related" />
+
+                    : ${handle}
+            
+            
+                    <mm:node number="$mediafr" notfound="skip">
+                      <mm:hasfunction name="createSources">
+                        <!-- this creates a streamsources node 
+                            and sets its url field without triggering creating streamsourcescaches -->
+                        <mm:booleanfunction name="createSources" referids="url">
+                          <p style="border:1px solid #c00;">
+                            Updated url with createSources : '${url}' <!-- and state  '${form_state}'. 
+                            Submitted ${_node} URL: ${_node.url} FS: ${_node.filesize} -->
+                          </p>
+                        </mm:booleanfunction>
+                      </mm:hasfunction>
+                      <mm:hasfunction name="createSources" inverse="true">
+                        - does not have function createSources -
+                      </mm:hasfunction>
+                    </mm:node>
+                  </mm:transaction>
+ 
+                </c:otherwise>
+              </c:choose>
             
           </li>
         </mm:listnodes>
         </ol>
       </mm:listnodescontainer>
 
-  </mm:transaction>
+      <tmf:pager total="${total}" max="${max}" offset="${offset}" />
 
 </body>
 </html>
