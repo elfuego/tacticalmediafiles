@@ -83,7 +83,7 @@
             <h5>article</h5>
             <mm:link page="content">
               <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-              <mm:frameworkparam name="t">article</mm:frameworkparam>
+              <mm:frameworkparam name="t">articles</mm:frameworkparam>
               <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
               <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
             </mm:link>
@@ -98,7 +98,7 @@
             <h5>campaign</h5>
             <mm:link page="content">
               <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-              <mm:frameworkparam name="t">campaign</mm:frameworkparam>
+              <mm:frameworkparam name="t">campaigns</mm:frameworkparam>
               <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
               <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
             </mm:link>
