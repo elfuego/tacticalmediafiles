@@ -7,25 +7,23 @@
   <status>active</status>
   <class>org.mmbase.module.database.JDBC</class>
   
-  <!-- MySQL asp4all example -->
-<!-- 
+  <!-- MySQL example -->
   <properties>
     <property name="url">jdbc:mysql://$HOST:$PORT/$DBM</property>
-    <property name="user">overheid</property>
-    <property name="password">GbVk1122</property>
+    <property name="user">mmbase</property>
+    <property name="password">admin2k</property>
     <property name="supportclass">org.mmbase.module.database.DatabaseSupportShim</property>
-    <property name="database">overheid</property>
-    <property name="connections">20</property>
-    <property name="host">overheid_dbhost</property>
+    <property name="database">mf2</property>
+    <property name="connections">12</property>
+    <property name="host">localhost</property>
     <property name="driver">com.mysql.jdbc.Driver</property>
     <property name="port">3306</property>
     <property name="queries">256</property>
-    <property name="probetime">30</property>
+    <property name="probetime">120</property>
   </properties>
- -->
   
   <!-- HSQL example -->
-  <properties>
+  <!-- <properties>
     <property name="url">jdbc:hsqldb:file:$DATADIR$DBM;shutdown=true</property>
     <property name="user">sa</property>
     <property name="password"></property>
@@ -37,6 +35,6 @@
     <property name="port">0</property>
     <property name="queries">256</property>
     <property name="probetime">30</property>
-  </properties>
+  </properties> -->
 
 </module>

@@ -64,6 +64,9 @@
     <appender-ref ref="pagedebug" />
   </logger>
  -->
+  <logger name="org.mmbase.util.externalprocess.CommandExecutor" >
+    <level class="&mmlevel;" value="debug" />
+  </logger>
   <logger name="org.mmbase.util.externalprocess.CommandLauncher" >
     <level class="&mmlevel;" value="debug" />
   </logger>
