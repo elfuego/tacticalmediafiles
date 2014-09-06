@@ -16,7 +16,28 @@
     <jsp:attribute name="title">Home</jsp:attribute>
     
     <jsp:attribute name="head">
+        <link href="http://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
         <!-- nothing here yet -->
+        <style type="text/css">
+        .HomeArchiveLists {
+            height: 108px;
+        }
+        
+        .arimo {
+            font-family: 'Arimo', sans-serif;
+        }
+        a.read-article, a.play-video {
+            width: 120px;
+            display: block;
+            background-color: #ccc;
+            padding: 4px 20px;
+            float: right;
+            color: #111;
+        }
+        a.play-video { width: 80px; }
+        </style>
+        
+        
     </jsp:attribute>
 
     <jsp:attribute name="body">
@@ -46,18 +67,12 @@
                 </div>
                 <div class="HomeTMFLogo2"><a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files Logo" /></a></div>
             </div>
-            <div class="HomeArchiveTable1" id="thumbs1">
+            <div class="HomeArchiveTable2" id="homethumbs">
               <tmf:thumblist-home offset="0" />
             </div><!-- EOF .HomeArchiveTable1 -->
-            <div class="HomeArchiveTable2" id="thumbs2">
-              <tmf:thumblist-home offset="4" />
-            </div><!-- EOF .HomeArchiveTable2 -->
-            <div class="HomeArchiveTable3" id="thumbs3">
-              <tmf:thumblist-home offset="8" />
-            </div><!-- EOF .HomeArchiveTable1 -->
 			<!-- Previous / Next Construction -->
-            <div class="HomeArchiveNext"><a href='#' onclick="moveleft()"><img src="${mm:link('/style/images/next.gif')}" width="20" height="20" alt="Next" /></a></div>
-            <div class="HomeArchivePrevious"><a href='#' onclick="moveright()"><img src="${mm:link('/style/images/previous.gif')}" width="20" height="20" alt="Previous" /></a></div>
+            <div class="HomeArchiveNext"><a href='#' class="movenext"><img src="${mm:link('/style/images/next.gif')}" width="20" height="20" alt="Next" /></a></div>
+            <div class="HomeArchivePrevious"><a href='#' class="moveprev"><img src="${mm:link('/style/images/previous.gif')}" width="20" height="20" alt="Previous" /></a></div>
           </div><!-- EOF .HomeArchiveLists -->
 		</div><!-- EOF .HomeArchive -->
         
@@ -106,48 +121,68 @@
                   <div class="HomeFeaturedItemText">
                     <c:choose>
                       <c:when test="${type eq 'video'}">
-                        <div class="HomeFeaturedPhoto">
-                          <a href="#">
-                            <mm:relatednodes type="picture" searchdir="destination" max="1">
-                              <mm:image template="s(480)+part(0,0,480,360)" mode="img" />
-                              <div class="HomeFeaturedPhotoOverlay">
-                                <div class="HomeFeaturedPhotoAuthor"><mm:field name="title" /></div>
-                                <div class="HomeFeaturedPhotoType"><img src="./images/labels/.png" /></div>
-                              </div>
-                            </mm:relatednodes>	
-                          </a>
-                        </div>
-                        <div class="HomeFeaturedItemTitle">
-                          <h1 class="Title"><mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield></h1>
-                        </div>
-                        <p class="Summary">
-                          <mm:hasfield name="description"><mm:field name="description" escape="none" /></mm:hasfield>
-                        </p>
+                        <mm:link page="media">
+                          <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                          <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+
+                          <div class="HomeFeaturedPhoto">
+                            <a href="${_}">
+                              <mm:relatednodes type="picture" searchdir="destination" max="1">
+                                <mm:image template="s(480)+part(0,0,480,360)" mode="img" />
+                                <div class="HomeFeaturedPhotoOverlay">
+                                  <div class="HomeFeaturedPhotoAuthor"><mm:field name="title" /></div>
+                                  <div class="HomeFeaturedPhotoType"><img src="${mm:link('/style//images/labels/video.png')}" /></div>
+                                </div>
+                              </mm:relatednodes>	
+                            </a>
+                          </div>
+                          <div class="HomeFeaturedItemTitle">
+                            <h1 class="Title"><mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield></h1>
+                          </div>
+                          <p class="Summary">
+                            <mm:hasfield name="description"><mm:field name="description" escape="none" /></mm:hasfield>
+                          </p>
+                          <p style="text-align: right;">
+                            <a href="${_}" class="play-video arimo">
+                             <!--  <img src="${mm:link('/style/images/play-video.gif')}" alt="Play video" /> -->
+                             Play video
+                             </a>
+                          </p>
+                        </mm:link>
                       </c:when>
                       <c:otherwise>
-                        <div class="HomeFeaturedPhoto">
-                          <a href="#">
-                            <mm:relatednodes type="picture" searchdir="destination" max="1">
-                              <mm:image template="s(480)+part(0,0,480,360)" mode="img" />
-                              <div class="HomeFeaturedPhotoOverlay">
-                                <div class="HomeFeaturedPhotoAuthor"><mm:field name="title" /></div>
-                                <div class="HomeFeaturedPhotoType"><img src="./images/labels/.png" /></div>
-                              </div>
-                            </mm:relatednodes>	
-                          </a>
-                        </div>
-                        <div class="HomeFeaturedItemTitle">
-                          <h1 class="Title"><mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield></h1>
-                        </div>
 
-                        <p class="Summary">
-                          <mm:hasfield name="intro"><mm:field name="intro" escape="none" /></mm:hasfield>
-                          <mm:hasfield name="biography"><mm:field name="biography" escape="none" /></mm:hasfield>
-                        </p>
+                        <mm:link page="content">
+                          <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                          <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                          <mm:frameworkparam name="t">${type}s</mm:frameworkparam> <!-- TODO: replace this ugliness ! -->
+                          <div class="HomeFeaturedPhoto">
+                            <a href="${_}">
+                              <mm:relatednodes type="picture" searchdir="destination" max="1">
+                                <mm:image template="s(480)+part(0,0,480,360)" mode="img" />
+                                <div class="HomeFeaturedPhotoOverlay">
+                                  <div class="HomeFeaturedPhotoAuthor"><mm:field name="title" /></div>
+                                  <div class="HomeFeaturedPhotoType"><img src="${mm:link('/style/images/labels/article.png')}" /></div>
+                                </div>
+                              </mm:relatednodes>	
+                            </a>
+                          </div>
+                          <div class="HomeFeaturedItemTitle">
+                            <h1 class="Title"><mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield></h1>
+                          </div>
+
+                          <p class="Summary">
+                            <mm:hasfield name="intro"><mm:field name="intro" escape="none" /></mm:hasfield>
+                            <mm:hasfield name="biography"><mm:field name="biography" escape="none" /></mm:hasfield>
+                          </p>
               
-                        <p style="text-align: right;">
-                          <a href="#"><img src="./images/read-full-article.gif" alt="Read Full Article" /></a>
-                        </p>
+                          <p style="text-align: right;">
+                            <a class="read-article arimo" href="${_}">
+                              Read Full Article
+                              <!-- <img src="./images/read-full-article.gif" alt="Read Full Article" /> -->
+                             </a>
+                          </p>
+                        </mm:link>
                       </c:otherwise>
                     </c:choose>
                     <br /><br />

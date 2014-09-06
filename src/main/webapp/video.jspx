@@ -21,7 +21,6 @@
     
     <jsp:attribute name="head">
       
-      <!-- nothing here yet -->
       <style type="text/css">
       video { 
           background-color: #000;
@@ -29,7 +28,19 @@
       h2.Title {
           text-shadow: 2px 2px #fff;
       }
-
+      
+      div.video.inavailable {
+        padding: 1em;
+      }
+      div.video.inavailable p
+      {
+        margin: 0 1em;
+        padding: 0.4em;
+        background-color: #FCC;
+        text-align: center;
+        border: 12px #C00 groove;
+      }
+      
       .videocontainerheight { 
           height: 192px; 
           width: 1px;
@@ -46,16 +57,6 @@
         margin: 0;
       }
       </style>
-
-      <!-- link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf_r.css')}" / -->
-      
-      <script type="text/javascript" src="${mm:link('/style/js_v2/alg.js')}"><!-- empty --></script>
-      <script type="text/javascript" src="${mm:link('/style/js_v2/pM_v2_full.js')}"><!-- empty --></script>
-      <script type="text/javascript" src="${mm:link('/style/js_v2/array_v2_m.js')}"><!-- empty --></script>
-      <script type="text/javascript" src="${mm:link('/style/js_v2/form_but_ful.js')}"><!-- empty --></script>
-      <script type="text/javascript" src="${mm:link('/style/js_v2/form_beh.js')}"><!-- empty --></script>
-      <script type="text/javascript" src="${mm:link('/style/js_v2/mE.js')}"><!-- empty --></script>
-
     </jsp:attribute>
 
     <jsp:attribute name="body">
@@ -79,7 +80,7 @@
 			  </div>
 
               <!-- List of Thumbnails with Titles -->
-              <div class="VideoBrowseTable1" id="thumbs1">
+              <div class="VideoBrowseTable2" id="videothumbs">
                 <mm:listnodescontainer type="video">
                   <mm:sortorder field="title" direction="UP" />
                   <mm:offset value="0" />
@@ -102,86 +103,19 @@
                             <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="150" height="100" />
                           </mm:isempty>
                         </a><br />
-                        <table width="158" cellpadding="4">
-                          <tr><td><mm:field name="title" /></td></tr>
-                        </table>
+                        <div class="title"> <mm:field name="title" escape="inline" /> </div>
                       </mm:link>
                     </div>
                   </mm:listnodes>		
                 </mm:listnodescontainer>
               </div><!-- EOF .VideoBrowseTable1 -->
 
-              <div class="VideoBrowseTable2" id="thumbs2">
-                <mm:listnodescontainer type="video">
-                  <mm:sortorder field="title" direction="UP" />
-                  <mm:offset value="4" />
-                  <mm:maxnumber value="4" />
-                  <mm:listnodes>
-                    <c:set var="index"><mm:index /></c:set>
-                    <div class="videothumb${index}">
-                      <mm:import id="pic" reset="true"></mm:import>
-                      <mm:link page="media">
-                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                        <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-                        <a href="${_}">
-                          <mm:relatednodes type="picture" max="1">
-                            <mm:import id="pic" reset="true">ok</mm:import>
-                            <mm:image mode="img" width="150" height="100" crop="middle" />
-                            <!-- <mm:image template="s(150x100!)" /> -->
-                            <!-- <img src=""  alt='<mm:field name="title" />' width="150" height="100" /> -->
-                          </mm:relatednodes>
-                          <mm:isempty referid="pic">
-                            <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="150" height="100" />
-                          </mm:isempty>
-                        </a><br />
-                        <table width="158" cellpadding="4">
-                          <tr><td><mm:field name="title" /></td></tr>
-                        </table>
-                      </mm:link>
-                    </div>
-                  </mm:listnodes>		
-                </mm:listnodescontainer>
-              </div><!-- EOF .VideoBrowseTable2 -->
-
-              <div class="VideoBrowseTable3" id="thumbs3">
-                <mm:listnodescontainer type="video">
-                  <mm:sortorder field="title" direction="UP" />
-                  <mm:offset value="8" />
-                  <mm:maxnumber value="4" />
-                  <mm:listnodes>
-                    <c:set var="index"><mm:index /></c:set>
-                    <div class="videothumb${index}">
-                      <mm:import id="pic" reset="true"></mm:import>
-                      
-                      <mm:link page="media">
-                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                        <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-                        <a href="${_}">
-                          <mm:relatednodes type="picture" max="1">
-                            <mm:import id="pic" reset="true">ok</mm:import>
-                            <mm:image mode="img" width="150" height="100" crop="middle" />
-                            <!-- <mm:image template="s(150x100!)" /> -->
-                            <!-- <img src=""  alt='<mm:field name="title" />' width="150" height="100" /> -->
-                          </mm:relatednodes>
-                          <mm:isempty referid="pic">
-                            <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="150" height="100" />
-                          </mm:isempty>
-                        </a><br />
-                        <table width="158" cellpadding="4">
-                          <tr><td><mm:field name="title" /></td></tr>
-                        </table>
-                      </mm:link>
-                      
-                    </div>
-                  </mm:listnodes>		
-                </mm:listnodescontainer>
-              </div><!-- EOF .VideoBrowseTable3 -->
-
+             
               <div class="VideoBrowseNext">
-                <a href="#" onclick="moveleft()"><img src="${mm:link('/style/images/next.gif')}" alt="Next" border="0" /></a>
+                <a href="#next" class="movenext" ><img src="${mm:link('/style/images/next.gif')}" alt="Next" border="0" /></a>
               </div>
               <div class="VideoBrowsePrevious">
-                <a href="#" onclick="moveright()"><img src="${mm:link('/style/images/previous.gif')}" alt="Previous" border="0" /></a>
+                <a href="#previous" class="moveprev" ><img src="${mm:link('/style/images/previous.gif')}" alt="Previous" border="0" /></a>
               </div>
             </div><!-- EOF .VideoBrowseList -->
           </div><!-- EOF .VideoBrowse -->
