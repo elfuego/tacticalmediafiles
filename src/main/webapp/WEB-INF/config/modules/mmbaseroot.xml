@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<!DOCTYPE module PUBLIC "-//MMBase//DTD module config 1.0//EN" "http://www.mmbase.org/dtd/module_1_0.dtd">
+<module maintainer="mmbase.org" version="0">
+  <status>active</status>
+  <class>org.mmbase.module.core.MMBase</class>
+  <properties>
+    <property name="machinename">TMF</property>
+    <property name="storagemanagerfactory">org.mmbase.storage.implementation.database.DatabaseStorageManagerFactory</property>
+    <property name="datadir">WEB-INF/data</property>
+    <property name="encoding">UTF-8</property>
+    <!-- <property name="language">nl</property> -->
+    <property name="timezone"></property>
+    <property name="database">mysql_with_views</property>
+    <property name="development">true</property>
+    <property name="runStartupChecks">true</property>
+  </properties>
+</module>
+

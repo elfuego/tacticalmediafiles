@@ -7,13 +7,13 @@ Maven 2 and Java. You then should be able to build a runable
 webapplication - from the same directory with the Maven pom.xml - 
 with the command:
 
-  mvn clean install
+    mvn clean install
   
 All the needed resources are downloaded from several maven servers,
 including the mmbase.org server. It should also be possibe to run
 the site on localhost:8080 with the terminal command:
 
-  mvn jetty:run
+    mvn jetty:run
 
 The webapplication can run on a HSQL - no configuration needed - or 
 MySQL database. Adopt the settings you need for MySQL from 

@@ -23,10 +23,20 @@
 	</descriptions>
 	
 	<properties>
-		<property name="ImageConvert.ConverterRoot"/>
+		<!-- <property name="ImageConvert.ConverterRoot"/>
 		<property name="ImageConvert.ConverterCommand">convert</property>
 		<property name="ImageConvertClass">org.mmbase.module.builders.ConvertImageMagick</property>
-		<property name="MaxConcurrentRequests">4</property>
+		<property name="MaxConcurrentRequests">4</property> -->
+        <property name="ImageConvertClass">org.mmbase.util.images.ImageMagickImageConverter</property>
+		<property name="ImageConvert.ConverterCommand">convert</property>
+        <property name="ImageConvert.ConverterRoot"></property>
+        <property name="ImageConvert.Method">launcher</property>
+        <property name="ImageConvert.DefaultImageFormat">asis</property>
+        <property name="ImageInformerClass">org.mmbase.util.images.DummyImageInformer</property>
+        <property name="MaxConcurrentRequests">3</property>
+        <property name="DefaultImageType">jpg</property><!-- used if determination of image-type failed -->
+        <property name="LegacyCKey">false</property>
+        <property name="MaxArea">1000000</property>
 	</properties>
 	
 	<fieldlist>

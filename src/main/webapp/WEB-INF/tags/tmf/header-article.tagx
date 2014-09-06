@@ -10,7 +10,9 @@
       description="Header part of (article) page"
       />
 
-    <tmf:header-simple title="${_node.title}" label="article" />
+    <mm:nodeinfo type="type" id="nodetype" write="false" />
+    
+    <tmf:header-simple title="${_node.title}" label="${nodetype}" />
     
     <!-- Article Author + Summary -->
     <div class="ArticleSummaryContainer">

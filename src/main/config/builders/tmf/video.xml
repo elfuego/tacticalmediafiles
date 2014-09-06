@@ -4,17 +4,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.mmbase.org/xmlns/builder 
 						http://www.mmbase.org/xmlns/builder.xsd"                        
-	name="media" maintainer="debalie.org" version="1" extends="object">
+	name="video" maintainer="debalie.org" version="1" extends="object">
 
 	<status>active</status>
 	
 	<searchage>1400</searchage>
 	
 	<names>
-		<singular xml:lang="nl">Media</singular>
-		<singular xml:lang="en">Media</singular>
-		<plural	xml:lang="nl">Media</plural>
-		<plural	xml:lang="en">Media</plural>
+		<singular xml:lang="nl">Video</singular>
+		<singular xml:lang="en">Video</singular>
+		<plural	xml:lang="nl">Video</plural>
+		<plural	xml:lang="en">Video</plural>
 	</names>
 	
 	<descriptions>
@@ -80,7 +80,7 @@
 			</gui>
 			<editor>
 				<positions>
-					<input>1</input><list>-1</list><search>-1</search>
+					<input>2</input><list>-1</list><search>2</search>
 				</positions>
 			</editor>
             <datatype base="eline" xmlns="http://www.mmbase.org/xmlns/datatypes">

@@ -34,7 +34,7 @@ public class MediaUrlConverter extends DirectoryUrlConverter {
 
     public MediaUrlConverter(BasicFramework fw) {
         super(fw);
-
+        //setDirectory("/video/");
         Component tmf = ComponentRepository.getInstance().getComponent("tmf");
         if (tmf == null) throw new IllegalStateException("No such component tmf");
 
@@ -103,7 +103,7 @@ public class MediaUrlConverter extends DirectoryUrlConverter {
 
         StringBuilder result = new StringBuilder();
         if (path.size() == 0) {
-            result.append("/video.jspx");
+            result.append("/list.jspx?t=video");
         } else {
             result.append("/video.jspx?n=");
             Cloud cloud = frameworkParameters.get(Parameter.CLOUD);

@@ -25,6 +25,7 @@
   <c:if test="${empty baseurl}"><mm:url id="baseurl" absolute="context" write="false" /></c:if>
   
   <c:if test="${total > max}">
+    <div class="pager">
     <c:if test="${offset != 0}">
       <mm:link referid="baseurl">
         <mm:param name="offset">0</mm:param>
@@ -97,6 +98,7 @@
         <a href="${_}${empty fragment ? '' : fragment}" class="last">last »»</a>
       </mm:link>
     </c:if>
+    </div>
   </c:if>
   
 

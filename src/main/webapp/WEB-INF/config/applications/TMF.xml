@@ -3,7 +3,8 @@
 <application name="TMF" maintainer="tacticalmediafiles.net" version="1" auto-deploy="false">
   <requirements>
     <requires name="Resources" maintainer="mmbase.org" version="1" />
-    <!-- <requires name="Media" maintainer="mediaproject.mmbase.org" version="1" /> -->
+    <!-- <requires name="Media" maintainer="mediaproject.mmbase.org" version="1" />
+    <requires name="Streams" maintainer="streams.mmbase.org" version="6" /> -->
   </requirements>
 
   <neededbuilderlist>
@@ -40,7 +41,6 @@
 
   <allowedrelationlist>
     <relation from="article"  to="person" type="author" />
-    <relation from="campaign" to="person" type="author" />
     <relation from="article" to="type" type="related" />
     <relation from="article" to="person" type="related" />
     <relation from="article" to="dates" type="related" />
@@ -106,6 +106,7 @@
     <relation from="person" to="keyword" type="related" />
     <relation from="article" to="media" type="related" />
     <relation from="campaign" to="article" type="related" />
+    <relation from="campaign" to="person" type="author" />
     <relation from="campaign" to="person" type="related" />
     <relation from="campaign" to="event" type="related" />
     <relation from="campaign" to="organisation" type="related" />
