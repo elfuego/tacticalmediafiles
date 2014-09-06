@@ -1,0 +1,59 @@
+<mm:content
+    expires="0"
+    language="${empty param.locale ? 'nl' : param.locale}"
+    type="text/html" 
+    encoding="UTF-8"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    postprocessor="none">
+    
+    <jsp:output omit-xml-declaration="true" />
+    <jsp:output doctype-root-element="HTML" 
+        doctype-system="about:legacy-compat" />
+
+    
+  <mm:cloud method="asis">
+
+      <div>
+        
+        <mm:import externid="offset">0</mm:import>
+        <mm:import externid="max">4</mm:import>
+        
+
+        <mm:listnodescontainer type="video">
+          <mm:sortorder field="title" direction="UP" />
+          <mm:offset value="${offset}" />
+          <mm:maxnumber value="${max}" />
+          <mm:listnodes>
+            <c:set var="index"><mm:index /></c:set>
+            
+            <div class="videothumb${index}">
+              <mm:import id="pic" reset="true"></mm:import>
+              <mm:link page="media">
+                <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                <a href="${_}">
+                  <mm:relatednodes type="picture" max="1">
+                    <mm:import id="pic" reset="true">ok</mm:import>
+                    <mm:image mode="img" width="150" height="100" crop="middle" />
+                    <!-- <mm:image template="s(150x100!)" /> -->
+                    <!-- <img src=""  alt='<mm:field name="title" />' width="150" height="100" /> -->
+                  </mm:relatednodes>
+                  <mm:isempty referid="pic">
+                    <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="150" height="100" />
+                  </mm:isempty>
+                </a><br />
+                <div class="title"> <mm:field name="title" escape="inline" /> </div>
+              </mm:link>
+            </div>
+            
+          </mm:listnodes>		
+        </mm:listnodescontainer>        
+
+      </div>
+
+  </mm:cloud>
+</mm:content>
