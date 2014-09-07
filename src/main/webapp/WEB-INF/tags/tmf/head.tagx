@@ -28,6 +28,7 @@
           </c:choose>
         </title>
         <link href="${mm:link('/style/css/tmf.css')}" rel="stylesheet" type="text/css" />
+        <link href="${mm:link('/style/css/tmf2.css')}" rel="stylesheet" type="text/css" />
         <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
         <jsp:include page="/mmbase/jquery/jquery.jspx" />
         <script src="${mm:link('/style/js/main.js.jsp')}" type="text/javascript"><jsp:text><!-- help ie --></jsp:text></script>
