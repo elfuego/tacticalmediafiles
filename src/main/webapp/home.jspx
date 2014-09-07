@@ -110,7 +110,7 @@
 
 		<!-- Home Features Items -->
 		<div class="HomeFeatured">
-          <div class="HomeFeaturedLabel"><img src="${mm:link('/style/images/labels/featured.gif')}" alt="Featured" /></div>
+          <div class="HomeFeaturedLabel"><img src="${mm:link('/style/images/labels/featured.png')}" alt="Featured" /></div>
 
           <div class="HomeFeaturedList">
             <mm:node number="special">
