@@ -7,6 +7,7 @@
 p.Text {
     line-height: 1.6em;
 }
+
 #tagcloud h2 { text-transform: uppercase; }
 #tagcloud li.tag_0{ font-size: 0.7em; font-weight: 100; } 
 #tagcloud li.tag_1{ font-size: 0.8em; font-weight: 200; } 
