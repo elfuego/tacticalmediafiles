@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+<list role="posrel" destinationtype="picture" ordertype="number" orderby="field[@name='pos']" >
+        <title xml:lang="en">Related pictures</title>
+        <title xml:lang="nl">Gerelateerde plaatjes</title>
+        <!-- Show the 'item' in a list (the object) -->
+				
+				
+        <item displaytype="image">
+        	<field name="title" ftype="data">
+        		<prompt xml:lang="en">Title:</prompt>
+        		<prompt xml:lang="nl">Titel:</prompt>
+        	</field>
+        	
+        	<field name="description" ftype="data">
+        		<prompt xml:lang="en">description:</prompt>
+        		<prompt xml:lang="nl">beschrijving:</prompt>
+        	</field>
+        	 
+        	<field fdatapath="field[@name='pos']" ftype="data" />
+        	
+        	<field ftype="startwizard" wizardname="TMF/picture" inline="true" />
+        </item>
+        
+        <!-- defines a search command.
+        		 This creates a search box that allows you to search for objects
+        		 using a specified ndoepath.
+        		 In this case, the searchs ercahes for news items, using the fields
+        		 'title' and 'subtitle' to show the results of the search in the list.
+        -->
+        <command name="search" nodepath="picture" fields="handle,title,description" age="-1">
+        	<prompt xml:lang="en">Search pictures</prompt>
+        	<prompt xml:lang="nl">Zoek plaatjes</prompt>
+        	<!-- Search filters determine what you can search on (in this case, on title
+        			 or both title and subtitle)
+        			 If you do not specify a search filter, the default is to search on the
+        			 'title' field.
+        	-->
+        	<!-- Search on title -->
+        	<search-filter>
+        		<name xml:lang="en">about:</name>
+        		<name xml:lang="nl">over:</name>
+        		<search-fields>title|description</search-fields>
+        	</search-filter>
+        </command>
+        <!-- maak een knopje naar een nieuwe wizard -->
+        <command name="startwizard" inline="true" wizardname="TMF/picture" objectnumber="new" />
+        <!-- Action to create a relation, used by the search command to create
+        		 the relation once it is found and chosen.
+        -->
+        
+        
+        <action type="add">
+        	<relation role="posrel" destinationtype="picture">
+        		<field name="pos">
+							{sum(//relation[@role='posrel' and @lastitem='true' and object/@type='picture']/field[@name='pos'])+{$pos}}
+						</field>
+ 					</relation>
+        </action>
+		</list>	

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+		<list role="related" destination="file" >
+			<title xml:lang="en">File (pdf)</title>
+			<title xml:lang="nl">Bestand (pdf)</title>
+	
+			<item>
+				<field name="title" ftype="data">
+					<prompt xml:lang="en">File</prompt>
+					<prompt xml:lang="nl">Bestand</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/file" inline="true" />
+			</item>
+
+			<command name="search" nodepath="file" fields="title" age="-1">
+				<prompt xml:lang="en">Search files</prompt>
+				<prompt xml:lang="nl">Zoek bestanden</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Title:</name>
+					<name xml:lang="nl">Titel:</name>
+					<search-fields>title</search-fields>
+				</search-filter>
+				
+			
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/file" objectnumber="new" />
+			<action type="create">
+				<relation destination="file" role="related" />
+			</action>
+		</list>

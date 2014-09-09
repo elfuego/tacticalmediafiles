@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<wizard-schema id="type">
+	<title xml:lang="en">type Wizzard</title>
+	<title xml:lang="nl">type Wizzard</title>
+	
+	<action type="create">
+		<object type="type" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this plaatje?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je dit bestand wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove type</description>
+		<description xml:lang="nl">type verwijderen</description>
+	</action>
+	
+	<action type="load">		
+		<relation role="related" searchdir="both" destination="article">
+			<object>
+				<field name="title"/>
+				<field name="subtitle"/>
+			</object>
+		</relation>	
+		<relation role="related" searchdir="both" destination="person">
+			<object>
+				<field name="prefix" />
+				<field name="firstname" />
+				<field name="sirname" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>	
+		<relation role="related" searchdir="both" destination="campaign">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="media">
+			<object>
+				<field name="title" />
+				<field name="handle" />
+			</object>
+		</relation>	
+		<relation role="related" searchdir="both" destination="file">
+			<object>
+				<field name="title" />
+			</object>
+		</relation>			
+		<relation role="related" searchdir="both" destination="work">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="organisation">
+			<object>
+				<field name="name" />
+				<field name="subtitle" />
+			</object>
+		</relation>				
+	</action>
+
+  <lists>
+    <optionlist name="typeoftypes" include="TMF/type_type.xml" />
+  </lists>	
+  	
+	<form-schema id="type">
+		
+
+		
+		<field name="type" dtrequired="true" ftype="data" />
+
+		<list include="TMF/list_article.xml" />
+		<list include="TMF/list_person.xml" />
+		<list include="TMF/list_event.xml" />		
+		<list include="TMF/list_campaign.xml" />																
+		<list include="TMF/list_media.xml" />
+		<list include="TMF/list_file.xml" />
+		<list include="TMF/list_work.xml" />
+		<list include="TMF/list_organisation.xml" />
+		
+						
+	</form-schema> 
+</wizard-schema>

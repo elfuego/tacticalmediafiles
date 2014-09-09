@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+		<list role="related" destination="copyright" >
+			<title xml:lang="en">Copyright</title>
+			<title xml:lang="nl">Copyright</title>
+	
+			<item>
+				<field name="name" ftype="data">
+					<prompt xml:lang="en">Copyright</prompt>
+					<prompt xml:lang="nl">Copyright</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/copyright" inline="true" />
+			</item>
+
+			<command name="search" nodepath="copyright" fields="name" age="-1">
+				<prompt xml:lang="en">Search Copyrights</prompt>
+				<prompt xml:lang="nl">Zoek Copyrights</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Name:</name>
+					<name xml:lang="nl">Naam:</name>
+					<search-fields>name</search-fields>
+				</search-filter>
+				
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/copyright" objectnumber="new" />
+			<action type="create">
+				<relation destination="copyright" role="related" />
+			</action>
+		</list>

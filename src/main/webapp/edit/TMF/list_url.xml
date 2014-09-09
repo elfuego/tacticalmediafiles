@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+		<list role="related" destination="url" >
+			<title xml:lang="en">links / urls</title>
+			<title xml:lang="nl">links / urls</title>
+	
+			<item>
+				<field name="title" ftype="data">
+					<prompt xml:lang="en">Title</prompt>
+					<prompt xml:lang="nl">Titel</prompt>
+				</field>
+				<field name="url" ftype="data">
+					<prompt xml:lang="en">url</prompt>
+					<prompt xml:lang="nl">url</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/url" inline="true" />
+			</item>
+
+			<command name="search" nodepath="url" fields="title,url" age="-1">
+				<prompt xml:lang="en">Search URL</prompt>
+				<prompt xml:lang="nl">Zoek URL</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Title:</name>
+					<name xml:lang="nl">Titel:</name>
+					<search-fields>title</search-fields>
+				</search-filter>
+				
+				<search-filter>
+					<name xml:lang="en">URL:</name>
+					<name xml:lang="nl">URL:</name>
+					<search-fields>url</search-fields>
+				</search-filter>
+				
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/url" objectnumber="new" />
+			<action type="create">
+				<relation destination="url" role="related" />
+			</action>
+		</list>

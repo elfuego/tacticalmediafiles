@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<wizard-schema id="file">
+	<title xml:lang="en">Files Wizard</title>
+	<title xml:lang="nl">Bestanden Wizard</title>
+	
+	<action type="create">
+		<object type="file" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this file?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je dit bestand wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove File</description>
+		<description xml:lang="nl">Bestand verwijderen</description>
+	</action>
+	
+	<action type="load">
+		<relation role="related" searchdir="destination" destination="keyword">
+			<object>
+				<field name="keyword" />
+			</object>
+		</relation>		
+	</action>
+
+	<form-schema id="file">
+		
+		<title xml:lang="en">file upload (pdf)</title>
+		<title xml:lang="nl">bestand uploaden (pdf)</title>
+		
+		<field name="title" dtrequired="true" />
+		<field name="description" dttype="html" />
+		<field name="handle" ftype="upload" />
+		
+		<list include="TMF/list_copyright.xml" />
+		<list include="TMF/list_keyword.xml" />
+		<field name="keys">
+			<prompt xml:lang="en">Free keuwords</prompt>
+      <prompt xml:lang="nl">Vrije trefwoorden</prompt>
+		</field>
+	</form-schema>
+</wizard-schema>

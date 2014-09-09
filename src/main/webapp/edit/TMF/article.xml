@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<wizard-schema id="article">
+	<title xml:lang="en">Article Wizard</title>
+	<title xml:lang="nl">Artikel Wizard</title>
+	
+	<action type="create">
+		<object type="article" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this article?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je dit artikel wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove Article</description>
+		<description xml:lang="nl">Artikel verwijderen</description>
+	</action>
+	
+	<action type="load">
+		<relation role="related" searchdir="destination" destination="keyword">
+			<object>
+				<field name="keyword" />
+			</object>
+		</relation>	
+		<relation role="related" searchdir="destination" destination="type">
+			<object>
+				<field name="type" />
+				<field name="typeoftype" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="organisation">
+			<object>
+				<field name="name" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="person">
+			<object>
+				<field name="prefix" />
+				<field name="firstname" />
+				<field name="sirname" />
+			</object>
+		</relation>
+		<relation role="author" searchdir="both" destination="person">
+			<object>
+				<field name="prefix" />
+				<field name="firstname" />
+				<field name="sirname" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="destination" destination="copyright">
+			<object>
+				<field name="name" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="campaign">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="posrel" searchdir="both" destination="picture">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="filename"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="video">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="handle"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="file">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="filename"/>
+			</object>
+		</relation>					
+		<relation role="related" searchdir="destination" destination="url">
+			<object>
+				<field name="title" />
+				<field name="url" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="source" destination="url">
+			<object>
+				<field name="title" />
+				<field name="url" />
+			</object>
+		</relation>		
+		<relation role="related" searchdir="destination" destination="article">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>	
+		<relation role="related" searchdir="source" destination="article">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>		
+	</action>
+	
+	<form-schema id="article">
+		
+		<title xml:lang="en">Article Wizard</title>
+		<title xml:lang="nl">Artikel Tovenaar</title>
+		
+		<field name="title" dtrequired="true" />
+		<field name="subtitle" />
+		<field name="intro" dtrequired="true" ftype="html" dttype="html" rows="20"/>
+		<field name="body" dtrequired="true" rows="25" ftype="html" dttype="html" />
+
+
+		<list include="TMF/list_writer.xml" />
+		
+		<list include="TMF/list_type_of_article.xml" />
+		<list include="TMF/list_keyword.xml" />
+		<field name="keys">
+			<prompt xml:lang="en">Free keywords</prompt>
+      <prompt xml:lang="nl">Vrije trefwoorden</prompt>
+		</field>	
+			
+		<list include="TMF/list_picture.xml" />
+		<list include="TMF/list_copyright.xml" />
+	</form-schema>
+		
+		
+		
+		
+	<form-schema id="relations">
+			
+		<title xml:lang="en">Article Relations</title>
+		<title xml:lang="nl">Artikel Relaties</title>
+		
+		<list include="TMF/list_event.xml" />
+		<list include="TMF/list_campaign.xml" />			
+		
+		<list include="TMF/list_person.xml" />
+		<list include="TMF/list_organisation.xml" />
+		<list include="TMF/list_url.xml" />
+		<list include="TMF/list_video.xml" />
+		<list include="TMF/list_article.xml" />
+		<list include="TMF/list_file.xml" />
+		<!-- <list include="TMF/list_work.xml" /> -->
+	</form-schema>
+</wizard-schema>

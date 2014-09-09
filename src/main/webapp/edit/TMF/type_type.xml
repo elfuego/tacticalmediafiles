@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE optionlist PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+<optionlist name="typeoftypes"> 
+ <option id="people">people</option>
+ <option id="event">event</option>
+ <option id="organisation">organisation</option>
+ <option id="work">work</option>
+ <option id="article">article</option>
+ <option id="artefact">artefact</option>
+ <option id="all">all</option>
+</optionlist>

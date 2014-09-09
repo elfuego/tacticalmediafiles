@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<wizard-schema id="files">
+	<title xml:lang="en">Media Host/Provider</title>
+	<title xml:lang="nl">Media Host/Provider</title>
+	
+	<action type="create">
+		<object type="mediaproviders" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this provider?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je dit provider wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove Provider</description>
+		<description xml:lang="nl">Provider verwijderen</description>
+	</action>
+	
+	<action type="load" />
+	
+	<form-schema id="provider">
+		
+		<title xml:lang="en">Host/Provider</title>
+		<title xml:lang="nl">Host/Provider</title>
+		
+		<field name="name" dtrequired="true" />
+		<field name="host" dtrequired="true" />
+		<field name="state" dtrequired="true" />
+		<field name="description" dttype="html" />
+		<field name="protocol" dtrequired="true" />
+		<field name="rootpath" dtrequired="true" />
+	</form-schema> 
+</wizard-schema>

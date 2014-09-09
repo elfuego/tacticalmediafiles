@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+<wizard-schema id="organisation">
+
+	<title xml:lang="en">Organisation</title>
+	<title xml:lang="nl">Organisatie</title>
+		
+	<action type="create">
+		<object type="organisation">
+			<relation role="related">
+				<object type="address" />
+			</relation>
+		</object>
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this organisation?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je deze organisatie wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove Organisation</description>
+		<description xml:lang="nl">Organisatie verwijderen</description>
+	</action>
+	
+	<action type="load">
+		<relation role="related" searchdir="both" destination="address">
+			<object>
+				<field name="street"/>
+				<field name="city"/>
+				<field name="region"/>
+				<field name="country"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="type">
+			<object>
+				<field name="type"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="person">
+			<object>
+				<field name="firstname"/>
+				<field name="sirname"/>
+				<field name="prefix"/>
+			</object>
+		</relation>
+		<relation role="coordinator" searchdir="both" destination="person">
+			<object>
+				<field name="firstname"/>
+				<field name="sirname"/>
+				<field name="prefix"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="dates">
+			<object>
+				<field name="begindate"/>
+				<field name="enddate"/>
+				<field name="ended"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="article">
+			<object>
+				<field name="title"/>
+				<field name="subtitle"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="campaign">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="posrel" searchdir="both" destination="picture">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="filename"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="media">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="handle"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="file">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="filename"/>
+			</object>
+		</relation>					
+	</action>
+	
+	<form-schema id="organisation">
+		<title xml:lang="en">Organisation</title>
+		<title xml:lang="nl">Organisatie</title>
+		
+		<field name="name" dtrequired="true">
+			<prompt xml:lang="en">Name</prompt>
+			<prompt xml:lang="nl">Naam</prompt>
+		</field>
+		<field name="subtitle" dtrequired="false">
+			<prompt xml:lang="en">Subtitle</prompt>
+			<prompt xml:lang="nl">Subtitel</prompt>
+		</field>
+		<field name="description" dtrequired="true" ftype="html" rows="30">
+			<prompt xml:lang="en">Description</prompt>
+			<prompt xml:lang="nl">Beschrijving</prompt>
+		</field>
+		<field name="url" dtrequired="false">
+			<prompt xml:lang="en">URL Link</prompt>
+			<prompt xml:lang="nl">URL Link</prompt>
+		</field>
+		<field name="email" dtrequired="false">
+			<prompt xml:lang="en">E-mail</prompt>
+			<prompt xml:lang="nl">E-mail</prompt>
+		</field>		
+		
+		<list include="TMF/list_type_of_organisation.xml" />
+
+		<list role="related" destination="address" hidecommand="delete-item">
+			<title xml:lang="en">Located at</title>
+			<title xml:lang="nl">Bevind zich</title>	
+			<item>
+				<field name="street">
+					<prompt xml:lang="en">Address:</prompt>
+					<prompt xml:lang="nl">Adres:</prompt>
+				</field>
+				<field name="city">
+					<prompt xml:lang="en">City:</prompt>
+					<prompt xml:lang="nl">Plaats:</prompt>
+				</field>
+				<field name="region">
+					<prompt xml:lang="en">Region:</prompt>
+					<prompt xml:lang="nl">Regio:</prompt>
+				</field>
+				<field name="country">
+					<prompt xml:lang="en">Country:</prompt>
+					<prompt xml:lang="nl">Land:</prompt>
+				</field>
+					
+				<field ftype="startwizard" wizardname="TMF/address" inline="true">
+				<prompt>add more info:</prompt>
+				</field>			
+			</item>					
+		</list>
+		
+
+				
+		<list include="TMF/list_picture.xml" />	
+				
+	</form-schema>
+
+	<form-schema id="relaties">
+		<title xml:lang="en">Relations</title>
+		<title xml:lang="nl">Relaties</title>
+		<field name="name" ftype="data"/>	
+		<list include="TMF/list_person.xml" />		
+		<list include="TMF/list_event.xml" />
+		<list include="TMF/list_campaign.xml" />
+		<list include="TMF/list_article.xml" />
+		<list include="TMF/list_media.xml" />
+	</form-schema>
+
+
+</wizard-schema>

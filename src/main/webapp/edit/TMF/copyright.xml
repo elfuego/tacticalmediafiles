@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+<wizard-schema id="copyright">
+
+	<title xml:lang="en">CopyRight Wizzard</title>
+	<title xml:lang="nl">CopyRight Tovenaar</title>
+		
+	<action type="create">
+		<object type="copyright" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this Copyright?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je deze Copyright wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove Copyright</description>
+		<description xml:lang="nl">Copyright verwijderen</description>
+	</action>
+	
+	<action type="load" />
+	
+	<form-schema id="copyright">
+		<title xml:lang="en">Copyright Wizard</title>
+		<title xml:lang="nl">Copyright Tovenaar</title>
+		
+		<field name="name" dtmaxlength="255" dtrequired="true">
+			<prompt xml:lang="en">Name</prompt>
+			<prompt xml:lang="nl">Naam</prompt>
+		</field>
+		<field name="licence" ftype="html" dtrequired="true" rows="35">
+			<prompt xml:lang="en">Licence</prompt>
+			<prompt xml:lang="nl">Licentie</prompt>
+		</field>
+	</form-schema>
+</wizard-schema>

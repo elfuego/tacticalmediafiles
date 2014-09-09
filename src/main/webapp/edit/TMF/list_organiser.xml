@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+ 		<list role="coordinator" destination="person" >
+			<title xml:lang="en">Initiators / Organisers</title>
+			<title xml:lang="nl">Initiatief nemers / Organisatoren</title>
+	
+			<item>
+				<field name="prefix" ftype="data">
+					<prompt xml:lang="en">Prefix</prompt>
+					<prompt xml:lang="nl">Voorvoegsel</prompt>
+				</field>
+				<field name="firstname" ftype="data">
+					<prompt xml:lang="en">Firstname</prompt>
+					<prompt xml:lang="nl">Voornaam</prompt>
+				</field>
+				<field name="sirname" ftype="data">
+					<prompt xml:lang="en">Surname</prompt>
+					<prompt xml:lang="nl">Achternaam</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/person" inline="true" />
+			</item>
+
+			<command name="search" nodepath="person" fields="prefix,firstname,sirname" age="-1">
+				<prompt xml:lang="en">Search People</prompt>
+				<prompt xml:lang="nl">Zoek Mensen</prompt>
+				
+				<search-filter>
+					<name xml:lang="en">Surname:</name>
+					<name xml:lang="nl">Achternaam:</name>
+					<search-fields>sirname</search-fields>
+				</search-filter>
+
+				<search-filter>
+					<name xml:lang="en">Name:</name>
+					<name xml:lang="nl">Naam:</name>
+					<search-fields>firstname,sirname</search-fields>
+				</search-filter>
+				
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/person" objectnumber="new" />
+			<action type="create">
+				<relation destination="person" role="coordinator" />
+			</action>
+		</list>

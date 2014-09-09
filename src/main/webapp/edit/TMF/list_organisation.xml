@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<list role="related" destination="organisation" >
+			<title xml:lang="en">Organisation / Institution</title>
+			<title xml:lang="nl">Organisatie / Instituut / </title>
+	
+			<item>
+				<field name="name" ftype="data">
+					<prompt xml:lang="en">Title</prompt>
+					<prompt xml:lang="nl">Titel</prompt>
+				</field>
+				<field name="subtitle" ftype="data">
+					<prompt xml:lang="en">Subtitle</prompt>
+					<prompt xml:lang="nl">Subtitel</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/organisation" inline="true" />
+			</item>
+
+			<command name="search" nodepath="organisation" fields="name,subtitle" age="-1">
+				<prompt xml:lang="en">Search Organisations</prompt>
+				<prompt xml:lang="nl">Zoek Organisaties</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Name:</name>
+					<name xml:lang="nl">Naam:</name>
+					<search-fields>name</search-fields>
+				</search-filter>
+				
+				<search-filter>
+					<name xml:lang="en">Subtitle:</name>
+					<name xml:lang="nl">Subtitel:</name>
+					<search-fields>subtitle</search-fields>
+				</search-filter>
+				
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/organisation" objectnumber="new" />
+			<action type="create">
+				<relation destination="organisation" role="related" />
+			</action>
+		</list>

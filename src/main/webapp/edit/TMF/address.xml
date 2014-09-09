@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+<wizard-schema id="address">
+
+	<title xml:lang="en">Adres Wizzard</title>
+	<title xml:lang="nl">Adres Wizzard</title>
+		
+	<action type="create">
+		<object type="address" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this Adres?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je dit address wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove Adres</description>
+		<description xml:lang="nl">Address verwijderen</description>
+	</action>
+	
+	<action type="load" />
+	
+	<form-schema id="step1">
+		<field name="name" dtmaxlength="100">
+			<prompt xml:lang="en">Name</prompt>
+			<prompt xml:lang="nl">Naam</prompt>
+		</field>	
+		<title xml:lang="en">address Wizard</title>
+		<title xml:lang="nl">Adres Tovenaar</title>
+		<field name="street" dtmaxlength="255">
+			<prompt xml:lang="en">Street en Number</prompt>
+			<prompt xml:lang="nl">Straat en Nummer</prompt>
+		</field>
+		<field name="zipcode" dtmaxlength="20">
+			<prompt xml:lang="en">Zipcode</prompt>
+			<prompt xml:lang="nl">Postcode</prompt>
+		</field>
+		<field name="city" dtrequired="true" dtmaxlength="50">
+			<prompt xml:lang="en">City</prompt>
+			<prompt xml:lang="nl">Stad</prompt>
+		</field>
+		<field name="region" dtmaxlength="50">
+			<prompt xml:lang="en">Region</prompt>
+			<prompt xml:lang="nl">Regio</prompt>
+		</field>
+		<field name="country" dtrequired="true" dtmaxlength="50">
+			<prompt xml:lang="en">Country</prompt>
+			<prompt xml:lang="nl">Land</prompt>
+		</field>
+		<field name="phone" dtmaxlength="24">
+			<prompt xml:lang="en">telephone</prompt>
+			<prompt xml:lang="nl">telefoon</prompt>
+		</field> 
+		<field name="mobile" dtmaxlength="24">
+			<prompt xml:lang="en">Mobile</prompt>
+			<prompt xml:lang="nl">Mobiel</prompt>
+		</field>
+		<field name="fax" dtmaxlength="24">
+			<prompt>Fax</prompt>
+		</field>
+		<field name="email" dtmaxlength="150">
+			<prompt>E-mail</prompt>
+		</field>
+	</form-schema>
+</wizard-schema>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+<wizard-schema id="media">
+	
+	<title xml:lang="en">Media</title>
+	<title xml:lang="nl">Media</title>
+
+	<action type="create">
+		<object type="media" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this media object?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je dit object wilt verwijderen?</prompt>
+	 	<description xml:lang="en">Delete media</description>
+	 	<description xml:lang="nl">Verwijder media</description>
+	</action>
+
+	<action type="load">
+		<relation role="related" searchdir="both" destination="person">
+			<object>
+				<field name="prefix" />
+				<field name="firstname" />
+				<field name="sirname" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="campaign">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="keyword">
+			<object>
+				<field name="keyword" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="file">
+			<object>
+				<field name="title" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="copyright">
+			<object>
+				<field name="name" />
+			</object>
+		</relation>
+
+	</action>
+
+	<form-schema id="media">
+		<title xml:lang="en">Media upload</title>
+		<title xml:lang="nl">Media uploaden</title>
+		<field name="title" dtrequired="true" />
+		<field name="description" dttype="html" />
+		<field name="handle" dtrequired="true">
+			<prompt xml:lang="en">handle (URL)</prompt>
+			<prompt xml:lang="nl">handle (URL)</prompt>
+		</field>
+		<field name="width" />
+		<field name="height" />
+ 		
+		<list include="TMF/list_event.xml" />
+		<list include="TMF/list_campaign.xml" />					
+		<list include="TMF/list_person.xml" />
+		<list include="TMF/list_file.xml" />		
+		<list include="TMF/list_copyright.xml" />
+ 	</form-schema>
+</wizard-schema>

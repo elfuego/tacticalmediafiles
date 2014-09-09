@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+		<list role="related" destination="media">
+			<title xml:lang="en">Related Video / audio</title>
+			<title xml:lang="nl">Gerelateerde Video / audio</title>
+	
+			<item>
+				<field name="title" ftype="data">
+					<prompt xml:lang="en">Title</prompt>
+					<prompt xml:lang="nl">Titel</prompt>
+				</field>
+				<field name="handle" ftype="data">
+					<prompt xml:lang="en">handle (URL)</prompt>
+					<prompt xml:lang="nl">handle (URL)</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/media" inline="true" />
+			</item>
+
+			<command name="search" nodepath="media" fields="title,handle" age="-1">
+				<prompt xml:lang="en">Search Articles</prompt>
+				<prompt xml:lang="nl">Zoek Artiekelen</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Title:</name>
+					<name xml:lang="nl">Titel:</name>
+					<search-fields>title</search-fields>
+				</search-filter>
+				<search-filter>
+					<name xml:lang="en">source:</name>
+					<name xml:lang="nl">source:</name>
+					<search-fields>handle</search-fields>
+				</search-filter>
+	    </command>
+			<command name="startwizard" inline="true" wizardname="TMF/media" objectnumber="new" />
+			<action type="create">
+				<relation destination="media" role="related" />
+			</action>
+		</list>

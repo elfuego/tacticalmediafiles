@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<wizard-schema id="work">
+	<title xml:lang="en">Work Wizard</title>
+	<title xml:lang="nl">Werk Wizard</title>
+	
+	<action type="create">
+		<object type="work" />
+	</action>
+
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this work?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je dit werk wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove work</description>
+		<description xml:lang="nl">Werk verwijderen</description>
+	</action>
+	
+	<action type="load">
+		<relation role="related" searchdir="destination" destination="keyword">
+			<object>
+				<field name="keyword" />
+			</object>
+		</relation>	
+		<relation role="related" searchdir="both" destination="article">
+			<object>
+				<field name="title"/>
+				<field name="subtitle"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="person">
+			<object>
+				<field name="prefix"/>
+				<field name="firstname"/>
+				<field name="sirname"/>
+			</object>
+		</relation>
+		<relation role="author" searchdir="both" destination="person">
+			<object>
+				<field name="prefix"/>
+				<field name="firstname"/>
+				<field name="sirname"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="copyright">
+			<object>
+				<field name="name" />
+			</object>
+		</relation>
+		<relation role="related" destination="type">
+			<object>
+				<field name="type"/>
+				<field name="typeoftype"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="document">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="artefact">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="organisation">
+			<object>
+				<field name="name" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="campaign">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="dates" />
+		<relation role="posrel" searchdir="both" destination="picture">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="filename"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="media">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="handle"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="file">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="filename"/>
+			</object>
+		</relation>		
+	</action>
+
+	<form-schema id="work">
+		
+		<title xml:lang="en">Work Wizard</title>
+		<title xml:lang="nl">Werk Tovenaar</title>
+		
+		<field name="title" dtrequired="true">
+			<prompt xml:lang="en">Title</prompt>
+			<prompt xml:lang="nl">titel</prompt>
+		</field>
+		<field name="subtitle">
+			<prompt xml:lang="en">Subtitle</prompt>
+			<prompt xml:lang="nl">Subtitel</prompt>
+		</field>
+		<field name="intro" dtrequired="true" ftype="html">
+			<prompt xml:lang="en">Intro</prompt>
+			<prompt xml:lang="nl">Intro</prompt>
+		</field>
+		<field name="body" dtrequired="true" rows="25" ftype="html">
+			<prompt xml:lang="en">Description</prompt>
+			<prompt xml:lang="nl">Beschrijving</prompt>
+		</field>
+
+		<list role="related" destination="type" >
+			<title xml:lang="en">Related types</title>
+			<title xml:lang="nl">Gerelateerde soort</title>
+	
+			<item>
+				<field name="type" ftype="data">
+					<prompt xml:lang="en">Type</prompt>
+					<prompt xml:lang="nl">Soort</prompt>
+				</field>
+			</item>
+
+			<command name="search" nodepath="type" fields="type,typeoftype" age="-1"  constraints="typeoftype LIKE 'work'">
+				<prompt xml:lang="en">Search Type</prompt>
+				<prompt xml:lang="nl">Soort adres</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Type:</name>
+					<name xml:lang="nl">Soort:</name>
+					<search-fields>type</search-fields>
+				</search-filter>
+				<search-filter>
+					<name xml:lang="en">Type of Type:</name>
+					<name xml:lang="nl">Soort Soort:</name>
+					<search-fields>typeoftype</search-fields>
+				</search-filter>
+	    </command>
+			<action type="create">
+				<relation destination="type" role="related" />
+			</action>
+		</list>
+				
+		<list role="related" destination="keyword">
+			<item>
+				<field name="keyword" ftype="data" />				
+			</item>	
+			
+			<command name="search" nodepath="keyword" fields="keyword" age="-1">
+				<prompt xml:lang="en">Search keyword</prompt>
+				<prompt xml:lang="nl">Zoek trefwoord</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Keyword:</name>
+					<name xml:lang="nl">Trefwoord:</name>
+					<search-fields>keyword</search-fields>
+				</search-filter>
+				
+	    </command>
+			<command name="startwizard" inline="true" wizardname="TMF/keyword" objectnumber="new" />
+			<action type="create">
+				<relation destination="keyword" role="related" />
+			</action>				
+		</list>  
+		<list role="posrel" destinationtype="picture" ordertype="number" orderby="field[@name='pos']" >
+        <title xml:lang="en">Related pictures</title>
+        <title xml:lang="nl">Gerelateerde plaatjes</title>
+        <!-- Show the 'item' in a list (the object) -->
+				
+				
+        <item displaytype="image">
+        	<field name="title" ftype="data">
+        		<prompt xml:lang="en">Title:</prompt>
+        		<prompt xml:lang="nl">Titel:</prompt>
+        	</field>
+        	
+        	<field name="description" ftype="data">
+        		<prompt xml:lang="en">description:</prompt>
+        		<prompt xml:lang="nl">beschrijving:</prompt>
+        	</field>
+        	 
+        	<field fdatapath="field[@name='pos']" ftype="data" />
+        	
+        	<field ftype="startwizard" wizardname="TMF/picture" inline="true" />
+        </item>
+        
+        <!-- defines a search command.
+        		 This creates a search box that allows you to search for objects
+        		 using a specified ndoepath.
+        		 In this case, the searchs ercahes for news items, using the fields
+        		 'title' and 'subtitle' to show the results of the search in the list.
+        -->
+        <command name="search" nodepath="picture" fields="handle,title,description" age="-1">
+        	<prompt xml:lang="en">Search pictures</prompt>
+        	<prompt xml:lang="nl">Zoek plaatjes</prompt>
+        	<!-- Search filters determine what you can search on (in this case, on title
+        			 or both title and subtitle)
+        			 If you do not specify a search filter, the default is to search on the
+        			 'title' field.
+        	-->
+        	<!-- Search on title -->
+        	<search-filter>
+        		<name xml:lang="en">about:</name>
+        		<name xml:lang="nl">over:</name>
+        		<search-fields>title|description</search-fields>
+        	</search-filter>
+        </command>
+        <!-- maak een knopje naar een nieuwe wizard -->
+        <command name="startwizard" inline="true" wizardname="TMF/picture" objectnumber="new" />
+        <!-- Action to create a relation, used by the search command to create
+        		 the relation once it is found and chosen.
+        -->
+        
+        
+        <action type="add">
+        	<relation role="posrel" destinationtype="picture">
+        		<field name="pos">
+							{sum(//relation[@role='posrel' and @lastitem='true' and object/@type='picture']/field[@name='pos'])+{$pos}}
+						</field>
+ 					</relation>
+        </action>
+		</list>		
+	</form-schema>
+	
+	<form-schema id="relaties">
+		<title xml:lang="en">Relations</title>
+		<title xml:lang="nl">Relaties</title>
+		
+		<list role="author" destination="person" >
+			<title xml:lang="en">Author/Creator</title>
+			<title xml:lang="nl">Autheur/Creator</title>
+			
+			<item>
+				<field name="prefix" ftype="data">
+					<prompt xml:lang="en">Prefix</prompt>
+					<prompt xml:lang="nl">Voorvoegsel</prompt>
+				</field>
+				<field name="firstname" ftype="data">
+					<prompt xml:lang="en">Firstname</prompt>
+					<prompt xml:lang="nl">Voornaam</prompt>
+				</field>
+				<field name="sirname" ftype="data">
+					<prompt xml:lang="en">Surname</prompt>
+					<prompt xml:lang="nl">Achternaam</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/person" inline="true" />
+			</item>
+			
+			<command name="search" nodepath="person" fields="prefix,firstname,sirname" age="-1">
+				<prompt xml:lang="en">Search Poeple</prompt>
+				<prompt xml:lang="nl">Zoek Mensen</prompt>
+	
+				<search-filter>
+					<name xml:lang="en">Achternaam:</name>
+					<name xml:lang="nl">Surname:</name>
+					<search-fields>sirname</search-fields>
+				</search-filter>
+				<search-filter>
+					<name xml:lang="en">Voornaam:</name>
+					<name xml:lang="nl">Firstname:</name>
+					<search-fields>firstname</search-fields>
+				</search-filter>
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/person" objectnumber="new" />
+			<action type="create">
+				<relation destination="person" role="author" />
+			</action>
+		</list>
+		
+		<list role="related" destination="event" >
+			<title xml:lang="en">Part of Event</title>
+			<title xml:lang="nl">Gerelateerd aan Evenement</title>
+	
+			<item>
+				<field name="title" ftype="data">
+					<prompt xml:lang="en">Title</prompt>
+					<prompt xml:lang="nl">Titel</prompt>
+				</field>
+				<field name="subtitle" ftype="data">
+					<prompt xml:lang="en">Subtitle</prompt>
+					<prompt xml:lang="nl">Subtitel</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/event" inline="true" />
+			</item>
+
+			<command name="search" nodepath="event" fields="title,subtitle" age="-1">
+				<prompt xml:lang="en">Search Events</prompt>
+				<prompt xml:lang="nl">Zoek Evenementen</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Title:</name>
+					<name xml:lang="nl">Titel:</name>
+					<search-fields>title</search-fields>
+				</search-filter>
+				
+				<search-filter>
+					<name xml:lang="en">Subtitle:</name>
+					<name xml:lang="nl">Subtitel:</name>
+					<search-fields>subtitle</search-fields>
+				</search-filter>
+				
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/event" objectnumber="new" />
+			<action type="create">
+				<relation destination="event" role="related" />
+			</action>
+		</list>
+		
+		<list role="related" destination="document" >
+			<title xml:lang="en">Document</title>
+			<title xml:lang="nl">Document</title>
+	
+			<item>
+				<field name="title" ftype="data">
+					<prompt xml:lang="en">Title</prompt>
+					<prompt xml:lang="nl">Titel</prompt>
+				</field>
+				<field name="subtitle" ftype="data">
+					<prompt xml:lang="en">Subtitle</prompt>
+					<prompt xml:lang="nl">Subtitel</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/document" inline="true" />
+			</item>
+
+			<command name="search" nodepath="document" fields="title,subtitle" age="-1">
+				<prompt xml:lang="en">Search Documents</prompt>
+				<prompt xml:lang="nl">Zoek Documenten</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Title:</name>
+					<name xml:lang="nl">Titel:</name>
+					<search-fields>title</search-fields>
+				</search-filter>
+				
+				<search-filter>
+					<name xml:lang="en">Subtitle:</name>
+					<name xml:lang="nl">Subtitel:</name>
+					<search-fields>subtitle</search-fields>
+				</search-filter>
+				
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/document" objectnumber="new" />
+			<action type="create">
+				<relation destination="document" role="related" />
+			</action>
+		</list>
+		
+		<list role="related" destination="organisation" >
+			<title xml:lang="en">Publisher</title>
+			<title xml:lang="nl">Uitgever</title>
+	
+			<item>
+				<field name="name" ftype="data">
+					<prompt xml:lang="en">Publisher</prompt>
+					<prompt xml:lang="nl">Uitgever</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/organisation" inline="true" />
+			</item>
+
+			<command name="search" nodepath="organisation" fields="name,subtitle" age="-1">
+				<prompt xml:lang="en">Search Publishers</prompt>
+				<prompt xml:lang="nl">Zoek Uitgevers</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Name:</name>
+					<name xml:lang="nl">Naam:</name>
+					<search-fields>name</search-fields>
+				</search-filter>
+				
+				<search-filter>
+					<name xml:lang="en">Subtitle:</name>
+					<name xml:lang="nl">Subtitel:</name>
+					<search-fields>subtitle</search-fields>
+				</search-filter>
+				
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/organisation" objectnumber="new" />
+			<action type="create">
+				<relation destination="organisation" role="related" />
+			</action>
+		</list>
+		
+		
+		
+		<list role="related" destination="copyright" >
+			<title xml:lang="en">Copyright</title>
+			<title xml:lang="nl">Copyright</title>
+	
+			<item>
+				<field name="name" ftype="data">
+					<prompt xml:lang="en">Copyright</prompt>
+					<prompt xml:lang="nl">Copyright</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/copyright" inline="true" />
+			</item>
+
+			<command name="search" nodepath="copyright" fields="name" age="-1">
+				<prompt xml:lang="en">Search Copyrights</prompt>
+				<prompt xml:lang="nl">Zoek Copyrights</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Name:</name>
+					<name xml:lang="nl">Naam:</name>
+					<search-fields>name</search-fields>
+				</search-filter>
+				
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/copyright" objectnumber="new" />
+			<action type="create">
+				<relation destination="copyright" role="related" />
+			</action>
+		</list>
+		<list role="related" destination="dates" >
+			<title xml:lang="en">Related Dates</title>
+			<title xml:lang="nl">Gerelateerde Datums</title>
+	
+			<item>
+				<field name="begindate" ftype="data">
+					<prompt xml:lang="en">Publish Date</prompt>
+					<prompt xml:lang="nl">Publicatie Datum</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/dates" inline="true" />
+			</item>
+
+			<command name="search" nodepath="dates" fields="begindate,enddate" age="-1">
+				<prompt xml:lang="en">Search Dates</prompt>
+				<prompt xml:lang="nl">Zoek Datums</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Publicated:</name>
+					<name xml:lang="nl">Gepubliceerd:</name>
+					<search-fields>begindate</search-fields>
+				</search-filter>
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/dates" objectnumber="new" />
+			<action type="create">
+				<relation destination="dates" role="related" />
+			</action>
+		</list>
+		
+		<list role="related" destination="article" >
+			<title xml:lang="en">Related Articles</title>
+			<title xml:lang="nl">Gerelateerde Artiekelen</title>
+	
+			<item>
+				<field name="title" ftype="data">
+					<prompt xml:lang="en">Title</prompt>
+					<prompt xml:lang="nl">Titel</prompt>
+				</field>
+				<field name="subtitle" ftype="data">
+					<prompt xml:lang="en">Subtitle</prompt>
+					<prompt xml:lang="nl">Subtitel</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/article" inline="true" />
+			</item>
+
+			<command name="search" nodepath="article" fields="title,subtitle" age="-1">
+				<prompt xml:lang="en">Search Articles</prompt>
+				<prompt xml:lang="nl">Zoek Artiekelen</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Title:</name>
+					<name xml:lang="nl">Titel:</name>
+					<search-fields>title</search-fields>
+				</search-filter>
+				<search-filter>
+					<name xml:lang="en">Subtitle:</name>
+					<name xml:lang="nl">Subtitel:</name>
+					<search-fields>subtitle</search-fields>
+				</search-filter>
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/article" objectnumber="new" />
+			<action type="create">
+				<relation destination="article" role="related" />
+			</action>
+		</list>
+				<list role="related" destination="person" >
+			<title xml:lang="en">Related people</title>
+			<title xml:lang="nl">Gerelateerde mensen</title>
+			
+			<item>
+				<field name="prefix" ftype="data">
+					<prompt xml:lang="en">Prefix</prompt>
+					<prompt xml:lang="nl">Voorvoegsel</prompt>
+				</field>
+				<field name="firstname" ftype="data">
+					<prompt xml:lang="en">Firstname</prompt>
+					<prompt xml:lang="nl">Voornaam</prompt>
+				</field>
+				<field name="sirname" ftype="data">
+					<prompt xml:lang="en">Surname</prompt>
+					<prompt xml:lang="nl">Achternaam</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/person" inline="true" />
+			</item>
+			<command name="search" nodepath="person" fields="prefix,firstname,sirname" age="-1">
+				<prompt xml:lang="en">Search Poeple</prompt>
+				<prompt xml:lang="nl">Zoek Mensen</prompt>
+	
+				<search-filter>
+					<name xml:lang="en">Achternaam:</name>
+					<name xml:lang="nl">Surname:</name>
+					<search-fields>sirname</search-fields>
+				</search-filter>
+				<search-filter>
+					<name xml:lang="en">Voornaam:</name>
+					<name xml:lang="nl">Firstname:</name>
+					<search-fields>firstname</search-fields>
+				</search-filter>
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/person" objectnumber="new" />
+			<action type="create">
+				<relation destination="person" role="related" />
+			</action>
+		</list>
+		
+		<list role="related" destination="artefact" >
+			<title xml:lang="en">Artefact</title>
+			<title xml:lang="nl">Artefact</title>
+	
+			<item>
+				<field name="title" ftype="data">
+					<prompt xml:lang="en">Title</prompt>
+					<prompt xml:lang="nl">Titel</prompt>
+				</field>
+				<field name="subtitle" ftype="data">
+					<prompt xml:lang="en">Subtitle</prompt>
+					<prompt xml:lang="nl">Subtitel</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/artefact" inline="true" />
+			</item>
+
+			<command name="search" nodepath="artefact" fields="title,subtitle" age="-1">
+				<prompt xml:lang="en">Search Artefacts</prompt>
+				<prompt xml:lang="nl">Zoek Artefacts</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Title:</name>
+					<name xml:lang="nl">Titel:</name>
+					<search-fields>title</search-fields>
+				</search-filter>
+				
+				<search-filter>
+					<name xml:lang="en">Subtitle:</name>
+					<name xml:lang="nl">Subtitel:</name>
+					<search-fields>subtitle</search-fields>
+				</search-filter>
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/artefact" objectnumber="new" />
+			<action type="create">
+				<relation destination="artefact" role="related" />
+			</action>
+			<list include="TMF/list_media.xml" />
+			<list include="TMF/list_file.xml" />
+			<list include="TMF/list_campaign.xml" />
+		</list>
+	</form-schema>
+</wizard-schema>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<wizard-schema id="campaign">
+	<title xml:lang="en">Campaign Wizard</title>
+	<title xml:lang="nl">Kampagne Tovenaar</title>
+	
+	<action type="create">
+		<object type="campaign" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this campaign?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je deze gebeurtenis wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove Event</description>
+		<description xml:lang="nl">Gebeurtenis verwijderen</description>
+	</action>
+	
+	<action type="load">
+		<relation role="related" searchdir="destination" destination="keyword">
+			<object>
+				<field name="keyword" />
+			</object>
+		</relation>	
+		<relation role="related" searchdir="both" destination="work">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="type">
+			<object>
+				<field name="type" />
+				<field name="typeoftype" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="dates">
+			<object>
+				<field name="begindate" />
+				<field name="enddate" />
+				<field name="ended" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="organisation">
+			<object>
+				<field name="name" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="person">
+			<object>
+				<field name="prefix" />
+				<field name="firstname" />
+				<field name="sirname" />
+			</object>
+		</relation>
+		<relation role="coordinator" searchdir="both" destination="person">
+			<object>
+				<field name="prefix" />
+				<field name="firstname" />
+				<field name="sirname" />
+			</object>
+		</relation>
+		<relation role="contains" searchdir="source" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>	
+		<relation role="contains" searchdir="destination" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>			
+		<relation role="related" searchdir="both" destination="address">
+			<object>
+				<field name="street"/>
+				<field name="city"/>
+				<field name="regen"/>
+				<field name="country"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="article">
+			<object>
+				<field name="title"/>
+				<field name="subtitle"/>
+			</object>
+		</relation>
+		<relation role="posrel" searchdir="both" destination="picture">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="filename"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="media">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="handle"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="file">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="filename"/>
+			</object>
+		</relation>	
+		<relation role="related" searchdir="both" destination="url">
+			<object>
+				<field name="title" />
+				<field name="url" />
+			</object>
+		</relation>					
+	</action>
+	
+	<form-schema id="campaign">
+		
+		<title xml:lang="en">Campaign Wizard</title>
+		<title xml:lang="nl">Campaign Tovenaar</title>
+		
+		<field name="title" dtrequired="true" />
+		<field name="subtitle" />
+		<field name="intro" dtrequired="true" ftype="html" rows="20"/>
+		<field name="body" dtrequired="true" rows="25" ftype="html" />
+
+
+		<list include="TMF/list_writer.xml" />
+		
+		<list include="TMF/list_keyword.xml" />
+		<field name="keys">
+			<prompt xml:lang="en">Free keuwords</prompt>
+      <prompt xml:lang="nl">Vrije trefwoorden</prompt>
+		</field>	
+			
+		<list include="TMF/list_picture.xml" />
+	</form-schema>
+	
+	<form-schema id="relations">
+			
+		<title xml:lang="en">Campaign Relations</title>
+		<title xml:lang="nl">Campagnr Relaties</title>
+		<field name="title" ftype="data"/>
+		
+		<list include="TMF/list_event.xml" />
+		<list include="TMF/list_article.xml" />
+		<list include="TMF/list_person.xml" />
+		<list include="TMF/list_organisation.xml" />
+		<list include="TMF/list_url.xml" />
+		<list include="TMF/list_media.xml" />
+		<list include="TMF/list_file.xml" />
+		<list include="TMF/list_work.xml" />
+	</form-schema>	
+</wizard-schema>

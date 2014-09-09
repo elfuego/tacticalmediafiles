@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+
+		<list role="related" destination="type" >
+			<item>
+				<field name="type" ftype="data">
+					<prompt xml:lang="en">type</prompt>
+					<prompt xml:lang="nl">Soort</prompt>
+				</field>
+			</item>
+
+			<command name="search" nodepath="type" age="-1" fields="type,typeoftype" constraints="typeoftype LIKE 'event'">
+				<prompt xml:lang="en">type of event</prompt>
+				<prompt xml:lang="nl">soort evenement</prompt> 
+				<search-filter>
+					<name xml:lang="en">type:</name>
+					<name xml:lang="nl">Soort:</name>
+					<search-fields>type</search-fields>
+				</search-filter>
+	    </command>
+			<action type="create">
+				<relation destination="type" role="related" />
+			</action>
+		</list>

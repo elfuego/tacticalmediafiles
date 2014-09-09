@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<wizard-schema id="type">
+	<title xml:lang="en">type Wizzard</title>
+	<title xml:lang="nl">type Wizzard</title>
+	
+	<action type="create">
+		<object type="type" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this type?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je dit type wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove type</description>
+		<description xml:lang="nl">type verwijderen</description>
+	</action>
+	
+	<action type="load" />
+
+  <lists>
+    <optionlist name="typeoftypes" include="TMF/type_type.xml" />
+  </lists>	
+  	
+	<form-schema id="type">
+		
+
+		
+		<field name="type" dtrequired="true" />
+																		
+		<field name="typeoftype" ftype="enum">
+			<optionlist select="typeoftypes" />
+		</field>
+						
+	</form-schema> 
+</wizard-schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+<wizard-schema id="keyword">
+
+	<title xml:lang="en">Keyword Wizzard</title>
+	<title xml:lang="nl">Trefwoord Tovenaar</title>
+		
+	<action type="create">
+		<object type="keyword" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this keyword?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je dit trefwoord wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove keyword</description>
+		<description xml:lang="nl">Trefwoord verwijderen</description>
+	</action>
+	
+	<action type="load" />
+
+	<form-schema id="keyword">
+		<title xml:lang="en">Keyword Wizard</title>
+		<title xml:lang="nl">Trefwoord Tovenaar</title>
+		<field name="keyword" dtmaxlength="50" dtrequired="true">
+			<prompt xml:lang="en">Keyword</prompt>
+			<prompt xml:lang="nl">Trefwoord</prompt>
+		</field>
+	</form-schema>
+</wizard-schema>

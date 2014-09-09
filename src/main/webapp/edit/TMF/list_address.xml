@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+		<list role="related" destination="address" >
+			<title xml:lang="en">Related addresses</title>
+			<title xml:lang="nl">Gerelateerde adressen</title>
+	
+			<item>
+				<field name="street" ftype="data">
+					<prompt xml:lang="en">Street and number:</prompt>
+					<prompt xml:lang="nl">Straat en nummer:</prompt>
+				</field>
+	
+				<field name="city" ftype="data">
+					<prompt xml:lang="en">City:</prompt>
+					<prompt xml:lang="nl">Plaats:</prompt>
+				</field>
+				
+				<field name="country" ftype="data">
+					<prompt xml:lang="en">Country:</prompt>
+					<prompt xml:lang="nl">Land:</prompt>
+				</field>
+				
+				<field name="region" ftype="data">
+					<prompt xml:lang="en">Region:</prompt>
+					<prompt xml:lang="nl">Regio:</prompt>
+				</field>
+				
+				<field ftype="startwizard" wizardname="TMF/address" inline="true" />
+			</item>
+			<command name="search" nodepath="address" fields="street,country,city" age="-1">
+				<prompt xml:lang="en">Search address</prompt>
+				<prompt xml:lang="nl">Zoek adres</prompt>
+
+				<search-filter>
+					<name xml:lang="en">City contains:</name>
+					<name xml:lang="nl">Stad bevat:</name>
+					<search-fields>city</search-fields>
+				</search-filter>
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/address" objectnumber="new" />
+			<action type="create">
+				<relation destination="address" role="related" />
+			</action>
+		</list>

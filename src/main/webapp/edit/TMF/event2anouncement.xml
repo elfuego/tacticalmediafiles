@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<wizard-schema id="type">
+	<title xml:lang="en">Make an event into an anouncement</title>
+	<title xml:lang="nl">Maak van een event een aankondiging</title>
+	
+	
+	<action type="load">
+		<relation role="related" searchdir="source" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+	</action>
+
+  	
+	<form-schema id="type">
+
+		<list include="TMF/list_event.xml" />
+						
+	</form-schema> 
+</wizard-schema>

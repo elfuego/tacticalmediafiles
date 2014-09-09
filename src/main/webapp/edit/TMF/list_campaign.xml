@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+		<list role="related" destination="campaign">
+			<title xml:lang="en">Related Campaigns</title>
+			<title xml:lang="nl">Gerelateerde campagnes</title>
+	
+			<item>
+				<field name="title" ftype="data">
+					<prompt xml:lang="en">Title</prompt>
+					<prompt xml:lang="nl">Titel</prompt>
+				</field>
+				<field name="subtitle" ftype="data">
+					<prompt xml:lang="en">Subtitle</prompt>
+					<prompt xml:lang="nl">Subtitel</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/campaign" inline="true" />
+			</item>
+
+			<command name="search" nodepath="campaign" fields="title,subtitle" age="-1">
+				<prompt xml:lang="en">Search Articles</prompt>
+				<prompt xml:lang="nl">Zoek Artiekelen</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Title:</name>
+					<name xml:lang="nl">Titel:</name>
+					<search-fields>title</search-fields>
+				</search-filter>
+				<search-filter>
+					<name xml:lang="en">Subtitle:</name>
+					<name xml:lang="nl">Subtitel:</name>
+					<search-fields>subtitle</search-fields>
+				</search-filter>
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/campaign" objectnumber="new" />
+			<action type="create">
+				<relation destination="campaign" role="related" />
+			</action>
+		</list>
