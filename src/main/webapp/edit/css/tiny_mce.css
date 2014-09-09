@@ -1,0 +1,101 @@
+/**
+* @author   Andre van Toly
+* @name     Stylesheet to style text etc. that is edited in tinyMCE
+* @version  '$Id: tiny_mce.css 46316 2012-03-30 08:36:41Z andre $'
+*/
+
+body#tinymce.mceContentBody,
+body#tinymce.mceContentBody td
+{
+	background-color: #fff;
+	font-family: Helvetica, sans-serif;
+	font-size: 0.85em;
+	line-height: 1.5em;
+	color: #555;
+}
+
+body#tinymce.mceContentBody a:link { color: #c00; }
+body#tinymce.mceContentBody a:visited { color: #333; }
+body#tinymce.mceContentBody a:hover { color: #c00; }
+body#tinymce.mceContentBody a:active
+{
+	color: #c00;
+	text-decoration: underline;
+}
+
+h1, h2, h3
+{
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 200;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin: 8px 0 12px 0;
+	color: #777;
+	clear: both;
+}
+
+body#tinymce.mceContentBody h2 { font-size: 1.6em; }
+body#tinymce.mceContentBody h3 { font-size: 1.4em; }
+body#tinymce.mceContentBody h4
+{
+	font-size: 1.05em;
+	color: #777;
+}
+
+body#tinymce.mceContentBody h5
+{
+	font-size: 1em;
+	color: #777;
+}
+
+h4, h5, h6 { margin-bottom: 0; }
+
+body#tinymce.mceContentBody pre
+{
+	font-family: Monaco, Courier, monospaced;
+	font-size: small;
+}
+
+img { border: 0; }
+p { margin: 0 0 1em 0; }
+ul, dl, ol, code, pre {	margin-bottom: 15px; }
+ul, ol { padding-left: 25px; }
+
+body#tinymce.mceContentBody code, 
+body#tinymce.mceContentBody pre
+{
+	font-family: Monaco, "Courier New", monospaced;
+	font-weight: bold;
+	background: #eaecef;
+	padding: 8px;
+	display: block;
+}
+
+dt
+{
+    width: 150px;
+	height: 2em;
+    float: left;
+    clear: left;
+	border-bottom: 1px solid #d8dbe0;
+	line-height: 2em;
+	margin-right: 20px;
+}
+
+dd
+{
+	padding-left: 2px;
+	line-height: 2em;
+	border-bottom: 1px solid #d8dbe0;
+}	dd a
+	{
+		padding: 0 !important;
+		margin-bottom: -1px;
+	}
+	dd + dd
+	{
+		margin-left: 170px;
+	}
+
+.mceVisualAid { border: 1px dashed #BBBBBB; }
+

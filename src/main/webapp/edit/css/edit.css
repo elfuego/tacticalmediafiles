@@ -1,0 +1,10 @@
+body
+{
+    font-family: Helvetica, sans-serif;
+    padding: 6px;
+}
+table.head td { padding: 6px 12px; }
+table.head, table.body { 
+    border: 1px solid #ccc;
+}
+td.field { white-space: normal; }

@@ -19,6 +19,11 @@
   div.pager > a,
   div.pager > strong { margin-right: 8px;}
   </style>
+
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
+  <link rel="icon" href="${mm:link('/mmbase/style/images/favicon.ico')}" type="image/x-icon" />
+  <link rel="shortcut icon" href="${mm:link('/mmbase/style/images/favicon.ico')}" type="image/x-icon" />
+
 </head>
 <body>
 
@@ -64,6 +69,147 @@
     
   </li>
 </ul>
+
+
+
+
+<table width="700">
+<tr>
+    <th width="18%">Edit wizard</th>
+    <th />
+    <th>Description</th>
+</tr>  
+
+<tr bgcolor="#aaccdd" cellpadding="5px">
+<td>News</td>
+<td width="8%" class="link">
+<!--
+<a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/anouncement&nodepath=type,event,dates&constraints=type.type='anouncement'&main=event&orderby=dates.begindate&directions=down&fields=dates.begindate,event.title,event.subtitle,type.type&searchfields=event.title,event.subtitle,type.type" />"><img alt="&gt;" src="../mmbase/style/images/next.gif"  /></a>  --> 
+<mm:link page="$list">
+  <mm:param name="wizard">TMF/anouncement</mm:param>
+  <mm:param name="nodepath">type,event</mm:param>
+  <mm:param name="constraints">type.type='anouncement'</mm:param>
+  <mm:param name="main">event</mm:param>
+  <mm:param name="orderby">event.begindate</mm:param>
+  <mm:param name="fields">event.begindate,event.title,event.subtitle,type.type</mm:param>
+  <mm:param name="searchfields">event.title,event.subtitle,type.type</mm:param>
+  <a href="${_}"><img alt="&gt;" src="${mm:link('/mmbase/style/images/next.gif')}"  /></a>
+</mm:link>
+
+
+</td>
+<td width="74%"><p>Write an anouncement of a tactical media event for the news section of the frontpage</p></td>
+</tr>
+<tr bgcolor="#aaccdd">
+    <td></td>
+    <td width="8%" class="link"><!-- <a href="<mm:url referids="referrer,language" page="${ew}/wizard.jsp?wizard=TMF/event2anouncement&objectnumber=38197" />"><img alt="&gt;" src="../mmbase/style/images/next.gif"  /></a> -->
+
+
+    <mm:link page="$wizard">
+      <mm:param name="wizard">TMF/event2anouncement</mm:param>
+      <mm:param name="objectnumber">38197</mm:param>
+      <a href="${_}">pijl</a>
+    </mm:link>    
+    
+    </td>
+  <td width="74%"><p>Put an existing event as an anouncement on the news section of the frontpage</p></td>
+</tr>
+<tr bgcolor="#F2F2F2">
+    <td>Featured</td>
+    <td width="8%" class="link"><!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/featured&nodepath=type&constraints=type.type='special'" />"><img alt="&gt;" src="../mmbase/style/images/next.gif"  /></a> --></td>
+  <td width="74%"><p>Choose articles, events, movies, works or people for the featured section of the frontpage</p></td>
+</tr>	
+<tr bgcolor="#F2F2F2">			
+    <td>Update tagcloud</td>
+    <td class="link" ><!-- <a href="tagrelcounter.jsp"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Counts (new) relations to a tag.</p></td>
+</tr>					
+<tr>
+    <td>Articles</td>
+    <td width="8%" class="link">
+    <!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/article&nodepath=article&orderby=number&directions=down&fields=title,subtitle&searchfields=title,subtitle" />"><img alt="&gt;" src="../mmbase/style/images/next.gif"  /></a> -->
+    <mm:link page="$list">
+      <mm:param name="wizard">TMF/article</mm:param>
+      <mm:param name="nodepath">article</mm:param>
+      <mm:param name="orderby">number</mm:param>
+      <mm:param name="directions">down</mm:param>
+      <mm:param name="fields">number,title,subtitle,created</mm:param>
+      <mm:param name="searchfields">title,subtitle</mm:param>
+      <a href="${_}"><img alt="&gt;" src="${mm:link('/mmbase/style/images/next.gif')}"  /></a>
+    </mm:link>
+    
+    </td>
+  <td width="74%"><p>Manage the Tactial Media Files articles</p></td>
+</tr>
+
+<tr>
+    <td>Events</td>
+    <td class="link" ><!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/event&nodepath=event&orderby=number&directions=down&fields=title,subtitle&searchfields=title,subtitle" />"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Add and manage Events.</p></td>
+</tr>
+
+<tr>
+    <td>Campaigns</td>
+    <td class="link" ><!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/campaign&nodepath=campaign&orderby=number&directions=down&fields=title,subtitle&searchfields=title,subtitle" />"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Add and manage campaigns.</p></td>
+</tr>
+
+<tr>
+    <td>Person</td>
+    <td class="link" ><!-- <a href="<mm:url referids="referrer,language" page="../mmbase/edit/wizard/jsp/list.jsp?wizard=TMF/person&nodepath=person&orderby=sirname&fields=firstname,sirname&searchfields=firstname,sirname" />"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Create/remove people in the database.</p></td>
+</tr>
+
+<tr>
+    <td>Organisation</td>
+    <td class="link" ><!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/organisation&nodepath=organisation&orderby=number&directions=down&fields=name,subtitle&searchfields=name,subtitle" />"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Add, remove or correct organisation information.</p></td>
+</tr>
+
+<tr>
+    <td>Types</td>
+    <td class="link" ><!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/type&nodepath=type&orderby=number&directions=down&fields=type,typeoftype&searchfields=type,typeoftype" />"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Create different object types.</p></td>
+</tr>
+
+<tr>
+    <td>Keywords</td>
+    <td class="link" ><!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/keyword&nodepath=keyword&orderby=number&directions=down&fields=keyword&searchfields=keyword" />"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Create different keywords.</p></td>
+</tr>
+
+<tr>
+    <td>Upload Pictures</td>
+    <td class="link" ><!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/picture&nodepath=picture&orderby=number&directions=down&fields=title&searchfields=title" />"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Add, remove or correct Pictures.</p></td>
+</tr>
+
+<tr>
+    <td>Upload Files</td>
+    <td class="link" ><!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/file&nodepath=file&orderby=number&directions=down&fields=title,filename,mimetype&searchfields=title,filename,mimetype" />"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Add, remove or correct Files.</p></td>
+</tr>
+
+<tr>
+    <td>Copyright</td>
+    <td class="link" ><!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/copyright&nodepath=copyright&orderby=number&directions=down&fields=name&searchfields=name" />"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Add, remove or correct Copyrights.</p></td>
+</tr>
+
+<tr>
+    <td>Media Editor</td>
+    <td class="link" ><!-- <a href="videolijst.jsp"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Add metadata to a video and divide it in annotated fragments.</p></td>
+</tr>
+<tr>
+    <td>Connect Media Objects</td>
+    <td class="link"><!-- <a href="/mmbase/edit/wizard/jsp/list.jsp?wizard=TMF/media&amp;nodepath=media&amp;orderby=number&amp;directions=down&amp;fields=title,handle,mtype&amp;searchfields=title,handle&amp;referrer=%2Fedit%2Findex.jsp&amp;language=en"><img alt="&gt;" src="/mmbase/style/images/next.gif"></a> --></td>
+    <td><p>Connect a video to other objects.</p></td> 
+</tr>	
+    
+
+</table>
+
 
 </body>
 </html>

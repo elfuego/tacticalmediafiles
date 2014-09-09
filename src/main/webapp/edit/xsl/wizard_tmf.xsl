@@ -27,8 +27,13 @@
     ================================================================================ -->
   
   <xsl:variable name="BodyOnLoad">doOnLoad_ew(); start_validator();</xsl:variable>
+  
+  <xsl:template name="tmfstyle">
+    <link rel="stylesheet" type="text/css" href="{$templatedir}/edit/css/edit.css" />
+  </xsl:template>
 
   <xsl:template name="javascript-html">
+    <xsl:call-template name="tmfstyle" />
     <script type="text/javascript" src="../../../tiny_mce/tiny_mce.js">
       <xsl:comment>help IE</xsl:comment>
     </script>
@@ -44,7 +49,7 @@ tinyMCE.init({
     mode: "textareas",
     editor_selector : "htmlarea",
     language: "en",
-    content_css: "../../../../css/tiny_mce.css",
+    content_css: "../../../../edit/css/tiny_mce.css",
     theme : "advanced",
     theme_advanced_blockformats : "p,pre,blockquote,h1,h2,h3,h4,h5,h6,div,dt,dd,code,samp", // enable button 'formatselect'
     extended_valid_elements : "video[controls|src|width|height|poster|class],audio[controls|src|width|height|poster|class],source[type|src]"

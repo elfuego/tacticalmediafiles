@@ -2,7 +2,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="ew:xsl/list.xsl"/>
 
+  <xsl:template name="tmfstyle">
+    <link rel="stylesheet" type="text/css" href="{$templatedir}/edit/css/edit.css" />
+  </xsl:template>
+  
   <xsl:template match="list">
+    <xsl:call-template name="tmfstyle" />
     <xsl:call-template name="searchbox" />
     <xsl:call-template name="listlinks" />
     <xsl:if test="count(/*/pages/page) &gt; 1">
