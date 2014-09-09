@@ -1,0 +1,71 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    expires="120" type="text/html"
+    language="client">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.1//EN"
+      doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+<mm:cloud method="http" logon="admin" >
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Edit</title>
+  <style type="text/css">
+  body {font-family: sans-serif;}
+  div.pager > a,
+  div.pager > strong { margin-right: 8px;}
+  </style>
+</head>
+<body>
+
+<mm:import id="referrer">/edit/index.jspx</mm:import>
+<mm:import id="wizards">/mmbase/edit/wizard/jsp</mm:import>
+<mm:import id="list">${wizards}/list.jsp</mm:import>
+<mm:import id="wizard">${wizards}/wizard.jsp</mm:import>
+
+<mm:link page="$wizards">
+  <mm:param name="wizard">wizards/pages/pages_home</mm:param>
+  <mm:param name="objectnumber">12345</mm:param>
+  <mm:param name="referrer">wizards/pages/pages_home</mm:param>
+  ${_}
+</mm:link>
+
+
+<h1>Editors</h1>
+<p>Extra text</p>
+<ul>
+  <li>
+    News  
+    <mm:link page="$wizard">
+      <mm:param name="wizard">wizards/TMF/anouncement</mm:param>
+      <mm:param name="nodepath">type,event,dates</mm:param>
+      <mm:param name="constraints">type.type='anouncement'</mm:param>
+      <mm:param name="main">event</mm:param>
+      <mm:param name="orderby">dates.begindate</mm:param>
+      <mm:param name="directions">down</mm:param>
+      <mm:param name="fields">dates.begindate,event.title,event.subtitle,type.type</mm:param>
+      <mm:param name="searchfields">event.title,event.subtitle,type.type</mm:param>
+      <a href="${_}">news</a>
+    </mm:link>
+    <!-- ${ew}/list.jsp?wizard=TMF/anouncement&nodepath=type,event,dates&constraints=type.type='anouncement'&main=event&orderby=dates.begindate&directions=down&fields=dates.begindate,event.title,event.subtitle,type.type&searchfields=event.title,event.subtitle,type.type -->
+  </li>
+  <li>
+  
+    <mm:link page="$list">
+      <mm:param name="wizard">wizards/content</mm:param>
+      <mm:param name="nodepath">content</mm:param>
+      <mm:param name="fields">title</mm:param>
+      <a href="${_}">content</a>
+    </mm:link>
+    
+  </li>
+</ul>
+
+</body>
+</html>
+</mm:cloud>
+</mm:content>

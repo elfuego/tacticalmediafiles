@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<wizard-schema id="some_id">
+	<title>Content</title>
+
+	<action type="create">
+	 <object type="content" />
+	</action>
+
+	<action type="delete" />
+
+	<form-schema id="step1">
+		<title>Content Wizard</title>
+
+		<field name="title">
+			<prompt>Titel</prompt>
+		</field>
+
+		<field name="created">
+			<prompt>Aangemaakt</prompt>
+		</field>
+
+	</form-schema>
+</wizard-schema>

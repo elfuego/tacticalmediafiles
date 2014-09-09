@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<wizard-schema id="event">
+	<title xml:lang="en">Anouncement Wizard</title>
+	<title xml:lang="nl">Aankondiging Wizard</title>
+	
+	<action type="create">
+		<object type="event">
+			<relation role="related">
+				<object type="dates">
+					<field name="begindate">1199142000</field>
+					<field name="enddate">1199142000</field>
+				</object>
+			</relation>
+			<relation destination="anouncement" role="related" />
+		</object>
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this event?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je deze gebeurtenis wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove Event</description>
+		<description xml:lang="nl">Gebeurtenis verwijderen</description>
+	</action>
+	
+	<action type="load">
+		<relation role="related" searchdir="destination" destination="keyword">
+			<object>
+				<field name="keyword" />
+			</object>
+		</relation>	
+		<relation role="related" searchdir="both" destination="work">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="type">
+			<object>
+				<field name="type" />
+				<field name="typeoftype" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="dates">
+			<object>
+				<field name="begindate" />
+				<field name="enddate" />
+				<field name="ended" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="organisation">
+			<object>
+				<field name="name" />
+				<field name="subtitle" />
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="person">
+			<object>
+				<field name="prefix" />
+				<field name="firstname" />
+				<field name="sirname" />
+			</object>
+		</relation>
+		<relation role="coordinator" searchdir="both" destination="person">
+			<object>
+				<field name="prefix" />
+				<field name="firstname" />
+				<field name="sirname" />
+			</object>
+		</relation>
+		<relation role="contains" searchdir="source" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>	
+		<relation role="contains" searchdir="destination" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>			
+		<relation role="related" searchdir="both" destination="address">
+			<object>
+				<field name="street"/>
+				<field name="city"/>
+				<field name="regen"/>
+				<field name="country"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="article">
+			<object>
+				<field name="title"/>
+				<field name="subtitle"/>
+			</object>
+		</relation>
+		<relation role="posrel" searchdir="both" destination="picture">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="filename"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="media">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="handle"/>
+			</object>
+		</relation>
+		<relation role="related" searchdir="both" destination="file">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="filename"/>
+			</object>
+		</relation>	
+		<relation role="related" searchdir="destination" destination="url">
+			<object>
+				<field name="title" />
+				<field name="url" />
+			</object>
+		</relation>				
+	</action>
+	
+	<form-schema id="event">
+		
+		<title xml:lang="en">Event Wizard.</title>
+		<title xml:lang="nl">Gebeurtenis Tovenaar.</title>
+		
+		<field name="title" dtrequired="true">
+			<prompt xml:lang="en">Title</prompt>
+			<prompt xml:lang="nl">titel</prompt>
+		</field>
+		<field name="subtitle">
+			<prompt xml:lang="en">Subtitle</prompt>
+			<prompt xml:lang="nl">Subtitel</prompt>
+		</field>
+		<field name="intro" dtrequired="true" ftype="html" rows="7">
+			<prompt xml:lang="en">Intro</prompt>
+			<prompt xml:lang="nl">Intro</prompt>
+		</field>
+		<field name="body" dtrequired="true" ftype="html" rows="15">
+			<prompt xml:lang="en">Description</prompt>
+			<prompt xml:lang="nl">Bescrijving</prompt>
+		</field> 
+   
+		<list role="related" destination="dates" hidecommand="delete-item">
+
+			<item>
+				<field name="begindate" dtrequired="true" ftype="date" dttype="date"/>
+				<field name="enddate" ftype="date" dttype="date" />		
+			</item>
+
+			
+			<command name="startwizard" inline="true" wizardname="TMF/dates" objectnumber="new" />
+			<action type="create">
+				<relation destination="dates" role="related" />
+			</action>
+		</list> 
+		
+		<list include="TMF/list_organiser.xml" />		
+		<list include="TMF/list_keyword.xml" />
+		<field name="keys">
+			<prompt xml:lang="en">Free keuwords</prompt>
+      <prompt xml:lang="nl">Vrije trefwoorden</prompt>
+		</field>  
+		
+		<list include="TMF/list_picture.xml" />	
+	</form-schema>
+				
+	<form-schema id="relations">
+		<title xml:lang="en">Relations</title>
+		<title xml:lang="nl">Relaties</title>
+		
+		<field name="title" ftype="data"/>
+		
+		<list role="contains" destination="event" searchdir="destination">
+			<title xml:lang="en">Contains events</title>
+			<title xml:lang="nl">Bestaat uit events</title>	
+	
+			<item>
+				<field name="title" ftype="data">
+					<prompt xml:lang="en">Title</prompt>
+					<prompt xml:lang="nl">Titel</prompt>
+				</field>
+				<field name="subtitle" ftype="data">
+					<prompt xml:lang="en">Subtitle</prompt>
+					<prompt xml:lang="nl">Subtitel</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/event" inline="true" />
+			</item>
+
+			<command name="search" nodepath="event" fields="title,subtitle" age="-1">
+				<prompt xml:lang="en">Search Events</prompt>
+				<prompt xml:lang="nl">Zoek Manifestaties</prompt>
+
+				<search-filter>
+					<name xml:lang="en">Title:</name>
+					<name xml:lang="nl">Titel:</name>
+					<search-fields>title</search-fields>
+				</search-filter>
+				
+				<search-filter>
+					<name xml:lang="en">Subtitle:</name>
+					<name xml:lang="nl">Subtitel:</name>
+					<search-fields>subtitle</search-fields>
+				</search-filter>
+				
+	        </command>
+			<command name="startwizard" inline="true" wizardname="TMF/event" objectnumber="new" />
+			<action type="create">
+				<relation destination="event" role="contains"/>
+			</action>
+		</list>
+
+		<list role="contains" destination="event" searchdir="source">
+			<title xml:lang="en">Is part of</title>
+			<title xml:lang="nl">Is onderdeel van uit</title>			
+
+	
+			<item>
+				<field name="title" ftype="data">
+					<prompt xml:lang="en">Title</prompt>
+					<prompt xml:lang="nl">Titel</prompt>
+				</field>
+				<field name="subtitle" ftype="data">
+					<prompt xml:lang="en">Subtitle</prompt>
+					<prompt xml:lang="nl">Subtitel</prompt>
+				</field>
+				<field ftype="startwizard" wizardname="TMF/event" inline="true" />
+			</item>
+		</list> 			
+		<list include="TMF/list_campaign.xml" />
+		<list include="TMF/list_article.xml" />			
+		<list include="TMF/list_person.xml" />		
+		<list include="TMF/list_organisation.xml" />
+		<list include="TMF/list_url.xml" />
+		<list include="TMF/list_media.xml" />
+		<list include="TMF/list_file.xml" />
+		<list include="TMF/list_work.xml" />		
+		
+	</form-schema>
+</wizard-schema>
