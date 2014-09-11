@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
  
-<wizard-schema id="media">
+<wizard-schema id="video">
 	
-	<title xml:lang="en">Media</title>
-	<title xml:lang="nl">Media</title>
+	<title xml:lang="en">Video</title>
+	<title xml:lang="nl">Video</title>
 
 	<action type="create">
-		<object type="media" />
+		<object type="video" />
 	</action>
 	
 	<action type="delete">
-		<prompt xml:lang="en">Are you sure you want to remove this media object?</prompt>
+		<prompt xml:lang="en">Are you sure you want to remove this video object?</prompt>
 		<prompt xml:lang="nl">Weet je zeker dat je dit object wilt verwijderen?</prompt>
-	 	<description xml:lang="en">Delete media</description>
-	 	<description xml:lang="nl">Verwijder media</description>
+	 	<description xml:lang="en">Delete video</description>
+	 	<description xml:lang="nl">Verwijder video</description>
 	</action>
 
 	<action type="load">
@@ -55,7 +55,7 @@
 
 	</action>
 
-	<form-schema id="media">
+	<form-schema id="video">
 		<title xml:lang="en">Media upload</title>
 		<title xml:lang="nl">Media uploaden</title>
 		<field name="title" dtrequired="true" />

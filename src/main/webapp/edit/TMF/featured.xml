@@ -42,7 +42,7 @@
 				<field name="subtitle" />
 			</object>
 		</relation>
-		<relation role="related" searchdir="both" destination="media">
+		<relation role="related" searchdir="both" destination="video">
 			<object>
 				<field name="title" />
 				<field name="handle" />
@@ -81,9 +81,9 @@
 		<list include="TMF/list_person.xml" />
 		<list include="TMF/list_event.xml" />		
 		<list include="TMF/list_campaign.xml" />																
-		<list include="TMF/list_media.xml" />
+		<list include="TMF/list_video.xml" />
 		<list include="TMF/list_file.xml" />
-		<list include="TMF/list_work.xml" />
+		<!-- <list include="TMF/list_work.xml" /> -->
 		<list include="TMF/list_organisation.xml" />
 		
 						
