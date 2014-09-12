@@ -1,9 +1,6 @@
 /*<%@taglib uri="http://www.mmbase.org/mmbase-taglib-2.0" prefix="mm"
 %><jsp:directive.page session="false" />
-*///<mm:content type="text/javascript" 
-                expires="0" 
-                postprocessor="none" 
-                language="${param.locale}"><os:cache time="3600"><mm:escape escape="javascript-compress">
+*///<mm:content type="text/javascript" expires="0" postprocessor="none"><mm:escape escape="javascript-compress">
 
 /*
   Main javascript, uses jquery
@@ -47,4 +44,3 @@ $(document).ready(function() {
     
 });
 //</mm:escape></mm:content>
-
