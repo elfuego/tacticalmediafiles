@@ -24,7 +24,7 @@
             <mm:maxnumber value="1" />
             <mm:related>
               <mm:node element="object">
-                <c:set var="thumb_type"><mm:nodeinfo type="plural_guitype" escape="lowercase" /></c:set>
+                <c:set var="thumb_type"><mm:locale language="en"><mm:nodeinfo type="plural_guitype" escape="lowercase" /></mm:locale></c:set>
                 <mm:url page="content" write="false" id="plink">
                   <mm:frameworkparam name="component">tmf</mm:frameworkparam>
                   <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
