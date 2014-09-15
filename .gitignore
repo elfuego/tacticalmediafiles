@@ -1,7 +1,9 @@
 data
 html
-src/main/webapp/WEB-INF/config/applications
 target
+src/main/webapp/mmbase/
+src/main/webapp/WEB-INF/lib/
+src/main/webapp/WEB-INF/config/applications
 *.bbprojectd/
 *.idea
 *.iws
