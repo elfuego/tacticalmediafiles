@@ -60,18 +60,6 @@
 				<field name="subtitle"/>
 			</object>
 		</relation>
-		<relation role="author" searchdir="both" destination="work">
-			<object>
-				<field name="title" />
-				<field name="subtitle" />
-			</object>
-		</relation>			
-		<relation role="related" searchdir="both" destination="work">
-			<object>
-				<field name="title" />
-				<field name="subtitle" />
-			</object>
-		</relation>		
 		<relation role="related" searchdir="both" destination="media">
 			<object>
 				<field name="title"/>
@@ -192,44 +180,6 @@
 		</list>		
 		<list include="TMF/list_article.xml" />
 		
-		<list role="author" destination="work" >
-			<title xml:lang="en">Creator of these works:</title>
-			<title xml:lang="nl">Maker van deze werken:</title>
-	
-			<item>
-				<field name="title" ftype="data">
-					<prompt xml:lang="en">Title</prompt>
-					<prompt xml:lang="nl">Titel</prompt>
-				</field>
-				<field name="subtitle" ftype="data">
-					<prompt xml:lang="en">Subtitle</prompt>
-					<prompt xml:lang="nl">Subtitel</prompt>
-				</field>
-				<field ftype="startwizard" wizardname="TMF/work" inline="true" />
-			</item>
-
-			<command name="search" nodepath="work" fields="title,subtitle" age="-1">
-				<prompt xml:lang="en">Search Works</prompt>
-				<prompt xml:lang="nl">Zoek Werken</prompt>
-
-				<search-filter>
-					<name xml:lang="en">Title:</name>
-					<name xml:lang="nl">Titel:</name>
-					<search-fields>title</search-fields>
-				</search-filter>
-				<search-filter>
-					<name xml:lang="en">Subtitle:</name>
-					<name xml:lang="nl">Subtitel:</name>
-					<search-fields>subtitle</search-fields>
-				</search-filter>
-	        </command>
-			<command name="startwizard" inline="true" wizardname="TMF/work" objectnumber="new" />
-			<action type="create">
-				<relation destination="work" role="author" />
-			</action>
-		</list>				
-		<list include="TMF/list_work.xml" />
-				
 		<list role="coordinator" destination="event" >
 			<title xml:lang="en">Helped create these event</title>
 			<title xml:lang="nl">Meegewerkt aan het opzetten van</title>

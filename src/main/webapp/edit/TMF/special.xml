@@ -30,12 +30,6 @@
 				<field name="keyword" />
 			</object>
 		</relation>	
-		<relation role="related" searchdir="both" destination="work">
-			<object>
-				<field name="title" />
-				<field name="subtitle" />
-			</object>
-		</relation>
 		<relation role="related" searchdir="both" destination="type">
 			<object>
 				<field name="type" />
@@ -228,7 +222,6 @@
 		</list> 			
 		<list include="TMF/list_campaign.xml" />
 		<list include="TMF/list_article.xml" />
-		<list include="TMF/list_work.xml" />			
 		<list include="TMF/list_organiser.xml" />
 		<list include="TMF/list_organisation.xml" />
 		<list include="TMF/list_person.xml" />

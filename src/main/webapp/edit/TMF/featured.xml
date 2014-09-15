@@ -53,12 +53,6 @@
 				<field name="title" />
 			</object>
 		</relation>			
-		<relation role="related" searchdir="both" destination="work">
-			<object>
-				<field name="title" />
-				<field name="subtitle" />
-			</object>
-		</relation>
 		<relation role="related" searchdir="both" destination="organisation">
 			<object>
 				<field name="name" />
@@ -83,7 +77,6 @@
 		<list include="TMF/list_campaign.xml" />																
 		<list include="TMF/list_video.xml" />
 		<list include="TMF/list_file.xml" />
-		<!-- <list include="TMF/list_work.xml" /> -->
 		<list include="TMF/list_organisation.xml" />
 		
 						

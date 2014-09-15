@@ -22,12 +22,14 @@
 				<field name="keyword" />
 			</object>
 		</relation>	
+<!-- 
 		<relation role="related" searchdir="both" destination="work">
 			<object>
 				<field name="title" />
 				<field name="subtitle" />
 			</object>
 		</relation>
+ -->
 		<relation role="related" searchdir="both" destination="type">
 			<object>
 				<field name="type" />
@@ -151,6 +153,6 @@
 		<list include="TMF/list_url.xml" />
 		<list include="TMF/list_media.xml" />
 		<list include="TMF/list_file.xml" />
-		<list include="TMF/list_work.xml" />
+		<!-- <list include="TMF/list_work.xml" /> -->
 	</form-schema>	
 </wizard-schema>

@@ -4,7 +4,6 @@
  <option id="people">people</option>
  <option id="event">event</option>
  <option id="organisation">organisation</option>
- <option id="work">work</option>
  <option id="article">article</option>
  <option id="artefact">artefact</option>
  <option id="all">all</option>

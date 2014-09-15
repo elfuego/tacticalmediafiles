@@ -30,12 +30,6 @@
 				<field name="keyword" />
 			</object>
 		</relation>	
-		<relation role="related" searchdir="both" destination="work">
-			<object>
-				<field name="title" />
-				<field name="subtitle" />
-			</object>
-		</relation>
 		<relation role="related" searchdir="both" destination="type">
 			<object>
 				<field name="type" />
@@ -239,7 +233,6 @@
 		<list include="wizards/TMF/list_url.xml" />
 		<list include="wizards/TMF/list_media.xml" />
 		<list include="wizards/TMF/list_file.xml" />
-		<list include="wizards/TMF/list_work.xml" />		
 		
 	</form-schema>
 </wizard-schema>
