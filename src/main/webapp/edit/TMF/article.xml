@@ -153,6 +153,5 @@
 		<list include="TMF/list_video.xml" />
 		<list include="TMF/list_article.xml" />
 		<list include="TMF/list_file.xml" />
-		<!-- <list include="TMF/list_work.xml" /> -->
 	</form-schema>
 </wizard-schema>
