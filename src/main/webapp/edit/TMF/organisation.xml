@@ -81,7 +81,7 @@
 				<field name="filename"/>
 			</object>
 		</relation>
-		<relation role="related" searchdir="both" destination="media">
+		<relation role="related" searchdir="both" destination="video">
 			<object>
 				<field name="title"/>
 				<field name="description"/>
@@ -165,7 +165,7 @@
 		<list include="TMF/list_event.xml" />
 		<list include="TMF/list_campaign.xml" />
 		<list include="TMF/list_article.xml" />
-		<list include="TMF/list_media.xml" />
+		<list include="TMF/list_video.xml" />
 	</form-schema>
 
 

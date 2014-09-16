@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
  
-		<list role="related" destination="media">
+		<list role="related" destination="video">
 			<title xml:lang="en">Related Video / audio</title>
 			<title xml:lang="nl">Gerelateerde Video / audio</title>
 	
@@ -14,10 +14,10 @@
 					<prompt xml:lang="en">handle (URL)</prompt>
 					<prompt xml:lang="nl">handle (URL)</prompt>
 				</field>
-				<field ftype="startwizard" wizardname="TMF/media" inline="true" />
+				<field ftype="startwizard" wizardname="TMF/video" inline="true" />
 			</item>
 
-			<command name="search" nodepath="media" fields="title,handle" age="-1">
+			<command name="search" nodepath="video" fields="title,handle" age="-1">
 				<prompt xml:lang="en">Search Articles</prompt>
 				<prompt xml:lang="nl">Zoek Artiekelen</prompt>
 
@@ -32,8 +32,8 @@
 					<search-fields>handle</search-fields>
 				</search-filter>
 	    </command>
-			<command name="startwizard" inline="true" wizardname="TMF/media" objectnumber="new" />
+			<command name="startwizard" inline="true" wizardname="TMF/video" objectnumber="new" />
 			<action type="create">
-				<relation destination="media" role="related" />
+				<relation destination="video" role="related" />
 			</action>
 		</list>

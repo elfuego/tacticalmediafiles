@@ -55,7 +55,8 @@
 				<field name="sirname" />
 			</object>
 		</relation>
-		<relation role="contains" searchdir="source" destination="event">
+		<!-- 
+<relation role="contains" searchdir="source" destination="event">
 			<object>
 				<field name="title" />
 				<field name="subtitle" />
@@ -67,6 +68,7 @@
 				<field name="subtitle" />
 			</object>
 		</relation>			
+ -->
 		<relation role="related" searchdir="both" destination="address">
 			<object>
 				<field name="street"/>
@@ -88,7 +90,7 @@
 				<field name="filename"/>
 			</object>
 		</relation>
-		<relation role="related" searchdir="both" destination="media">
+		<relation role="related" searchdir="both" destination="video">
 			<object>
 				<field name="title"/>
 				<field name="description"/>
@@ -143,7 +145,7 @@
 		<list include="TMF/list_person.xml" />
 		<list include="TMF/list_organisation.xml" />
 		<list include="TMF/list_url.xml" />
-		<list include="TMF/list_media.xml" />
+		<list include="TMF/list_video.xml" />
 		<list include="TMF/list_file.xml" />
 	</form-schema>	
 </wizard-schema>

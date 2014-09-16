@@ -96,7 +96,7 @@
 				<field name="filename"/>
 			</object>
 		</relation>
-		<relation role="related" searchdir="both" destination="media">
+		<relation role="related" searchdir="both" destination="video">
 			<object>
 				<field name="title"/>
 				<field name="description"/>
@@ -154,14 +154,14 @@
 			</action>
 		</list> 
 		
-		<list include="wizards/TMF/list_organiser.xml" />		
-		<list include="wizards/TMF/list_keyword.xml" />
+		<list include="TMF/list_organiser.xml" />		
+		<list include="TMF/list_keyword.xml" />
 		<field name="keys">
 			<prompt xml:lang="en">Free keuwords</prompt>
       <prompt xml:lang="nl">Vrije trefwoorden</prompt>
 		</field>  
 		
-		<list include="wizards/TMF/list_picture.xml" />	
+		<list include="TMF/list_picture.xml" />	
 	</form-schema>
 				
 	<form-schema id="relations">
@@ -226,13 +226,13 @@
 				<field ftype="startwizard" wizardname="TMF/event" inline="true" />
 			</item>
 		</list> 			
-		<list include="wizards/TMF/list_campaign.xml" />
-		<list include="wizards/TMF/list_article.xml" />			
-		<list include="wizards/TMF/list_person.xml" />		
-		<list include="wizards/TMF/list_organisation.xml" />
-		<list include="wizards/TMF/list_url.xml" />
-		<list include="wizards/TMF/list_media.xml" />
-		<list include="wizards/TMF/list_file.xml" />
+		<list include="TMF/list_campaign.xml" />
+		<list include="TMF/list_article.xml" />			
+		<list include="TMF/list_person.xml" />		
+		<list include="TMF/list_organisation.xml" />
+		<list include="TMF/list_url.xml" />
+		<list include="TMF/list_video.xml" />
+		<list include="TMF/list_file.xml" />
 		
 	</form-schema>
 </wizard-schema>
