@@ -1,0 +1,152 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    expires="120" type="text/html"
+    language="client">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.1//EN"
+      doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+<mm:cloud method="http" logon="admin" >
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Convert videos</title>
+  <style type="text/css">
+  body {font-family: sans-serif;}
+  div.pager > a,
+  div.pager > strong { margin-right: 8px;}
+  </style>
+</head>
+<body>
+
+  <h1>Change video files</h1>
+  <p>
+  <a href="${mm:link('index.jspx')}">index</a> | 
+  <a href="${mm:link('videos.jspx')}">videos</a>
+  </p>
+
+
+  <mm:import externid="convert" />
+
+  <mm:import externid="commit">false</mm:import>
+  <mm:import externid="max">25</mm:import>
+  <mm:import externid="offset">0</mm:import>
+  
+  <p>
+    Change video (media) source file
+    <mm:link referids="max,offset">
+      <mm:param name="commit">${commit ? 'false' : 'true'}</mm:param>
+      <a href="${_}">commit</a>
+    </mm:link>
+  </p>
+  
+  <mm:import externid="urlsource" />
+  <mm:import externid="url" />
+  
+  <mm:present referid="urlsource">
+    <mm:node number="$urlsource">
+      url: <mm:field name="url" />
+
+      <mm:hasfunction name="changeUrl">
+        <mm:booleanfunction name="changeUrl" referids="url">
+          <div class="msg">Updated #${urlsource} to ${url}</div>
+        </mm:booleanfunction>      
+      </mm:hasfunction>
+      <mm:hasfunction name="changeUrl" inverse="true">
+        - does not have function updateSources -
+      </mm:hasfunction>
+
+    </mm:node>
+  </mm:present>
+
+  <mm:import externid="updatesource" />
+
+  <mm:present referid="updatesource">
+    <mm:node number="$updatesource">
+      url: <mm:field name="url" />
+
+      <mm:hasfunction name="updateSources">
+        <mm:booleanfunction name="updateSources">
+          <div class="msg">Updated #${updatesource}</div>
+        </mm:booleanfunction>      
+      </mm:hasfunction>
+      <mm:hasfunction name="updateSources" inverse="true">
+        - does not have function updateSources -
+      </mm:hasfunction>
+
+    </mm:node>
+  </mm:present>
+
+
+      <mm:listnodescontainer type="video">
+        <h2><mm:size id="total" /> videos</h2>
+        <mm:maxnumber value="${max}" />
+        <mm:offset value="${offset}" />
+
+        <ol>
+        <mm:listnodes>
+          <li>
+            <mm:import id="video" reset="true"><mm:field name="number" /></mm:import>
+
+            <!-- check for mediafr -->
+            <strong><mm:field name="title" /></strong>
+            <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
+              <mm:import id="rels" reset="true"><mm:size /></mm:import>
+              <mm:relatednodes>
+               - mediafragments : <mm:field name="gui()" escape="none" />
+               <mm:import id="mediafr" reset="true"><mm:field name="number" /></mm:import>
+              </mm:relatednodes>
+            </mm:relatednodescontainer>
+            
+            <mm:transaction commitonclose="$commit">
+              <mm:node number="${video}" id="videonode">
+                nr: <mm:field name="number" /> :
+                <mm:field name="handle" />
+              </mm:node>
+              
+              <br />
+              <mm:node number="$mediafr" notfound="skip">
+                
+                <mm:relatednodescontainer type="mediasources" role="related" searchdirs="destination">
+                  <mm:relatednodes>
+                    <br />streamsources : <mm:field name="gui()" escape="none" />
+                    <mm:link referids="max,offset">
+                      <form action="${_}">
+                        
+                        <mm:import id="url" reset="true"><mm:field name="url" /></mm:import>
+                        <input type="text"   name="url"    value="${url}"   size="80" /><br />
+                        <input type="hidden" name="urlsource" value="${_node}" />
+                        <input type="submit" name="submit" value="Stuur" />
+                        
+                        <mm:hasfunction name="updateSources">
+                          <mm:link referids="_node@updatesource">
+                            - <a href="${_}">updateSources</a> -
+                          </mm:link>
+                        </mm:hasfunction>
+                        <mm:hasfunction name="updateSources" inverse="true">
+                          - does not have function updateSources -
+                        </mm:hasfunction>
+                        
+                      </form>
+                    </mm:link>
+                  </mm:relatednodes>
+                </mm:relatednodescontainer>
+                
+                
+              </mm:node>
+            </mm:transaction>
+
+          </li>
+        </mm:listnodes>
+        </ol>
+      </mm:listnodescontainer>
+
+      <tmf:pager total="${total}" max="${max}" offset="${offset}" />
+
+</body>
+</html>
+</mm:cloud>
+</mm:content>

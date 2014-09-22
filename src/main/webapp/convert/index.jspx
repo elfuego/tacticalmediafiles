@@ -24,10 +24,15 @@
 <body>
 
   <h1>Convert media/video</h1>
+  <p>
+  <a href="${mm:link('index.jspx')}">index</a> | 
+  <a href="${mm:link('videos.jspx')}">videos</a>
+  </p>
+  
   <mm:import externid="convert" />
 
   <mm:import externid="commit">false</mm:import>
-  <mm:import id="max">10</mm:import>
+  <mm:import externid="max">25</mm:import>
   <mm:import externid="offset">0</mm:import>
   
   <p>
@@ -62,7 +67,7 @@
             <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
               <mm:import id="rels" reset="true"><mm:size /></mm:import>
               <mm:relatednodes>
-               - related to media : <mm:field name="gui()" escape="none" />
+               <br />related to mediafragments : <mm:field name="gui()" escape="none" />
               </mm:relatednodes>
             </mm:relatednodescontainer>
             
@@ -110,8 +115,7 @@
                             and sets its url field without triggering creating streamsourcescaches -->
                         <mm:booleanfunction name="createSources" referids="url">
                           <p style="border:1px solid #c00;">
-                            Updated url with createSources : '${url}' <!-- and state  '${form_state}'. 
-                            Submitted ${_node} URL: ${_node.url} FS: ${_node.filesize} -->
+                            Created streamsources node with url : '${url}'
                           </p>
                         </mm:booleanfunction>
                       </mm:hasfunction>
