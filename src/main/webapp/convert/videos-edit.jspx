@@ -27,19 +27,12 @@
   </style>
 </head>
 <body>
-
+<mm:import externid="nr" />
   <h1>Change video files</h1>
   <p>
   <a href="${mm:link('index.jspx')}">index</a> | 
   <a href="${mm:link('videos.jspx')}">videos</a>
   </p>
-
-
-  <mm:import externid="convert" />
-
-  <mm:import externid="commit">false</mm:import>
-  <mm:import externid="max">25</mm:import>
-  <mm:import externid="offset">0</mm:import>
   
   <p>
     Change video (media) source file.
@@ -47,7 +40,6 @@
   
   <mm:import externid="cachesource" />
   <mm:import externid="all" vartype="boolean">false</mm:import>
-  
   
   <mm:import externid="urlsource" />
   <mm:import externid="url" />
@@ -86,18 +78,38 @@
     </mm:node>
   </mm:present>
 
+          <mm:node number="$nr">
 
-      <mm:listnodescontainer type="video">
-        <h2><mm:size id="total" /> videos</h2>
-        <mm:maxnumber value="${max}" />
-        <mm:offset value="${offset}" />
+            <mm:listfunction set="streams" name="runningJobs" >
+              <mm:first>
+                <div class="msg" style="text-align:left;">
+                  <h4><mm:size /> jobs running</h4>
+                </div>
 
-        <ol start="${offset + 1}">
-        <mm:listnodes>
-          <li style="margin-bottom: 1em;">
-            <mm:link page="videos-edit.jspx" referids="_node@nr">
-              <a href="${_}">edit</a> 
-            </mm:link>
+              </mm:first>
+              
+              <c:if test="${_.node.number eq nr or _.node.number eq source}" >
+                <p>
+                  <strong>Transcoding information of this source node's job</strong><br />
+                  <strong>progress:</strong> ${_.progress} 
+                  <mm:link referids="_node@interrupt,nr,p?">
+                    <a href="${_}">interrupt transcoding</a>
+                  </mm:link>
+                  <br />
+                  <strong>stage:</strong> ${_.stage} <br /> 
+                  <strong>in:</strong> ${_.current.in} <br /> 
+                  <strong>out:</strong> ${_.current.out} <br />
+                </p>
+
+
+                <div class="log">
+                  <pre>
+                    <jsp:text>${mm:escape('text/xml', _.logger.debugList)}</jsp:text>
+                  </pre>
+                </div>
+              </c:if>
+            </mm:listfunction>              
+
             [<mm:field name="number" />] video: <strong><mm:field name="title" /></strong><br />
             
             <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
@@ -108,6 +120,7 @@
                 <mm:listfunction name="filteredurls">
                   <c:if test="${_.main}">
                     <mm:node number="${_.source.number}">
+                    
                       <br />[<mm:field name="number" />] streamsources : 
                       ${_.dimension} -
                       ${_.mimeType} -
@@ -116,7 +129,7 @@
                       <mm:hasfield name="fps">/<mm:field name="fps" /></mm:hasfield> 
 
                       <mm:hasfunction name="updateSources">
-                        <mm:link referids="_node@updatesource,max?,offset?">
+                        <mm:link referids="_node@updatesource,nr,max?,offset?">
                           [<a href="${_}">update stream informatie</a>]
                         </mm:link>
                       </mm:hasfunction>
@@ -125,7 +138,7 @@
                       </mm:hasfunction>
                       
                       <mm:hasfunction name="triggerCaches">
-                        <mm:link referids="_node@cachesource,max?,offset?">
+                        <mm:link referids="_node@cachesource,nr,max?,offset?">
                           [<a href="${_}">create stream caches</a>]
                         </mm:link>
 
@@ -134,6 +147,7 @@
                             streams encoding started for: ${cachesource}
                             <mm:voidfunction name="triggerCaches" referids="all" />
                           </p>
+
                         </c:if>
 
                       </mm:hasfunction>
@@ -141,11 +155,11 @@
                         does not have function triggerCaches
                       </mm:hasfunction>
                       
-
+                      
                       
                       <br /><a href="${mm:escape('text/xml', _.URL)}"><mm:escape>${_.URL}</mm:escape></a>
                 
-                      <mm:link referids="max,offset">
+                      <mm:link referids="max,offset,nr">
                         <form action="${_}" >
                           <mm:import id="url" reset="true"><mm:field name="url" /></mm:import>
                           <label>Change source url : </label>
@@ -171,17 +185,8 @@
               
               </mm:relatednodes>
             </mm:relatednodescontainer>
-            
-            <c:if test="${rels &lt; 1}">
-              - no mediafragments related yet, please convert first - 
-            </c:if>
 
-          </li>
-        </mm:listnodes>
-        </ol>
-      </mm:listnodescontainer>
-
-      <tmf:pager total="${total}" max="${max}" offset="${offset}" />
+</mm:node>            
 
 </body>
 </html>

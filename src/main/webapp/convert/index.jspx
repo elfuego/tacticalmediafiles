@@ -58,7 +58,7 @@
         <mm:maxnumber value="${max}" />
         <mm:offset value="${offset}" />
 
-        <ol>
+        <ol start="${offset + 1}">
         <mm:listnodes>
           <li>
             
