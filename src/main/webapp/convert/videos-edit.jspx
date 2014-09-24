@@ -133,7 +133,7 @@
               </p>
               <p>
                 <mm:hasfunction name="updateSources">
-                  <mm:link referids="_node@updatesource,nr,max?,offset?">
+                  <mm:link referids="_node@updatesource,nr">
                     [<a href="${_}">update stream informatie</a>]
                   </mm:link>
                 </mm:hasfunction>
@@ -142,7 +142,7 @@
                 </mm:hasfunction>
               
                 <mm:hasfunction name="triggerCaches">
-                  <mm:link referids="_node@cachesource,nr,max?,offset?">
+                  <mm:link referids="_node@cachesource,nr">
                     [<a href="${_}">create stream caches</a>]
                   </mm:link>
                   <c:if test="${cachesource eq _node.number}">
@@ -158,8 +158,8 @@
                 </mm:hasfunction>
               </p>
         
-              <mm:link referids="max,offset,nr">
-                <form action="${_}" >
+              <mm:link referids="nr">
+                <form action="${_}" method="post">
                   <mm:import id="url" reset="true"><mm:field name="url" /></mm:import>
                   <label>Change source url : </label>
                   <input type="text"   name="url"    value="${url}" size="80" /> 
