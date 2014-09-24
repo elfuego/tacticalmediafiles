@@ -4,7 +4,7 @@
     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
-    expires="120" type="text/html"
+    expires="0" type="text/html"
     language="client">
 <jsp:output doctype-root-element="html"
       doctype-public="-//W3C//DTD XHTML 1.1//EN"
