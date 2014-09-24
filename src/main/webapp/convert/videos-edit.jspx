@@ -24,18 +24,48 @@
     padding: 2px;
     background-color: #FCC;
   }
+
+  div.log { margin: 8px 0; }
+
+  div.log h4
+  {
+      background-color: #e6e9dd;
+      padding: 4px 8px;
+      margin: 0;
+  }
+
+  div.log pre
+  {
+      color: #fff;
+      background-color: #002828;
+      height: 240px;
+      overflow: auto;
+      border: 2px solid #e6e9dd;
+      padding: 6px;
+      margin: 0;
+  }
+
   </style>
 </head>
 <body>
-<mm:import externid="nr" />
-  <h1>Change video files</h1>
+  
+  <mm:import externid="nr" />
+  
+  <h1>Edit video and its files</h1>
   <p>
   <a href="${mm:link('index.jspx')}">index</a> | 
   <a href="${mm:link('videos.jspx')}">videos</a>
   </p>
   
   <p>
-    Change video (media) source file.
+    Change video (media) source file. <br />
+    <mm:link page="/mmbase/edit/my_editors/edit_object.jsp" referids="nr">
+      [<a href="${_}">edit in my_editors</a>]
+    </mm:link>
+    
+    <mm:link page="videos-edit.jspx" referids="nr">
+      [<a href="${_}">reload page</a>]
+    </mm:link>
   </p>
   
   <mm:import externid="cachesource" />
@@ -78,116 +108,114 @@
     </mm:node>
   </mm:present>
 
-          <mm:node number="$nr">
+  <mm:node number="$nr">
 
-            <mm:listfunction set="streams" name="runningJobs" >
-              <mm:first>
-                <div class="msg" style="text-align:left;">
-                  <h4><mm:size /> jobs running</h4>
-                </div>
-
-              </mm:first>
-              
-              <c:if test="${_.node.number eq nr or _.node.number eq source}" >
-                <p>
-                  <strong>Transcoding information of this source node's job</strong><br />
-                  <strong>progress:</strong> ${_.progress} 
-                  <mm:link referids="_node@interrupt,nr,p?">
-                    <a href="${_}">interrupt transcoding</a>
+    <h2>video: <mm:field name="title" /></h2>
+    
+    <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
+      <mm:import id="rels" reset="true"><mm:size /></mm:import>
+      <mm:relatednodes>
+        mediafragments : <mm:field name="gui()" escape="none" /> [<mm:field name="number" />] <br />
+      
+        <mm:listfunction name="filteredurls">
+          <c:if test="${_.main}">
+            <mm:node number="${_.source.number}">
+              <p>
+                source : <a href="${mm:escape('text/xml', _.URL)}"><mm:escape>${_.URL}</mm:escape></a>
+                <mm:import id="source" reset="true">${_.source.number}</mm:import>
+                <br />
+                ${_.dimension} -
+                ${_.mimeType} -
+                ${_.codec} -
+                <mm:hasfield name="bitrate"><mm:field name="bitrate" /></mm:hasfield>
+                <mm:hasfield name="fps">/<mm:field name="fps" /></mm:hasfield> 
+                [<mm:field name="number" />]
+              </p>
+              <p>
+                <mm:hasfunction name="updateSources">
+                  <mm:link referids="_node@updatesource,nr,max?,offset?">
+                    [<a href="${_}">update stream informatie</a>]
                   </mm:link>
-                  <br />
-                  <strong>stage:</strong> ${_.stage} <br /> 
-                  <strong>in:</strong> ${_.current.in} <br /> 
-                  <strong>out:</strong> ${_.current.out} <br />
-                </p>
-
-
-                <div class="log">
-                  <pre>
-                    <jsp:text>${mm:escape('text/xml', _.logger.debugList)}</jsp:text>
-                  </pre>
-                </div>
-              </c:if>
-            </mm:listfunction>              
-
-            [<mm:field name="number" />] video: <strong><mm:field name="title" /></strong><br />
-            
-            <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
-              <mm:import id="rels" reset="true"><mm:size /></mm:import>
-              <mm:relatednodes>
-                [<mm:field name="number" />] mediafragments : <mm:field name="gui()" escape="none" /><br />
+                </mm:hasfunction>
+                <mm:hasfunction name="updateSources" inverse="true">
+                  does not have function updateSources
+                </mm:hasfunction>
               
-                <mm:listfunction name="filteredurls">
-                  <c:if test="${_.main}">
-                    <mm:node number="${_.source.number}">
-                    
-                      <br />[<mm:field name="number" />] streamsources : 
-                      ${_.dimension} -
-                      ${_.mimeType} -
-                      ${_.codec} -
-                      <mm:hasfield name="bitrate"><mm:field name="bitrate" /></mm:hasfield>
-                      <mm:hasfield name="fps">/<mm:field name="fps" /></mm:hasfield> 
-
-                      <mm:hasfunction name="updateSources">
-                        <mm:link referids="_node@updatesource,nr,max?,offset?">
-                          [<a href="${_}">update stream informatie</a>]
-                        </mm:link>
-                      </mm:hasfunction>
-                      <mm:hasfunction name="updateSources" inverse="true">
-                        does not have function updateSources
-                      </mm:hasfunction>
-                      
-                      <mm:hasfunction name="triggerCaches">
-                        <mm:link referids="_node@cachesource,nr,max?,offset?">
-                          [<a href="${_}">create stream caches</a>]
-                        </mm:link>
-
-                        <c:if test="${cachesource eq _node.number}">
-                          <p class="msg">
-                            streams encoding started for: ${cachesource}
-                            <mm:voidfunction name="triggerCaches" referids="all" />
-                          </p>
-
-                        </c:if>
-
-                      </mm:hasfunction>
-                      <mm:hasfunction name="triggerCaches" inverse="true">
-                        does not have function triggerCaches
-                      </mm:hasfunction>
-                      
-                      
-                      
-                      <br /><a href="${mm:escape('text/xml', _.URL)}"><mm:escape>${_.URL}</mm:escape></a>
-                
-                      <mm:link referids="max,offset,nr">
-                        <form action="${_}" >
-                          <mm:import id="url" reset="true"><mm:field name="url" /></mm:import>
-                          <label>Change source url : </label>
-                          <input type="text"   name="url"    value="${url}" size="80" /> 
-                          <input type="hidden" name="urlsource" value="${_node}" /> 
-                          <input type="submit" name="submit" value="Save" />
-                        </form>
-                      </mm:link>
-                      
-                    </mm:node>
+                <mm:hasfunction name="triggerCaches">
+                  <mm:link referids="_node@cachesource,nr,max?,offset?">
+                    [<a href="${_}">create stream caches</a>]
+                  </mm:link>
+                  <c:if test="${cachesource eq _node.number}">
+                    <p class="msg">
+                      streams encoding started for: ${cachesource}
+                      <mm:import id="isall">true</mm:import>
+                      <mm:voidfunction name="triggerCaches" referids="isall@all" />
+                    </p>
                   </c:if>
-                </mm:listfunction>
-                
-                <ol>
-                <mm:listfunction name="filteredurls">
-                  <c:if test="${!_.main}">
-                    <mm:node number="${_.source.number}" notfound="skip">
-                      <li>${_.mimeType} / ${_.codec}</li>
-                    </mm:node>
-                  </c:if>
-                </mm:listfunction>
-                </ol>
+                </mm:hasfunction>
+                <mm:hasfunction name="triggerCaches" inverse="true">
+                  does not have function triggerCaches
+                </mm:hasfunction>
+              </p>
+        
+              <mm:link referids="max,offset,nr">
+                <form action="${_}" >
+                  <mm:import id="url" reset="true"><mm:field name="url" /></mm:import>
+                  <label>Change source url : </label>
+                  <input type="text"   name="url"    value="${url}" size="80" /> 
+                  <input type="hidden" name="urlsource" value="${_node}" /> 
+                  <input type="submit" name="submit" value="Save" />
+                </form>
+              </mm:link>
               
-              </mm:relatednodes>
-            </mm:relatednodescontainer>
+            </mm:node>
+          </c:if>
+        </mm:listfunction>
+        
+        <ol>
+        <mm:listfunction name="filteredurls">
+          <c:if test="${!_.main}">
+            <mm:node number="${_.source.number}" notfound="skip">
+              <li>${_.mimeType} / ${_.codec}</li>
+            </mm:node>
+          </c:if>
+        </mm:listfunction>
+        </ol>
+        
+        <mm:listfunction set="streams" name="runningJobs" >
+          <mm:first>
+            <div class="msg" style="text-align:left;">
+              <strong><mm:size /> jobs running</strong>
+            </div>
+          </mm:first>
+          <c:if test="${_.node.number eq source}">
+            <p>
+              <strong>Transcoding information of this source node's job</strong><br />
+              <strong>progress:</strong> ${_.progress} 
+              <mm:link referids="_node@interrupt,nr,p?">
+                <a href="${_}">interrupt transcoding</a>
+              </mm:link>
+              <br />
+              <strong>stage:</strong> ${_.stage} <br /> 
+              <strong>in:</strong> ${_.current.in} <br /> 
+              <strong>out:</strong> ${_.current.out} <br />
+            </p>
+            <div class="log">
+              <pre>
+                <jsp:text>${mm:escape('text/xml', _.logger.debugList)}</jsp:text>
+              </pre>
+            </div>
+          </c:if>
+        </mm:listfunction>        
+      
+      </mm:relatednodes>
+    </mm:relatednodescontainer>
 
-</mm:node>            
-
+  </mm:node>
+  
+  <p>
+  <!-- niets -->
+  </p>
 </body>
 </html>
 </mm:cloud>

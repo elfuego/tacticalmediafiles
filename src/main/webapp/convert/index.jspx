@@ -32,23 +32,21 @@
   <mm:import externid="convert" />
 
   <mm:import externid="commit">false</mm:import>
-  <mm:import externid="max">25</mm:import>
+  <mm:import externid="max">10</mm:import>
   <mm:import externid="offset">0</mm:import>
   
   <p>
-    media convertert : <br />
+    Media converter does the following: <br />
     
-    reads field handle from video,
-    create mediafragment,
-    relats mediafragments to video,
-    runs function create sources that creates a streamsources node and puts url in it, 
-    relates that to mediafragment.
-    <br />
-    in mmbase admin > streams > batch transcodeer the streams can be transcoded to files to play in browser
+    reads field handle from video (former media),
+    creates mediafragments,
+    relates mediafragments to video,
+    runs function create sources that creates a streamsources node and puts url (from video.handle) in it, 
+    relates that to mediafragment.<br />
     
     <mm:link referids="max,offset">
       <mm:param name="commit">${commit ? 'false' : 'true'}</mm:param>
-      <a href="${_}">commit</a>
+      [<a href="${_}">commit</a>]
     </mm:link>
   </p>
 
@@ -60,14 +58,36 @@
 
         <ol start="${offset + 1}">
         <mm:listnodes>
-          <li>
+          <li style="margin-bottom:1em;">
             
             <!-- check for mediafr -->
-            <mm:field name="title" />
+            <strong><mm:field name="title" /></strong>
+            <mm:link page="videos-edit.jspx" referids="_node@nr">
+              [<a href="${_}">edit</a>]
+            </mm:link>
+            <br /><mm:field name="handle" />
+
             <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
-              <mm:import id="rels" reset="true"><mm:size /></mm:import>
+              <mm:import id="related_mediafragments" reset="true"><mm:size /></mm:import>
               <mm:relatednodes>
-               <br />related to mediafragments : <mm:field name="gui()" escape="none" />
+               <br /><em>mediafragments</em> : <mm:field name="title" />
+               
+                <mm:listfunction name="filteredurls">
+                  <c:choose>
+                    <c:when test="${_.main}">
+                      <mm:node number="${_.source.number}" notfound="skip">
+                        <br /><em>source : </em><u>${mm:escape('text/xml', _.URL)}</u> (${_.mimeType} / ${_.codec})
+                        <br />
+                      </mm:node>
+                    </c:when>
+                    <c:otherwise>
+                      <mm:node number="${_.source.number}" notfound="skip">
+                        <span> ${_.mimeType} - ${_.codec}, </span>
+                      </mm:node>
+                    </c:otherwise>
+                  </c:choose>
+                </mm:listfunction>
+              
               </mm:relatednodes>
             </mm:relatednodescontainer>
             
@@ -80,8 +100,8 @@
             
 
               <c:choose>
-                <c:when test="${rels > 0}">
-                  done  
+                <c:when test="${related_mediafragments > 0}">
+                  <strong style="color:green;">done</strong>
                 </c:when>
                 <c:otherwise>
                   
