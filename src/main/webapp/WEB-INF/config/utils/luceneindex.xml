@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<luceneindex
+    xmlns="http://www.mmbase.org/xmlns/luceneindex"
+    xmlns:mmsq="http://www.mmbase.org/xmlns/searchquery"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mmbase.org/xmlns/luceneindex http://www.mmbase.org/xmlns/luceneindex.xsd">
+
+  <index name="content">
+    <description>Lucene index for content in TMF</description>
+    <analyzer class="org.mmbase.module.lucene.analysis.nl.StandardCleaningAnalyzer" />
+
+    <list type="content">
+      <mmsq:field name="otype"    alias="otype" />
+      <mmsq:field name="title"    boost="3" />
+      <mmsq:field name="title"    keyword="true" escape="lowercase" alias="sorttitle" store="true" />
+      <mmsq:field name="subtitle" boost="2" />
+      <mmsq:field name="created"  alias="created" />
+      <mmsq:field name="intro" />
+      <mmsq:field name="body" />
+      <mmsq:field name="keys" />
+      
+      <mmsq:relatednodes type="type">
+        <mmsq:field name="type" />
+      </mmsq:relatednodes>
+
+      <mmsq:relatednodes type="keyword">
+        <mmsq:field name="keyword" keyword="true" boost="4" />
+      </mmsq:relatednodes>
+
+      <mmsq:relatednodes type="person">
+        <mmsq:field name="firstname" />
+        <mmsq:field name="sirname" />
+        <mmsq:field name="intro" />
+        <mmsq:field name="biografy" />
+      </mmsq:relatednodes>
+
+    </list>
+
+  </index>
+
+</luceneindex>
