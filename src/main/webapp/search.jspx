@@ -1,0 +1,99 @@
+<jsp:root
+    version="2.0"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
+
+  <mm:import externid="q" />
+  <mm:import externid="cacheable"  />
+  
+  <tmf:html
+      cacheable="${cacheable}"
+      styleClass="about">
+    
+    
+    <jsp:attribute name="title">Search ${q}</jsp:attribute>
+    
+    <jsp:attribute name="head">
+        <!-- nothing here yet -->
+    </jsp:attribute>
+
+    <jsp:attribute name="body">
+
+        <tmf:header-simple title="Search ${q}" label="search" />
+
+        <div class="SearchSpacer2"><!-- empty --></div>
+        <div class="SearchResultsLeft">
+          <tmf:tagcloud />
+        </div><!-- EOF .SearchResultsLeft -->
+        
+        <div class="SearchResults">
+          
+          <mm:import id="index">content</mm:import>
+
+          <c:choose>
+            <c:when test="${empty q}">
+              <!-- not searched nor a portal, display latest -->
+              <mm:import id="value">${index}*</mm:import>
+              <mm:import id="fields" reset="true">indexId</mm:import>
+            </c:when>
+            <c:otherwise>
+              <mm:import id="value">
+                <c:if test="${!empty q}">${q} </c:if>
+              </mm:import>
+            </c:otherwise>
+          </c:choose>
+
+          
+          <mm:import id="max">20</mm:import>
+          <mm:import externid="offset">0</mm:import>
+          <c:if test="${offset lt 0}"><mm:import id="offset" reset="true">0</mm:import></c:if>
+          
+          <mm:function
+            id="total"
+            write="false"
+            module="lucene"
+            name="searchsize"
+            referids="index,value,fields?,filter?,analyzer?,extraconstraints?" />
+
+          <mm:nodelistfunction
+            module="lucene" name="search" id="results"
+            referids="index,value,offset,max,fields?,sortfields?,filter?,extraconstraints?,analyzer?" />
+         
+          <c:if test="${!empty q}">
+            <p>
+              Searched with <strong>'${mm:escape('text/xml', q)}'</strong>.
+            </p>
+          </c:if>
+          
+          <mm:listnodes referid="results" varStatus="status" id="content">
+            
+            <mm:link page="content">
+              <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+              <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+              <mm:frameworkparam name="t">${type}s</mm:frameworkparam> <!-- TODO: replace this ugliness ! -->
+              
+              <h3><mm:field name="title" /></h3>
+              <a href="${_}">${_}</a>
+              
+            </mm:link>
+
+          </mm:listnodes>
+        
+             
+          <tmf:pager total="${total}" max="${max}" offset="${offset}" />
+        
+        </div><!-- EOF .SearchResults -->
+
+    	<div class="clearBoth"><!-- empty --></div>
+    	<div class="SearchSpacer"><!-- empty --></div>
+    	<div style="text-align: right ;"><img src="${mm:link('/style/images/x-blue.gif')}" alt="x blue" /></div>
+    	<div class="SearchSpacer"><!-- empty --></div>
+        <div class="SearchBottomLineLeft"><hr /></div>
+        <div class="SearchBottomLineRight"><hr /></div>
+    	<div class="clearBoth"><!-- empty --></div> <br />
+    	
+    </jsp:attribute>
+  </tmf:html>
+</jsp:root>
