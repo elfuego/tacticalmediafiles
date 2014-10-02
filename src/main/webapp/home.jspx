@@ -22,22 +22,21 @@
         .HomeArchiveLists {
             height: 108px;
         }
-        
         .arimo {
             font-family: 'Arimo', sans-serif;
+            font-weight: 600;
         }
         a.read-article, a.play-video {
-            width: 120px;
+            width: 132px;
             display: block;
             background-color: #ccc;
-            padding: 4px 20px;
+            padding: 4px 8px;
             float: right;
             color: #111;
+            text-align: center;
         }
         a.play-video { width: 80px; }
         </style>
-        
-        
     </jsp:attribute>
 
     <jsp:attribute name="body">
@@ -86,21 +85,30 @@
               
               <mm:listcontainer path="event,type" 
                 fields="event.title,type.number" >
-                <mm:sortorder field="event.number" />
+                <mm:sortorder field="event.number" direction="DOWN" />
                 <mm:constraint field="type.number" value="anouncement" operator="EQUAL" />
                 <!-- constraints="type.number=38197"  directions="down" -->
 				<mm:list>
-  				  <div class="HomeLeftItemTitle">
-					<h2 class="Title"><a href="#"><mm:field name="event.title" escape="inline" /></a></h2>
-				  </div>
-  				  <div class="HomeLeftItemBox">
-					<div class="HomeLeftItemText">
-                      <mm:field name="event.intro" escape="none" /><br /><br />
-					</div>
-					<div class="HomeLeftItemDate">
-					  <mm:field name="event.created"><mm:time format="dd-MM-yyyy" /></mm:field>
-  				    </div>
-                  </div>
+                  <mm:node element="event">
+                    <mm:link page="content">
+                      <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                      <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                      <mm:frameworkparam name="t">events</mm:frameworkparam> <!-- TODO: replace this ugliness ! -->
+                      <div class="HomeLeftItemTitle">
+                        <h2 class="Title">
+                          <a href="${_}"><mm:field name="title" escape="inline" /></a>
+                        </h2>
+                      </div>
+                      <div class="HomeLeftItemBox">
+                        <div class="HomeLeftItemText">
+                          <mm:field name="intro" escape="none" /><br /><br />
+                        </div>
+                        <div class="HomeLeftItemDate">
+                          <mm:field name="created"><mm:time format="dd-MM-yyyy" /></mm:field>
+                        </div>
+                      </div>
+                    </mm:link>
+                  </mm:node>
                 </mm:list>
               </mm:listcontainer>
             <div class="clearBoth"><!-- empty --></div>
@@ -137,7 +145,7 @@
                             </a>
                           </div>
                           <div class="HomeFeaturedItemTitle">
-                            <h1 class="Title"><mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield></h1>
+                            <h1 class="Title"><a href="${_}"><mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield></a></h1>
                           </div>
                           <p class="Summary">
                             <mm:hasfield name="description"><mm:field name="description" escape="none" /></mm:hasfield>
@@ -168,7 +176,7 @@
                             </a>
                           </div>
                           <div class="HomeFeaturedItemTitle">
-                            <h1 class="Title"><mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield></h1>
+                            <h1 class="Title"><a href="${_}"><mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield></a></h1>
                           </div>
 
                           <p class="Summary">
