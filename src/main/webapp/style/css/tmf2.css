@@ -107,14 +107,16 @@ div.VideoBrowseTable3
 	margin-left: 0px;
 	z-index: 5;
 }
-
+div#homethumbs .kw {
+    display: block;
+}
 div.videothumb1
 {
 	position: absolute;
 	padding: 0px;
 	padding-top: 0px;
-	left: 3px;
-	width: 158px;
+	left: 0px;
+	width: 120px;
 }
 
 div.videothumb2
@@ -122,8 +124,8 @@ div.videothumb2
 	position: absolute;
 	padding: 0px;
 	padding-top: 0px;
-	left: 161px;
-	width: 158px;
+	left: 120px;
+	width: 120px;
 }
 
 div.videothumb3
@@ -131,8 +133,8 @@ div.videothumb3
 	position: absolute;
 	padding: 0px;
 	padding-top: 0px;
-	left: 319px;
-	width: 158px;
+	left: 240px;
+	width: 120px;
 }
 
 div.videothumb4
@@ -140,8 +142,8 @@ div.videothumb4
 	position: absolute;
 	padding: 0px;
 	padding-top: 0px;
-	left: 477px;
-	width: 158px;
+	left: 360px;
+	width: 120px;
 }
 
 div.VideoBrowsePrevious
