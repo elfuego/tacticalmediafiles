@@ -23,7 +23,7 @@ $(document).ready(function() {
     
     if ($('#videothumbs').length || $('#homethumbs').length) {
         var loadVideoThumbs = function(move){
-            offset = offset + parseInt(move);
+            offset = offset + parseInt(-move);
             if (offset < 0) {
                 var x = Math.floor(((Math.random() * 120) + 1) / 4);
                 offset = x;
