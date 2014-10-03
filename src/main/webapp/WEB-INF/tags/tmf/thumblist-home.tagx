@@ -32,11 +32,11 @@
                 </mm:url>
               </mm:node>
               <mm:node element="picture">
-                <a href="${plink}"><mm:image mode="img" width="120" height="78" crop="middle" /></a>
+                <a href="${plink}"><mm:image mode="img" width="112" height="68" crop="middle" /></a>
               </mm:node>
             </mm:related>
           </mm:relatedcontainer>
-          <a class="kw" href="search.jsp?query=${_node.keyword}"><mm:field name="keyword" /></a>
+          <a href="search.jsp?query=${_node.keyword}"><mm:field name="keyword" /></a>
         </div>
       </mm:listnodes>
     </mm:listnodescontainer>
