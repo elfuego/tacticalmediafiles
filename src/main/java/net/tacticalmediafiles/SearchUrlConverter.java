@@ -77,7 +77,7 @@ public class SearchUrlConverter extends DirectoryUrlConverter {
             Node n = frameworkParameters.get(NODE);
             if (n == null) throw new IllegalStateException("No node (n) parameter used in " + frameworkParameters);
 
-            b.append("/").append(n.getStringValue("keyword"));
+            b.append("?q=").append(n.getStringValue("keyword"));
 
             if (log.isDebugEnabled()) {
                 log.debug("b now: " + b.toString());
