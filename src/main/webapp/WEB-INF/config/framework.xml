@@ -46,6 +46,14 @@
     <param name="whitespaceReplacer">-</param>
   </urlconverter>
 
+  <urlconverter class="net.tacticalmediafiles.SearchUrlConverter">
+    <description xml:lang="en">
+      The urlconverter the search page and linked keywords.
+    </description>
+    <param name="directory">/search/</param>
+    <param name="whitespaceReplacer">-</param>
+  </urlconverter>
+
   <urlconverter class="org.mmbase.framework.basic.MMBaseUrlConverter">
     <description xml:lang="en">
       The MMBase urlconverter handles about pretty URL's in /mmbase/.

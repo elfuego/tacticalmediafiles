@@ -51,5 +51,17 @@
       <param name="n" type="org.mmbase.bridge.Node" />
     </body>
   </block>
+
+  <block name="search"
+         classification="mmbase.tmf"
+         mimetype="text/html">
+    <title xml:lang="en">Search</title>
+    <title xml:lang="nl">Zoek</title>
+    <description xml:lang="en">Search content</description>
+    <description xml:lang="nl">Zoek content</description>
+    <body jsp="search.jspx">
+      <param name="n" type="org.mmbase.bridge.Node" />
+    </body>
+  </block>
  
 </component>
