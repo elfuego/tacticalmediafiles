@@ -20,7 +20,8 @@
     <jsp:attribute name="title">${media_title}</jsp:attribute>
     
     <jsp:attribute name="head">
-      
+      <script type="text/javascript" src="${mm:link('/style/oiplayer/js/jquery.oiplayer.js')}"><!-- salut msie --></script>
+      <link href="${mm:link('/style/oiplayer/css/oiplayer.css')}" rel="stylesheet" type="text/css" />
       <style type="text/css">
       video { 
           background-color: #000;

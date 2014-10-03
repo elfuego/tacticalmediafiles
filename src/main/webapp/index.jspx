@@ -27,6 +27,14 @@ body { font-family: sans-serif; }
   - <a href="list.jspx">list</a>
   - <a href="article.jsp?objectnumber=38519">about</a>
   
+  <h2>Videos</h2>
+  <ul>
+    <li>
+      <a href="${mm:link('/videos/3741/Telestreet_-The-Italian-Media-Jacking-Movement')}">Telestreet</a>
+      - <a href="${mm:link('/video.jsp?objectnumber=50056')}">old link</a> 
+    </li>
+  </ul>
+  
 </div>
 </body>
 </html>
