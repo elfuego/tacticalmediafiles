@@ -64,7 +64,7 @@
                       <mm:field name="title" />
                     </a>
                     <mm:relatednodes type="keyword">
-                      <mm:first><br /><strong>tags: </strong></mm:first> 
+                      <mm:first><br /><strong>Keywords: </strong></mm:first> 
                       <mm:field name="keyword" /><mm:last inverse="true">, </mm:last>
                     </mm:relatednodes>
                     
@@ -85,7 +85,7 @@
                     <mm:field name="firstname"/> <mm:field name="prefix"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field><mm:field name="sirname"/><mm:last inverse="true">, </mm:last>
                   </mm:relatednodes>
                   <mm:relatednodes type="keyword">
-                    <mm:first><br /><strong>tags: </strong></mm:first> 
+                    <mm:first><br /><strong>Keywords: </strong></mm:first> 
                     <mm:field name="keyword" /><mm:last inverse="true">, </mm:last>
                   </mm:relatednodes>
                   
