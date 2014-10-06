@@ -5,7 +5,6 @@
     encoding="UTF-8"
     xmlns:jsp="http://java.sun.com/JSP/Page"
     xmlns:c="http://java.sun.com/jsp/jstl/core"
-    xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     postprocessor="none">
@@ -17,13 +16,9 @@
     
   <mm:cloud method="asis">
 
-      <div>
         <mm:import externid="offset">0</mm:import>
-        <mm:import externid="max">4</mm:import>
         
         <tmf:thumblist-home offset="${offset}" />
-
-      </div>
 
   </mm:cloud>
 </mm:content>

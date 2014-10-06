@@ -8,7 +8,6 @@
   @version: 0.1
 */
 
-var offset = 0;
 $(document).ready(function() {
     
     /* Init oiplayer only when there is video or audio tag */
@@ -23,13 +22,27 @@ $(document).ready(function() {
     
     if ($('#videothumbs').length || $('#homethumbs').length) {
         var loadVideoThumbs = function(move){
+            var offset = parseInt($('#thumb1').attr('data-offset'));
             offset = offset + parseInt(-move);
             if (offset < 0) {
                 var x = Math.floor(((Math.random() * 120) + 1) / 4);
                 offset = x;
             }
-            $('#videothumbs').load("${mm:link('/api/video-thumbs.jspx')}?offset=" + offset);
-            $('#homethumbs').load("${mm:link('/api/home-thumbs.jspx')}?offset=" + offset);
+            // animate
+            $( "#videothumbscontainer" ).animate({
+                    left: (move < 0 ? "-=300" : "+=300")
+                }, 1000, function() {
+                    // Animation complete.
+                    console.log("let's load");
+                    $('#videothumbs').load("${mm:link('/api/video-thumbs.jspx')}?offset=" + offset);
+                });
+            $( "#homethumbscontainer" ).animate({
+                    left: (move < 0 ? "-=240" : "+=240")
+                }, 1000, function() {
+                    // Animation complete.
+                    console.log("let's load");
+                    $('#homethumbs').load("${mm:link('/api/home-thumbs.jspx')}?offset=" + offset);
+                });
         };
     
         $('.moveprev').click(function(ev){

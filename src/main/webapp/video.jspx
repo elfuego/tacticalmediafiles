@@ -82,7 +82,7 @@
 
               <!-- List of Thumbnails with Titles -->
               <div class="VideoBrowseTable2" id="videothumbs">
-                <mm:listnodescontainer type="video">
+                <!-- <mm:listnodescontainer type="video">
                   <mm:sortorder field="title" direction="UP" />
                   <mm:offset value="0" />
                   <mm:maxnumber value="4" />
@@ -97,8 +97,6 @@
                           <mm:relatednodes type="picture" max="1">
                             <mm:import id="pic" reset="true">ok</mm:import>
                             <mm:image mode="img" width="150" height="100" crop="middle" />
-                            <!-- <mm:image template="s(150x100!)" /> -->
-                            <!-- <img src=""  alt='<mm:field name="title" />' width="150" height="100" /> -->
                           </mm:relatednodes>
                           <mm:isempty referid="pic">
                             <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="150" height="100" />
@@ -108,7 +106,8 @@
                       </mm:link>
                     </div>
                   </mm:listnodes>		
-                </mm:listnodescontainer>
+                </mm:listnodescontainer> -->
+                <tmf:thumblist-video offset="0" />
               </div><!-- EOF .VideoBrowseTable1 -->
 
              

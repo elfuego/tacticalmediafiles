@@ -33,6 +33,9 @@ body { font-family: sans-serif; }
       <a href="${mm:link('/videos/3741/Telestreet_-The-Italian-Media-Jacking-Movement')}">Telestreet</a>
       - <a href="${mm:link('/video.jsp?objectnumber=50056')}">old link</a> 
     </li>
+    <li>
+        http://127.0.0.1:8080/tmf2/videos/3851/Occupy-Taksim
+    </li>
   </ul>
   
 </div>

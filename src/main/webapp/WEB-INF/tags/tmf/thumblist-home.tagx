@@ -10,14 +10,21 @@
       />
 
   <jsp:directive.attribute name="offset"  description="Offset of list" />
-
-    <mm:listnodescontainer type="keyword" searchdirs="source">
-      <mm:maxnumber value="4" />
+  <jsp:useBean id="random" class="java.util.Random" scope="application" />
+  
+    <c:if test="${offset lt 1}">
+      <!-- <c:set var="offset"><jsp:expression>java.lang.Math.round((java.lang.Math.random() * 100) / 4)</jsp:expression></c:set> -->
+      <c:set var="offset">${random.nextInt(32) * 4}</c:set>
+    </c:if>
+    
+    <div id="homethumbscontainer">
+    <mm:listnodescontainer type="keyword">
+      <mm:maxnumber value="8" />
       <mm:sortorder field="keyword" direction="UP" />
       <mm:offset value="${offset}" />
       <mm:listnodes>
         <c:set var="index"><mm:index /></c:set>
-        <div class="videothumb${index}">
+        <div id="thumb${index}" data-offset="${index + offset - 1}" class="homethumb">
     
           <mm:relatedcontainer path="object,picture" 
             fields="object.number,picture.number" searchdirs="source,destination">
@@ -36,9 +43,15 @@
               </mm:node>
             </mm:related>
           </mm:relatedcontainer>
-          <a class="kw" href="search.jsp?query=${_node.keyword}"><mm:field name="keyword" /></a>
+          
+          <mm:link page="search">
+            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+            <a class="kw" href="${_}"><mm:field name="keyword" /></a>
+          </mm:link>
         </div>
       </mm:listnodes>
     </mm:listnodescontainer>
-
+    </div>
+    
 </jsp:root>
