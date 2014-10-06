@@ -17,6 +17,8 @@
   <link href="${mm:link('favicon.ico')}" rel="shortcut icon" type="image/x-icon" />
 <style type="text/css">
 body { font-family: sans-serif; }
+h1, h2 { margin-bottom: 0; }
+p { margin-top: 0; }
 </style>
 </head>
 <body>
@@ -25,18 +27,38 @@ body { font-family: sans-serif; }
   <a href="${mm:link('/mmbase/')}">MMBase</a>
   - <a href="home.jspx">home</a>
   - <a href="list.jspx">list</a>
+  - <a href="${mm:link('/edit/')}">edit / editors</a>
   - <a href="article.jsp?objectnumber=38519">about</a>
   
   <h2>Videos</h2>
+  <p>Already transcoded.<br />
+    The node numbers are from the old installation, 
+    these links should redirect you to its new location.
+  </p>
   <ul>
     <li>
-      <a href="${mm:link('/videos/3741/Telestreet_-The-Italian-Media-Jacking-Movement')}">Telestreet</a>
-      - <a href="${mm:link('/video.jsp?objectnumber=50056')}">old link</a> 
+      Telestreet: The Italian Media Jacking Movement
+    : Node <a href="${mm:link('/video.jsp?objectnumber=50056')}">50056</a> of type Media ( media )
     </li>
     <li>
-        http://127.0.0.1:8080/tmf2/videos/3851/Occupy-Taksim
+    Occupy Taksim
+    : Node <a href="${mm:link('/video.jsp?objectnumber=63163')}">63163</a> of type Media ( media ) 
+       
+    </li>
+    <li>
+    Conte de Printemps
+    : Node <a href="${mm:link('/video.jsp?objectnumber=55015')}">55015</a> of type Media ( media )
+    </li>
+    <li>
+    Smokey the Log
+    : Node <a href="${mm:link('/video.jsp?objectnumber=45403')}">45403</a> of type Media ( media )
     </li>
   </ul>
+  
+
+
+
+
   
 </div>
 </body>

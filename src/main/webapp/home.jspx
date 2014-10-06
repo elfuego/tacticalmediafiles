@@ -13,7 +13,7 @@
       styleClass="about">
     
     
-    <jsp:attribute name="title">Home</jsp:attribute>
+    <jsp:attribute name="title"></jsp:attribute>
     
     <jsp:attribute name="head">
         <link href="http://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
