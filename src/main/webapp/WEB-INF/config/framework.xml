@@ -50,7 +50,7 @@
     <description xml:lang="en">
       The urlconverter the search page and linked keywords.
     </description>
-    <param name="directory">/search/</param>
+    <param name="directory">/search</param>
     <param name="whitespaceReplacer">-</param>
   </urlconverter>
 

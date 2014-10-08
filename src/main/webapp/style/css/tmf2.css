@@ -4,6 +4,15 @@
 * @since    July 2014
 */
 
+body
+{
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif;
+    background-color: #fff;
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0;
+}
+
 p.Text {
     line-height: 1.6em;
 }
@@ -19,6 +28,29 @@ p.Text {
 #tagcloud li.tag_7{ font-size: 1.4em; font-weight: 800; }
 #tagcloud li.tag_8{ font-size: 1.5em; font-weight: 900; }
 #tagcloud li.tag_9{ font-size: 1.6em; font-weight: 900; }
+
+.searched_with
+{
+    margin-bottom: 32px;
+    font-family: Georgia, serif;
+}
+div.SearchResults strong.tag
+{
+    font-size: 0.9em;
+    font-weight: normal;
+}
+div.SearchResults a.tag
+{
+    color: #666;
+    font-size: 0.9em;
+}
+div.SearchResults a.tag:hover
+{
+    color: #00ADEE;
+    text-decoration: underline;
+}
+
+div.ArticleLinksContainer { color: #ccc; }
 
 /* ######## new video ###### */
 
