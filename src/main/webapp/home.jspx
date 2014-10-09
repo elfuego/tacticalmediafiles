@@ -16,7 +16,7 @@
    
   <tmf:html
       cacheable="${cacheable}"
-      styleClass="about">
+      styleClass="home">
     
     
     <jsp:attribute name="title"></jsp:attribute>

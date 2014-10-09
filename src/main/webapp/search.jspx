@@ -10,7 +10,7 @@
   
   <tmf:html
       cacheable="${cacheable}"
-      styleClass="about">
+      styleClass="search">
     
     
     <jsp:attribute name="title">Search ${q}</jsp:attribute>

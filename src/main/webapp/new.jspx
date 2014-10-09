@@ -5,15 +5,11 @@
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
-  <mm:import externid="t" id="type">article</mm:import>
   <mm:import externid="cacheable"  />
-  
-  <mm:nodeinfo type="plural_guitype" nodetype="${type}" id="type_plural" write="false" />
-    
+      
   <tmf:html
       cacheable="${cacheable}"
-      styleClass="list">
-    
+      styleClass="new">
     
     <jsp:attribute name="title">${type_plural}</jsp:attribute>
     
@@ -32,25 +28,36 @@
         
         <div class="SearchResults">
           
-          <mm:import id="max">20</mm:import>
-          <mm:import externid="offset">0</mm:import>
-                    
-          <mm:listnodescontainer type="${type}">
+          <mm:listnodescontainer type="article">
             <mm:sortorder field="number" direction="DOWN" />
-            <div class="SearchTypes">
-              <mm:size id="total" /> <!-- ARTICLES ${type} --> 
-              ${type_plural}
-            </div>
-            <mm:maxnumber value="${max}" />
-            <mm:offset value="${offset}" />
+            <div class="SearchTypes">articles</div>
+            <mm:maxnumber value="3" />
+            <mm:listnodes>
+              <tmf:node-listitem />
+              <br /><br /><br />
+            </mm:listnodes>
+          </mm:listnodescontainer>
+
+          <mm:listnodescontainer type="event">
+            <mm:sortorder field="number" direction="DOWN" />
+            <div class="SearchTypes">events</div>
+            <mm:maxnumber value="3" />
+            <mm:listnodes>
+              <tmf:node-listitem />
+              <br /><br /><br />
+            </mm:listnodes>
+          </mm:listnodescontainer>
+
+          <mm:listnodescontainer type="campaign">
+            <mm:sortorder field="number" direction="DOWN" />
+            <div class="SearchTypes">campaigns</div>
+            <mm:maxnumber value="3" />
             <mm:listnodes>
               <tmf:node-listitem />
               <br /><br /><br />
             </mm:listnodes>
           </mm:listnodescontainer>
           
-          <tmf:pager total="${total}" max="${max}" offset="${offset}" />
-        
         </div><!-- EOF .SearchResults -->
 
     	<div class="clearBoth"><!-- empty --></div>

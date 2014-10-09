@@ -34,6 +34,9 @@ p.Text {
     margin-bottom: 32px;
     font-family: Georgia, serif;
 }
+
+div.pager a, div.pager strong { margin-right: 12px; }
+div.pager a.first, div.pager a.next { margin-right: 6px; }
 div.SearchResults strong.tag
 {
     font-size: 0.9em;
