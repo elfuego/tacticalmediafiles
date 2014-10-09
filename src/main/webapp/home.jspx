@@ -7,6 +7,13 @@
 
   <mm:import externid="cacheable"  />
   
+  <jsp:scriptlet>
+    /* Sets random value devidable by 4 for initital thumbcarousel */
+    java.util.Random rand = new java.util.Random(); 
+    int off = rand.nextInt(32) * 4; 
+    out.println(off);
+    pageContext.setAttribute("off", off);
+  </jsp:scriptlet>
    
   <tmf:html
       cacheable="${cacheable}"
@@ -67,7 +74,7 @@
                 <div class="HomeTMFLogo2"><a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files Logo" /></a></div>
             </div>
             <div class="HomeArchiveTable2" id="homethumbs">
-              <tmf:thumblist-home offset="0" />
+              <tmf:thumblist-home offset="${off}" />
             </div><!-- EOF .HomeArchiveTable1 -->
 			<!-- Previous / Next Construction -->
             <div class="HomeArchiveNext"><a href='#' class="movenext"><img src="${mm:link('/style/images/next.gif')}" width="20" height="20" alt="Next" /></a></div>

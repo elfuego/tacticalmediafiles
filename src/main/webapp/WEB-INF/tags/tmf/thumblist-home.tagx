@@ -10,12 +10,6 @@
       />
 
   <jsp:directive.attribute name="offset"  description="Offset of list" />
-  <jsp:useBean id="random" class="java.util.Random" scope="application" />
-  
-    <c:if test="${offset lt 1}">
-      <!-- <c:set var="offset"><jsp:expression>java.lang.Math.round((java.lang.Math.random() * 100) / 4)</jsp:expression></c:set> -->
-      <c:set var="offset">${random.nextInt(32) * 4}</c:set>
-    </c:if>
     
     <div id="homethumbscontainer">
     <mm:listnodescontainer type="keyword">

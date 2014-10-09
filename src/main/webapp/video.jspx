@@ -13,6 +13,14 @@
     <mm:import id="media_title" reset="true"><mm:field name="title" escape="inline" /></mm:import>
   </mm:node>
   
+  <jsp:scriptlet>
+    /* Sets random value devidable by 4 for initital thumbcarousel */
+    java.util.Random rand = new java.util.Random(); 
+    int off = rand.nextInt(32) * 4; 
+    out.println(off);
+    pageContext.setAttribute("off", off);
+  </jsp:scriptlet>
+  
   <tmf:html
       cacheable="${cacheable}"
       styleClass="video">
