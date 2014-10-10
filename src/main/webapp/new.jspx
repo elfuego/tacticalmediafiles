@@ -28,6 +28,8 @@
         
         <div class="SearchResults">
           
+          <p class="Summary">Recently added to this website:</p>
+          
           <mm:listnodescontainer type="article">
             <mm:sortorder field="number" direction="DOWN" />
             <div class="SearchTypes">articles</div>
@@ -57,6 +59,23 @@
               <br /><br /><br />
             </mm:listnodes>
           </mm:listnodescontainer>
+
+          <mm:listnodescontainer type="video">
+            <mm:sortorder field="number" direction="DOWN" />
+            <div class="SearchTypes">videos</div>
+            <mm:maxnumber value="3" />
+            <mm:listnodes>
+              <tmf:node-listitem />
+              <br /><br /><br />
+            </mm:listnodes>
+          </mm:listnodescontainer>
+          
+          <!-- @TODO : persons here -->
+          
+          <!-- @TODO : pictures here -->
+          
+          <!-- @TODO : files here -->
+          
           
         </div><!-- EOF .SearchResults -->
 
