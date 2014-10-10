@@ -32,49 +32,118 @@
           
           <mm:listnodescontainer type="article">
             <mm:sortorder field="number" direction="DOWN" />
-            <div class="SearchTypes">articles</div>
             <mm:maxnumber value="3" />
+            <div class="SearchTypes">articles</div>
             <mm:listnodes>
               <tmf:node-listitem />
-              <br /><br /><br />
+              <br /><br />
             </mm:listnodes>
           </mm:listnodescontainer>
 
           <mm:listnodescontainer type="event">
             <mm:sortorder field="number" direction="DOWN" />
-            <div class="SearchTypes">events</div>
             <mm:maxnumber value="3" />
+            <div class="SearchTypes">events</div>
             <mm:listnodes>
               <tmf:node-listitem />
-              <br /><br /><br />
+              <br /><br />
             </mm:listnodes>
           </mm:listnodescontainer>
 
           <mm:listnodescontainer type="campaign">
             <mm:sortorder field="number" direction="DOWN" />
-            <div class="SearchTypes">campaigns</div>
             <mm:maxnumber value="3" />
+            <div class="SearchTypes">campaigns</div>
             <mm:listnodes>
               <tmf:node-listitem />
-              <br /><br /><br />
+              <br /><br />
             </mm:listnodes>
           </mm:listnodescontainer>
 
           <mm:listnodescontainer type="video">
             <mm:sortorder field="number" direction="DOWN" />
-            <div class="SearchTypes">videos</div>
             <mm:maxnumber value="3" />
+            <div class="SearchTypes">videos</div>
             <mm:listnodes>
               <tmf:node-listitem />
-              <br /><br /><br />
+              <br /><br />
             </mm:listnodes>
           </mm:listnodescontainer>
           
-          <!-- @TODO : persons here -->
+          <!-- @TODO : person links -->
+          <mm:listnodescontainer type="person">
+            <mm:sortorder field="number" direction="DOWN" />
+            <mm:maxnumber value="3" />
+            <div class="SearchTypes">persons</div>
+            <mm:listnodes>
+              <a class="medium" href="#">
+                <mm:field name="firstname" /> <mm:field name="prefix" /> <mm:field name="sirname" />
+              </a>
+              <mm:relatednodes type="keyword">
+                <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
+                <mm:link page="pages">
+                  <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                  <mm:frameworkparam name="page">search</mm:frameworkparam>
+                  <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+                  <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
+                </mm:link>
+              </mm:relatednodes>
+              <br /><br />		
+            </mm:listnodes>
+          </mm:listnodescontainer>
           
-          <!-- @TODO : pictures here -->
+          <!-- @TODO : picture links -->
+          <mm:listnodescontainer type="picture">
+            <mm:sortorder field="number" direction="DOWN" />
+            <mm:maxnumber value="3" />
+            <div class="SearchTypes">picture</div>
+            <mm:listnodes>
+              <h5>picture</h5>
+              <a title="Klick for full size" href="#">
+                <mm:field name="title"/><br />
+                <mm:image mode="img" template="s(x60)" />
+              </a>
+              <mm:relatednodes type="keyword">
+                <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
+                <mm:link page="pages">
+                  <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                  <mm:frameworkparam name="page">search</mm:frameworkparam>
+                  <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+                  <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
+                </mm:link>
+              </mm:relatednodes>
+              <br /><br />
+            </mm:listnodes>
+          </mm:listnodescontainer>
           
           <!-- @TODO : files here -->
+          <mm:escaper id="myfilesize" type="filesize">
+            <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
+          </mm:escaper>
+          
+          <mm:listnodescontainer type="file">
+            <mm:sortorder field="number" direction="DOWN" />
+            <mm:maxnumber value="3" />
+            <div class="SearchTypes">files</div>
+            <mm:listnodes>
+              <h5>file</h5>
+              <mm:attachment>
+                <span class="filelabel"><mm:field name="filename" />,
+                <mm:field name="size" escape="myfilesize" /></span><br />    				
+                <a href="${_}" class="medium"><mm:field name="title" /></a>
+              </mm:attachment>
+              <mm:relatednodes type="keyword">
+                <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
+                <mm:link page="pages">
+                  <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                  <mm:frameworkparam name="page">search</mm:frameworkparam>
+                  <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+                  <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
+                </mm:link>
+              </mm:relatednodes>
+              <br /><br />
+            </mm:listnodes>
+          </mm:listnodescontainer>
           
           
         </div><!-- EOF .SearchResults -->
