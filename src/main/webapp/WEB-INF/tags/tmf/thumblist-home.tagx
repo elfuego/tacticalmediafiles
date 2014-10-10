@@ -38,7 +38,7 @@
             </mm:related>
           </mm:relatedcontainer>
           
-          <mm:link page="search">
+          <mm:link page="pages">
             <mm:frameworkparam name="component">tmf</mm:frameworkparam>
             <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
             <a class="kw" href="${_}"><mm:field name="keyword" /></a>

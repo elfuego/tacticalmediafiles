@@ -32,9 +32,10 @@
          </a>
          <mm:relatednodes type="keyword">
            <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
-           <mm:link page="search">
+           <mm:link page="pages">
              <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-             <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+             <mm:frameworkparam name="page">search</mm:frameworkparam>
+             <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
              <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
            </mm:link>
          </mm:relatednodes>
@@ -57,9 +58,10 @@
        </mm:relatednodes>
        <mm:relatednodes type="keyword">
          <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
-         <mm:link page="search">
+         <mm:link page="pages">
            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-           <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+           <mm:frameworkparam name="page">search</mm:frameworkparam>
+           <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
            <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
          </mm:link>
        </mm:relatednodes>

@@ -46,12 +46,11 @@
     <param name="whitespaceReplacer">-</param>
   </urlconverter>
 
-  <urlconverter class="net.tacticalmediafiles.SearchUrlConverter">
+  <urlconverter class="net.tacticalmediafiles.SiteUrlConverter">
     <description xml:lang="en">
-      The urlconverter the search page and linked keywords.
+      The urlconverter pages and other configured kinds of links.
     </description>
-    <param name="directory">/search</param>
-    <param name="whitespaceReplacer">-</param>
+    <param name="directory">/</param>
   </urlconverter>
 
   <urlconverter class="org.mmbase.framework.basic.MMBaseUrlConverter">

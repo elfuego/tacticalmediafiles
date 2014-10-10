@@ -52,15 +52,15 @@
     </body>
   </block>
 
-  <block name="search"
+  <block name="pages"
          classification="mmbase.tmf"
          mimetype="text/html">
-    <title xml:lang="en">Search</title>
-    <title xml:lang="nl">Zoek</title>
-    <description xml:lang="en">Search content</description>
-    <description xml:lang="nl">Zoek content</description>
+    <title xml:lang="en">Pages</title>
+    <title xml:lang="nl">Pagina's</title>
+    <description xml:lang="en">Pages mapping to templates</description>
+    <description xml:lang="nl">Pagina links die naar templates verwijzen</description>
     <body jsp="search.jspx">
-      <param name="n" type="org.mmbase.bridge.Node" />
+      <param name="page"    type="String" />
     </body>
   </block>
  

@@ -22,9 +22,10 @@
           <c:set var="calc" value="${1 + (_node.relationcount / 4) gt 9 ? '9' : 1 + (_node.relationcount / 4)}" />
           <c:set var="classname">tag_<fmt:formatNumber type="number" maxFractionDigits="0" value="${calc}" /></c:set>
           <li class="${classname}">
-            <mm:link page="search">
+            <mm:link page="pages">
               <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-              <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+              <mm:frameworkparam name="page">search</mm:frameworkparam>
+              <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
               <a href="${_}"><mm:field name="keyword" /></a>
             </mm:link>
           </li>

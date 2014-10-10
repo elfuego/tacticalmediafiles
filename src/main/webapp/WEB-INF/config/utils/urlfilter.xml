@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE util PUBLIC "-//MMBase//DTD util config 1.0//EN" "http://www.mmbase.org/dtd/util_1_0.dtd">
+<util>
+  <!-- configuration for the urlconverter: paths that have a specific template etc. -->
+  <properties>
+    <!-- <property name="site">site_alias</property> -->
+
+    <property name="pages" type="map">
+      <entry>
+        <key>search</key><!-- path -->
+        <value>search.jspx</value><!-- template -->
+      </entry>
+      <entry>
+        <key>new</key>
+        <value>new.jspx</value>
+      </entry>
+    </property>
+    
+  </properties>
+</util>

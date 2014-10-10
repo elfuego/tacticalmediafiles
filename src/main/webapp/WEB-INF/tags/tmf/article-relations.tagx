@@ -25,7 +25,7 @@
       <mm:relatednodescontainer role="related" type="keyword" searchdirs="destination">
           <mm:relatednodes>
             <mm:first><h5>tags</h5></mm:first>
-            <mm:link page="search">
+            <mm:link page="pages">
               <mm:frameworkparam name="component">tmf</mm:frameworkparam>
               <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
               <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
