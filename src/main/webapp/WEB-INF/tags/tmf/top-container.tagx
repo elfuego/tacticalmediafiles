@@ -19,12 +19,12 @@
           <li><a href="${mm:link('/videos/')}">VIDEOS</a></li>
           <li><a href="${mm:link('/articles/')}">TEXTS</a></li>
           <li><a href="http://blog.tacticalmediafiles.net/" target="_blank">BLOG</a></li>
-          <li><a href="listing.jsp?pagetype=new">NEW</a></li>
+          <li><a href="${mm:link('/new')}">NEW</a></li>
         </ul>
         <ul class="NavigationMenu2">
           <li>
-            <form class="NavSearch" name="Search" action="search.jsp" method="post">
-              <input type="hidden" name="pagetype" value="search" />
+            <form class="NavSearch" name="Search" action="${mm:link('/new')}" method="post">
+              <!-- <input type="hidden" name="pagetype" value="search" /> -->
               <input type="text" name="query" class="SearchNav" id="SearchNav" value="SEARCH" onfocus="SearchFocus();" />
             </form>
           </li>
