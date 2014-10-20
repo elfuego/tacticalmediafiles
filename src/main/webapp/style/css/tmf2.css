@@ -17,6 +17,18 @@ p.Text {
     line-height: 1.6em;
 }
 
+.HomeFeaturedListTop
+{
+    border-top: 3px solid #ccc;
+    width: 480px;
+    margin-bottom: 32px;
+}
+div.HomeFeaturedList div.HomeFeaturedItem {
+    border-top: none;
+    border-bottom: 3px solid #ccc;
+    padding-bottom: 12px;
+}
+
 #tagcloud h2 { text-transform: uppercase; }
 #tagcloud li.tag_0{ font-size: 0.7em; font-weight: 100; } 
 #tagcloud li.tag_1{ font-size: 0.8em; font-weight: 200; } 
@@ -54,6 +66,12 @@ div.SearchResults a.tag:hover
 }
 
 div.ArticleLinksContainer { color: #ccc; }
+div.ArticleLinksContainer div.tags
+{
+    width: 205px;
+    margin: 0 0 18px 0;
+}
+span.filelabel { font-size: 0.85em; }
 
 /* ######## new video ###### */
 

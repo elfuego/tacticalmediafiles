@@ -23,6 +23,7 @@
       
       <!-- keywords -->
       <mm:relatednodescontainer role="related" type="keyword" searchdirs="destination">
+        <div class="tags">
           <mm:relatednodes>
             <mm:first><h5>tags</h5></mm:first>
             <mm:link page="pages">
@@ -30,8 +31,8 @@
               <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
               <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
             </mm:link>
-            <mm:last><br /><br /></mm:last>
           </mm:relatednodes>
+        </div>
       </mm:relatednodescontainer>
 
       <div class='ArticleLinksLabel'>
@@ -44,8 +45,7 @@
           <mm:relatednodes>
             <h5>file</h5>
             <mm:attachment>
-              <a href="${_}" class="small"><mm:field name="title" /></a>
-              <span class="filelabel"> 
+              <a href="${_}" class="small"><mm:field name="title" /></a> <span class="filelabel"> 
                 <mm:field name="filename" />, <mm:field name="size" escape="myfilesize" />
               </span><br /><br />
             </mm:attachment>

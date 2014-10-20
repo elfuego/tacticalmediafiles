@@ -127,12 +127,13 @@
           <div class="HomeFeaturedLabel"><img src="${mm:link('/style/images/labels/featured.png')}" alt="Featured" /></div>
 
           <div class="HomeFeaturedList">
+            <div class="HomeFeaturedListTop"><!-- empty --></div>
             <mm:node number="special">
               <mm:listrelations>
                 <mm:relatednode> 
                   <mm:nodeinfo type="type" id="type" write="false" />
                 
-                  <div class="HomeFeaturedItemText">
+                  <div class="HomeFeaturedItem">
                     <c:choose>
                       <c:when test="${type eq 'video'}">
                         <mm:link page="media">
