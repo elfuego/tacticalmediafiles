@@ -13,7 +13,7 @@
       styleClass="search">
     
     
-    <jsp:attribute name="title">Search ${q}</jsp:attribute>
+    <jsp:attribute name="title">Searched with ${q}</jsp:attribute>
     
     <jsp:attribute name="head">
         <!-- nothing here yet -->
@@ -21,7 +21,64 @@
 
     <jsp:attribute name="body">
 
-        <tmf:header-simple title="Search ${q}" label="search" />
+        <!-- <tmf:header-simple title="Search ${q}" label="search" /> -->
+        
+        <div class="clearBoth"><!-- empty --></div>
+        <div class="ArticleSpacer"><!-- empty --></div>
+        <div class="ArticleTMFLogo">
+          <a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="195" height="121" /></a> 
+        </div>
+        <div class="clearBoth"><!-- empty --></div>
+
+        <!-- search -->
+        <div class="SearchBarContainer">
+      
+          <form action="${mm:link('/search')}" method="post">
+            <div class="SearchOptions">
+              <div class="SearchSimpleLinks" id="SearchSimpleLinks">
+                <ul class="SearchSimpleOptions">
+                  <mm:link page="search" referids="q?">
+                    <li><a href="${_}">all</a></li>
+                  </mm:link>
+                  <mm:link page="search" referids="q?">
+                    <mm:param name="type">article</mm:param>
+                    <li><a href="${_}">texts</a></li>
+                  </mm:link>
+                  <mm:link page="search" referids="q?">
+                    <mm:param name="type">person</mm:param>
+                    <li><a href="${_}">people</a></li>    
+                  </mm:link>
+                  <mm:link page="search" referids="q?">
+                    <mm:param name="type">event</mm:param>
+                    <li><a href="${_}">events</a></li>
+                  </mm:link>
+                  <mm:link page="search" referids="q?">
+                    <mm:param name="type">picture</mm:param>
+                    <li><a href="${_}">images</a></li>
+                  </mm:link>
+                  <mm:link page="search" referids="q?">
+                    <mm:param name="type">video</mm:param>
+                    <li><a href="${_}">videos</a></li>
+                  </mm:link>
+                  <mm:link page="search" referids="q?">
+                    <mm:param name="type">file</mm:param>
+                    <li><a href="${_}">files</a></li>
+                  </mm:link>
+                </ul>
+              </div>
+            </div>
+            <div class="SearchField">
+              <input type="text" name="q" value="${q}" class="SearchInput" />
+            </div>
+            <div class="SearchLabel">
+              <img src="${mm:link('/style/images/labels/search.png')}" alt="Search" />
+            </div>
+          </form>
+        </div><!-- EOF .SearchBarContainer -->
+        <!-- END search -->
+
+    <div style="clear: right ;"><!-- empty --></div>
+    <div class="ArticleSpacer2"><!-- empty --></div>
 
         <div class="SearchSpacer2"><!-- empty --></div>
         <div class="SearchResultsLeft">
@@ -65,6 +122,11 @@
             <h2 class="searched_with">
               Searched with '${mm:escape('text/xml', q)}'
             </h2>
+          </c:if>
+          <c:if test="${total eq 0}">
+            <p>
+              Nothing found: 0 results with '${q}'.
+            </p>
           </c:if>
           
           <mm:listnodes referid="results" varStatus="status" id="content">

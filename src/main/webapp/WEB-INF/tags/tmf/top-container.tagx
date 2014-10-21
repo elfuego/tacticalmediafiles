@@ -23,9 +23,9 @@
         </ul>
         <ul class="NavigationMenu2">
           <li>
-            <form class="NavSearch" name="Search" action="${mm:link('/new')}" method="post">
-              <!-- <input type="hidden" name="pagetype" value="search" /> -->
-              <input type="text" name="query" class="SearchNav" id="SearchNav" value="SEARCH" onfocus="SearchFocus();" />
+            <form class="NavSearch" name="Search" action="${mm:link('/search')}" method="post">
+              <input type="text" name="q" class="SearchNav" id="SearchNav" value="${q}" placeholder="SEARCH" />
+              <!--  onfocus="SearchFocus();"  ? -->
             </form>
           </li>
         </ul>
