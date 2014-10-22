@@ -54,6 +54,10 @@
                     <li><a href="${_}">events</a></li>
                   </mm:link>
                   <mm:link page="search" referids="q?">
+                    <mm:param name="type">campaign</mm:param>
+                    <li><a href="${_}">campaign</a></li>
+                  </mm:link>
+                  <mm:link page="search" referids="q?">
                     <mm:param name="type">picture</mm:param>
                     <li><a href="${_}">images</a></li>
                   </mm:link>
