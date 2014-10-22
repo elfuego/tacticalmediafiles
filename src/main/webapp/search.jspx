@@ -6,6 +6,7 @@
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
   <mm:import externid="q" />
+  <mm:import externid="type" />
   <mm:import externid="cacheable"  />
   
   <tmf:html
@@ -102,11 +103,14 @@
             </c:otherwise>
           </c:choose>
 
-          
+          <c:if test="${!empty type}">
+            <mm:import id="extraconstraints">${extraconstraints} otype:EQ:<mm:nodeinfo type="number" nodetype="$type" /></mm:import>
+          </c:if>
           <mm:import id="max">20</mm:import>
           <mm:import externid="offset">0</mm:import>
           <c:if test="${offset lt 0}"><mm:import id="offset" reset="true">0</mm:import></c:if>
           
+          <!-- extraconstraints: ${extraconstraints} -->
           <mm:function
             id="total"
             write="false"
@@ -120,12 +124,18 @@
          
           <c:if test="${!empty q}">
             <h2 class="searched_with">
-              Searched with '${mm:escape('text/xml', q)}'
+              Searched for '${mm:escape('text/xml', q)}' 
+              <c:if test="${!empty type}">
+                in <mm:nodeinfo type="plural_guitype" nodetype="$type" escape="lowercase" />
+              </c:if>
             </h2>
           </c:if>
           <c:if test="${total eq 0}">
             <p>
-              Nothing found: 0 results with '${q}'.
+              <strong>Nothing found:</strong> 0 results with '${q}'
+              <c:if test="${!empty type}">
+                in <mm:nodeinfo type="plural_guitype" nodetype="$type" escape="lowercase" />
+              </c:if>.
             </p>
           </c:if>
           
