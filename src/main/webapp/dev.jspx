@@ -25,7 +25,7 @@ p { margin-top: 0; }
 <div id="content">
   <h1>tacticalmediafiles.net</h1>
   <a href="${mm:link('/mmbase/')}">MMBase</a>
-  - <a href="home.jspx">home</a>
+  - <a href="${mm:link('/')}">home</a>
   - <a href="list.jspx">list</a>
   - <a href="${mm:link('/edit/')}">edit / editors</a>
   - <a href="article.jsp?objectnumber=38519">about</a>
