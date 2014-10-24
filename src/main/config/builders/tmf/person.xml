@@ -13,7 +13,7 @@
 	<names>
 		<singular xml:lang="en">Person</singular>
 	    <singular xml:lang="nl">Persoon</singular>
-		<plural xml:lang="en">People</plural>
+		<plural xml:lang="en">Persons</plural>
 		<plural xml:lang="nl">Personen</plural>
 	</names>
 	
