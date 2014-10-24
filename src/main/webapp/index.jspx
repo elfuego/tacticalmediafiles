@@ -99,7 +99,6 @@
                     <mm:link page="content">
                       <mm:frameworkparam name="component">tmf</mm:frameworkparam>
                       <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-                      <mm:frameworkparam name="t">events</mm:frameworkparam> <!-- TODO: replace this ugliness ! -->
                       <div class="HomeLeftItemTitle">
                         <h2 class="Title">
                           <a href="${_}"><mm:field name="title" escape="inline" /></a>
@@ -170,7 +169,6 @@
                         <mm:link page="content">
                           <mm:frameworkparam name="component">tmf</mm:frameworkparam>
                           <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-                          <mm:frameworkparam name="t">${type}s</mm:frameworkparam> <!-- TODO: replace this ugliness ! -->
                           <div class="HomeFeaturedPhoto">
                             <a href="${_}">
                               <mm:relatednodes type="picture" searchdir="destination" max="1">

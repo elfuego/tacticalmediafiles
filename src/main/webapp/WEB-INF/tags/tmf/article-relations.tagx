@@ -29,6 +29,8 @@
             <mm:link page="pages">
               <mm:frameworkparam name="component">tmf</mm:frameworkparam>
               <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+              <mm:frameworkparam name="page">search</mm:frameworkparam>
+              <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
               <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
             </mm:link>
           </mm:relatednodes>
@@ -75,7 +77,6 @@
             <h5>article</h5>
             <mm:link page="content">
               <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-              <mm:frameworkparam name="t">articles</mm:frameworkparam>
               <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
               <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
             </mm:link>
@@ -90,7 +91,6 @@
             <h5>campaign</h5>
             <mm:link page="content">
               <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-              <mm:frameworkparam name="t">campaigns</mm:frameworkparam>
               <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
               <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
             </mm:link>

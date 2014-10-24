@@ -128,7 +128,7 @@
          
           <c:if test="${!empty q}">
             <h2 class="searched_with">
-              Searched for '${mm:escape('text/xml', q)}' 
+              You searched for '${mm:escape('text/xml', q)}' 
               <c:if test="${!empty type}">
                 in <mm:nodeinfo type="plural_guitype" nodetype="$type" escape="lowercase" />
               </c:if>

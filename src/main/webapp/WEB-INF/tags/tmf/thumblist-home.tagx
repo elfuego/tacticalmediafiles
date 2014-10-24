@@ -25,11 +25,9 @@
             <mm:maxnumber value="1" />
             <mm:related>
               <mm:node element="object">
-                <c:set var="thumb_type"><mm:locale language="en"><mm:nodeinfo type="plural_guitype" escape="lowercase" /></mm:locale></c:set>
                 <mm:url page="content" write="false" id="plink">
                   <mm:frameworkparam name="component">tmf</mm:frameworkparam>
                   <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-                  <mm:frameworkparam name="t">${thumb_type}</mm:frameworkparam> <!-- TODO: replace this ugliness ! -->
                 </mm:url>
               </mm:node>
               <mm:node element="picture">
@@ -40,9 +38,11 @@
           
           <mm:link page="pages">
             <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-            <a class="kw" href="${_}"><mm:field name="keyword" /></a>
+            <mm:frameworkparam name="page">search</mm:frameworkparam>
+            <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+            <a class="kw" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
           </mm:link>
+
         </div>
       </mm:listnodes>
     </mm:listnodescontainer>
