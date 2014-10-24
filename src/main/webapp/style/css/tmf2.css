@@ -13,10 +13,12 @@ body
     padding: 0;
 }
 
+h2.Title { font-size: 1.25em; }
+div.HomeLeftItemDate { font-size: 0.85em; }
 p.Text {
     line-height: 1.6em;
 }
-
+div.SearchResults a { font-size: 1.1em; }
 .HomeFeaturedListTop
 {
     border-top: 3px solid #ccc;

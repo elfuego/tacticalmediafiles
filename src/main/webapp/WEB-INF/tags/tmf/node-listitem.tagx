@@ -30,15 +30,17 @@
            </mm:isempty>
            <mm:field name="title" />
          </a>
-         <mm:relatednodes type="keyword">
-           <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
-           <mm:link page="pages">
-             <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-             <mm:frameworkparam name="page">search</mm:frameworkparam>
-             <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
-             <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
-           </mm:link>
-         </mm:relatednodes>
+         <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+           <mm:relatednodes>
+             <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
+             <mm:link page="pages">
+               <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+               <mm:frameworkparam name="page">search</mm:frameworkparam>
+               <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+               <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
+             </mm:link>
+           </mm:relatednodes>
+         </mm:relatednodescontainer>
        </mm:link>
       
      </c:when>
@@ -47,24 +49,25 @@
        <mm:link page="content">
          <mm:frameworkparam name="component">tmf</mm:frameworkparam>
          <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-         <mm:frameworkparam name="t">${type}s</mm:frameworkparam> <!-- TODO: replace this ugliness ! -->
          <a class="medium" href="${_}"><mm:field name="title" /></a>
        </mm:link>
   
        <mm:field name="subtitle"><mm:isnotempty><br /><mm:write/></mm:isnotempty></mm:field>
-       <mm:relatednodes type="person" role="author" searchdir="destination">
+       <mm:relatednodes type="person" role="author" searchdirs="destination">
          <mm:first><br /></mm:first>
          <mm:field name="firstname"/> <mm:field name="prefix"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field><mm:field name="sirname"/><mm:last inverse="true">, </mm:last>
        </mm:relatednodes>
-       <mm:relatednodes type="keyword">
-         <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
-         <mm:link page="pages">
-           <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-           <mm:frameworkparam name="page">search</mm:frameworkparam>
-           <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
-           <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
-         </mm:link>
-       </mm:relatednodes>
+       <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+         <mm:relatednodes>
+           <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
+           <mm:link page="pages">
+             <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+             <mm:frameworkparam name="page">search</mm:frameworkparam>
+             <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+             <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
+           </mm:link>
+         </mm:relatednodes>
+       </mm:relatednodescontainer>
       
      </c:otherwise>
    </c:choose>

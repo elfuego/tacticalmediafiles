@@ -19,14 +19,17 @@
   <mm:listnodes>
     <mm:field name="localnumber" />
     
+    <mm:nodeinfo type="plural_guitype" escape="lowercase" />
+    
     <mm:link page="content" absolute="context">
       <mm:frameworkparam name="component">tmf</mm:frameworkparam>
       <mm:frameworkparam name="n">${_node.localnumber}</mm:frameworkparam>
       <mm:frameworkparam name="t">articles</mm:frameworkparam> <!-- TODO: replace this ugliness ! -->
-      <c:set var="redirect" value="${_}" />
+      <!-- <c:set var="redirect" value="${_}" /> -->
+      <a href="${_}">${_}</a>
     </mm:link>
     
-    <c:redirect url="${redirect}" />
+    <!-- <c:redirect url="${redirect}" /> -->
     
   </mm:listnodes>
 </mm:listnodescontainer>

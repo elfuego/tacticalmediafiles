@@ -17,28 +17,29 @@
         </div>
     
         <div class="TopSearchForm">
-            <form class="searchform" id="searchform" action="search.jsp" method="post">
-                <input type="hidden" name="pagetype" value="search" />
-                <input type="text" name="query" value="" class="SearchInputSmall" />
-                <img src="${mm:link('/style/images/go.png')}" alt="Go" onclick="document.getElementById('searchform').submit();" style="vertical-align: bottom;" />
+            <form class="searchform" id="searchform" action="${mm:link('/search')}" method="post">
+                <!-- <input type="hidden" name="pagetype" value="search" /> -->
+                <input type="text" name="q" value="${q}" class="SearchInputSmall" />
+                <img src="${mm:link('/style/images/go.png')}" alt="Go" style="vertical-align: bottom;" />
+                <!--  onclick="document.getElementById('searchform').submit();" -->
                 
                 <span class="searchtexts">criterium</span>
             
-                <select name="searchfor" class="searchfor">
+                <select name="type" class="searchfor">
                     <option value="all">all</option>
-                    <option value="texts">texts</option>
-                    <option value="people">people</option>
-                    <option value="images">images</option>
-                    <option value="videos">videos</option>
+                    <option value="article">texts</option>
+                    <option value="person">people</option>
+                    <option value="picture">images</option>
+                    <option value="video">videos</option>
                 </select>
             
-                <span class="searchtexts">sort by</span>
+                <!-- <span class="searchtexts">sort by</span>
 
                 <select name="searchsortby" class="searchsortby">
                     <option value="date">date</option>
                     <option value="alphabet">alphabet</option>
                     <option value="type">type of result</option>
-                </select>
+                </select> -->
             </form>
         </div>
     </div>
