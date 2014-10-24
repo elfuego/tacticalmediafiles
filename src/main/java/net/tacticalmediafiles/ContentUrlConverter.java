@@ -4,6 +4,7 @@ package net.tacticalmediafiles;
 
 import org.mmbase.bridge.Cloud;
 import org.mmbase.bridge.Node;
+import org.mmbase.bridge.NodeManager;
 import org.mmbase.framework.*;
 import org.mmbase.framework.basic.BasicFramework;
 import org.mmbase.framework.basic.BasicUrl;
@@ -88,16 +89,24 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
         }
         if (block.getName().equals("content")) {
             Node n = frameworkParameters.get(NODE);
-            String t = frameworkParameters.get(TYPE);
             if (n == null) throw new IllegalStateException("No node (n) parameter used in " + frameworkParameters);
-            if (t == null) throw new IllegalStateException("No type (t) parameter used in " + frameworkParameters);
+
+            //String nmName = n.getNodeManager().getName();
+            String nmName = n.getNodeManager().getGUIName(NodeManager.GUI_PLURAL).toLowerCase();
 
             // replace begin of path with type
-            b.replace(1, b.indexOf("/", 2), t);
+            b.replace(1, b.indexOf("/", 2), nmName);
 
             b.append(n.getStringValue("number"));
             if (useTitle) {
-                b.append("/").append(trans.transform(n.getStringValue("title")));
+                if (n.getNodeManager().hasField("title")) {
+                    b.append("/").append(trans.transform(n.getStringValue("title")));
+                } else if (n.getNodeManager().getName().equals("person")){
+                    b.append("/").append(trans.transform(n.getStringValue("firstname")));
+                    if (! "".equals(n.getStringValue("sirname"))) {
+                        b.append(wsReplacer).append(trans.transform(n.getStringValue("sirname")));
+                    }
+                }
             }
 
             if (log.isDebugEnabled()) {
