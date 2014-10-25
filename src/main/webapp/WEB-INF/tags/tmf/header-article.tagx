@@ -17,8 +17,13 @@
     <!-- Article Author + Summary -->
     <div class="ArticleSummaryContainer">
         <div class="ArticleAuthor">
-          ${author}
           <!-- related person with author rel -->
+          <mm:relatednodescontainer type="person" role="author" searchdirs="destination">
+            <mm:relatednodes>
+                <mm:field name="firstname" /> <mm:field name="sirname" />
+                <mm:last inverse="true"><br /></mm:last>
+            </mm:relatednodes>
+          </mm:relatednodescontainer>
         </div>
         <div class="ArticleSummary">
           <mm:field name="intro" escape="paragraph(Summary)" />

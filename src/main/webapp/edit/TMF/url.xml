@@ -20,24 +20,19 @@
 <action type="load" />
 
 	
-<form-schema id="step1">
-   <title xml:lang="en">url Wizard</title>
-   <title xml:lang="nl">url Tovenaar</title>
-   <field name="title" dtminlength="1" dtmaxlength="255" >
-   <prompt xml:lang="en">Titel</prompt>
-   <prompt xml:lang="nl">Titel</prompt>
-   </field>
-   <field name="description" dttype="html" dtminlength="1" dtmaxlength="64000" >
-   <prompt xml:lang="en">description</prompt>
-   <prompt xml:lang="nl">beschrijving</prompt>
-   </field>
-   <field name="url" dtminlength="1" dtmaxlength="255" >
-   <prompt>url</prompt>
-   </field>
-   <list include="TMF/list_keyword.xml" />
-   <field name="keys">
-   	<prompt xml:lang="en">Keywords</prompt>
-   	<prompt xml:lang="nl">Trefwoord</prompt>
-   </field>
-</form-schema>
+  <form-schema id="step1">
+     <title xml:lang="en">url Wizard</title>
+     <title xml:lang="nl">url Tovenaar</title>
+     <field name="title" dtminlength="1" dtmaxlength="255" >
+       <prompt xml:lang="en">Titel</prompt>
+       <prompt xml:lang="nl">Titel</prompt>
+     </field>
+     <field name="description" dttype="html" dtminlength="1" dtmaxlength="64000" >
+       <prompt xml:lang="en">description</prompt>
+       <prompt xml:lang="nl">beschrijving</prompt>
+     </field>
+     <field name="url" dtminlength="1" dtmaxlength="255" >
+       <prompt>url</prompt>
+     </field>
+  </form-schema>
 </wizard-schema>

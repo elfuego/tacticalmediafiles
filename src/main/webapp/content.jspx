@@ -19,14 +19,24 @@
     <jsp:attribute name="title">${page_title}</jsp:attribute>
     
     <jsp:attribute name="head">
-        <!-- nothing here yet -->
+       
+       <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+         <mm:relatednodes>
+           <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">,</mm:first>${keywords}</c:set>
+         </mm:relatednodes>
+       </mm:relatednodescontainer>
+       <mm:field name="intro">
+         <mm:isnotempty><meta name="description" content="${mm:escape('text/html/attribute',_)}" /></mm:isnotempty>
+       </mm:field>
+       <c:if test="${!empty keywords}">
+          <meta name="keywords" content="${keywords}" />
+       </c:if>
+
     </jsp:attribute>
 
     <jsp:attribute name="body">
       <mm:node referid="page">
         <div class="ArticleContainer">
-
-          <mm:import id="n_intro"><mm:field name="intro" /></mm:import>
         
           <tmf:header-article />
 
