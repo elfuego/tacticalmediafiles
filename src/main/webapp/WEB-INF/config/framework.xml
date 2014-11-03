@@ -46,6 +46,13 @@
     <param name="whitespaceReplacer">-</param>
   </urlconverter>
 
+  <urlconverter class="net.tacticalmediafiles.SiteUrlConverter">
+    <description xml:lang="en">
+      The urlconverter pages and other configured kinds of links.
+    </description>
+    <param name="directory">/</param>
+  </urlconverter>
+
   <urlconverter class="org.mmbase.framework.basic.MMBaseUrlConverter">
     <description xml:lang="en">
       The MMBase urlconverter handles about pretty URL's in /mmbase/.
@@ -53,12 +60,6 @@
     <param name="directory">/mmbase/</param>
   </urlconverter>
 
-  <urlconverter class="net.tacticalmediafiles.SiteUrlConverter">
-    <description xml:lang="en">
-      The urlconverter pages and other configured kinds of links.
-    </description>
-    <param name="directory">/</param>
-  </urlconverter>
 
 
 </framework>

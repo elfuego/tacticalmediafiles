@@ -154,7 +154,7 @@
 
     	<div class="clearBoth"><!-- empty --></div>
     	<div class="SearchSpacer"><!-- empty --></div>
-    	<div style="text-align: right ;"><img src="${mm:link('/style/images/x-blue.gif')}" alt="x blue" /></div>
+    	<div style="text-align:right;"><img src="${mm:link('/style/images/x-blue.gif')}" alt="x blue" /></div>
     	<div class="SearchSpacer"><!-- empty --></div>
         <div class="SearchBottomLineLeft"><hr /></div>
         <div class="SearchBottomLineRight"><hr /></div>

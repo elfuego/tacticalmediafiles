@@ -35,6 +35,33 @@
       </mmsq:relatednodes>
 
     </list>
+	
+	<list type="video">
+      <mmsq:field name="otype"    alias="otype" />
+      <mmsq:field name="title"    boost="3" />
+      <mmsq:field name="title"    keyword="true" escape="lowercase" alias="sorttitle" store="true" />
+      <mmsq:field name="created"  alias="created" />
+      <mmsq:field name="description" />
+      
+      <mmsq:relatednodes type="keyword">
+        <mmsq:field name="keyword" keyword="true" boost="4" />
+      </mmsq:relatednodes>
+	</list>
+	
+	<list type="person">
+      <mmsq:field name="otype"    alias="otype" />
+      <mmsq:field name="firstname"     boost="3" />
+      <mmsq:field name="sirname"  boost="3" />
+      <mmsq:field name="sirname"  keyword="true" escape="lowercase" alias="sorttitle" store="true" />
+      <mmsq:field name="created"  alias="created" />
+      <mmsq:field name="intro" />
+      <mmsq:field name="biografy" />
+      <mmsq:field name="keys" />
+
+      <mmsq:relatednodes type="keyword">
+        <mmsq:field name="keyword" keyword="true" boost="4" />
+      </mmsq:relatednodes>
+	</list>
 
   </index>
 
