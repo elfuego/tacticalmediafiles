@@ -20,11 +20,15 @@
    <c:choose>
      <c:when test="${type eq 'person'}">
        
-       <a class="medium" href="#">
-         <mm:field name="firstname"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field>
-         <mm:field name="prefix"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field>
-         <mm:field name="sirname"><mm:isnotempty><mm:write /></mm:isnotempty></mm:field>
-       </a>
+       <mm:link page="content">
+         <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+         <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+		 <a class="medium" href="${_}">
+		   <mm:field name="firstname"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field>
+		   <mm:field name="prefix"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field>
+		   <mm:field name="sirname"><mm:isnotempty><mm:write /></mm:isnotempty></mm:field>
+		 </a>
+       </mm:link>
 	   <mm:field name="intro"><mm:isnotempty><br /><mm:write escape="wrap_intro" /></mm:isnotempty></mm:field>
 	   <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
 		 <mm:relatednodes>
