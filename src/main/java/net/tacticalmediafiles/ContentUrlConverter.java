@@ -17,6 +17,7 @@ import org.mmbase.util.logging.Logging;
 import org.mmbase.util.transformers.Identifier;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -93,7 +94,7 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
             if (n == null) throw new IllegalStateException("No node (n) parameter used in " + frameworkParameters);
 
             //String nmName = n.getNodeManager().getName();
-            String nmName = n.getNodeManager().getGUIName(NodeManager.GUI_PLURAL).toLowerCase();
+            String nmName = n.getNodeManager().getGUIName(NodeManager.GUI_PLURAL, Locale.ENGLISH).toLowerCase();
 
             // replace begin of path with type
             b.replace(1, b.indexOf("/", 2), nmName);
