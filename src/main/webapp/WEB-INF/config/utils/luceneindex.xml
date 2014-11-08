@@ -63,6 +63,27 @@
       </mmsq:relatednodes>
 	</list>
 
+	<list type="picture">
+      <mmsq:field name="otype"    alias="otype" />
+      <mmsq:field name="title" />
+      <mmsq:field name="description" />
+      <mmsq:field name="filename" />
+
+      <mmsq:relatednodes type="keyword">
+        <mmsq:field name="keyword" keyword="true" boost="4" />
+      </mmsq:relatednodes>
+	</list>
+
+	<list type="file">
+      <mmsq:field name="otype"    alias="otype" />
+      <mmsq:field name="title" />
+      <mmsq:field name="description" />
+
+      <mmsq:relatednodes type="keyword">
+        <mmsq:field name="keyword" keyword="true" boost="4" />
+      </mmsq:relatednodes>
+	</list>
+
   </index>
 
 </luceneindex>
