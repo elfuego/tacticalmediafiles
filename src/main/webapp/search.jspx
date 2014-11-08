@@ -21,7 +21,16 @@
     </jsp:attribute>
 
     <jsp:attribute name="body">
-
+		
+		<mm:escaper id="myfilesize" type="filesize">
+		  <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
+		</mm:escaper>
+		<mm:escaper type="substring" id="wrap_intro">
+		  <mm:param name="from" value="0" />
+		  <mm:param name="to" value="128" />
+		  <mm:param name="ellipsis" value="..." />
+		</mm:escaper>
+        
         <!-- <tmf:header-simple title="Search ${q}" label="search" /> -->
         
         <div class="clearBoth"><!-- empty --></div>
@@ -144,7 +153,35 @@
           </c:if>
           
           <mm:listnodes referid="results" varStatus="status" id="content">
-            <tmf:node-listitem />
+			<mm:nodeinfo type="type" id="ty" write="false" />
+            <c:choose>
+              <c:when test="${ty eq 'picture'}">
+              	
+              	<h5>picture</h5>
+                <mm:image mode="img" width="100" /><br />
+              	<a href="#" class="medium"><mm:field name="title" /></a>
+				<mm:field name="description">
+				  <mm:isnotempty><br /><mm:write escape="wrap_intro" /></mm:isnotempty>
+				</mm:field>
+              </c:when>
+              <c:when test="${ty eq 'file'}">
+				
+				<h5>file</h5>
+				<mm:attachment>
+				  <a href="${_}" class="medium"><mm:field name="title" /></a>
+				  <span class="filelabel"> 
+					<mm:field name="filename" />, <mm:field name="size" escape="myfilesize" />
+				  </span>
+				  <mm:field name="description">
+					<mm:isnotempty><br /><mm:write escape="wrap_intro" /></mm:isnotempty>
+				  </mm:field>
+				</mm:attachment>
+
+              </c:when>
+              <c:otherwise>
+	            <tmf:node-listitem />
+              </c:otherwise>
+            </c:choose>
             <br /><br /><br />
           </mm:listnodes>
              

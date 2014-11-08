@@ -50,7 +50,7 @@
 	
 	<list type="person">
       <mmsq:field name="otype"    alias="otype" />
-      <mmsq:field name="firstname"     boost="3" />
+      <mmsq:field name="firstname" boost="3" />
       <mmsq:field name="sirname"  boost="3" />
       <mmsq:field name="sirname"  keyword="true" escape="lowercase" alias="sorttitle" store="true" />
       <mmsq:field name="created"  alias="created" />
@@ -64,8 +64,8 @@
 	</list>
 
 	<list type="picture">
-      <mmsq:field name="otype"    alias="otype" />
-      <mmsq:field name="title" />
+      <mmsq:field name="otype"  alias="otype" />
+      <mmsq:field name="title" 	boost="3" />
       <mmsq:field name="description" />
       <mmsq:field name="filename" />
 
@@ -75,8 +75,8 @@
 	</list>
 
 	<list type="file">
-      <mmsq:field name="otype"    alias="otype" />
-      <mmsq:field name="title" />
+      <mmsq:field name="otype"  alias="otype" />
+      <mmsq:field name="title"	boost="3" />
       <mmsq:field name="description" />
 
       <mmsq:relatednodes type="keyword">
