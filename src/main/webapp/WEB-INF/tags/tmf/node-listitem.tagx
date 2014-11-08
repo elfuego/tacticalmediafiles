@@ -21,9 +21,9 @@
      <c:when test="${type eq 'person'}">
        
        <a class="medium" href="#">
-         <mm:field name="firstname"><mm:isnotempty><mm:write /></mm:isnotempty></mm:field>
-         <mm:field name="prefix"><mm:isnotempty> <mm:write /></mm:isnotempty></mm:field>
-         <mm:field name="sirname"><mm:isnotempty> <mm:write /></mm:isnotempty></mm:field>
+         <mm:field name="firstname"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field>
+         <mm:field name="prefix"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field>
+         <mm:field name="sirname"><mm:isnotempty><mm:write /></mm:isnotempty></mm:field>
        </a>
 	   <mm:field name="intro"><mm:isnotempty><br /><mm:write escape="wrap_intro" /></mm:isnotempty></mm:field>
 	   <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">

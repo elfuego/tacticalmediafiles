@@ -38,19 +38,20 @@
     <param name="type">campaign</param><!-- type of content -->
   </urlconverter>
   
+  <urlconverter class="net.tacticalmediafiles.ContentUrlConverter">
+    <description xml:lang="en">
+      The urlconverter for generic content
+    </description>
+    <param name="directory">/persons/</param>
+    <param name="type">person</param><!-- type of content -->
+  </urlconverter>
+
   <urlconverter class="net.tacticalmediafiles.MediaUrlConverter">
     <description xml:lang="en">
       The urlconverter for video content.
     </description>
     <param name="directory">/videos/</param>
     <param name="whitespaceReplacer">-</param>
-  </urlconverter>
-
-  <urlconverter class="net.tacticalmediafiles.SiteUrlConverter">
-    <description xml:lang="en">
-      The urlconverter pages and other configured kinds of links.
-    </description>
-    <param name="directory">/</param>
   </urlconverter>
 
   <urlconverter class="org.mmbase.framework.basic.MMBaseUrlConverter">
@@ -60,6 +61,13 @@
     <param name="directory">/mmbase/</param>
   </urlconverter>
 
+  <urlconverter class="net.tacticalmediafiles.SiteUrlConverter">
+    <description xml:lang="en">
+      The urlconverter pages and other configured kinds of links.
+    </description>
+    <param name="directory">/</param>
+    <param name="excludedPaths">articles,campaigns,events,persons,videos,mmbase,edit,style,html,images,files</param>
+  </urlconverter>
 
 
 </framework>

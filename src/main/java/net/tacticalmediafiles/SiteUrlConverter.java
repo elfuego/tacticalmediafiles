@@ -15,13 +15,12 @@ import org.mmbase.util.logging.Logging;
 import org.mmbase.util.transformers.Identifier;
 import org.mmbase.util.xml.UtilReader;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 /**
  * UrlConverter that can filter and create urls for pre configured pages and templates in TMF.
+ * The mapping of templates to pages or url's is done in configuration file 'utils/urlfilter.xml'.
  *
  * @author André van Toly
  * @version $Id:  $
@@ -30,6 +29,7 @@ public class SiteUrlConverter extends DirectoryUrlConverter {
     private static final long serialVersionUID = 0L;
     private static final Logger log = Logging.getLoggerInstance(SiteUrlConverter.class);
 
+    protected final List<String> excludedPaths = new ArrayList<String>();
     private static Identifier trans = new Identifier();
     private String wsReplacer = "-";
 
@@ -57,7 +57,12 @@ public class SiteUrlConverter extends DirectoryUrlConverter {
     @Override
     public int getDefaultWeight() {
         int q = super.getDefaultWeight();
-        return Math.max(q, q + 1000);
+        return Math.max(q, q + 2000);
+    }
+
+    public void setExcludedPaths(String l) {
+        excludedPaths.clear();
+        excludedPaths.addAll(Arrays.asList(l.split(",")));
     }
 
     public void setWhitespaceReplacer(String ws) {
@@ -74,6 +79,18 @@ public class SiteUrlConverter extends DirectoryUrlConverter {
     @Override
     public Parameter[] getParameterDefinition() {
         return new Parameter[] {Parameter.REQUEST, Framework.COMPONENT, Framework.BLOCK, Parameter.CLOUD, PAGE, KEYWORD};
+    }
+
+    @Override
+    public boolean isFilteredMode(Parameters frameworkParameters) throws FrameworkException {
+        HttpServletRequest request = org.mmbase.framework.basic.BasicUrlConverter.getUserRequest(frameworkParameters.get(Parameter.REQUEST));
+        String path = FrameworkFilter.getPath(request);
+        for (String e : excludedPaths) {
+            if (path.startsWith("/" + e + "/")) {
+                return false;
+            }
+        }
+        return super.isFilteredMode(frameworkParameters);
     }
 
     public static void readConfiguration(UtilReader reader) {
@@ -158,6 +175,12 @@ public class SiteUrlConverter extends DirectoryUrlConverter {
         } else {
 
             Cloud cloud = frameworkParameters.get(Parameter.CLOUD);
+            if (path.size() > 0 && excludedPaths.contains(path.get(0))) {
+                if (log.isDebugEnabled()) {
+                    log.debug("Returning null, path in excludepaths: " + path.get(0));
+                }
+                return Url.NOT;
+            }
 
             if (path.size() > 0) {
                 final String firstPart = path.get(0);
