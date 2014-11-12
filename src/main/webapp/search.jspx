@@ -7,6 +7,14 @@
 
   <mm:import externid="q" />
   <mm:import externid="type" />
+  <c:if test="${type ne 'article' 
+  				and type ne 'event' 
+  				and type ne 'person' 
+  				and type ne 'video' 
+  				and type ne 'picture' 
+  				and type ne 'file'}">
+    <mm:import id="type" reset="true"></mm:import>
+  </c:if>
   <mm:import externid="cacheable"  />
   
   <tmf:html
@@ -22,6 +30,7 @@
 
     <jsp:attribute name="body">
 		
+		<!-- escapers -->
 		<mm:escaper id="myfilesize" type="filesize">
 		  <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
 		</mm:escaper>
