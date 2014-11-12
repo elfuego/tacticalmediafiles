@@ -142,12 +142,12 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
 
                 if (cloud.hasNode(nr)) {    // works also for aliasses
 
-                    String typ = cloud.getNode(nr).getNodeManager().getName();
-                    if (typ.equals("person")) {
-                        result.append("/person.jspx?n=");
-                    } else {
+                    //String typ = cloud.getNode(nr).getNodeManager().getName();
+                    //if (typ.equals("person")) {
+                    //    result.append("/person.jspx?n=");
+                    //} else {
                         result.append("/content.jspx?n=");
-                    }
+                    //}
 
                     result.append(nr);
                 } else {
