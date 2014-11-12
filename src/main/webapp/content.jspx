@@ -9,8 +9,15 @@
   <mm:import externid="cacheable"  />
   
   <mm:node referid="page">
-    <mm:field name="title" id="page_title" write="false" />
     <mm:nodeinfo type="type" id="type" write="false" />
+    <c:choose>
+      <c:when test="${type eq 'person'}">
+        <mm:import id="page_title"><mm:field name="firstname" /> <mm:field name="sirname" /></mm:import>
+      </c:when>
+      <c:otherwise>
+        <mm:field name="title" id="page_title" write="false" />
+      </c:otherwise>
+    </c:choose>
   </mm:node>
   
   <tmf:html
@@ -75,7 +82,15 @@
         
             <div style="padding-left: 280px ;">
                 <p class="Text">
-                  <mm:field name="body" escape="paragraph(Text)" />
+
+				  <c:choose>
+					<c:when test="${type eq 'person'}">
+	                  <mm:field name="biografy" escape="paragraph(Text)" />
+					</c:when>
+					<c:otherwise>
+	                  <mm:field name="body" escape="paragraph(Text)" />
+					</c:otherwise>
+				  </c:choose>
                 </p>
             </div><!-- EOF .Text -->
 
