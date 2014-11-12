@@ -53,7 +53,8 @@
     <relation from="content" to="picture" type="posrel" />
 
 
-    <relation from="article" to="person" type="author" />
+    <relation from="article" to="person"  type="author" />
+	<relation from="article" to="article" type="related" />
     <!-- <relation from="article" to="type" type="related" /> -->
     <!-- <relation from="article" to="person" type="related" /> -->
     <!-- <relation from="article" to="dates" type="related" /> -->
