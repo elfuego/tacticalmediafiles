@@ -13,6 +13,12 @@ body
     padding: 0;
 }
 
+body.article ul.NavigationMenu a.articles { color: #616161; }
+body.campaign ul.NavigationMenu a.campaigns { color: #616161; }
+body.event ul.NavigationMenu a.events { color: #616161; }
+body.video ul.NavigationMenu a.videos { color: #616161; }
+body.new ul.NavigationMenu a.new { color: #616161; }
+
 h2.Title { font-size: 1.25em; }
 div.HomeLeftItemDate { font-size: 0.85em; }
 p.Text {

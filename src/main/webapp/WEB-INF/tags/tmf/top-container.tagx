@@ -13,13 +13,13 @@
     <div class="TopContainer">
       <div class="NavigationContainer">
         <ul class="NavigationMenu"><!-- article.jsp?objectnumber=38519&amp;pagetype=about -->
-          <li><a href="${mm:link('/articles/about')}" class="sel">ABOUT</a></li>
-          <li><a href="${mm:link('/events')}">EVENTS</a></li>
-          <li><a href="${mm:link('/campaigns')}">CAMPAIGNS</a></li>
-          <li><a href="${mm:link('/videos')}">VIDEOS</a></li>
-          <li><a href="${mm:link('/articles')}">TEXTS</a></li>
-          <li><a href="http://blog.tacticalmediafiles.net/" target="_blank">BLOG</a></li>
-          <li><a href="${mm:link('/new')}">NEW</a></li>
+          <li><a class="about" href="${mm:link('/articles/about')}">ABOUT</a></li>
+          <li><a class="events" href="${mm:link('/events')}">EVENTS</a></li>
+          <li><a class="campaigns" href="${mm:link('/campaigns')}">CAMPAIGNS</a></li>
+          <li><a class="videos" href="${mm:link('/videos')}">VIDEOS</a></li>
+          <li><a class="articles" href="${mm:link('/articles')}">TEXTS</a></li>
+          <li><a class="blog" href="http://blog.tacticalmediafiles.net/" target="_blank">BLOG</a></li>
+          <li><a class="new" href="${mm:link('/new')}">NEW</a></li>
         </ul>
         <ul class="NavigationMenu2">
           <li>

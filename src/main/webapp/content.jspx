@@ -10,11 +10,12 @@
   
   <mm:node referid="page">
     <mm:field name="title" id="page_title" write="false" />
+    <mm:nodeinfo type="type" id="type" write="false" />
   </mm:node>
   
   <tmf:html
       cacheable="${cacheable}"
-      styleClass="article">
+      styleClass="${type}">
     
     <jsp:attribute name="title">${page_title}</jsp:attribute>
     

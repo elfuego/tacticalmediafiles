@@ -12,7 +12,7 @@
     
   <tmf:html
       cacheable="${cacheable}"
-      styleClass="list">
+      styleClass="list ${type}">
     
     
     <jsp:attribute name="title">${type_plural}</jsp:attribute>
