@@ -7,6 +7,6 @@
     <!-- 
         <property name="import">0 0 * * *|eu.openimages.AssetImporter||publisher=Nederlands Instituut voor Beeld en Geluid / NOS,user=beeldengeluid</property> 
     -->
-        <property name="tagcloud">0 0 * * *|net.tacticalmediafiles.TagCloud||extra info</property> 
+        <property name="tagcloud">0 0 * * *|net.tacticalmediafiles.TagCloud||</property> 
   </properties>
 </util>
