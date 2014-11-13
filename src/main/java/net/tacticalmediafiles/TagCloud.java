@@ -22,40 +22,48 @@ public class TagCloud implements Runnable, LoggerAccepter {
     private static final Logger LOG = Logging.getLoggerInstance(TagCloud.class);
 
     private static final int MAX_SIZE = 99;
+    private static int max = MAX_SIZE;
     private ChainedLogger log = new ChainedLogger(LOG);
     private final Thread thread = Thread.currentThread();
     public static TagCloud running;
 
+    public void setMax(int m) {
+        max = m;
+    }
+
     public void count(Cloud cloud) throws Exception {
         //Cloud cloud = CloudThreadLocal.currentCloud();
-        NodeList keywords = cloud.getNodeManager("keyword").createNodeList();
+        //NodeList keywords = cloud.getNodeManager("keyword").createNodeList();
+        log.info("Start keyword relations count for tag cloud...");
 
-        //Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+        int c = 0, changed = 0;
         NodeManager sourceNodeManager = cloud.getNodeManager("object");
-
-        int c = 0;
         Iterator<Node> ni =  SearchUtil.findNodeList(cloud, "keyword").iterator();
-        while (ni.hasNext() && c < MAX_SIZE) {
+        while (ni.hasNext() && c < max) {
+
             Node node = ni.next();
-            //int count = 0;
             try {
                 Query query = Queries.createRelatedNodesQuery(node, sourceNodeManager, "related", "source");
 
                 int count = Queries.count(query);
-                //if (count > 0) {
                 String name = node.getStringValue("keyword");
+
                 if (log.isDebugEnabled()) {
                     log.debug("keyword #" + name + " : size " + count);
                 }
+
                 int current_count = node.getIntValue("relationcount");
                 if (current_count != count) {
                     node.setIntValue("relationcount", count);
-                    log.info("keyword #" + name + " - old count: " + count + ", new count: " + count);
+
+                    if (node.isChanged()) {
+                        if (log.isDebugEnabled()) log.debug("keyword #" + name + " - old count: " + count + ", new count: " + count);
+                        changed++;
+                        node.commit();
+                    }
                 }
 
-                    //map.put(node.getNumber(), count);
                 c++;
-                //}
 
             } catch (Exception e) {
                 log.error("Exception while building query: " + e);
@@ -63,6 +71,7 @@ public class TagCloud implements Runnable, LoggerAccepter {
 
         }
 
+        log.info(changed + " keywords changed.");
 
 
     }

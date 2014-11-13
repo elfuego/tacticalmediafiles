@@ -54,6 +54,10 @@
   <logger name="net.tacticalmediafiles" >
     <level class="&mmlevel;" value="info" />
   </logger>
+  
+  <logger name="net.tacticalmediafiles.TagCloud" >
+    <level class="&mmlevel;" value="info" />
+  </logger>
 
   <logger name="STDERR">
     <level class="&mmlevel;" value ="fatal" />
