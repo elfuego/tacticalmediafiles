@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * UrlConverter that can filter and create urls for TMF.
+ * UrlConverter that can filter and create urls for TMF of video nodes.
  *
  * @author André van Toly
  * @version $Id:  $

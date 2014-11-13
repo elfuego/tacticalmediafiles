@@ -17,10 +17,12 @@ import org.mmbase.util.logging.Logging;
 import org.mmbase.util.transformers.Identifier;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
- * UrlConverter that can filter and create urls for TMF.
+ * UrlConverter that can filter and create urls for TMF for nodes of type person and content,
+ * or its decendants like articles, events, campaigns.
  *
  * @author André van Toly
  * @version $Id:  $
@@ -52,6 +54,7 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
     }
 
     public void setType(String t) {
+        log.debug("set type: " + t);
         type = t;
     }
 
@@ -68,11 +71,10 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
     }
 
     public static final Parameter<Node> NODE = new Parameter<Node>("n", Node.class);
-    public static final Parameter<String> TYPE = new Parameter<String>("t", String.class);
 
     @Override
     public Parameter[] getParameterDefinition() {
-        return new Parameter[] {Parameter.REQUEST, Framework.COMPONENT, Framework.BLOCK, Parameter.CLOUD, NODE, TYPE};
+        return new Parameter[] {Parameter.REQUEST, Framework.COMPONENT, Framework.BLOCK, Parameter.CLOUD, NODE};
     }
 
     /**
@@ -92,7 +94,7 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
             if (n == null) throw new IllegalStateException("No node (n) parameter used in " + frameworkParameters);
 
             //String nmName = n.getNodeManager().getName();
-            String nmName = n.getNodeManager().getGUIName(NodeManager.GUI_PLURAL).toLowerCase();
+            String nmName = n.getNodeManager().getGUIName(NodeManager.GUI_PLURAL, Locale.ENGLISH).toLowerCase();
 
             // replace begin of path with type
             b.replace(1, b.indexOf("/", 2), nmName);
@@ -123,27 +125,35 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
     public Url getFilteredInternalDirectoryUrl(List<String>  path, Map<String, ?> params, Parameters frameworkParameters) throws FrameworkException {
         if (log.isDebugEnabled()) {
             log.debug("path pieces: " + path + ", path size: " + path.size());
-            log.debug("@@ type here " + frameworkParameters.get(TYPE) );
         }
 
         StringBuilder result = new StringBuilder();
         if (path.size() == 0) {
             result.append("/list.jspx?t=" + type);
         } else {
-            result.append("/content.jspx?n=");
             Cloud cloud = frameworkParameters.get(Parameter.CLOUD);
 
             if (path.size() > 0) {          // article/[nodennr]/title
+
                 final String nr = path.get(0);    // nodenumber is first element
                 if (log.isDebugEnabled()) {
                     log.debug("nr: " + nr);
                 }
 
                 if (cloud.hasNode(nr)) {    // works also for aliasses
+
+                    //String typ = cloud.getNode(nr).getNodeManager().getName();
+                    //if (typ.equals("person")) {
+                    //    result.append("/person.jspx?n=");
+                    //} else {
+                        result.append("/content.jspx?n=");
+                    //}
+
                     result.append(nr);
                 } else {
                     return Url.NOT;
                 }
+
  
             } else {
                 if (log.isDebugEnabled()) { 

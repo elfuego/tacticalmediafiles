@@ -50,8 +50,13 @@
   <logger name="org.mmbase.util.externalprocess.CommandLauncher" >
     <level class="&mmlevel;" value="debug" />
   </logger>
+  
   <logger name="net.tacticalmediafiles" >
-    <level class="&mmlevel;" value ="info" />
+    <level class="&mmlevel;" value="info" />
+  </logger>
+  
+  <logger name="net.tacticalmediafiles.TagCloud" >
+    <level class="&mmlevel;" value="info" />
   </logger>
 
   <logger name="STDERR">

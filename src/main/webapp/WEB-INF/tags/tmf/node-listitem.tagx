@@ -9,10 +9,40 @@
       description="A node to be used in a list"
       />
 
-  
+   <mm:escaper type="substring" id="wrap_intro">
+	 <mm:param name="from" value="0" />
+	 <mm:param name="to" value="128" />
+	 <mm:param name="ellipsis" value="..." />
+   </mm:escaper>
+      
    <h5><mm:nodeinfo type="type" id="type" /></h5>
               
    <c:choose>
+     <c:when test="${type eq 'person'}">
+       
+       <mm:link page="content">
+         <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+         <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+		 <a class="medium" href="${_}">
+		   <mm:field name="firstname"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field>
+		   <mm:field name="prefix"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field>
+		   <mm:field name="sirname"><mm:isnotempty><mm:write /></mm:isnotempty></mm:field>
+		 </a>
+       </mm:link>
+	   <mm:field name="intro"><mm:isnotempty><br /><mm:write escape="wrap_intro" /></mm:isnotempty></mm:field>
+	   <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+		 <mm:relatednodes>
+		   <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
+		   <mm:link page="pages">
+			 <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+			 <mm:frameworkparam name="page">search</mm:frameworkparam>
+			 <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+			 <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
+		   </mm:link>
+		 </mm:relatednodes>
+	   </mm:relatednodescontainer>
+                
+     </c:when>
      <c:when test="${type eq 'video'}">
       
        <mm:link page="media">

@@ -35,8 +35,7 @@
     <description xml:lang="en">Content item: article, event, campaign</description>
     <description xml:lang="nl">Content item: artikel, event, campagne</description>
     <body jsp="content.jspx">
-      <param name="n"    type="org.mmbase.bridge.Node" />
-      <param name="t"    type="String" />
+      <param name="n" type="org.mmbase.bridge.Node" />
     </body>
   </block>
 
@@ -60,7 +59,7 @@
     <description xml:lang="en">Pages mapping to templates</description>
     <description xml:lang="nl">Pagina links die naar templates verwijzen</description>
     <body jsp="search.jspx">
-      <param name="page"    type="String" />
+      <param name="page" type="String" />
     </body>
   </block>
  
