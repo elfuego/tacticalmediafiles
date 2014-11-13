@@ -11,19 +11,29 @@
       />
 
     <mm:nodeinfo type="type" id="nodetype" write="false" />
+    <c:choose>
+      <c:when test="${nodetype eq 'person'}">
+        <mm:import id="title"><mm:field name="firstname" /> <mm:field name="sirname" /></mm:import>
+      </c:when>
+      <c:otherwise>
+        <mm:field name="title" id="title" write="false" />
+      </c:otherwise>
+    </c:choose>
     
-    <tmf:header-simple title="${_node.title}" label="${nodetype}" />
+    <tmf:header-simple title="${title}" label="${nodetype}" />
     
     <!-- Article Author + Summary -->
     <div class="ArticleSummaryContainer">
         <div class="ArticleAuthor">
           <!-- related person with author rel -->
-          <mm:relatednodescontainer type="person" role="author" searchdirs="destination">
-            <mm:relatednodes>
-                <mm:field name="firstname" /> <mm:field name="sirname" />
-                <mm:last inverse="true"><br /></mm:last>
-            </mm:relatednodes>
-          </mm:relatednodescontainer>
+          <mm:hasrelationmanager sourcemanager="$nodetype" destinationmanager="person" role="author">
+			<mm:relatednodescontainer type="person" role="author" searchdirs="destination">
+			  <mm:relatednodes>
+				  <mm:field name="firstname" /> <mm:field name="sirname" />
+				  <mm:last inverse="true"><br /></mm:last>
+			  </mm:relatednodes>
+			</mm:relatednodescontainer>
+          </mm:hasrelationmanager>
         </div>
         <div class="ArticleSummary">
           <mm:field name="intro" escape="paragraph(Summary)" />
