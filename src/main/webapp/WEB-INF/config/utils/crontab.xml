@@ -2,11 +2,7 @@
 <!DOCTYPE util PUBLIC "-//MMBase//DTD util config 1.0//EN" "http://www.mmbase.org/dtd/util_1_0.dtd">
 <util>
   <properties>
-    <property name="memory">0 */2 * * *|org.mmbase.applications.crontab.MemoryWarner||0.8;logs@toly.net</property>
     <!-- <property name="lucenefullindex">0 2 * * *|org.mmbase.module.lucene.FullIndex|Lucene Full Index|media</property> -->
-    <!-- 
-        <property name="import">0 0 * * *|eu.openimages.AssetImporter||publisher=Nederlands Instituut voor Beeld en Geluid / NOS,user=beeldengeluid</property> 
-    -->
-        <property name="tagcloud">0 0 * * *|net.tacticalmediafiles.TagCloud||max=999</property> 
+	<property name="tagcloud">0 0 * * *|net.tacticalmediafiles.TagCloud||max=999</property> 
   </properties>
 </util>
