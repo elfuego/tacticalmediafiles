@@ -167,11 +167,13 @@
               <c:when test="${ty eq 'picture'}">
               	
               	<h5>picture</h5>
-                <mm:image mode="img" width="100" /><br />
-              	<a href="#" class="medium"><mm:field name="title" /></a>
-				<mm:field name="description">
-				  <mm:isnotempty><br /><mm:write escape="wrap_intro" /></mm:isnotempty>
-				</mm:field>
+              	<mm:link page="picture.jspx" referids="_node@pic">
+				  <a href="${_}"><mm:image mode="img" width="100" /></a><br />
+				  <a href="${_}" class="medium"><mm:field name="title" /></a>
+				  <mm:field name="description">
+					<mm:isnotempty><br /><mm:write escape="wrap_intro" /></mm:isnotempty>
+				  </mm:field>
+              	</mm:link>
               </c:when>
               <c:when test="${ty eq 'file'}">
 				
@@ -194,7 +196,8 @@
             <br /><br /><br />
           </mm:listnodes>
              
-          <tmf:pager total="${total}" max="${max}" offset="${offset}" />
+          <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" />
+          <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" />
         
         </div><!-- EOF .SearchResults -->
 

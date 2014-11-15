@@ -64,13 +64,15 @@
               <mm:sortorder field="posrel.pos" />
               <mm:relatednodes>		
 
-                    <div class="ArticleImageContainer">
-                      <div class="ArticleImageLabel">
-                        <p class="filelabel"><mm:field name="title" /></p>
-                        <mm:image mode="img" template="s(414)" />
-                        <!-- <a title="Leaks" href="http://www.tacticalmediafiles.net/picture.jsp?objectnumber=48386" target="_new"><img src="./artikel2_files/wikilogo_square.jpg" /></a> -->
-                      </div>
-                    </div>
+				<div class="ArticleImageContainer">
+				  <div class="ArticleImageLabel">
+					<p class="filelabel"><mm:field name="title" /></p>
+                	<mm:link page="/picture.jspx" referids="_node@pic">
+					  <a href="${_}"><mm:image mode="img" template="s(414)" /></a>
+					</mm:link>
+					<!-- <a title="Leaks" href="http://www.tacticalmediafiles.net/picture.jsp?objectnumber=48386" target="_new"><img src="./artikel2_files/wikilogo_square.jpg" /></a> -->
+				  </div>
+				</div>
 
               </mm:relatednodes>
               <div class="ArticleImage"><img src="${mm:link('/style/images/x.gif')}" alt="X" /></div>

@@ -2,19 +2,19 @@
 <!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
 
 <wizard-schema id="type">
-	<title xml:lang="en">type Wizzard</title>
-	<title xml:lang="nl">type Wizzard</title>
+	<title xml:lang="en">Featured Wizzard</title>
+	<title xml:lang="nl">Featured Wizzard</title>
 	
 	<action type="create">
 		<object type="type" />
 	</action>
 	
-	<action type="delete">
+	<!-- <action type="delete">
 		<prompt xml:lang="en">Are you sure you want to remove this plaatje?</prompt>
 		<prompt xml:lang="nl">Weet je zeker dat je dit bestand wilt verwijderen?</prompt>
 		<description xml:lang="en">Remove type</description>
 		<description xml:lang="nl">type verwijderen</description>
-	</action>
+	</action> -->
 	
 	<action type="load">		
 		<relation role="related" searchdir="both" destination="article">
