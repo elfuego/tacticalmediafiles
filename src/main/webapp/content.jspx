@@ -67,7 +67,7 @@
 				<div class="ArticleImageContainer">
 				  <div class="ArticleImageLabel">
 					<p class="filelabel"><mm:field name="title" /></p>
-                	<mm:link page="/picture.jspx" referids="_node@pic">
+                	<mm:link page="/picture" referids="_node@pic">
 					  <a href="${_}"><mm:image mode="img" template="s(414)" /></a>
 					</mm:link>
 					<!-- <a title="Leaks" href="http://www.tacticalmediafiles.net/picture.jsp?objectnumber=48386" target="_new"><img src="./artikel2_files/wikilogo_square.jpg" /></a> -->

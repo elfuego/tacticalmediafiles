@@ -36,7 +36,7 @@
 		</mm:escaper>
 		<mm:escaper type="substring" id="wrap_intro">
 		  <mm:param name="from" value="0" />
-		  <mm:param name="to" value="128" />
+		  <mm:param name="to" value="256" />
 		  <mm:param name="ellipsis" value="..." />
 		</mm:escaper>
         
@@ -77,7 +77,7 @@
                   </mm:link>
                   <mm:link page="search" referids="q?">
                     <mm:param name="type">picture</mm:param>
-                    <li><a href="${_}">images</a></li>
+                    <li><a href="${_}">pictures</a></li>
                   </mm:link>
                   <mm:link page="search" referids="q?">
                     <mm:param name="type">video</mm:param>
@@ -167,7 +167,7 @@
               <c:when test="${ty eq 'picture'}">
               	
               	<h5>picture</h5>
-              	<mm:link page="picture.jspx" referids="_node@pic">
+              	<mm:link page="/picture" referids="_node@pic">
 				  <a href="${_}"><mm:image mode="img" width="100" /></a><br />
 				  <a href="${_}" class="medium"><mm:field name="title" /></a>
 				  <mm:field name="description">

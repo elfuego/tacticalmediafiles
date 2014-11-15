@@ -8,10 +8,13 @@
       doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
       doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
 <mm:cloud>
+<mm:import externid="pic" />
+<mm:node number="$pic">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
 <head>
-  <title>Picture - Tactical Media Files</title>
+  <title><mm:field name="title" escape="inline" /> : picture - Tactical Media Files</title>
   <meta name="description" content="Tactical Media Files" />
   <meta name="keywords" content="" />
   <meta name="robots" content="all" />
@@ -35,9 +38,6 @@
 	  <mm:param name="ellipsis" value="..." />
 	</mm:escaper>
 	
-	<mm:import externid="pic" />
-	
-	<mm:node number="$pic">
 	  <div class="PictureContainer">
 		<div id="content">
 		  <br /><br />
@@ -46,7 +46,7 @@
 			<br /><br />
 		  </div>
 		  <div id="title">						
-			  <h2 class="Title"><mm:field name="title" /></h2>
+			<h2 class="Title"><mm:field name="title" escape="inline" /></h2>
 		  </div>
 		  <div>						
 			  <br /><mm:field name="description" escape="paragraph" /><br /><br />
@@ -91,20 +91,22 @@
 		<div class="picturePicture">
 		  <mm:field name="width" write="false">
 			<mm:isgreaterthan value="900">
-			  <mm:image mode="img" width="900" />
-			  <!-- <img src="<mm:image />" width="900" border="0" hspace="2" vspace="2"> -->
+			  <mm:image mode="url">
+			    <a href="${_}"><mm:image mode="img" width="900" /></a>
+			  </mm:image>
 			</mm:isgreaterthan>
 			<mm:isgreaterthan value="900" inverse="true">
-			  <mm:image mode="img" />
-			  <!-- <img src="<mm:image  />" border="0" hspace="2" vspace="2"> -->
+			  <mm:image mode="url">
+			    <a href="${_}"><mm:image mode="img" /></a>
+			  </mm:image>
 			</mm:isgreaterthan>
 		  </mm:field>
 		  <br /><br />
 		</div>								
   	  </div><!-- EOF .PictureContainer --></div>
-    </mm:node>
 
 </body>
 </html>
+</mm:node>
 </mm:cloud>
 </mm:content>
