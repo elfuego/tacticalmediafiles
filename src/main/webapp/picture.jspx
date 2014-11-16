@@ -1,0 +1,112 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    expires="120" type="text/html" language="client" postprocessor="none">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+<mm:cloud>
+<mm:import externid="pic" />
+<mm:node number="$pic">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+<head>
+  <title><mm:field name="title" escape="inline" /> : picture - Tactical Media Files</title>
+  <meta name="description" content="Tactical Media Files" />
+  <meta name="keywords" content="" />
+  <meta name="robots" content="all" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
+  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
+  <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/ie.css')}" />
+  <![endif]-->
+</head>
+<body class="picture">
+		
+	<!-- escapers -->
+	<mm:escaper id="myfilesize" type="filesize">
+	  <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
+	</mm:escaper>
+	
+	<mm:escaper type="substring" id="wrap_intro">
+	  <mm:param name="from" value="0" />
+	  <mm:param name="to" value="128" />
+	  <mm:param name="ellipsis" value="..." />
+	</mm:escaper>
+	
+	  <div class="PictureContainer">
+		<div id="content">
+		  <br /><br />
+		  <div class="PictureTMFLogo">
+			<a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo-small.gif')}" width="100" /></a>
+			<br /><br />
+		  </div>
+		  <div id="title">						
+			<h2 class="Title"><mm:field name="title" escape="inline" /></h2>
+		  </div>
+		  <div>						
+			  <br /><mm:field name="description" escape="paragraph" /><br /><br />
+		  </div>				
+		  <div>
+		  
+		  <br />		
+		  <mm:relatednodescontainer type="article" searchdirs="source">
+			<mm:relatednodes>
+			  <mm:first><h5>related articles:</h5></mm:first>
+			  <mm:link page="content">
+				<mm:frameworkparam name="component">tmf</mm:frameworkparam>
+				<mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+				<a href="${_}"><mm:field name="title" /></a><br />
+			  </mm:link>
+			</mm:relatednodes>
+		  </mm:relatednodescontainer>
+		
+		  <mm:relatednodescontainer type="video" searchdirs="source">					
+			<mm:relatednodes>					
+			  <h5>related video</h5>
+			  <mm:link page="media">
+				<mm:frameworkparam name="component">tmf</mm:frameworkparam>
+				<mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+				<mm:field name="title" /><br />	
+				<a href="${_}">
+				  Play the video.
+				</a><br /><br />
+			  </mm:link>
+			</mm:relatednodes>
+		  </mm:relatednodescontainer>
+					
+		  <!-- <mm:relatednodes type="media" searchdir="destination">				
+				  <h5>related video</h5>
+				  <mm:field name="title"/> <br />	
+				  <a href="<mm:url page="video.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>">							
+					  Play the video.
+				  </a><br /><br />
+		  </mm:relatednodes> -->
+		  <br /><br />
+		</div>
+		<div class="picturePicture">
+		  <mm:field name="width" write="false">
+			<mm:isgreaterthan value="900">
+			  <mm:image mode="url">
+			    <a href="${_}"><mm:image mode="img" width="900" /></a>
+			  </mm:image>
+			</mm:isgreaterthan>
+			<mm:isgreaterthan value="900" inverse="true">
+			  <mm:image mode="url">
+			    <a href="${_}"><mm:image mode="img" /></a>
+			  </mm:image>
+			</mm:isgreaterthan>
+		  </mm:field>
+		  <br /><br />
+		</div>								
+  	  </div><!-- EOF .PictureContainer --></div>
+
+</body>
+</html>
+</mm:node>
+</mm:cloud>
+</mm:content>

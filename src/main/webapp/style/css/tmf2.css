@@ -13,6 +13,7 @@ body
     padding: 0;
 }
 
+ul.NavigationMenu li { font-size: 0.9em; }
 body.article ul.NavigationMenu a.articles { color: #616161; }
 body.campaign ul.NavigationMenu a.campaigns { color: #616161; }
 body.event ul.NavigationMenu a.events { color: #616161; }
@@ -80,6 +81,57 @@ div.ArticleLinksContainer div.tags
     margin: 0 0 18px 0;
 }
 span.filelabel { font-size: 0.85em; }
+
+/*
+div.tmf_addthis a
+{
+	display: block;
+	width: 44px;
+	height: 36px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+div.tmf_addthis .addthis_button_twitter
+{
+	background-image: url(../images/social/twitter-gr.png);
+	background-repeat: no-repeat;
+	background-position: 14px 0;
+}
+div.tmf_addthis .addthis_button_digg
+{
+	background-image: url(../images/social/digg-gr.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.tmf_addthis .addthis_button_facebook
+{
+	background-image: url(../images/social/facebook-gr.png);
+	background-repeat: no-repeat;
+	background-position: 14px 0;
+}
+div.tmf_addthis .addthis_button_wordpress
+{
+	background-image: url(../images/social/wordpress-gr.png);
+	background-repeat: no-repeat;
+	background-position: 14px 0;
+}
+div.tmf_addthis .addthis_button_delicious
+{
+	background-image: url(../images/social/delicous-gr.png);
+	background-repeat: no-repeat;
+	background-position: 14px 0;
+}
+*/
+
+div.ArticleLinksLabel { clear: both; }
+.shift_left.wp { margin-top: 2px; }
+.shift_left a.addthis_button_wordpress { margin: -17px 0 0 -2px; }
+
+.tmf_addthis {font-size: 0.9em;}
 
 /* ######## new video ###### */
 

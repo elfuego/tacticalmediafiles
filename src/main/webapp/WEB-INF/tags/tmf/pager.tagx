@@ -19,8 +19,6 @@
                            description="Maximum of numbered pages to produce" />
   <jsp:directive.attribute name="baseurl"
                            description="Url with needed parameters" />
-  <jsp:directive.attribute name="fragment"
-                           description="Fragment part of the url, to switch to the right tab" />
 
   <c:if test="${empty baseurl}"><mm:url id="baseurl" absolute="context" write="false" /></c:if>
   

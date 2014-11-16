@@ -17,6 +17,7 @@
   <meta name="keywords" content="" />
   <meta name="robots" content="all" />
   <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
   <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
   <!--[if IE]>
     <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/ie.css')}" />

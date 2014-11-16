@@ -110,6 +110,7 @@
       <div class="ArticleLinksLabel">
           <img src="${mm:link('/style/images/labels/share.gif')}" alt="Share" />
       </div>
+      <div class="tmf_addthis">
       <h5>share</h5>	
       <!-- AddThis Button BEGIN -->
       <div class="addthis_toolbox addthis_default_style shift_left">
@@ -120,7 +121,7 @@
           <a class="addthis_button_facebook"> facebook</a><br /><br />
           <a class="addthis_button_digg"> digg</a><br /><br />
       </div>
-      <div class="addthis_toolbox addthis_default_style shift_left">
+      <div class="addthis_toolbox addthis_default_style shift_left wp">
           <a class="addthis_button_wordpress"> wordpress</a><br /><br />    
           <a class="addthis_button_more"> more</a><br /><br />      
       </div>
@@ -129,6 +130,7 @@
       <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
       <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dac50ed7378a87b"><!-- empty --></script>
       <!-- AddThis Button END -->
+      </div>
 
 
 
