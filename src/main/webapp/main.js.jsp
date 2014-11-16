@@ -1,14 +1,26 @@
 /*<%@taglib uri="http://www.mmbase.org/mmbase-taglib-2.0" prefix="mm"
 %><jsp:directive.page session="false" />
-*///<mm:content type="text/javascript" expires="0" postprocessor="none"><mm:escape escape="javascript-compress">
+*///<mm:content type="text/javascript" expires="1800" postprocessor="none"><mm:escape escape="javascript-compress">
 
 /*
   Main javascript, uses jquery
   @author: Andre van Toly
   @version: 0.1
 */
-
 $(document).ready(function() {
+    
+    // empty search box in top navigation when cursor enters
+    $('#SearchNav').focus(function(ev){
+    	if ($('#SearchNav').val() == 'SEARCH') {
+			$('#SearchNav').val('');
+    	}
+    });
+    
+    if ($('#searchbuttongo').length) {	// only on home?
+		$('#searchbuttongo').click(function(){
+			$('#searchform').submit();
+		});
+	}
     
     /* Init oiplayer only when there is video or audio tag */
     if ($('video').length || $('audio').length) {

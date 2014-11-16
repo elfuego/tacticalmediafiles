@@ -196,7 +196,7 @@
             <br /><br /><br />
           </mm:listnodes>
              
-          <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" />
+          <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" write="false" />
           <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" />
         
         </div><!-- EOF .SearchResults -->

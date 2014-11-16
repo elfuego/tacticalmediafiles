@@ -9,6 +9,7 @@
       description="Navigation at top"
       />
   
+	<mm:import externid="q" />
 
     <div class="TopContainer">
       <div class="NavigationContainer">
@@ -24,8 +25,7 @@
         <ul class="NavigationMenu2">
           <li>
             <form class="NavSearch" name="Search" action="${mm:link('/search')}" method="post">
-              <input type="text" name="q" class="SearchNav" id="SearchNav" value="${q}" placeholder="SEARCH" />
-              <!--  onfocus="SearchFocus();"  ? -->
+              <input type="text" name="q" class="SearchNav" id="SearchNav" value="${empty q ? 'SEARCH' : q}" />
             </form>
           </li>
         </ul>
