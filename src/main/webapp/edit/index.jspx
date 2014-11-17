@@ -42,7 +42,7 @@
 <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="95" /></a> 
 
 <h1 class="Title">TMF Editors</h1>
-
+<p><a href="${mm:link('videos.jspx')}">Video editor</a></p>
 <table width="700">
 <tr>
     <th width="18%">Edit wizard</th>
@@ -282,8 +282,20 @@
 
 <tr>
     <td>Media Editor</td>
-    <td class="link" ><!-- <a href="videolijst.jsp"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
-    <td><p>Add metadata to a video and divide it in annotated fragments.</p></td>
+    <td class="link" >
+    
+    <mm:link page="$list">
+      <mm:param name="wizard">TMF/video</mm:param>
+      <mm:param name="nodepath">video</mm:param>
+      <mm:param name="orderby">number</mm:param>
+      <mm:param name="directions">down</mm:param>
+      <mm:param name="fields">number,title</mm:param>
+      <mm:param name="searchfields">title</mm:param>
+      <a href="${_}"><img alt="&gt;" src="${mm:link('/mmbase/style/images/next.gif')}"  /></a>
+    </mm:link>
+        
+    <!-- <a href="videolijst.jsp"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
+    <td><p>Add metadata to a video <!-- and divide it in annotated fragments -->.</p></td>
 </tr>
 <tr>
     <td>Connect Media Objects</td>

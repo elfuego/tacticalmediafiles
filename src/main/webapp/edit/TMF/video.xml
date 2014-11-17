@@ -60,7 +60,7 @@
 		<title xml:lang="nl">Media uploaden</title>
 		<field name="title" dtrequired="true" />
 		<field name="description" dttype="html" />
-		<field name="handle" dtrequired="true">
+		<field name="handle">
 			<prompt xml:lang="en">handle (URL)</prompt>
 			<prompt xml:lang="nl">handle (URL)</prompt>
 		</field>
