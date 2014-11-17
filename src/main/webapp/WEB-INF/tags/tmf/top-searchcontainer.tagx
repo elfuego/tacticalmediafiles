@@ -20,7 +20,7 @@
             <form class="searchform" id="searchform" action="${mm:link('/search')}" method="post">
                 <input type="text" name="q" value="${q}" class="SearchInputSmall" />
                 <img id="searchbuttongo" src="${mm:link('/style/images/go.png')}" alt="Go" style="vertical-align:bottom;" />
-                <span class="searchtexts">criterium</span>
+                <span class="searchtexts">Criterium</span>
                 <select name="type" class="searchfor">
 				  <option value="all">all</option>
 				  <option value="article">texts</option>
