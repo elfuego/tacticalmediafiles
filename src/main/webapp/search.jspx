@@ -148,7 +148,17 @@
             <h2 class="searched_with">
               You searched for '${mm:escape('text/xml', q)}' 
               <c:if test="${!empty type}">
-                in <mm:nodeinfo type="plural_guitype" nodetype="$type" escape="lowercase" />
+                in 
+                  <mm:nodeinfo type="plural_guitype" nodetype="$type" escape="lowercase">
+                    <c:choose>
+                      <c:when test="${type eq 'article'}">
+                        texts
+                      </c:when>
+                      <c:otherwise>
+                        ${_}
+                      </c:otherwise>
+                    </c:choose>
+                  </mm:nodeinfo>
               </c:if>
             </h2>
           </c:if>
