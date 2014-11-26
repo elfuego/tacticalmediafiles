@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE application PUBLIC "-//MMBase//DTD application config 1.1//EN" "http://www.mmbase.org/dtd/application_1_1.dtd">
+<!DOCTYPE application PUBLIC "-//MMBase//DTD application config 1.1//EN" 
+	"http://www.mmbase.org/dtd/application_1_1.dtd">
 <application name="TMF" maintainer="tacticalmediafiles.net" version="1" auto-deploy="false">
   <requirements>
     <requires name="Resources" maintainer="mmbase.org" version="1" />
@@ -144,16 +145,14 @@
 
   <contextsourcelist>
 	<contextsource path="TMF/backup.xml" type="depth" goal="backup" />
-    <!-- <contextsource path="/tmp" type="full" goal="backup" /> -->
   </contextsourcelist>
 
-  <afterdeployment>
-  </afterdeployment>
+  <afterdeployment />
 
   <description>
     Installs builders and relations for the TMF archive website.
     This application uses the Resource-application, the Media application (downloadable at mmbase.org) and the cloudcontextsecurity application.
   </description>
 
-  <install-notice>TMF installed.</install-notice>
+  <install-notice>TMF installed.</install-notice>  
 </application>
