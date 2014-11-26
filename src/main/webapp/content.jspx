@@ -58,7 +58,7 @@
             <mm:relatednodescontainer path="posrel,picture">
               <div class="ArticleLinksContainer">
                   <div class="ArticleLeftLine"><!-- empty --></div>
-                  <div class="ArticleLinksLabel"><img src="${mm:link('/style/images/labels/images.gif')}" alt="Images" /></div>
+                  <div class="ArticleLinksLabel first"><img src="${mm:link('/style/images/labels/images.gif')}" alt="Images" /></div>
               </div>
 
               <mm:sortorder field="posrel.pos" />
