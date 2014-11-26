@@ -183,8 +183,8 @@
                   <!-- <mm:image template="s(150x100!)" /> -->
                   <!-- <img src=""  alt='<mm:field name="title" />' width="150" height="100" /> -->
                 </mm:relatednodes>
-                <mm:isempty referid="poster">
-                </mm:isempty>
+                <!-- <mm:notpresent referid="poster">
+                </mm:notpresent> -->
 
                 <!-- this mediafragment contains the -->
                 <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
