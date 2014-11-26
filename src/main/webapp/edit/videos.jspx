@@ -1,0 +1,83 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    expires="120" type="text/html"
+    language="client">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.1//EN"
+      doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+<mm:cloud method="http" logon="admin" >
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>TMF Editors</title>
+
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
+  <link rel="icon" href="${mm:link('/mmbase/style/images/favicon.ico')}" type="image/x-icon" />
+  <link rel="shortcut icon" href="${mm:link('/mmbase/style/images/favicon.ico')}" type="image/x-icon" />
+  <style type="text/css">
+    body { padding: 1em; }
+    .logo { 
+    	float: left;
+    	margin: 0 12px 24px 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="95" /></a>
+  
+  <h1 class="Title">Video Editor</h1>
+  
+  <mm:import id="referrer">/edit/index.jspx</mm:import>
+  <mm:import id="wizards">/mmbase/edit/wizard/jsp</mm:import>
+  <mm:import id="wizard">${wizards}/wizard.jsp</mm:import>
+  
+  <mm:import externid="max">25</mm:import>
+  <mm:import externid="offset">0</mm:import>
+
+  <mm:listnodescontainer type="video">
+	<h2>Total of <mm:size id="total" /> videos</h2>
+
+	<mm:link page="$wizard">
+	  <mm:param name="wizard">TMF/video</mm:param>
+	  <mm:param name="objectnumber">new</mm:param>
+	  <p>
+	    Create a <strong><a href="${_}">new video</a></strong>.
+	  </p>
+	</mm:link>
+	
+	<mm:maxnumber value="${max}" />
+	<mm:offset value="${offset}" />
+	<mm:sortorder field="number" direction="DOWN" />
+
+	<ol style="margin-top:20px;" start="${offset + 1}">
+	<mm:listnodes>
+	  <li style="margin-bottom:8px;">
+	    [<mm:field name="number" />]
+	    <strong><mm:field name="title" /></strong><br />
+	    
+		<mm:link page="$wizard">
+		  <mm:param name="wizard">TMF/video</mm:param>
+		  <mm:param name="objectnumber">${_node.number}</mm:param>
+		  <a href="${_}">editwizard</a> |
+		</mm:link>
+		
+		<mm:link page="video.jspx" referids="_node@nr">
+		  <a href="${_}">editor</a>
+		</mm:link>
+	    
+	  </li>
+	</mm:listnodes>
+	</ol>
+  </mm:listnodescontainer>
+
+
+</body>
+</html>
+</mm:cloud>
+</mm:content>

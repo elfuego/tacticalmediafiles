@@ -74,6 +74,14 @@ div.SearchResults a.tag:hover
     text-decoration: underline;
 }
 
+div.ArticleSummary p {
+	font-family: Georgia, serif;
+	font-style: italic;
+	line-height: 24px;
+	padding: 3px;
+	color: #3A3A3A;
+}
+
 div.ArticleLinksContainer { color: #ccc; }
 div.ArticleLinksContainer div.tags
 {
@@ -128,10 +136,14 @@ div.tmf_addthis .addthis_button_delicious
 */
 
 div.ArticleLinksLabel { clear: both; }
+div.ArticleLinksLabel.first {
+	clear: none;
+	float: right;
+}
 .shift_left.wp { margin-top: 2px; }
 .shift_left a.addthis_button_wordpress { margin: -17px 0 0 -2px; }
 
-.tmf_addthis {font-size: 0.9em;}
+.tmf_addthis { font-size: 0.85em; }
 
 /* ######## new video ###### */
 

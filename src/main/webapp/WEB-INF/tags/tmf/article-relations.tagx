@@ -17,7 +17,7 @@
     <div class="ArticleLinksContainer">
       <div class="ArticleLeftLine"><!-- empty --></div>
 
-      <div class='ArticleLinksLabel'>
+      <div class="ArticleLinksLabel first">
         <img src="${mm:link('/style/images/labels/tags.png')}" alt="Tags" />
       </div>
       

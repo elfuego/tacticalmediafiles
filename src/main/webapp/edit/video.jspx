@@ -1,0 +1,91 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    expires="120" type="text/html"
+    language="client">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.1//EN"
+      doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+<mm:cloud method="http" logon="admin" >
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>TMF Editors</title>
+
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
+  <link rel="icon" href="${mm:link('/mmbase/style/images/favicon.ico')}" type="image/x-icon" />
+  <link rel="shortcut icon" href="${mm:link('/mmbase/style/images/favicon.ico')}" type="image/x-icon" />
+  <style type="text/css">
+    body { padding: 1em; }
+    .logo { 
+    	float: left;
+    	margin: 0 12px 24px 12px;
+    }
+  </style>
+</head>
+<body>
+<mm:import externid="nr" />
+<mm:node number="$nr">
+  <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="95" /></a> 
+  <h1 class="Title">Video Editor: <mm:field name="title" /></h1>
+  <p><a href="${mm:link('/edit/videos.jspx')}">&lt;&lt; index</a></p>
+
+  <c:choose>
+	<c:when test="${related_mediafragments > 0}">
+	  <strong style="color:green;">done</strong>
+	</c:when>
+	<c:otherwise>
+	
+	  <mm:transaction commitonclose="$commit">
+		<mm:node number="${video}" id="videonode">
+		  <mm:field name="number" />
+		</mm:node>
+
+		<c:set var="split" value="${fn:split(handle, '/')}" />
+		<c:set var="len" value="${fn:length(split)}" />
+		<br />file: <strong>${split[len - 1]}</strong>
+
+		<!-- TODO: replace with handle! is just test -->
+		<c:set var="url" value="${split[len - 1]}" />
+		<br />url : ${url}
+
+		<mm:createnode type="mediafragments" id="mediafr" >
+		  <mm:setfield name="title"><mm:write referid="title" /></mm:setfield>
+		  <mm:setfield name="subtitle">${url}</mm:setfield>
+		  <mm:setfield name="intro">${created} ${duration}</mm:setfield>
+		  <mm:setfield name="body"><mm:write referid="description" /></mm:setfield>
+		</mm:createnode>
+		<mm:createrelation source="videonode" destination="mediafr" role="related" />
+
+		: ${handle}
+
+
+		<mm:node number="$mediafr" notfound="skip">
+		  <mm:hasfunction name="createSources">
+			<!-- this creates a streamsources node 
+				and sets its url field without triggering creating streamsourcescaches -->
+			<mm:booleanfunction name="createSources" referids="url">
+			  <p style="border:1px solid #c00;">
+				Created streamsources node with url : '${url}'
+			  </p>
+			</mm:booleanfunction>
+		  </mm:hasfunction>
+		  <mm:hasfunction name="createSources" inverse="true">
+			- does not have function createSources -
+		  </mm:hasfunction>
+		</mm:node>
+	  </mm:transaction>
+
+	</c:otherwise>
+  </c:choose>
+
+  
+</mm:node>
+</body>
+</html>
+</mm:cloud>
+</mm:content>

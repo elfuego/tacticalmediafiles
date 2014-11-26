@@ -10,6 +10,7 @@
   <c:if test="${type ne 'article' 
   				and type ne 'event' 
   				and type ne 'person' 
+  				and type ne 'campaign' 
   				and type ne 'video' 
   				and type ne 'picture' 
   				and type ne 'file'}">
@@ -146,7 +147,7 @@
          
           <c:if test="${!empty q}">
             <h2 class="searched_with">
-              You searched for '${mm:escape('text/xml', q)}' 
+              ${total} found for '${mm:escape('text/xml', q)}' 
               <c:if test="${!empty type}">
                 in 
                   <mm:nodeinfo type="plural_guitype" nodetype="$type" escape="lowercase">
