@@ -55,9 +55,9 @@
              <mm:image mode="img" width="100" />
              <img src="${mm:link('/style/images/play_small.png')}" class="playIcon" /><br />
            </mm:relatednodes>
-           <mm:isempty referid="pic">
-             <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="100"  />
-           </mm:isempty>
+           <mm:notpresent referid="pic">
+			 <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="100"  />
+           </mm:notpresent>
            <mm:field name="title" />
          </a>
          <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
