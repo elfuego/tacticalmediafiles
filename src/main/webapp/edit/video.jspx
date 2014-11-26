@@ -28,8 +28,12 @@
   </style>
 </head>
 <body>
-<mm:import externid="nr" />
-<mm:node number="$nr">
+
+<mm:import externid="nr" id="video" />
+<mm:import externid="commit">false</mm:import>
+
+<mm:node number="$video">
+  
   <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="95" /></a> 
   <h1 class="Title">Video Editor: <mm:field name="title" /></h1>
   <p><a href="${mm:link('/edit/videos.jspx')}">&lt;&lt; index</a></p>
@@ -43,6 +47,8 @@
 	  <mm:transaction commitonclose="$commit">
 		<mm:node number="${video}" id="videonode">
 		  <mm:field name="number" />
+		  <mm:field name="title" id="title" /> 
+		  <mm:field name="description" id="description" /> 
 		</mm:node>
 
 		<c:set var="split" value="${fn:split(handle, '/')}" />
