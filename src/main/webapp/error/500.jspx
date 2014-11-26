@@ -1,0 +1,80 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    expires="0" type="text/html" language="client" postprocessor="none">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+<jsp:directive.page isErrorPage="true" 
+	import="org.mmbase.bridge.*,java.util.*,javax.mail.*,javax.mail.internet.*" />
+<jsp:scriptlet>response.setStatus(500);</jsp:scriptlet>
+<mm:cloud>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+<head>
+  <mm:import id="title">Error ${requestScope['javax.servlet.error.status_code']}</mm:import>
+  <title>${title} - Tactical Media Files</title>
+  <meta name="description" content="Tactical Media Files" />
+  <meta name="keywords" content="" />
+  <meta name="robots" content="all" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
+  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
+  <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/ie.css')}" />
+  <![endif]-->
+  <script type="text/javascript" language="javascript">
+	function show() {
+		document.getElementById('error').style.display = 'block';
+		document.getElementById('show').style.display = 'none';
+	}
+	function hide() {
+		document.getElementById('error').style.display = 'none';
+		document.getElementById('show').style.display = 'block';
+	}
+  </script>
+  <style type="text/css">
+  #show { 
+  	display: block;
+  	margin: 1em 0; 
+  }
+  #error {
+  	background-color:#fff9f9;
+  	border: 1px solid #900;
+  	padding: 12px;
+  	margin: 1em 0;
+  	overflow: scroll;
+  }
+  </style>
+</head>
+<body class="error">
+<div class="GlobalContainer">
+  <tmf:top-container />
+  <div class="ArticleContainer">
+	
+	<tmf:header-simple title="${title}" />
+    
+    <h3>
+      <mm:escape escape="text/xml">Error ${requestScope['javax.servlet.error.status_code']} -  ${requestScope['javax.servlet.error.exception_type']}</mm:escape>
+    </h3>
+    <p>
+      <mm:escape escape="text/xml">${requestScope['javax.servlet.error.message']}</mm:escape>
+    </p>
+	<a id="show" href="javascript:show();">Show error</a>
+	<div id="error" style="display:none;">
+	  <a href="javascript:hide();">Hide error</a>
+	  <pre><mm:exception exception="${requestScope['javax.servlet.error.exception']}" /></pre>
+	</div>
+	<hr />
+	<p>Please contact your system administrator about this.</p>
+    
+    <div class="clearBoth"><!-- empty --></div>
+  </div><!-- EOF .ArticleContainer -->
+</div><!-- EOF .GlobalContainer -->
+
+</body>
+</html>
+</mm:cloud>
+</mm:content>

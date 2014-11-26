@@ -147,7 +147,8 @@
     <!-- <contextsource path="/tmp" type="full" goal="backup" /> -->
   </contextsourcelist>
 
-  <afterdeployment />
+  <afterdeployment>
+  </afterdeployment>
 
   <description>
     Installs builders and relations for the TMF archive website.

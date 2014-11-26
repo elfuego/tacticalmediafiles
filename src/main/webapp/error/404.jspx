@@ -25,9 +25,7 @@
 </head>
 <body class="error">
 <div class="GlobalContainer">
-  <div class="TopContainer">
-
-  </div><!-- EOF .TopContainer -->
+  <tmf:top-container />
   <div class="ArticleContainer">
 	
 	<tmf:header-simple title="404 - Page not found" />
