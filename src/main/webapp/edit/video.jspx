@@ -33,6 +33,15 @@
         
       </script> -->
 
+  <jsp:scriptlet>
+    java.util.Random rand = new java.util.Random(); 
+    int off = rand.nextInt(999);
+    pageContext.setAttribute("random", off);
+  </jsp:scriptlet>
+      
+  <mm:escaper id="myfilesize" type="filesize">
+    <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
+  </mm:escaper>
 
   <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
   <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
@@ -49,7 +58,10 @@
     	float: left;
     }
 
-	div.log { margin: 8px 0; }
+	div.log { 
+		margin: 8px 0; 
+		width: 820px;
+	}
 
 	div.log h4
 	{
@@ -100,6 +112,7 @@
     </mm:link>
     
     <mm:link page="video.jspx" referids="nr">
+      <mm:param name="random">${random}</mm:param>
       [<a href="${_}">reload page</a>]
     </mm:link>
   </p>
