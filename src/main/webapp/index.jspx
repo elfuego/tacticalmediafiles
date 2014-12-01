@@ -10,7 +10,7 @@
   <jsp:scriptlet>
     /* Sets random value devidable by 4 for initital thumbcarousel */
     java.util.Random rand = new java.util.Random(); 
-    int off = rand.nextInt(32) * 4; 
+    int off = rand.nextInt(39) * 4;		// allways start somewhere at product of 4
     pageContext.setAttribute("off", off);
   </jsp:scriptlet>
    
