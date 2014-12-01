@@ -14,6 +14,25 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>TMF Editors</title>
+  <jsp:include page="/mmbase/jquery/jquery.jspx" />
+  <jsp:directive.include file="/mmbase/validation/javascript.jspxf" />
+  <mm:validation
+	  submit="#submit_upload" />
+
+	  <!-- <script type="text/javascript">
+        $(document).ready(function() {
+            var validator = new MMBaseValidator(document.getElementById("upload_form"));
+            validator.prefetchNodeManager('mmbaseusers');
+            //validator.lang = "${requestScope['javax.servlet.jsp.jstl.fmt.locale.request']}";
+            validator.validateHook = function(valid) {
+                document.getElementById('submit').disabled = this.invalidElements != 0;
+            }
+            validator.setup(document.getElementById("upload_form"));
+            
+        });
+        
+      </script> -->
+
 
   <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
   <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
@@ -25,66 +44,316 @@
     	float: left;
     	margin: 0 12px 24px 12px;
     }
+    .editor {
+    	margin-top: 40px;
+    	float: left;
+    }
+
+	div.log { margin: 8px 0; }
+
+	div.log h4
+	{
+		background-color: #e6e9dd;
+		padding: 4px 8px;
+		margin: 0;
+	}
+
+	div.log pre
+	{
+		color: #fff;
+		background-color: #002828;
+		height: 240px;
+		overflow: auto;
+		border: 2px solid #e6e9dd;
+		padding: 6px;
+		margin: 0;
+	}
+
   </style>
 </head>
 <body>
-<mm:import externid="nr" />
+
+<mm:import id="referrer">/edit/index.jspx</mm:import>
+<mm:import id="wizards">/mmbase/edit/wizard/jsp</mm:import>
+<mm:import id="wizard">${wizards}/wizard.jsp</mm:import>
+  
+<mm:import externid="nr" id="nr" />
+<mm:import externid="commit">false</mm:import>
+<div id="newvideo">
 <mm:node number="$nr">
+  
   <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="95" /></a> 
   <h1 class="Title">Video Editor: <mm:field name="title" /></h1>
-  <p><a href="${mm:link('/edit/videos.jspx')}">&lt;&lt; index</a></p>
+  <p>
+	<a href="${mm:link('/edit/')}">editors</a> |
+	<a href="${mm:link('videos.jspx')}">video editors</a>
+  </p>
 
-  <c:choose>
-	<c:when test="${related_mediafragments > 0}">
-	  <strong style="color:green;">done</strong>
-	</c:when>
-	<c:otherwise>
+  <p>
+	<mm:link page="$wizard" referids="nr@objectnumber">
+	  <mm:param name="wizard">TMF/video</mm:param>
+	  [<a href="${_}">editwizard</a>]
+	</mm:link>
+
+    <mm:link page="/mmbase/edit/my_editors/edit_object.jsp" referids="nr">
+      [<a href="${_}">my_editors</a>]
+    </mm:link>
+    
+    <mm:link page="video.jspx" referids="nr">
+      [<a href="${_}">reload page</a>]
+    </mm:link>
+  </p>
+  
+  <mm:import externid="cachesource" />
+  <mm:import externid="all" vartype="boolean">false</mm:import>
+  
+  <mm:import externid="urlsource" />
+  <mm:import externid="url" />
+  
+  <mm:present referid="urlsource">
+    <mm:node number="$urlsource">
+      url: <mm:field name="url" />
+
+      <mm:hasfunction name="changeUrl">
+        <mm:booleanfunction name="changeUrl" referids="url">
+          <div class="msg">Updated #${urlsource} to ${url}</div>
+        </mm:booleanfunction>      
+      </mm:hasfunction>
+      <mm:hasfunction name="changeUrl" inverse="true">
+        - does not have function updateSources -
+      </mm:hasfunction>
+
+    </mm:node>
+  </mm:present>
+
+  <mm:import externid="updatesource" />
+
+  <mm:present referid="updatesource">
+    <mm:node number="$updatesource">
+      url: <mm:field name="url" />
+
+      <mm:hasfunction name="updateSources">
+        <mm:booleanfunction name="updateSources">
+          <div class="msg">Updated #${updatesource}</div>
+        </mm:booleanfunction>      
+      </mm:hasfunction>
+      <mm:hasfunction name="updateSources" inverse="true">
+        - does not have function updateSources -
+      </mm:hasfunction>
+
+    </mm:node>
+  </mm:present>
+  
+  <div class="editor">
+
+	<mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
+	  <mm:import id="related_mediafragments" reset="true"><mm:size /></mm:import>
+	</mm:relatednodescontainer>
 	
-	  <mm:transaction commitonclose="$commit">
-		<mm:node number="${video}" id="videonode">
-		  <mm:field name="number" />
+	<c:choose>
+	  <c:when test="${related_mediafragments > 0}">
+		<strong style="color:green;">done</strong>
+		
+		<!-- <h2>Jobs</h2>
+		<mm:component name="streams" block="myjobs" /> -->
+
+		<mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
+		  <mm:import id="rels" reset="true"><mm:size /></mm:import>
+		  <mm:relatednodes>
+			mediafragments : <mm:field name="gui()" escape="none" /> [<mm:field name="number" />] <br />
+			<tmf:video width="240" height="180" poster="${poster}" />
+	  
+			<mm:listfunction name="filteredurls">
+			  <c:if test="${_.main}">
+				<mm:node number="${_.source.number}">
+				  <p>
+					<mm:field name="gui()" escape="none" />
+					${_.dimension} -
+					${_.mimeType} -
+					${_.codec} -
+					<mm:hasfield name="bitrate"><mm:field name="bitrate" /></mm:hasfield>
+					<mm:hasfield name="fps">/<mm:field name="fps" /></mm:hasfield> 
+					<c:if test="${_.filesize > 0}"> - ${mm:escape('myfilesize',_.filesize)}</c:if>
+					[<mm:field name="number" />]<br />
+					source : <a href="${mm:escape('text/xml', _.URL)}"><mm:escape>${_.URL}</mm:escape></a>
+					<mm:import id="source" reset="true">${_.source.number}</mm:import>
+				  </p>
+				  <p>
+					<mm:hasfunction name="updateSources">
+					  <mm:link referids="_node@updatesource,nr">
+						[<a href="${_}">update stream informatie</a>]
+					  </mm:link>
+					</mm:hasfunction>
+					<mm:hasfunction name="updateSources" inverse="true">
+					  does not have function updateSources
+					</mm:hasfunction>
+			  
+					<mm:hasfunction name="triggerCaches">
+					  <mm:link referids="_node@cachesource,nr">
+						[<a href="${_}">create stream caches</a>]
+					  </mm:link>
+					  <c:if test="${cachesource eq _node.number}">
+						<p class="msg">
+						  streams encoding started for: ${cachesource}
+						  <mm:import id="isall">true</mm:import>
+						  <mm:voidfunction name="triggerCaches" referids="isall@all" />
+						</p>
+					  </c:if>
+					</mm:hasfunction>
+					<mm:hasfunction name="triggerCaches" inverse="true">
+					  does not have function triggerCaches
+					</mm:hasfunction>
+				  </p>
+		
+				  <mm:link referids="nr">
+					<form action="${_}" method="post">
+					  <mm:import id="url" reset="true"><mm:field name="url" /></mm:import>
+					  <label>Change source url : </label>
+					  <input type="text"   name="url"    value="${url}" size="80" /> 
+					  <input type="hidden" name="urlsource" value="${_node}" /> 
+					  <input type="submit" name="submit" value="Save" />
+					</form>
+				  </mm:link>
+			  
+				</mm:node>
+			  </c:if>
+			</mm:listfunction>
+		
+			<ol>
+			<mm:listfunction name="filteredurls">
+			  <c:if test="${!_.main}">
+				<mm:node number="${_.source.number}" notfound="skip">
+				  <li>cache : ${mm:escape('text/xml', _.URL)} (${_.mimeType}; ${_.codec})</li>
+				</mm:node>
+			  </c:if>
+			</mm:listfunction>
+			</ol>
+		
+			<mm:listfunction set="streams" name="runningJobs" >
+			  <mm:first>
+				<div class="msg" style="text-align:left;">
+				  <strong><mm:size /> jobs running</strong>
+				</div>
+			  </mm:first>
+			  <c:if test="${_.node.number eq source}">
+				<p>
+				  <strong>Transcoding information of this source node's job</strong><br />
+				  <strong>progress:</strong> ${_.progress} 
+				  <mm:link referids="_node@interrupt,nr,p?">
+					<a href="${_}">interrupt transcoding</a>
+				  </mm:link>
+				  <br />
+				  <strong>stage:</strong> ${_.stage} <br /> 
+				  <strong>in:</strong> ${_.current.in} <br /> 
+				  <strong>out:</strong> ${_.current.out} <br />
+				</p>
+				<div class="log">
+				  <pre>
+					<jsp:text>${mm:escape('text/xml', _.logger.debugList)}</jsp:text>
+				  </pre>
+				</div>
+			  </c:if>
+			</mm:listfunction>        
+	  
+		  </mm:relatednodes>
+		</mm:relatednodescontainer>
+
+		
+	  </c:when>
+	  <c:otherwise>
+	  
+	  <!-- ### or create streamsources ### -->
+	  <mm:maycreate type="streamsources">
+	  
+		<mm:node number="$nr" id="videonode">
+		  <mm:field name="number" /> :
+		  <mm:field name="title" id="title" /> 
+		  <mm:field name="description" id="description" write="false" /> 
+		  <mm:import id="duration" reset="true"><mm:field name="duration" /></mm:import>
+		  <mm:import id="created" reset="true"><mm:field name="created"><mm:time format=":MEDIUM" /></mm:field></mm:import>
 		</mm:node>
 
-		<c:set var="split" value="${fn:split(handle, '/')}" />
-		<c:set var="len" value="${fn:length(split)}" />
-		<br />file: <strong>${split[len - 1]}</strong>
-
-		<!-- TODO: replace with handle! is just test -->
-		<c:set var="url" value="${split[len - 1]}" />
-		<br />url : ${url}
-
-		<mm:createnode type="mediafragments" id="mediafr" >
-		  <mm:setfield name="title"><mm:write referid="title" /></mm:setfield>
-		  <mm:setfield name="subtitle">${url}</mm:setfield>
-		  <mm:setfield name="intro">${created} ${duration}</mm:setfield>
-		  <mm:setfield name="body"><mm:write referid="description" /></mm:setfield>
-		</mm:createnode>
-		<mm:createrelation source="videonode" destination="mediafr" role="related" />
-
-		: ${handle}
-
-
-		<mm:node number="$mediafr" notfound="skip">
-		  <mm:hasfunction name="createSources">
-			<!-- this creates a streamsources node 
-				and sets its url field without triggering creating streamsourcescaches -->
-			<mm:booleanfunction name="createSources" referids="url">
-			  <p style="border:1px solid #c00;">
-				Created streamsources node with url : '${url}'
-			  </p>
-			</mm:booleanfunction>
-		  </mm:hasfunction>
-		  <mm:hasfunction name="createSources" inverse="true">
-			- does not have function createSources -
-		  </mm:hasfunction>
-		</mm:node>
-	  </mm:transaction>
-
-	</c:otherwise>
-  </c:choose>
+		<mm:import externid="submit" />
+		  <mm:import externid="fields">title,subtitle,intro</mm:import>
+		  <mm:import id="f_url"><mm:url absolute="true" referids="nr" /></mm:import>
+		  <mm:form page="${f_url}">
+			<mm:import id="buffer">
+			  <div class="progressInfo" id="progressInfo">
+				<p>No upload started yet.</p>
+			  </div>
+			  <mm:createnode id="newsource" type="streamsources" commitonclose="false">
+				<fieldset>
+				  <mm:fieldlist fields="url" id="urlfield2">
+					<mm:fieldinfo type="input" />
+					<mm:fieldinfo type="errors" />
+				  </mm:fieldlist>
+				</fieldset>
+				<fieldset class="hidden" style="display:none;">
+				  <mm:fieldlist fields="${fields}" id="field">
+					<mm:fieldinfo type="input" />
+					<mm:fieldinfo type="errors" />
+				  </mm:fieldlist>
+				</fieldset>
+				<fieldset class="hidden" style="display:none;">
+				  <mm:fieldlist fields="mediaprovider">
+					<mm:fieldinfo type="input" />
+					<mm:fieldinfo type="errors" />
+				  </mm:fieldlist>
+				</fieldset>
+				<fieldset class="buttons">
+				  <input type="submit" name="submit" id="submit" value="Upload" />
+				</fieldset>
+			  </mm:createnode>
+			</mm:import>
+			<mm:present referid="submit">
+			  <mm:valid>
+				<mm:commit />
+				<mm:import id="committed" />
+				<mm:node number="${newsource}" cloud="cloud">
+				  <mm:import id="mf"><mm:field name="mediafragment" /></mm:import>
+				  <mm:write referid="mf" session="new_media_node" />
+				  <p class="msg">
+					You just succesfully uploaded ${_node} URL: ${_node.url} FS: ${_node.filesize}.
+				  </p>
+				</mm:node>
+			  </mm:valid>
+			</mm:present>
+			<mm:notpresent referid="submit">
+			  <mm:write referid="buffer" escape="none" />
+			</mm:notpresent>
+			<mm:notpresent referid="committed">
+			  <mm:cancel />
+			</mm:notpresent>
+		  </mm:form>
+		
+		
+		  <mm:present referid="committed">
+			<mm:node referid="newsource" notfound="skip">    
+			<strong>newsource title: <mm:field name="title" /></strong>
+			<mm:log level="info">Mediafragment title: <mm:field name="title" /></mm:log>
+		  
+			<mm:field name="mediafragment" id="medianode" />
+			<mm:createrelation source="videonode" destination="medianode" role="related" />
+			<mm:node referid="medianode">
+			  <mm:setfield name="title">Media <mm:write referid="title" /></mm:setfield>
+			  <mm:setfield name="intro">${created} ${duration}</mm:setfield>
+			  <mm:setfield name="body"><mm:write referid="description" /></mm:setfield>
+			</mm:node>
+			<h2>Jobs</h2>
+			<mm:component name="streams" block="myjobs" />
+		  </mm:node>
+		  </mm:present>
+	
+		</mm:maycreate>
 
   
+	
+	  </c:otherwise>
+	</c:choose>
+  </div>
+  
 </mm:node>
+</div>
 </body>
 </html>
 </mm:cloud>

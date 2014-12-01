@@ -29,8 +29,12 @@
           <mm:hasrelationmanager sourcemanager="$nodetype" destinationmanager="person" role="author">
 			<mm:relatednodescontainer type="person" role="author" searchdirs="destination">
 			  <mm:relatednodes>
-				  <mm:field name="firstname" /> <mm:field name="sirname" />
+				<mm:link page="content">
+				  <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+				  <mm:frameworkparam name="n">${_node}</mm:frameworkparam>  
+				  <a href="${_}"><mm:field name="firstname" /> <mm:field name="sirname" /></a>
 				  <mm:last inverse="true"><br /></mm:last>
+				</mm:link>
 			  </mm:relatednodes>
 			</mm:relatednodescontainer>
           </mm:hasrelationmanager>
