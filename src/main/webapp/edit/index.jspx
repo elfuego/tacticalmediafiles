@@ -42,7 +42,10 @@
 <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="95" /></a> 
 
 <h1 class="Title">TMF Editors</h1>
-<p><a href="${mm:link('videos.jspx')}">Video editor</a></p>
+<p>
+  <a href="${mm:link('/edit/')}">editors</a> |
+  <a href="${mm:link('videos.jspx')}">video editors</a>
+</p>
 <table width="700">
 <tr>
     <th width="18%">Edit wizard</th>

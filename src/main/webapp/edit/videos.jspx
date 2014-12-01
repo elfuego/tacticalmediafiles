@@ -31,7 +31,11 @@
 
   <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="95" /></a>
   
-  <h1 class="Title">Video Editor</h1>
+  <h1 class="Title">TMF Video Editors</h1>
+  <p>
+	<a href="${mm:link('/edit/')}">editors</a> |
+	<a href="${mm:link('videos.jspx')}">video editors</a>
+  </p>
   
   <mm:import id="referrer">/edit/index.jspx</mm:import>
   <mm:import id="wizards">/mmbase/edit/wizard/jsp</mm:import>
@@ -76,6 +80,10 @@
 	</ol>
   </mm:listnodescontainer>
 
+  <div style="margin-bottom:2em;">
+	<mm:url referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" write="false" />
+	<tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" />
+  </div>
 
 </body>
 </html>
