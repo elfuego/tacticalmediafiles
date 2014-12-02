@@ -16,7 +16,7 @@
   <jsp:scriptlet>
     /* Sets random value devidable by 4 for initital thumbcarousel */
     java.util.Random rand = new java.util.Random(); 
-    int off = rand.nextInt(32) * 4; 
+    int off = rand.nextInt(39) * 4;		// allways start somewhere at product of 4   
     pageContext.setAttribute("off", off);
   </jsp:scriptlet>
   
@@ -76,7 +76,6 @@
           <!-- ### ### ### List of Large thumbs: browse videos ### ### ### -->
           <div class="VideoBrowse">
             <div class="VideoBrowseList">
-              
               <div id="VideoBrowseMask2"><!-- empty --></div>
               <div id="VideoBrowseMask1">
                 <div class="VideoTMFLogo">
@@ -86,45 +85,17 @@
                   <img src="${mm:link('/style/images/labels/browse-video.png')}" alt="Browse Video" />
                 </div>  					
 			  </div>
-
               <!-- List of Thumbnails with Titles -->
               <div class="VideoBrowseTable2" id="videothumbs">
-                <!-- <mm:listnodescontainer type="video">
-                  <mm:sortorder field="title" direction="UP" />
-                  <mm:offset value="0" />
-                  <mm:maxnumber value="4" />
-                  <mm:listnodes>
-                    <c:set var="index"><mm:index /></c:set>
-                    <div class="videothumb${index}">
-                      <mm:import id="pic" reset="true"></mm:import>
-                      <mm:link page="media">
-                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                        <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-                        <a href="${_}">
-                          <mm:relatednodes type="picture" max="1">
-                            <mm:import id="pic" reset="true">ok</mm:import>
-                            <mm:image mode="img" width="150" height="100" crop="middle" />
-                          </mm:relatednodes>
-                          <mm:isempty referid="pic">
-                            <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="150" height="100" />
-                          </mm:isempty>
-                        </a><br />
-                        <div class="title"> <mm:field name="title" escape="inline" /> </div>
-                      </mm:link>
-                    </div>
-                  </mm:listnodes>		
-                </mm:listnodescontainer> -->
-                <tmf:thumblist-video offset="0" />
-              </div><!-- EOF .VideoBrowseTable1 -->
-
-             
+                <tmf:thumblist-video offset="${off}" />
+              </div>
               <div class="VideoBrowseNext">
                 <a href="#next" class="movenext" ><img src="${mm:link('/style/images/next.gif')}" alt="Next" border="0" /></a>
               </div>
               <div class="VideoBrowsePrevious">
                 <a href="#previous" class="moveprev" ><img src="${mm:link('/style/images/previous.gif')}" alt="Previous" border="0" /></a>
               </div>
-            </div><!-- EOF .VideoBrowseList -->
+            </div>
           </div><!-- EOF .VideoBrowse -->
           
           <div class="clearBoth"><!-- empty --></div>

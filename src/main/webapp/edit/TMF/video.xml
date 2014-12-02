@@ -18,6 +18,13 @@
 	</action>
 
 	<action type="load">
+		<relation role="posrel" searchdir="destination" destination="picture">
+			<object>
+				<field name="title" />
+				<field name="description" />
+				<field name="handle" />
+			</object>
+		</relation>
 		<relation role="related" searchdir="both" destination="person">
 			<object>
 				<field name="prefix" />
@@ -59,14 +66,15 @@
 		<title xml:lang="en">Media upload</title>
 		<title xml:lang="nl">Media uploaden</title>
 		<field name="title" dtrequired="true" />
-		<field name="description" dttype="html" />
-		<field name="handle">
+		<field name="description" dttype="html" rows="20" />
+		<field name="handle" ftype="data">
 			<prompt xml:lang="en">handle (URL)</prompt>
 			<prompt xml:lang="nl">handle (URL)</prompt>
 		</field>
-		<field name="width" />
-		<field name="height" />
+		<field name="width"  ftype="data" />
+		<field name="height" ftype="data" />
  		
+		<list include="TMF/list_picture.xml" />
 		<list include="TMF/list_event.xml" />
 		<list include="TMF/list_campaign.xml" />					
 		<list include="TMF/list_person.xml" />
