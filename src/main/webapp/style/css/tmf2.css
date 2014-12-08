@@ -20,6 +20,7 @@ body.event ul.NavigationMenu a.events { color: #616161; }
 body.video ul.NavigationMenu a.videos { color: #616161; }
 body.new ul.NavigationMenu a.new { color: #616161; }
 
+h1.Title { font-size: 1.8em; }
 h2.Title { font-size: 1.25em; }
 div.HomeLeftItemDate { font-size: 0.85em; }
 p.Text {
@@ -30,7 +31,7 @@ div.SearchResults a { font-size: 1.1em; }
 {
     border-top: 3px solid #ccc;
     width: 480px;
-    margin-bottom: 32px;
+    margin-bottom: 0;
 }
 div.HomeFeaturedList div.HomeFeaturedItem {
     border-top: none;
@@ -74,7 +75,10 @@ div.SearchResults a.tag:hover
     text-decoration: underline;
 }
 
-.ArticleAuthor { font-size: 0.85em; }
+h2.Title { font-size: 1.25em; }
+div.HomeLeftItemTitle h2.Title { font-size: 1.2em; }
+
+.ArticleAuthor { font-size: 0.8em; }
 
 div.ArticleSummary p {
 	font-family: Georgia, serif;
@@ -91,51 +95,6 @@ div.ArticleLinksContainer div.tags
     margin: 0 0 18px 0;
 }
 span.filelabel { font-size: 0.85em; }
-
-/*
-div.tmf_addthis a
-{
-	display: block;
-	width: 44px;
-	height: 36px;
-	background-repeat: no-repeat;
-	background-position: 0 0;
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-}
-
-div.tmf_addthis .addthis_button_twitter
-{
-	background-image: url(../images/social/twitter-gr.png);
-	background-repeat: no-repeat;
-	background-position: 14px 0;
-}
-div.tmf_addthis .addthis_button_digg
-{
-	background-image: url(../images/social/digg-gr.png);
-	background-repeat: no-repeat;
-	background-position: 0 0;
-}
-div.tmf_addthis .addthis_button_facebook
-{
-	background-image: url(../images/social/facebook-gr.png);
-	background-repeat: no-repeat;
-	background-position: 14px 0;
-}
-div.tmf_addthis .addthis_button_wordpress
-{
-	background-image: url(../images/social/wordpress-gr.png);
-	background-repeat: no-repeat;
-	background-position: 14px 0;
-}
-div.tmf_addthis .addthis_button_delicious
-{
-	background-image: url(../images/social/delicous-gr.png);
-	background-repeat: no-repeat;
-	background-position: 14px 0;
-}
-*/
 
 div.ArticleLinksLabel { clear: both; }
 div.ArticleLinksLabel.first {
@@ -236,6 +195,10 @@ div.VideoBrowseTable3
 }
 div#homethumbs .kw {
     display: block;
+}
+
+div.HomeNewsLabel {
+  padding-top: 11px;
 }
 
 /* .homethumb1 { left: 0; }
