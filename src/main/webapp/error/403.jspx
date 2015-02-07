@@ -7,12 +7,12 @@
 <jsp:output doctype-root-element="html"
       doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
       doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
-<jsp:scriptlet>response.setStatus(404);</jsp:scriptlet>
+<jsp:scriptlet>response.setStatus(403);</jsp:scriptlet>
 <mm:cloud>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
 <head>
-  <title>Page Not Found - Tactical Media Files</title>
+  <title>Forbidden - Tactical Media Files</title>
   <meta name="description" content="Tactical Media Files" />
   <meta name="keywords" content="" />
   <meta name="robots" content="all" />
@@ -28,18 +28,17 @@
   <tmf:top-container />
   <div class="ArticleContainer">
 	
-	<tmf:header-simple title="404 - Page not found" />
+	<tmf:header-simple title="403 - Forbidden" />
     
     <h3><jsp:expression>org.mmbase.Version.get()</jsp:expression></h3>
-    <p>The current URL -
+    <p>
       <jsp:scriptlet>
         String msg = (String) request.getAttribute("org.mmbase.servlet.error.message");
         if (msg == null) {
           msg = (String) request.getAttribute("javax.servlet.error.message");
         }
-        out.println(msg);
-      </jsp:scriptlet>
-      - does not point to an existing resource in this web-application.
+        if (msg != null) out.println(msg);
+      </jsp:scriptlet> 
       <br /><a href="${mm:link('/')}">home</a>
     </p>
 
