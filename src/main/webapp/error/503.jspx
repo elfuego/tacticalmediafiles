@@ -1,0 +1,60 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    expires="0" type="text/html" language="client" postprocessor="none">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+<jsp:directive.page isErrorPage="true" 
+	import="org.mmbase.bridge.*,java.util.*,javax.mail.*,javax.mail.internet.*" />
+<jsp:scriptlet>response.setStatus(503);</jsp:scriptlet>
+<mm:cloud>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+<head>
+  <mm:import id="title">Error ${requestScope['javax.servlet.error.status_code']}</mm:import>
+  <title>${title} - Tactical Media Files</title>
+  <meta name="description" content="Tactical Media Files" />
+  <meta name="keywords" content="" />
+  <meta name="robots" content="all" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
+  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
+  <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/ie.css')}" />
+  <![endif]-->
+  <mm:link id="thispage">
+    <meta http-equiv="refresh" content="60; URL=${_}" />
+  </mm:link>
+</head>
+<body class="error">
+<div class="GlobalContainer">
+  <tmf:top-container />
+  <div class="ArticleContainer">
+	
+	<tmf:header-simple title="${title}" />
+    
+    <h2>503 This web-site is temporary unavailable</h2>
+    <h3><mm:cloudinfo type="mmbaseversion" /></h3>
+
+    <p>
+      <em><mm:time time="now" format=":FULL.FULL" /></em> - This web-site is currently unavailable. <br />
+      Please come back later or <a href="${thispage}">reload this page</a>.
+    </p>
+    
+    <p>
+      If you are the administrator of this site, and this message does not disappear, please check
+      the mmbase log, which probably contains an indication of the reason why MMBase is not yet
+      successfully started.
+    </p>
+    
+    <div class="clearBoth"><!-- empty --></div>
+  </div><!-- EOF .ArticleContainer -->
+</div><!-- EOF .GlobalContainer -->
+
+</body>
+</html>
+</mm:cloud>
+</mm:content>
