@@ -188,7 +188,7 @@
   </error-page>
   <error-page>
     <error-code>503</error-code>
-    <location>/mmbase/errorpages/503.jsp</location>
+    <location>/error/503.jsp</location>
   </error-page>
 
 
@@ -216,7 +216,7 @@
 		<description>
 			Datasource for the MMBase Database. This datasource must be
 			configured in the application server.
-      This entry is not needed in tomcat, but jetty needs it.
+            This entry is not needed in tomcat, but jetty needs it.
 		</description>
 		<res-ref-name>jdbc/MMBase</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
