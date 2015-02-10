@@ -38,6 +38,7 @@ div.HomeFeaturedList div.HomeFeaturedItem {
     border-bottom: 3px solid #ccc;
     padding-bottom: 12px;
 }
+div.HomeFeaturedList div.HomeFeaturedItem.HomeFeaturedPhotoAuthor { font-size: 0.8em; }
 
 #tagcloud h2 { text-transform: uppercase; }
 #tagcloud li.tag_0{ font-size: 0.7em; font-weight: 100; } 
