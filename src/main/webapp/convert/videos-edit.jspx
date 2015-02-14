@@ -9,7 +9,7 @@
 <jsp:output doctype-root-element="html"
       doctype-public="-//W3C//DTD XHTML 1.1//EN"
       doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
-<mm:cloud method="http" logon="admin" >
+<mm:cloud method="http" rank="basic user">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
