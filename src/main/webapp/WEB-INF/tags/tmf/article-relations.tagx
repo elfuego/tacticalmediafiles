@@ -41,6 +41,71 @@
         <img src="${mm:link('/style/images/labels/links.gif')}" alt="Links" />
       </div>
       
+      <!-- video -->
+      <mm:relatednodescontainer role="related" type="video" searchdirs="destination">
+          <mm:relatednodes>
+            <h5>video</h5>
+            <mm:link page="media">
+              <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+              <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+              
+              <a class="medium" href="${_}">
+                <mm:relatednodes type="picture" max="1">
+                  <mm:import id="pic" reset="true">ok</mm:import>
+                  <mm:image mode="img" width="100" />
+                  <img src="${mm:link('/style/images/play_small.png')}" class="playIcon" /><br />
+                </mm:relatednodes>
+                <mm:notpresent referid="pic">
+                  <img src="${mm:link('/style/images/video-003.gif')}" alt="${_node.title}" width="100"  />
+                </mm:notpresent>
+                <mm:field name="title" />
+              </a>
+            
+            </mm:link>
+          </mm:relatednodes>
+      </mm:relatednodescontainer> 	
+
+      <!-- campaign -->
+      <mm:relatednodescontainer role="related" type="campaign" searchdirs="source">
+          <!-- <mm:constraint field="number" operator="IN" value="<%=banvalueset%>" inverse="true"/> -->
+          <mm:relatednodes>
+            <h5>campaign</h5>
+            <mm:link page="content">
+              <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+              <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+              <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
+            </mm:link>
+          </mm:relatednodes>
+      </mm:relatednodescontainer> 	
+
+      <!-- event -->
+      <mm:relatednodescontainer role="related" type="event" searchdirs="source">
+          <mm:relatednodes>
+            <h5>event</h5>
+            <mm:link page="content">
+              <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+              <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+              <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
+            </mm:link>
+          </mm:relatednodes>
+      </mm:relatednodescontainer> 
+
+      <!-- person -->
+      <mm:relatednodescontainer role="related" type="person" searchdirs="source">
+        <mm:relatednodes>
+          <h5>person</h5>
+          <mm:link page="content">
+            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+            <a class="medium" href="${_}">
+              <mm:field name="firstname"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field>
+              <mm:field name="prefix"><mm:isnotempty><mm:write /> </mm:isnotempty></mm:field>
+              <mm:field name="sirname"><mm:isnotempty><mm:write /></mm:isnotempty></mm:field>
+            </a>
+          </mm:link>
+        </mm:relatednodes>
+      </mm:relatednodescontainer> 
+            
       <!-- file -->
       <mm:relatednodescontainer role="related" type="file" searchdirs="destination">
           <!-- <mm:constraint field="number" operator="IN" value="<%=banvalueset%>" inverse="true"/> -->
@@ -51,10 +116,8 @@
                 <mm:field name="filename" />, <mm:field name="size" escape="myfilesize" />
               </span><br /><br />
             </mm:attachment>
-
           </mm:relatednodes>
       </mm:relatednodescontainer> 	
-
 
       <!-- organisation -->
       <mm:relatednodescontainer role="related" type="organisation" searchdirs="destination">
@@ -80,21 +143,6 @@
               <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
               <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
             </mm:link>
-          </mm:relatednodes>
-      </mm:relatednodescontainer> 	
-
-      
-      <!-- campaign -->
-      <mm:relatednodescontainer role="related" type="campaign" searchdirs="source">
-          <!-- <mm:constraint field="number" operator="IN" value="<%=banvalueset%>" inverse="true"/> -->
-          <mm:relatednodes>
-            <h5>campaign</h5>
-            <mm:link page="content">
-              <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-              <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-              <a href="${_}" class="small"><mm:field name="title" /></a><br /><br />
-            </mm:link>
-            
           </mm:relatednodes>
       </mm:relatednodescontainer> 	
     

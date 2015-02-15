@@ -107,6 +107,13 @@ div.ArticleLinksLabel.first {
 
 .tmf_addthis { font-size: 0.85em; }
 
+.medium { position: relative; }
+.medium .playIcon { 
+    position: absolute;
+    top: -24px;
+    left: 41px; 
+}
+
 /* ######## new video ###### */
 
 div.VideoTMFLogo
