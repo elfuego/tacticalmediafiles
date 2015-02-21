@@ -115,6 +115,7 @@
     <relation from="fragment" to="event" type="related" />
     <relation from="fragment" to="organisation" type="related" />
     <relation from="fragment" to="article" type="related" />
+    <relation from="fragment" to="metadata" type="related" />
     <!-- <relation from="fragment" to="templates" type="related" /> -->
     <relation from="fragment" to="url" type="posrel" />
     <relation from="fragment" to="mediasources" type="related" />

@@ -38,6 +38,7 @@ div.HomeFeaturedList div.HomeFeaturedItem {
     border-bottom: 3px solid #ccc;
     padding-bottom: 12px;
 }
+div.HomeFeaturedList div.HomeFeaturedItem.HomeFeaturedPhotoAuthor { font-size: 0.8em; }
 
 #tagcloud h2 { text-transform: uppercase; }
 #tagcloud li.tag_0{ font-size: 0.7em; font-weight: 100; } 
@@ -51,6 +52,18 @@ div.HomeFeaturedList div.HomeFeaturedItem {
 #tagcloud li.tag_8{ font-size: 1.5em; font-weight: 900; }
 #tagcloud li.tag_9{ font-size: 1.6em; font-weight: 900; }
 
+input.SearchNav { 
+    width: 80px;
+    height: 18px;
+    font-size: 0.9em;
+}
+input.SearchInput {
+    height: 18px;
+    font-size: 0.9em;
+    padding: 0 4px;
+    color: #555;
+    width: 124px;
+}
 .searched_with
 {
     margin-bottom: 32px;
@@ -105,6 +118,13 @@ div.ArticleLinksLabel.first {
 .shift_left a.addthis_button_wordpress { margin: -17px 0 0 -2px; }
 
 .tmf_addthis { font-size: 0.85em; }
+
+.medium { position: relative; }
+.medium .playIcon { 
+    position: absolute;
+    top: -24px;
+    left: 41px; 
+}
 
 /* ######## new video ###### */
 

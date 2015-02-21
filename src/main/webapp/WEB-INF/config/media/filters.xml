@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<!DOCTYPE mainFilter SYSTEM "http://www.mmbase.org/dtd/mediafilter_1_0.dtd" [
+ <!ENTITY % format SYSTEM "http://www.mmbase.org/dtd/formatcomparator_1_0.dtd" >
+ <!ENTITY % dimension SYSTEM "http://www.mmbase.org/dtd/dimensioncomparator_1_0.dtd" >
+ <!ENTITY % bitrate SYSTEM  "http://www.mmbase.org/dtt/clientbitratefilter_1_0.dtd" >
+ <!ENTITY % configSubTags "(preferredSource|preferredDimension|bitrates)?,property*">
+ %format;
+ %dimension;
+ %bitrate;
+]>
+
+<mainFilter>
+  <chain>
+
+    <!-- ================================================================================
+         Removing
+    -->
+    <!-- allow to filter out unwanted formats -->
+    <filter>org.mmbase.applications.media.filters.ClientFormatFilter</filter>
+
+
+    <!-- ================================================================================
+         Sorting
+    -->
+    <!-- Sort to our preference -->
+    <filter id="format">org.mmbase.applications.media.filters.ServerFormatSorter</filter>
+    <filter id="nodetype">org.mmbase.applications.media.filters.NodeTypeSorter</filter>
+
+    <!-- The player has 512x288, we prefer that -->
+    <filter id="dimensions">org.mmbase.applications.media.filters.ServerDimensionSorter</filter>
+    <!-- move 'intermediate' result down in the result -->
+    <filter id="intermediatesorter">org.mmbase.applications.media.filters.FieldValueSorter</filter>
+
+    <!-- Move unavailable result down in any case-->
+    <filter>org.mmbase.applications.media.filters.AvailableSorter</filter>
+
+  </chain>
+
+  <filterConfigs>
+    <config filter="format">
+      <preferredSource>
+        <source format="mp4" />
+        <source format="webm" />
+        <source format="ogv" />
+        <source format="ogg" />
+        <source format="mov" />
+        <source format="m3u8" />
+        <source format="mp3" />
+        <source format="flv" />
+        <source format="avi" />
+      </preferredSource>
+    </config>
+    <config filter="dimensions">
+      <preferredDimension>
+        <dimension x="512" y="288" />
+      </preferredDimension>
+    </config>
+    <config filter="nodetype">
+      <property name="list">videostreamsourcescaches,audiostreamsourcescaches</property>
+    </config>
+    <config filter="intermediatesorter">
+      <property name="pattern">.*\bintermediate\b.*</property>
+      <property name="inverse">true</property>
+    </config>
+
+  </filterConfigs>
+
+</mainFilter>

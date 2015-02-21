@@ -5,7 +5,7 @@
 /*
   Main javascript, uses jquery
   @author: Andre van Toly
-  @version: 0.1
+  @version: 0.2
 */
 $(document).ready(function() {
     
@@ -26,8 +26,8 @@ $(document).ready(function() {
     if ($('video').length || $('audio').length) {
         $('.VideoPlayer').oiplayer({
             'server' : '<mm:url page="/" absolute="true" />',
-            'jar' : '/oiplayer/plugins/cortado-ovt-stripped-0.6.0.jar',
-            'flash' : '/oiplayer/plugins/flowplayer-3.2.7.swf',
+            'jar' : '/style/oiplayer/plugins/cortado-ovt-stripped-0.6.0.jar',
+            'flash' : '/style/oiplayer/plugins/flowplayer-3.2.7.swf',
             'controls' : 'top'
         });
     }

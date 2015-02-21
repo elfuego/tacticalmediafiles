@@ -3,16 +3,19 @@
     xmlns:c="http://java.sun.com/jsp/jstl/core"
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
-    expires="120" type="text/html" language="client" postprocessor="none">
+    expires="0" type="text/html" language="client" postprocessor="none">
 <jsp:output doctype-root-element="html"
       doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
       doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
-<jsp:scriptlet>response.setStatus(404);</jsp:scriptlet>
+<jsp:directive.page isErrorPage="true" 
+	import="org.mmbase.bridge.*,java.util.*,javax.mail.*,javax.mail.internet.*" />
+<jsp:scriptlet>response.setStatus(503);</jsp:scriptlet>
 <mm:cloud>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
 <head>
-  <title>Page Not Found - Tactical Media Files</title>
+  <mm:import id="title">Error ${requestScope['javax.servlet.error.status_code']}</mm:import>
+  <title>${title} - Tactical Media Files</title>
   <meta name="description" content="Tactical Media Files" />
   <meta name="keywords" content="" />
   <meta name="robots" content="all" />
@@ -22,27 +25,31 @@
   <!--[if IE]>
     <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/ie.css')}" />
   <![endif]-->
+  <mm:link id="thispage">
+    <meta http-equiv="refresh" content="60; URL=${_}" />
+  </mm:link>
 </head>
 <body class="error">
 <div class="GlobalContainer">
   <tmf:top-container />
   <div class="ArticleContainer">
 	
-	<tmf:header-simple title="404 - Page not found" />
+	<tmf:header-simple title="${title}" />
     
-    <h3><jsp:expression>org.mmbase.Version.get()</jsp:expression></h3>
-    <p>The current URL -
-      <jsp:scriptlet>
-        String msg = (String) request.getAttribute("org.mmbase.servlet.error.message");
-        if (msg == null) {
-          msg = (String) request.getAttribute("javax.servlet.error.message");
-        }
-        out.println(msg);
-      </jsp:scriptlet>
-      - does not point to an existing resource in this web-application.
-      <br /><a href="${mm:link('/')}">home</a>
-    </p>
+    <h2>503 This web-site is temporary unavailable</h2>
+    <h3><mm:cloudinfo type="mmbaseversion" /></h3>
 
+    <p>
+      <em><mm:time time="now" format=":FULL.FULL" /></em> - This web-site is currently unavailable. <br />
+      Please come back later or <a href="${thispage}">reload this page</a>.
+    </p>
+    
+    <p>
+      If you are the administrator of this site, and this message does not disappear, please check
+      the mmbase log, which probably contains an indication of the reason why MMBase is not yet
+      successfully started.
+    </p>
+    
     <div class="clearBoth"><!-- empty --></div>
   </div><!-- EOF .ArticleContainer -->
 </div><!-- EOF .GlobalContainer -->

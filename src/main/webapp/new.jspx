@@ -70,15 +70,18 @@
             </mm:listnodes>
           </mm:listnodescontainer>
           
-          <!-- @TODO : person links -->
           <mm:listnodescontainer type="person">
             <mm:sortorder field="number" direction="DOWN" />
             <mm:maxnumber value="3" />
             <div class="SearchTypes">persons</div>
             <mm:listnodes>
-              <a class="medium" href="#">
-                <mm:field name="firstname" /> <mm:field name="prefix" /> <mm:field name="sirname" />
-              </a>
+              <mm:link page="content">
+                <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                <a class="medium" href="${_}">
+                  <mm:field name="firstname" /> <mm:field name="prefix" /> <mm:field name="sirname" />
+                </a>
+              </mm:link>
               <mm:relatednodes type="keyword">
                 <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
                 <mm:link page="pages">
@@ -96,13 +99,15 @@
           <mm:listnodescontainer type="picture">
             <mm:sortorder field="number" direction="DOWN" />
             <mm:maxnumber value="3" />
-            <div class="SearchTypes">picture</div>
+            <div class="SearchTypes">pictures</div>
             <mm:listnodes>
               <h5>picture</h5>
-              <a title="Klick for full size" href="#">
-                <mm:field name="title"/><br />
-                <mm:image mode="img" template="s(x60)" />
-              </a>
+              <mm:link page="/picture" referids="_node@pic">
+                <a title="Klick for full size" href="${_}">
+                  <mm:field name="title"/><br />
+                  <mm:image mode="img" template="s(x60)" />
+                </a>
+              </mm:link>
               <mm:relatednodes type="keyword">
                 <mm:first><br /><strong class="tag">tags:</strong></mm:first> 
                 <mm:link page="pages">

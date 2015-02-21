@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE application PUBLIC "-//MMBase//DTD application config 1.1//EN" "http://www.mmbase.org/dtd/application_1_1.dtd">
-<application name="TMF2" maintainer="tacticalmediafiles.net" version="3" auto-deploy="false">
+<!DOCTYPE application PUBLIC "-//MMBase//DTD application config 1.1//EN" 
+	"http://www.mmbase.org/dtd/application_1_1.dtd">
+<application name="TMF2" maintainer="tacticalmediafiles.net" version="4" auto-deploy="false">
   <requirements>
     <requires name="Resources" maintainer="mmbase.org" version="1" />
     <requires name="Media" maintainer="mediaproject.mmbase.org" version="1" />
@@ -42,6 +43,7 @@
   </neededreldeflist>
  
   <allowedrelationlist>
+    <!-- article, campaign and event extend from content -->
     <relation from="content" to="type" type="related" />
     <relation from="content" to="person" type="related" />
     <relation from="content" to="dates" type="related" />
@@ -53,7 +55,8 @@
     <relation from="content" to="picture" type="posrel" />
 
 
-    <relation from="article" to="person" type="author" />
+    <relation from="article" to="person"  type="author" />
+	<relation from="article" to="article" type="related" />
     <!-- <relation from="article" to="type" type="related" /> -->
     <!-- <relation from="article" to="person" type="related" /> -->
     <!-- <relation from="article" to="dates" type="related" /> -->
