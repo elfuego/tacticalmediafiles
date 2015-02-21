@@ -52,6 +52,18 @@ div.HomeFeaturedList div.HomeFeaturedItem.HomeFeaturedPhotoAuthor { font-size: 0
 #tagcloud li.tag_8{ font-size: 1.5em; font-weight: 900; }
 #tagcloud li.tag_9{ font-size: 1.6em; font-weight: 900; }
 
+input.SearchNav { 
+    width: 80px;
+    height: 18px;
+    font-size: 0.9em;
+}
+input.SearchInput {
+    height: 18px;
+    font-size: 0.9em;
+    padding: 0 4px;
+    color: #555;
+    width: 124px;
+}
 .searched_with
 {
     margin-bottom: 32px;
