@@ -1,0 +1,87 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    expires="0" type="text/html" language="client" postprocessor="none">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+<head>
+  <title>TMF editors - Login</title>
+  
+  <link href="${mm:link('/style/css/tmf.css')}" rel="stylesheet" type="text/css" />
+  <link href="${mm:link('/style/css/tmf2.css')}" rel="stylesheet" type="text/css" />
+  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
+<style type="text/css">
+  .login { margin-left: 80px; }
+  .ArticleContainer { width: 720px; }
+  fieldset { border: none; }
+  fieldset > div { margin-bottom: 1em; }
+  form label { display: block; }
+  input
+  {
+      width: 240px;
+      height: 18px;
+      padding: 2px;
+      font-size: 1.1em;
+  }
+  input.submit { width: auto; }
+  .err
+  {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin: 8px 12px;
+      padding: 8px;
+      border: 2px solid #c00;
+      background-color: #FCC;
+      width: 230px;   
+  }
+</style>
+</head>
+<body onload="document.getElementById('loginform').username.focus()">
+
+  <mm:import externid="username" />
+  <mm:import externid="password" />
+  <mm:import externid="submit_login" />
+  
+  <mm:import externid="referrer"  />
+  <mm:import externid="reason">please</mm:import>
+
+<div class="ArticleContainer">
+  <tmf:header-simple title="Please login" />
+  <div class="login">
+
+    <form id="loginform" action="${referrer}" method="post">
+        <mm:write referid="reason">
+          <mm:compare value="failed">
+            <p class="err">Failed to log in. Try again.</p>
+          </mm:compare>
+        </mm:write>
+        <fieldset class="labelininput">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" value="${username}" name="username" id="username" /><br />
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" value="" name="password" id="password" />
+            </div>
+        </fieldset>
+        <fieldset class="buttons">
+            <div>
+              <input type="hidden" name="command" value="login" />
+              <input type="hidden" name="cloud" value="mmbase" /><!-- also default -->
+              <input type="hidden" name="authenticate" value="name/password" />
+              <!-- input type="hidden" name="referrer" value="${referrer}" / -->
+              <input class="submit" value="Login" type="submit" name="submit_login" />
+            </div>
+        </fieldset>
+    </form>
+
+  </div>
+</div>
+ 
+</body>
+</html>
+</mm:content>

@@ -4,26 +4,26 @@
     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
-    expires="0" type="text/html"
+    expires="120" type="text/html"
     language="client">
 <jsp:output doctype-root-element="html"
       doctype-public="-//W3C//DTD XHTML 1.1//EN"
       doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
-<mm:cloud method="http" rank="basic user">
+<mm:cloud loginpage="/edit/login.jspx" rank="basic user">
+
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>TMF Editors</title>
   <style type="text/css">
-  body {font-family: sans-serif;}
-  div.pager > a,
-  div.pager > strong { margin-right: 8px;}
+    body { font-family: Helvetica, sans-serif; }
+    div.pager > a,
+    div.pager > strong { margin-right: 8px; }
   </style>
-
   <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
   <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
-  <link rel="icon" href="${mm:link('/mmbase/style/images/favicon.ico')}" type="image/x-icon" />
-  <link rel="shortcut icon" href="${mm:link('/mmbase/style/images/favicon.ico')}" type="image/x-icon" />
+  <link rel="icon" href="${mm:link('/favicon.ico')}" type="image/x-icon" />
+  <link rel="shortcut icon" href="${mm:link('/favicon.ico')}" type="image/x-icon" />
   <style type="text/css">
     body { padding: 1em; }
     .logo { 
@@ -45,6 +45,7 @@
 <p>
   <a href="${mm:link('/edit/')}">editors</a> |
   <a href="${mm:link('videos.jspx')}">video editors</a> |
+  <a href="${mm:link('logout.jspx')}">logout</a> |
   you are <mm:cloudinfo type="user" /> (<mm:cloudinfo type="rank" />)
 </p>
 <table width="700">
@@ -101,11 +102,6 @@
     </td>
   <td width="74%"><p>Choose articles, events, movies, works or people for the featured section of the frontpage</p></td>
 </tr>	
-<tr bgcolor="#F2F2F2">			
-    <td>Update tagcloud</td>
-    <td class="link" ><!-- <a href="tagrelcounter.jsp"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
-    <td><p>Counts (new) relations to a tag.</p></td>
-</tr>					
 <tr>
     <td>Articles</td>
     <td width="8%" class="link">
@@ -301,24 +297,6 @@
     <!-- <a href="videolijst.jsp"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> --></td>
     <td><p>Add metadata to a video <!-- and divide it in annotated fragments -->.</p></td>
 </tr>
-<tr>
-    <td>Connect Media Objects</td>
-    <td class="link"><!-- <a href="/mmbase/edit/wizard/jsp/list.jsp?wizard=TMF/media&amp;nodepath=media&amp;orderby=number&amp;directions=down&amp;fields=title,handle,mtype&amp;searchfields=title,handle&amp;referrer=%2Fedit%2Findex.jsp&amp;language=en"><img alt="&gt;" src="/mmbase/style/images/next.gif"></a> -->
-
-    <mm:link page="$list">
-      <mm:param name="wizard">TMF/video</mm:param>
-      <mm:param name="nodepath">video</mm:param>
-      <mm:param name="orderby">number</mm:param>
-      <mm:param name="directions">down</mm:param>
-      <mm:param name="fields">title,handle,mtype</mm:param>
-      <mm:param name="searchfields">title,handle,mtype</mm:param>
-      <a href="${_}"><img alt="&gt;" src="${mm:link('/mmbase/style/images/next.gif')}"  /></a>
-    </mm:link>
-
-
-    </td>
-    <td><p>Connect a video to other objects.</p></td> 
-</tr>	
     
 
 </table>
