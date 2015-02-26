@@ -97,7 +97,7 @@
             </c:choose>
             
             <tmf:footer />
-            <!-- tmf:googleanalytics / -->
+            <tmf:googleanalytics />
           
           </div>
         </body>

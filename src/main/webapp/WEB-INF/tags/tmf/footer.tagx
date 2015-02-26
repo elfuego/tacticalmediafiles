@@ -9,8 +9,5 @@
       description="Footer of this site."
       />
   
-  <div id="footer">
-    
-    
-  </div>
+  <div id="footer"> <!-- empty --> </div>
 </jsp:root>
