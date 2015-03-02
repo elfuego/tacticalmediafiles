@@ -59,6 +59,11 @@
 				<field name="name" />
 			</object>
 		</relation>
+		<relation role="related" searchdir="both" destination="keyword">
+			<object>
+				<field name="keyword" />
+			</object>
+		</relation>
 
 	</action>
 
@@ -80,5 +85,6 @@
 		<list include="TMF/list_person.xml" />
 		<list include="TMF/list_file.xml" />		
 		<list include="TMF/list_copyright.xml" />
+		<list include="TMF/list_keyword.xml" />
  	</form-schema>
 </wizard-schema>

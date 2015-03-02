@@ -91,6 +91,7 @@
     <relation from="organisation" to="picture" type="posrel" />
     
     <relation from="media" to="videofragments" type="posrel" />
+    <relation from="media" to="keyword" type="related" />
     <relation from="videofragments" to="videofragments" type="posrel" />
     <relation from="videofragments" to="person" type="posrel" />
     <relation from="videofragments" to="url" type="posrel" />
@@ -106,7 +107,10 @@
     <relation from="article" to="url" type="related" />
     <relation from="event" to="url" type="related" />
     <relation from="person" to="keyword" type="related" />
+    <relation from="person" to="media" type="related" />
     <relation from="article" to="media" type="related" />
+    <relation from="event" to="media" type="related" />
+    <relation from="campaign" to="media" type="related" />
     <relation from="campaign" to="article" type="related" />
     <relation from="campaign" to="person" type="author" />
     <relation from="campaign" to="person" type="related" />
