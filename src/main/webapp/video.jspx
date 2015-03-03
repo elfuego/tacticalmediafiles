@@ -161,7 +161,7 @@
                 <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
                   <mm:maxnumber value="1" />
                   <mm:relatednodes>
-                    <tmf:video width="480" height="360" poster="${poster}" />
+                    <tmf:video width="480" height="360" poster="${poster}" id="${media}" />
                   </mm:relatednodes>
                 </mm:relatednodescontainer>
 
