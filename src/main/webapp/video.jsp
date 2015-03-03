@@ -17,14 +17,14 @@
 <mm:listnodescontainer type="syncnodes">
   <mm:constraint field="exportnumber" value="$objectnumber" operator="EQUAL" />
   <mm:listnodes>
-    <mm:field name="localnumber" />
     
-    <mm:link page="media" absolute="context">
+    <mm:link page="media" absolute="server">
       <mm:frameworkparam name="component">tmf</mm:frameworkparam>
       <mm:frameworkparam name="n">${_node.localnumber}</mm:frameworkparam>
       <c:set var="redirect" value="${_}" />
+      <a href="${_}">${_}</a>
     </mm:link>
-    
+        
     <c:redirect url="${redirect}" />
     
   </mm:listnodes>
