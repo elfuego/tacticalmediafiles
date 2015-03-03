@@ -104,6 +104,8 @@
 		  <br /><br />
 		</div>								
   	  </div><!-- EOF .PictureContainer --></div>
+      
+      <tmf:googleanalytics />
 
 </body>
 </html>
