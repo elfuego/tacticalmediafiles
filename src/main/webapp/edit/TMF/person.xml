@@ -60,7 +60,7 @@
 				<field name="subtitle"/>
 			</object>
 		</relation>
-		<relation role="related" searchdir="both" destination="video">
+		<relation role="related" searchdir="destination" destination="video">
 			<object>
 				<field name="title"/>
 				<field name="description"/>
