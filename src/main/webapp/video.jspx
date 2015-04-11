@@ -10,6 +10,9 @@
   <mm:import externid="cacheable" />
   
   <mm:node referid="media">
+    <mm:nodeinfo type="type" id="type" write="false" />
+    <c:if test="${type ne 'video'}"><c:redirect url="/error/404.jspx" /></c:if>
+    
     <mm:import id="media_title" reset="true"><mm:field name="title" escape="inline" /></mm:import>
   </mm:node>
   
@@ -115,7 +118,7 @@
               
               <!-- Video Markers -->
 
-              <mm:relatednodescontainer type="fragment" role="posrel" searchdirs="destination">
+              <!-- mm:relatednodescontainer type="fragment" role="posrel" searchdirs="destination">
                 <mm:sortorder field="number" direction="UP" />
 
                 <mm:size>
@@ -134,7 +137,7 @@
                   </li>
                 </mm:relatednodes>
                 </ul>
-              </mm:relatednodescontainer>
+              </mm:relatednodescontainer -->
               
               <!--<table id="list_Deelnemers" class="VideoMarkerList" border="0">
                 <tbody><tr>
