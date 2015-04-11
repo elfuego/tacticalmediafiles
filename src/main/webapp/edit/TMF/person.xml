@@ -3,8 +3,8 @@
  
 <wizard-schema id="person">
 
-	<title xml:lang="en">Person!</title>
-	<title xml:lang="nl">Persoon!</title>
+	<title xml:lang="en">Person</title>
+	<title xml:lang="nl">Persoon</title>
 		
 	<action type="create">
 		<object type="person" />
@@ -144,7 +144,7 @@
 		
 		<list role="author" destination="article" >
 			<title xml:lang="en">Has written these articles</title>
-			<title xml:lang="nl">Heeft deze artiekelen geschreven</title>
+			<title xml:lang="nl">Heeft deze artikelen geschreven</title>
 	
 			<item>
 				<field name="title" ftype="data">
