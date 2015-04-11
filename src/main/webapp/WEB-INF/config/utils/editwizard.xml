@@ -24,9 +24,8 @@
     <!--
       Property maxUploadSize: the default maximum size (in bytes) for files uploaded through the editwizards.
       The normal default is 4194304 (4 MB).
-
-      <property name="maxUploadSize">4194304</property>
     -->
+      <property name="maxUploadSize">104857600</property>
   </properties>
 </util>
 
