@@ -94,6 +94,7 @@
     <relation from="person" to="address" type="related" />
     <relation from="person" to="article" type="related" />
     <relation from="person" to="video" type="related" />
+    <relation from="person" to="file" type="related" />
     <relation from="event" to="file" type="related" />
     <relation from="person" to="organisation" type="related" />
     <relation from="person" to="event" type="related" />
