@@ -24,7 +24,7 @@
       cacheable="${cacheable}"
       styleClass="${type}">
     
-    <jsp:attribute name="title">${page_title}</jsp:attribute>
+    <jsp:attribute name="title"><mm:write referid="page_title" escape="inline" /></jsp:attribute>
     
     <jsp:attribute name="head">
        
