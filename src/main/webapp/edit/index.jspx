@@ -256,6 +256,7 @@
       <mm:param name="directions">down</mm:param>
       <mm:param name="fields">title,filename,mimetype</mm:param>
       <mm:param name="searchfields">title,filename,mimetype</mm:param>
+      <mm:param name="maxsize">104857600</mm:param>
       <a href="${_}"><img alt="&gt;" src="${mm:link('/mmbase/style/images/next.gif')}"  /></a>
     </mm:link>
     </td>
