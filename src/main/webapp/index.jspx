@@ -22,6 +22,8 @@
     <jsp:attribute name="title"></jsp:attribute>
     
     <jsp:attribute name="head">
+        <meta name="description" content="Tactical Media Files is a 'living archive' for Tactical Media's present, past and future. More than an archive, it is an active news and documentation tool for the evolving practices of tactical media." />
+        <meta name="keywords" content="tactical media files, media, archive, social, activism, video, campaign, political, debate" />
         <link href="http://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
         <!-- nothing here yet -->
         <style type="text/css">
