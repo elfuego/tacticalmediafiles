@@ -30,7 +30,7 @@
        
        <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
          <mm:relatednodes>
-           <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">,</mm:first>${keywords}</c:set>
+           <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">, </mm:first>${keywords}</c:set>
          </mm:relatednodes>
        </mm:relatednodescontainer>
        <mm:field name="intro">
