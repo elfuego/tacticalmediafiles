@@ -1,0 +1,99 @@
+// Colors
+// -------------------------------
+
+@color-primary:                     #00ADEE;
+@color-primary-dark:                #008BCE;  
+@color-secondary:                   #6D6D6D;
+
+// Black & white
+@color-black:                       #000;
+@color-white:                       #fff;
+@color-white-transparent:           fade(@color-white, 90%);
+@color-grey:                        #EFEFEF;
+
+// Grey
+@color-grey--10:                    #F0F0F0;
+@color-grey--20:                    #9B9B9B;
+@color-grey--40:                    #C8C8C8;
+@color-grey--50:                    #E1E1E1;
+@color-grey--60:                    ;
+@color-grey--80:                    #4A4A4A;
+
+
+// Fonts
+// -------------------------------
+
+@font:								'Georgia', serif;
+@font-secondary:                    'League Spartan', sans-serif;
+
+// Font sizes
+@font-extra-small:                  1.2rem;
+@font-small:                        1.6rem;
+@font-medium:                       1.8rem;
+@font-base:                         2rem;
+@font-large:                        2.4rem;
+
+@font-title-extra-small:            2.4rem;
+@font-title-small:                  3.2rem;
+@font-title-normal:                 3.6rem;
+@font-title-main:                   4.2rem;
+
+@line-height--addition:             0.8rem;
+
+@line-height--base:                 @font-base + @line-height--addition;
+@line-height--small:                @font-small + @line-height--addition;
+@line-height--medium:               @font-medium + @line-height--addition;
+@line-height--large:                @font-large + @line-height--addition;
+
+@line-height--title-main:           @font-title-main + @line-height--addition;
+@line-height--title-normal:         @font-title-normal + @line-height--addition;
+@line-height--title-small:          @font-title-small + @line-height--addition;
+@line-height--title-extra-small:    @font-title-extra-small + @line-height--addition;
+
+
+// Border radius
+// -------------------------------
+
+@border-radius-button:              0.5rem;
+
+
+// Box shadows
+// -------------------------------
+
+@box-shadow:                        0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.25);
+
+
+// Text shadows
+// -------------------------------
+
+@text-shadow:                       0 0.2rem 0.5rem rgba(0, 0, 0, 0.25);
+
+
+// Transitions
+// -------------------------------
+
+@trans-fast:                        0.2s ease;
+@trans-fast-material:               0.2s cubic-bezier(.4, 0, 0.2, 1);
+
+@trans-normal:                      0.35s ease;
+@trans-normal-material:             0.35s cubic-bezier(.4, 0, 0.2, 1);
+
+@trans-slow-material:               0.5s cubic-bezier(.4, 0, 0.2, 1);
+
+//
+// Breakpoints
+// --------------------------------------------------
+
+// Min widths
+@screen-xs:                   ~'(min-width: 320px)';
+@screen-sm:                   ~'(min-width: 680px)';
+@screen-md:                   ~'(min-width: 768px)';
+@screen-lg:                   ~'(min-width: 1024px)';
+@screen-xl:                   ~'(min-width: 1681px)';
+
+// Max widths
+@screen-xs-max:               ~'(max-width: 319px)';
+@screen-sm-max:               ~'(max-width: 679px)';
+@screen-md-max:               ~'(max-width: 767px)';
+@screen-lg-max:               ~'(max-width: 1023px)';
+@screen-xl-max:               ~'(max-width: 1680px)';

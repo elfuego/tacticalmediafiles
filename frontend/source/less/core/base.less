@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+*:focus {
+    // remove outline from all focused elements
+    outline: none;
+}
+
+html {
+    //Set the base box-sizing that will be inherited by all other elements
+    box-sizing: border-box;
+
+    // Set the base font size for rem sizes
+    font-size: 8px;
+
+    // Add cross-browser antialiasing
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    // Other base styling
+    text-rendering: auto;
+    -webkit-text-size-adjust: 100%;
+    position: relative;
+    height: 100%;
+    margin: 0;
+    cursor: default;
+
+    @media (min-width: 1260px) {
+        font-size: 10px;
+    }
+
+    @media @screen-xl {
+        font-size: 12px;
+    }
+}
+
+body {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    font-family: @font;
+    font-size: @font-medium;
+    line-height: @line-height--medium;
+    color: @color-black;
+    background-color: @color-white;
+    overflow-y: scroll;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    border: none;
+}
+
+a {
+    color: @color-secondary;
+    text-decoration: none;
+}

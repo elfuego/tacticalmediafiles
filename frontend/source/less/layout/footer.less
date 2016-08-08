@@ -1,0 +1,40 @@
+.footer {
+    position: relative;
+    min-height: 8rem;
+    background-color: @color-grey;
+	padding: 3rem 0;
+	font-family: @font-secondary;
+	text-transform: uppercase;
+
+	.footer-inner {
+		line-height: @line-height--medium;
+
+		@media @screen-sm-max {
+			height: auto;
+			min-height: auto;
+			padding-top: 0.2rem;
+			margin-top: 1rem;
+		}
+
+		.footer__navigation {
+			margin-top: 1rem;
+		}
+
+		.footer__link {
+			color: @color-secondary;
+			font-size: @font-small;
+			text-decoration: none;
+			font-weight: 200;
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+		}
+
+		strong {
+			color: @color-black;
+		}
+
+	}
+}
