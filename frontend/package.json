@@ -23,6 +23,8 @@
     "gulp-jsbeautifier": "~2.0.3",
     "gulp-jshint": "~2.0.1",
     "jshint-stylish": "~2.2.0",
+    "gulp-iconfont": "^8.0.1",
+    "gulp-iconfont-css": "^2.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-pug": "^3.0.2",
     "gulp-sourcemaps": "^1.6.0",

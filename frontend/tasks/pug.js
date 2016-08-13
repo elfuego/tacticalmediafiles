@@ -31,6 +31,5 @@ gulp.task('pug', function() {
         data: { config: config }
     }))
     .pipe(gulp.dest('./public'))
-    .pipe(browserSync.reload({stream: true}));
 });
 

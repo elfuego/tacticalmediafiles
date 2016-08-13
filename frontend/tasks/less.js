@@ -16,8 +16,6 @@ gulp.task('less', function () {
             }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./public/styles/css'))
-
-        .pipe(browserSync.reload({stream: true}));
 });
 
 

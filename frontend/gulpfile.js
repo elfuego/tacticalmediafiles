@@ -18,8 +18,8 @@ gulp.task('browser-sync', function() {
         files: [
             "public/**/*.*"
         ],
-        reloadDelay: 5000,
-        reloadDebounce: 2000
+        reloadDelay: 1500,
+        reloadDebounce: 1000
     });
 });
 
@@ -28,7 +28,7 @@ gulp.task('less-watch', ['less'], reload);
 gulp.task('pug-watch', ['pug'], reload);
 gulp.task('images-watch', ['images'], reload);
 
-gulp.task('develop', ['fonts', 'images', 'pug', 'less', 'js-lint', 'js'], function () {
+gulp.task('develop', ['favicon', 'fonts', 'icons', 'images', 'pug', 'less', 'js-lint', 'js'], function () {
     gulp.watch("pug/**/*.pug", {cwd:'./source'}, ['pug-watch']);
     gulp.watch("images/**/*", {cwd:'./source'}, ['images-watch']);
     gulp.watch("less/**/*.less", {cwd:'./source'}, ['less-watch']);
