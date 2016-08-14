@@ -1,29 +1,10 @@
 extends layout/page
 
 prepend variables
-    - bodyClass = 'homepage'
-    - mainClass = '___no-padding';
-
-include modules/carousel
+    - bodyClass = 'list'
+    - mainClass = '';
 
 append main
-    .carousel
-        +carousel({
-                title : 'The Manifesto of John Doe: The Revolution Will Be Digitized', 
-                type : 'video', 
-                url : '#', 
-                image: 'styles/images/ferguson_black_power_0814.jpg'
-            }, {
-                title : 'NRA and Smith & Wesson Partner to "Share the Safety" With All Americans', 
-                type : 'article', 
-                url : '#', 
-                image: 'styles/images/occupy-sandy-banner-we-the-people.jpg'
-            }, {
-                title : 'Nuit Debout', 
-                type : 'article', 
-                url : '#', 
-                image: 'styles/images/Nuit_Debout_16.jpg'
-            })
 
     .container
         .row

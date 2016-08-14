@@ -2,17 +2,17 @@ nav.navigation
     .container
         .row
             .col-md-2
-                select
-                    option Topics
+                a( href="topics" data-select-topics ) Topics
             .col-md-2
-                select
-                    option Collections
+                a( href="collections" data-select-collections ) Collections
             .col-md-4
-                form.navigation__search( action="#" )
+                form.navigation__search( action="list.html" )
                     label( for="search" hidden ) Search
                     input.navigation__search-input( id="search" type="text" placeholder="Search the archive" )
                     button Go
             .col-md-4
-                span Filter
-                select
-                    option All
+                label.select-label( for="filter" ) Filter
+                select( id="filter" name="filter" data-select-filter )
+                    option( value="all" selected ) All
+                    option( value="articles" ) Articles
+                    option( value="videos" ) Videos

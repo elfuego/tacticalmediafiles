@@ -1,19 +1,52 @@
+.homepage {
+    .navigation {
+        position: absolute;
+        top: 44rem;
+        border-top: 0.1rem solid @color-grey--40;
+        border-bottom: 0.1rem solid @color-grey--40;
+    }
+}
+
 .navigation {
     position: absolute;
-    //display: flex;
-    line-height: 4rem;
+    left: 0;
+    top: 0;
+    
     z-index: 1;
     background: @color-grey;
     width: 100%;
 
-    .navigation__content {
+    font-family: @font-secondary;
+    font-size: @font-small;
+    color: @color-grey--20;
+    line-height: 5rem;
 
-    	ul.navigation__menu {
-    		list-style: none;
-    		li {
-    			float: left;
-    		}
-    	}
+    a, label {
+        text-transform: uppercase;
+        vertical-align: middle;
+        color: @color-grey--20;
+    }
+    input, button {
+        line-height: 2rem;
+        text-align: center;
+        color: @color-grey--20;
+        text-transform: uppercase; 
+    }
+    button { color: @color-black; }
+
+    .select-label { 
+    	float: left;
+    	text-align: right;
+    	width: 7rem; 
+    }
+
+    .selector { 
+        margin: 0.7rem 0 0 8rem;
+        .selector__select { line-height: 3rem; }
+    }
+
+    .col-md-2, .col-md-4 {
+        text-align: center;
     }
 }
 

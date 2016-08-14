@@ -28,10 +28,13 @@ html {
     margin: 0;
     cursor: default;
 
-    @media (min-width: 1260px) {
+    @media @screen-sm-max {
+        font-size: 7px;
+    }
+    // in between is base size 8px
+    @media @screen-lg {
         font-size: 10px;
     }
-
     @media @screen-xl {
         font-size: 12px;
     }
