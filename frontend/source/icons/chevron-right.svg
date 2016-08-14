@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="9px" height="12px" viewBox="0 0 9 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 39 (31667) - http://www.bohemiancoding.com/sketch -->
+<svg width="15px" height="24px" viewBox="0 0 15 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
     <title>Shape</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="IPO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Homepage-standpunt-1" transform="translate(-329.000000, -1374.000000)" fill="#4A4A4A">
-            <g id="Group-Copy-11" transform="translate(249.000000, 1368.000000)">
-                <g id="chevron-right" transform="translate(70.727743, 0.000000)">
-                    <polygon id="Shape" points="9.84670973 7.42143685 11.449667 6.01738123 18.319484 12.0347625 11.449667 18.0521437 9.84670973 16.6480881 15.1135694 12.0347625"></polygon>
-                </g>
-            </g>
-        </g>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Shape" fill="#000000" points="3 0 0.17 2.83 9.34 12 0.17 21.17 3 24 15 12"></polygon>
     </g>
 </svg>

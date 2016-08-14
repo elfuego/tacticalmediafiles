@@ -96,22 +96,18 @@
 	    padding: 0;
 	    border: none;
 	    outline: none;
+	    
 	    &:hover, &:focus {
 	        outline: none;
 	        background: transparent;
 	        color: transparent;
-	        &:before {
-	            //opacity: @slick-opacity-on-hover;
-	        }
-	    }
-	    &.slick-disabled:before {
-	        //opacity: @slick-opacity-not-active;
 	    }
 	}
 
 	.slick-prev {
 	    left: 4rem;
-		.icon(chevron-left);
+		.icon(chevron-right);
+		transform: rotate(180deg);
 
 		&:before {
 	    	color: @color-white;
@@ -132,13 +128,14 @@
 
 
 	.slick-dotted .slick-slider {
+	    z-index: @lift-20;
 	    margin-bottom: 3rem;
 	}
 
 	.slick-dots {
-	    //z-index: 9;
 	    position: absolute;
 	    bottom: 2rem;
+	    left: -0.2rem;	// moved bit to left to better center
 	    width: 100%;
 	    text-align: center;
 	    list-style: none;
@@ -157,6 +154,7 @@
 	        
 	        button {
                 .icon(slider-dot);
+	            color: @color-secondary;
 	            border: 0;
 	            background: transparent;
 	            display: block;
@@ -165,39 +163,22 @@
 	            outline: none;
 	            line-height: 0;
 	            font-size: 0;
-	            color: @color-secondary;
 	            padding: 0.5rem;
 	            cursor: pointer;
 	            
 	            &:hover, &:focus {
 	                outline: none;
-	                &:before {
-	                    // opacity: @slick-opacity-on-hover;
-	                }
 	            }
 	            
 	            &:before {
-	            	font-size: 2rem;
-	            	//color: @color-white;
-	                // position: absolute;
-	                // top: 0;
-	                // left: 0;
-	                // width: 2.5rem;
-	                // height: 2.5rem;
-	                // line-height: 2rem;
-	                // text-align: center;
-	                // color: red;
+	            	font-size: 1.6rem;
 	            }
 	        }
 	        &.slick-active button {
 	        	color: @color-white;
 	        }
-	        // &.slick-active button:before {
-         //        .icon(slider-dot);
-	        // }
 	    }
 	}
-
 
 }
 
