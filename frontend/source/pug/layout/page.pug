@@ -35,7 +35,8 @@ html
             footer.page-layout__footer
                 include footer
 
-            script( src=config.paths.assets.js+"/main.js" )
+            .overlay( data-select-results )
+                include overlay
             
-            .overlay
-                block overlay
+        script( src=config.paths.assets.js+"/main.js" )
+            

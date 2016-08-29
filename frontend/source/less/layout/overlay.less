@@ -8,9 +8,15 @@
     width: 100%;
     heigth: 100%;
 
-    //visibility: hidden;
-    //opacity: 0;
-    transition: 0.2s ease;
+    visibility: hidden;
+    opacity: 0;
+
+    .show-overlay & {
+    	visibility: visible;
+    	opacity: 1;
+    }
+    
+    transition: @trans-normal-material;
     background-color: @color-black-transparent;
     z-index: @lift-20;
 
@@ -19,23 +25,47 @@
     	overflow: scroll;
     }
 
-	a:link, 
-	a:visited {
-		color: @color-grey;
-	}
-	a:hover, 
-	a:active {
-		color: @color-white;
-		border-bottom: 1px solid @color-white;
-	}
+    a {
+    	color: @color-grey;
+    	
+    	&:link,
+    	&:visited {
+			color: @color-grey;
+    	}
+
+		&:hover, 
+		&:active {
+			color: @color-white;
+			border-bottom: 1px solid @color-white;
+		}
+    }
     
+	a.close {
+		position: absolute;
+		left: 4rem;
+		top: 4rem;		
+		
+		.icon(close);		
+	    color: @color-white;
+		&:before {
+			font-size: 2rem;
+			outline: none;
+		}
+		&:hover { 
+			color: @color-primary; 
+			border-bottom: none; 
+			transition: color @trans-normal-material;
+		}
+	}
+
+
     h2 {
         margin: 6rem 0 0 0;
         color: @color-white;
         font-family: @font-secondary;
-        text-transform: lowercase;
+        text-transform: uppercase;
         text-align: center;
-        font-size: @font-medium;    	
+        font-size: @font-small;    	
     }
 
     .collections {
@@ -81,6 +111,13 @@
 			height: 2.8rem;
 			background-color: @color-grey;
 			color: @color-black;
+			transition: background-color @trans-normal-material, color @trans-normal-material;
+
+			&:hover {
+				color: @color-white;
+				background-color: @color-primary; 
+				border-color: @color-primary;
+			}
 		}
 	}
 
