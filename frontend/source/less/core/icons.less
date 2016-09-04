@@ -1,0 +1,81 @@
+@font-face {
+    font-family: "icon-webfont";
+    src: url('../icons/icon-webfont.eot');
+    src: url('../icons/icon-webfont.eot?#iefix') format('eot'),
+        url('../icons/icon-webfont.woff2') format('woff2'),
+        url('../icons/icon-webfont.woff') format('woff'),
+        url('../icons/icon-webfont.ttf') format('truetype'),
+        url('../icons/icon-webfont.svg#icon-webfont') format('svg');
+}
+
+[class^="icon-"],
+[class*=" icon-"],
+.icon-base-pseudo {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: "icon-webfont";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.icon-char(@filename) {
+    @chevron-down: "\E001";
+    @chevron-left: "\E002";
+    @chevron-right: "\E003";
+    @chevron-up: "\E004";
+    @close: "\E005";
+    @home: "\E006";
+    @slider-dot: "\E007";
+    
+    content: @@filename;
+}
+
+.icon(@filename, @insert: before) {
+    @pseudo-selector: ~":@{insert}";
+
+    &@{pseudo-selector} {
+        &:extend(.icon-base-pseudo);
+        .icon-char(@filename);
+    }
+}
+
+//
+// Icons
+//
+
+.icon-chevron-down:before {
+    content: "\E001";
+}
+
+.icon-chevron-left:before {
+    content: "\E002";
+}
+
+.icon-chevron-right:before {
+    content: "\E003";
+}
+
+.icon-chevron-up:before {
+    content: "\E004";
+}
+
+.icon-close:before {
+    content: "\E005";
+}
+
+.icon-home:before {
+    content: "\E006";
+}
+
+.icon-slider-dot:before {
+    content: "\E007";
+}
+

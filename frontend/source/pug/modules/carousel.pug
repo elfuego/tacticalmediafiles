@@ -1,0 +1,18 @@
+mixin carousel(...items)
+    .slider( data-slider-featured="home-page" )
+        each item in items
+            - item.url = item.url || '#'
+            .slider-item
+                .item( style="background-image: url(" + item.image + ");" )
+                    .container
+                        .row
+                            .col-md-2
+                            .col-md-8
+                                p 
+                                    strong.item__type featured #{item.type}
+                                h2.item__title #{item.title}
+                                //- p.item__intro #{item.intro}
+                                a.read-more( href="#{item.url}" ) Read
+                            .col-md-2
+
+
