@@ -8,7 +8,7 @@ block variables
     - var mainClass = mainClass || "";
 
 doctype html
-html
+html( lang="en" )
     head
         meta( charset="utf-8" )
         meta( http-equiv="X-UA-Compatible" content="IE=edge" )
@@ -18,17 +18,18 @@ html
         link( rel="icon" href="/favicon.png" )
         link( rel="shortcut icon" href="/favicon.ico" )
 
-        meta( name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" )
+        meta( name="viewport" content="width=device-width,initial-scale=1.0" )
 
         link( href=config.paths.assets.css+"/styles.css" rel="stylesheet" type="text/css" )
 
     body( class=bodyClass )
         .page-layout
+            a#skip-link( href="#main" ) Skip to main content
             header.page-layout__header
                 include header
                 include navigation
 
-            main.page-layout__main
+            main#main.page-layout__main
                 .main-content( class=mainClass )
                     block main
 
