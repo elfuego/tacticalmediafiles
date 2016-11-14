@@ -151,7 +151,7 @@
                 <mm:relatednodes>
                   <li>
                     [<tmf:duration milliseconds="${_node.start}" /><mm:field name="stop"><mm:isnotempty> - <tmf:duration milliseconds="${_}" /></mm:isnotempty></mm:field>]
-                    <a href="#t=${fn:substringBefore(_node.start / 1000, '.')}}" 
+                    <a href="#t=${fn:substringBefore(_node.start / 1000, '.')}" 
                         data-position-trigger="${fn:substringBefore(_node.start / 1000, '.')}" 
                         data-media-number="${media}" class="linkg"><mm:field name="title" /></a>
                   </li>
