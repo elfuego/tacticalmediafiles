@@ -30,7 +30,7 @@
     <jsp:attribute name="title">${media_title}</jsp:attribute>
     
     <jsp:attribute name="head">
-      <script type="text/javascript" src="${mm:link('/style/oiplayer/js/jquery.oiplayer.js')}"><!-- salut msie --></script>
+      <script type="text/javascript" src="${mm:link('/style/oiplayer/js/jquery.oiplayer.min.js')}"><!-- salut msie --></script>
       <link href="${mm:link('/style/oiplayer/css/oiplayer.css')}" rel="stylesheet" type="text/css" />
       <style type="text/css">
       video { 
@@ -61,6 +61,7 @@
       {
         list-style: none;
         font-size: 0.8em;
+        clear: both;
       }
       ul.videomarkers li
       {
@@ -135,8 +136,8 @@
               
               <!-- Video Markers -->
 
-              <!-- mm:relatednodescontainer type="fragment" role="posrel" searchdirs="destination">
-                <mm:sortorder field="number" direction="UP" />
+              <mm:relatednodescontainer type="fragment" role="posrel" searchdirs="destination">
+                <mm:sortorder field="posrel.pos" direction="UP" />
 
                 <mm:size>
                   <mm:isgreaterthan value="0">
@@ -149,12 +150,14 @@
                 <ul class="videomarkers">
                 <mm:relatednodes>
                   <li>
-                    [<tmf:duration milliseconds="${_node.start}" />]
-                    <a href="#" class="linkg"><mm:field name="title" /></a>
+                    [<tmf:duration milliseconds="${_node.start}" /><mm:field name="stop"><mm:isnotempty> - <tmf:duration milliseconds="${_}" /></mm:isnotempty></mm:field>]
+                    <a href="#t=${fn:substringBefore(_node.start / 1000, '.')}}" 
+                        data-position-trigger="${fn:substringBefore(_node.start / 1000, '.')}" 
+                        data-media-number="${media}" class="linkg"><mm:field name="title" /></a>
                   </li>
                 </mm:relatednodes>
                 </ul>
-              </mm:relatednodescontainer -->
+              </mm:relatednodescontainer>
               
               <!--<table id="list_Deelnemers" class="VideoMarkerList" border="0">
                 <tbody><tr>
@@ -227,7 +230,8 @@
           <div class="clearBoth"><!-- empty --></div>
           
         </div><!-- EOF .VideoContainer -->
-        <div class="clearBoth"><!-- empty --></div>
+        <div class="clearBoth"><!-- empty --></div>        
+        
       </mm:node>
     </jsp:attribute>
   </tmf:html>
