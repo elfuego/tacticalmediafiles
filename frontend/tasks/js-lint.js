@@ -1,12 +1,15 @@
 'use strict';
 
-var gulp = require('gulp');
-var notify = require('gulp-notify');
-var lint = require('gulp-jshint');
-var stylish = require('jshint-stylish');
+import config from '../config/default';
 
-gulp.task('js-lint', function () {
-	gulp.src(['./source/js/default/**/*.js'])
+import gulp     from 'gulp';
+import notify   from 'gulp-notify';
+import lint     from 'gulp-jshint';
+import stylish  from 'jshint-stylish';
+
+export default () => {
+
+	gulp.src([config.paths.source + '/js/default/**/*.js'])
         .pipe(lint())
         .pipe(lint.reporter(stylish))
         .pipe(lint.reporter('fail'))
@@ -14,4 +17,4 @@ gulp.task('js-lint', function () {
                 return { icon: false, title: 'JS LINT ERROR', message: err.message };
             }));
 
-});
+}

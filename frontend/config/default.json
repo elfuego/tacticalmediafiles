@@ -5,6 +5,7 @@
     },
     "paths": {
         "source": "source",
+        "test": "public",
         "build": "public",
         "assets": {
             "css": "styles/css",

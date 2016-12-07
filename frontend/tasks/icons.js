@@ -1,17 +1,19 @@
 'use strict';
 
-var gulp = require('gulp');
+import config from '../config/default';
 
-var iconfont = require('gulp-iconfont');
-var iconfontCss = require('gulp-iconfont-css');
-var runTimestamp = Math.round(Date.now()/1000);
+import gulp        from 'gulp';
+import iconfont    from 'gulp-iconfont';
+import iconfontCss from 'gulp-iconfont-css';
 
-gulp.task('icons', function () {
-    return gulp.src( './source/icons/**' )
+//var runTimestamp = Math.round(Date.now()/1000);
+
+export default() => {
+    return gulp.src(config.paths.source + '/icons/**')
         .pipe(iconfontCss({
             fontName: 'icon-webfont',
             path: 'source/less/core/_icons.less',
-            targetPath: '../../../source/less/core/icons.less',
+            targetPath: '../../../' + config.paths.source + '/less/core/icons.less',
             fontPath: '../icons/'
         }))
         .pipe(iconfont({
@@ -21,5 +23,6 @@ gulp.task('icons', function () {
             normalize: true
             //timestamp: runTimestamp
         }))
-        .pipe(gulp.dest('./public/styles/icons'));
-});
+        .pipe(gulp.dest(config.paths.build + '/' + config.paths.assets.icons));
+
+}
