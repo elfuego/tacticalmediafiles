@@ -1,35 +1,28 @@
 'use strict';
 
-var fs          = require('fs');
-var gulp        = require('gulp');
-var pug         = require('gulp-pug');
+import config       from '../config/default'
 
-var browserSync = require('browser-sync');
-var reload      = browserSync.reload;
+import gulp         from 'gulp';
+import notify       from 'gulp-notify';
+import pug          from 'gulp-pug';
 
-var fileReadJSON = function(path) {
-    try {
-        var buf = fs.readFileSync(path);
-        return JSON.parse(buf);
-    } catch (ex) {
-        console.log(ex);
-        return null;
-    }
-};
+export default () => {
 
-var config = fileReadJSON('./config/default.json');
-if (config === null) {
-    console.log('Error reading config!');
-    return;
+    return gulp.src(config.paths.source + '/pug/*.pug')
+        .pipe(pug({
+            pretty: true,
+            data: { config: config }
+        }))
+        .on('error', notify.onError(function(error){
+            
+            let filename = error.filename || error.path;
+                filename = filename.replace(/^.*\/(.+?)$/,'$1');
+            let title = 'PUG ERROR ON LINE '+error.line+' IN: '+filename;
+            let message = error.msg || error.message;
+
+            return { icon: 'Icon.png', title: title, message: message };
+
+        }))
+        .pipe(gulp.dest(config.paths.test));
+        
 }
-//console.log('PUG config: ', config);
-
-gulp.task('pug', function() {
-  gulp.src('./source/pug/*.pug')
-    .pipe(pug({
-        pretty: true,
-        data: { config: config }
-    }))
-    .pipe(gulp.dest('./public'))
-});
-

@@ -1,9 +1,13 @@
 'use strict';
 
-var gulp      = require('gulp');
+import config from '../config/default';
 
-gulp.task('fonts', function () {
-    gulp.src('./source/fonts/**/*', { buffer: false } )
-        .pipe(gulp.dest('./public/styles/fonts'));
-});
+import gulp from 'gulp';
+
+export default () => {
+
+    gulp.src(config.paths.source + '/fonts/**/*', { buffer: false } )
+        .pipe(gulp.dest(config.paths.test + '/' + config.paths.assets.fonts));
+
+}
 

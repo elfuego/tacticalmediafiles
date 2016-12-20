@@ -1,13 +1,16 @@
 'use strict';
 
-var gulp      = require('gulp');
+import config from '../config/default';
 
-gulp.task('images', function () {
+import gulp   from 'gulp';
+
+export default() => {
+
     gulp.src([
-            '!./source/images/favicon.*', 
-            '!./source/images/apple-touch-icon-precomposed.png', 
-            './source/images/**/*'
+            '!' + config.paths.source + '/images/favicon.*', 
+            '!' + config.paths.source + '/images/apple-touch-icon-precomposed.png', 
+            config.paths.source + '/images/**/*'
             ], { buffer: false } )
-        .pipe(gulp.dest( './public/styles/images' ));
-});
+        .pipe(gulp.dest(config.paths.build + '/' + config.paths.assets.images ));
 
+}

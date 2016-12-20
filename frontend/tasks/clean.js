@@ -1,8 +1,15 @@
 'use strict';
 
-var gulp = require('gulp');
-var del = require('del');
+import config from '../config/default';
 
-gulp.task('clean', function (callback) {
-    del('./public/*', callback);
-});
+import gulp from 'gulp';
+import del  from 'del';
+
+export default () => {
+
+    return gulp.task('clean', function (callback) {
+        del(config.paths.test + '/*', callback);
+    });
+}
+
+

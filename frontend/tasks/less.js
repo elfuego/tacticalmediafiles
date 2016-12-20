@@ -1,21 +1,25 @@
 'use strict';
 
-var gulp      = require('gulp');
-var less      = require('gulp-less');
-var sourcemaps = require('gulp-sourcemaps');
-var autoprefixer = require('gulp-autoprefixer');
+import config from '../config/default';
 
-var browserSync = require('browser-sync');
+import gulp         from 'gulp';
+import notify       from 'gulp-notify';
+import less         from 'gulp-less';
+import sourcemaps   from 'gulp-sourcemaps';
+import autoprefixer from 'gulp-autoprefixer';
 
-gulp.task('less', function () {
-    gulp.src('./source/less/*.less')
+export default () => {
+
+    return gulp.src(config.paths.source + '/less/*.less')
         .pipe(sourcemaps.init())
-            .pipe(less())
-            .pipe(autoprefixer({
-                browsers: ['last 2 versions']
-            }))
+        .pipe(less())
+        .on('error', notify.onError( (error) => {
+            return { icon: 'Icon.png', title: 'LESS ERROR ON LINE ' + error.line, message: error.message };
+        }))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions']
+        }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./public/styles/css'))
-});
+        .pipe(gulp.dest(config.paths.test + '/' + config.paths.assets.css));
 
-
+}

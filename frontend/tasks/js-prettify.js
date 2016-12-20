@@ -1,14 +1,17 @@
 'use strict';
 
-var gulp = require('gulp');
-// jsbeautifier options are at: https://github.com/beautify-web/js-beautify 
-var prettify = require('gulp-jsbeautifier');
+import config from '../config/default';
 
-gulp.task('js-prettify', function () {
-    gulp.src(['./source/js/default/**/*.js'])
+import gulp     from 'gulp';
+
+// jsbeautifier options are at: https://github.com/beautify-web/js-beautify 
+import prettify from 'gulp-jsbeautifier';
+
+
+export default() => {
+    gulp.src([config.paths.source + '/js/default/*.js'])
         .pipe(prettify({config:'./config/jsbeautify.json'}))
         .pipe(prettify.reporter())
-        .pipe(gulp.dest('./public/styles/js/'));
-
-});
+        .pipe(gulp.dest(config.paths.source + '/js/default/'));
+}
 

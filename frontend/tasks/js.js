@@ -1,17 +1,34 @@
 'use strict';
 
-var gulp    = require('gulp');
-var concat 	= require('gulp-concat');
-var uglify = require('gulp-uglify');
-var sourcemaps = require('gulp-sourcemaps');
+import config      from '../config/default'; 
 
+import gulp        from 'gulp';
+import babel       from 'gulp-babel';
+import concat      from 'gulp-concat';
+import notify      from 'gulp-notify';
+import sourcemaps  from 'gulp-sourcemaps';
+import uglify      from 'gulp-uglify';
 
-gulp.task('js', function () {
-     gulp.src([
-        './source/js/lib/**/*',     // all: js, min.js and min.js.map
-        './source/js/default/**/*.js'
+export default () => {
+
+    gulp.src([
+            config.paths.source + '/js/lib/**/*',     // all: js, min.js and min.js.map
+            config.paths.source + '/js/default/**/*.js'
         ])
-    	.pipe(concat('main.js'))
-    	.pipe(uglify())
-        .pipe(gulp.dest('./public/styles/js'));
-});
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .on('error', notify.onError(function (error) {
+                var title = 'JS ERROR ON LINE ' + error.loc.line;
+                var message = error.message.replace(/(.\.js:)( .)/,"$1\n$2");
+
+                return { icon: 'Icon.png', title: title, message: message };
+            })
+        )
+        .pipe(concat('main.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(config.paths.test + '/' + config.paths.assets.js));
+
+}
