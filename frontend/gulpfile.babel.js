@@ -2,8 +2,8 @@
 
 import config from './config/default';
 
-import gulp from 'gulp';
-import notify from 'gulp-notify';
+import gulp   from 'gulp';
+//import notify from 'gulp-notify';
 
 
 // Task: Browser Sync
@@ -51,7 +51,6 @@ gulp.task('assets', ['fonts', 'icons', 'images']);
 import taskJS from './tasks/js';
 gulp.task('js', taskJS);
 
-
 // js lint and beautifier tasks
 
 import taskJSLint from './tasks/js-lint';
@@ -72,19 +71,19 @@ gulp.task('default', ['clean'], function () {
 
 // All watch tasks for development
 
+gulp.task('html-watch', ['html'], taskBrowserSync.reload);
 gulp.task('js-watch', ['js-lint', 'js'], taskBrowserSync.reload);
 gulp.task('styles-watch', ['styles'], taskBrowserSync.reload);
-gulp.task('html-watch', taskBrowserSync.reload);
 
 
 // Task 'develop' runs all tasks, starts a watch for each directory and starts browser sync.
 
 gulp.task('develop', ['html', 'styles', 'js', 'assets'], function() {
 
-    gulp.watch([config.paths.source + '/less/**/*.less'], ['styles-watch']);
-    gulp.watch([config.paths.source + '/js/**/*.js'], ['js-watch']);
-    gulp.watch(config.paths.build, ['html-watch']);
+    gulp.watch([config.paths.source + '/pug/**/*.pug'],     ['html-watch']);
+    gulp.watch([config.paths.source + '/less/**/*.less'],   ['styles-watch']);
+    gulp.watch([config.paths.source + '/js/**/*.js'],       ['js-watch']);
+    //gulp.watch(config.paths.build, ['html-watch']);
 
     gulp.start('browser-sync');
-
 });

@@ -11,12 +11,12 @@ Run NPM to install all needed developer dependencies listed in `package.json`.
 $ npm install
 ```
 
+Or use `yarn` if you prefer.
+
 ## Developing
 
-This uses a source directory `source` and tests and publishes its files in a directory `public`. 
-I wanted to make it all configurable with a seperate build task but that was a bit too much of a hassle for now.
-
-To start developing and run a simultaneous watch task, run the default gulp taks with:
+This uses a source directory `source` and tests and publishes its files in a directory `public`.
+To start developing and run a simultaneous watch task, run the default gulp task with:
 
 ```bash
 $ gulp

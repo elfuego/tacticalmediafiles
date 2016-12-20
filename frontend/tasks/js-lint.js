@@ -14,7 +14,7 @@ export default () => {
         .pipe(lint.reporter(stylish))
         .pipe(lint.reporter('fail'))
         .on('error', notify.onError( (err) => {
-                return { icon: false, title: 'JS LINT ERROR', message: err.message };
+                return { icon: 'Icon.png', title: 'JS LINT ERROR', message: err.message };
             }));
 
 }
