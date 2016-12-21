@@ -13,25 +13,23 @@
 
     $closeSelector.on('click', function (ev) {
         ev.preventDefault();
-        //console.log('close');
         $body.toggleClass('show-overlay');
     });
-    console.log('$closeSelector: ' + $closeSelector.length);
 
     $topicSelector.on('click', function (ev) {
         ev.preventDefault();
-        //console.log('topics');
 
         $body.toggleClass('show-overlay');
-        // get relative path from meta-tag
-        //var relativePath = $('meta[name="relative-path"]').attr('content'); 
-        //$searchResults.load(relativePath + 'content/ajax-navigation-search-results.html');
-        //$searchInput.focus();
+        $overlay.find('.collections').hide();
+        $overlay.find('.topics').show();
     });
 
     $collectionSelector.on('click', function (ev) {
         ev.preventDefault();
-        console.log('collections');
+
+        $body.toggleClass('show-overlay');
+        $overlay.find('.collections').show();
+        $overlay.find('.topics').hide();
     });
 
 })();

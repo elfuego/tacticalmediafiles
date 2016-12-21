@@ -35,13 +35,16 @@ gulp.task('styles', taskStyles);
 import taskFonts from './tasks/fonts';
 gulp.task('fonts', taskFonts);
 
+import taskFavicon from './tasks/favicon';
+gulp.task('favicon', taskFavicon);
+
 import taskIcons from './tasks/icons';
 gulp.task('icons', taskIcons);
 
 import taskImages from './tasks/images';
 gulp.task('images', taskImages);
 
-gulp.task('assets', ['fonts', 'icons', 'images']);
+gulp.task('assets', ['favicon', 'fonts', 'images']);
 
 
 //
@@ -64,7 +67,7 @@ gulp.task('js-prettify', taskJSPretty);
 // Default: Watch
 //
 
-gulp.task('default', ['clean'], function () {
+gulp.task('default', ['clean'], () => {
     gulp.start(['develop']);
 });
 
@@ -78,7 +81,7 @@ gulp.task('styles-watch', ['styles'], taskBrowserSync.reload);
 
 // Task 'develop' runs all tasks, starts a watch for each directory and starts browser sync.
 
-gulp.task('develop', ['html', 'styles', 'js', 'assets'], function() {
+gulp.task('develop', ['html', 'styles', 'js', 'assets'], () => {
 
     gulp.watch([config.paths.source + '/pug/**/*.pug'],     ['html-watch']);
     gulp.watch([config.paths.source + '/less/**/*.less'],   ['styles-watch']);

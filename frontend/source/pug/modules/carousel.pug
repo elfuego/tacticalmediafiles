@@ -5,14 +5,9 @@ mixin carousel(...items)
             .slider-item
                 .item( style="background-image: url(" + item.image + ");" )
                     .container
-                        .row
-                            .col-md-2
-                            .col-md-8
-                                p 
-                                    strong.item__type featured #{item.type}
-                                h2.item__title #{item.title}
-                                //- p.item__intro #{item.intro}
-                                a.read-more( href="#{item.url}" ) Read
-                            .col-md-2
-
-
+                        p.item__type 
+                            strong featured #{item.type}
+                        h2.item__title 
+                            a( href="#{item.url}" ) #{item.title}
+                        .item__read-more
+                            a.read-more( href="#{item.url}" ) Read
