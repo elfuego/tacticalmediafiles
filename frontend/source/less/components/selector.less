@@ -31,27 +31,12 @@
 }
 
 .selector__select {
-    padding: 0 2rem;
+    //padding: 0 2rem;
     //color: black;
     //line-height: 4.6rem;
     //border: 0.2rem solid @color-grey--40;
     cursor: pointer;
     transition: color @trans-fast, border-color @trans-fast;
-
-    &:after {
-        .fa-icon();
-        content: @fa-var-chevron-down;
-        outline: none;
-        
-        position: absolute;
-        right: 2rem;
-        top: 2rem;
-        font-size: 0.8rem;
-        color: black;
-        z-index: 2;
-        pointer-events: none;
-        transition: color @trans-fast, transform @trans-fast;
-    }
 }
 
 .selector__options {
@@ -60,7 +45,7 @@
     left: 0;
     right: 0;
     background-color: white;
-    border: 1px solid transparent;
+    //border: 1px solid transparent;
     box-shadow: @box-shadow;
     z-index: 1;
     opacity: 0;

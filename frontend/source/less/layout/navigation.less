@@ -44,7 +44,7 @@
         font-family: @font-secondary;
         font-size: @font-extra-small;
         color: @color-secondary;
-        letter-spacing: 0.2rem;
+        letter-spacing: .2rem;
         text-transform: uppercase;
         text-align: center;
     }
@@ -113,29 +113,46 @@
 
     .selector { 
         font-family: @font-secondary;
-        font-size: @font-small;
-        margin: 0 2rem 0 1rem;
-        width: 12rem;
+        width: 13rem;
         text-align: right;
-        padding-right: 2rem;
         
         .selector__select { 
+            font-size: @font-small + .1rem;
             color: @color-primary;
             text-transform: lowercase;
             font-style: italic;
+            padding: 0 3rem 0 0;
+
+            &:after {
+                .fa-icon();
+                content: @fa-var-chevron-down;
+                outline: none;
+                
+                position: absolute;
+                right: 1rem;
+                top: 2rem;
+                font-size: .8rem;
+                color: black;
+                z-index: 2;
+                pointer-events: none;
+                transition: color @trans-fast, transform @trans-fast;
+            }
         }
 
         .selector__options {
             border: none;
-            line-height: 3.6rem;
+            top: .8rem;
+            line-height: 4rem;
         }
 
         .selector__option {
+            font-size: @font-small;
             text-transform: lowercase;
-            padding: 0.4rem 4rem;
+            padding: 0 3rem 0 0;
             color: @color-secondary;
             
             &.___is-selected {
+                font-size: @font-small + .1rem;
                 color: @color-primary;
                 font-style: italic;
             }

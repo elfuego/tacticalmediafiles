@@ -65,7 +65,8 @@ a {
     position: absolute;
     top: 0;
     right: 100%;
-    background-color: white;
+    color: black;
+    background-color: @color-primary;
     padding: 0.5rem 1rem;
     
     &:focus {
@@ -77,6 +78,7 @@ a {
 // Normalize focusable elements cross browser
 a:focus {
    outline: none;
-   background-color: fade(@color-grey--20, 75%);
+   background-color: @color-primary-transparent;
+   //background-color: fade(@color-grey--20, 75%);
    // text-shadow: 0.05em 0 0 @color-grey--20, -0.05em 0 0 @color-grey--20, 0 0.05em 0 @color-grey--20, 0 -0.05em 0 @color-grey--20, 0.1em 0 0 @color-grey--20, -0.1em 0 0 @color-grey--20, 0 0.1em 0 @color-grey--20, 0 -0.1em 0 @color-grey--20;
 }
