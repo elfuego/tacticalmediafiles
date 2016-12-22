@@ -1,3 +1,5 @@
+- selected = selected ? selected : 'all';
+
 nav.navigation
     .container
         .row
@@ -12,12 +14,12 @@ nav.navigation
             .col-md-4.end-md.middle-xs.center-xs
                 label.select-label( for="filter" ) Filter
                 select( id="filter" name="filter" data-select-filter )
-                    option( value="all" selected ) All
-                    option( value="articles" ) Articles
-                    option( value="videos" ) Videos
+                    option( value="list.html" selected=(selected === 'all') ) All
+                    option( value="articles.html" selected=(selected === 'articles') ) Articles
+                    option( value="videos.html" selected=(selected === 'videos') ) Videos
                     option( value="pictures" ) Pictures
                     option( value="files" ) Files
-                    option( value="collections" ) Collections
+                    //option( value="collections" ) Collections
                     option( value="events" ) Events
                     option( value="campaigns" ) Campaigns
-                    option( value="people" ) Peoples
+                    option( value="people"  selected=(selected === 'people')  ) People

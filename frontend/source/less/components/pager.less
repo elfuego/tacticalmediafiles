@@ -1,0 +1,63 @@
+    ul.pager {
+        margin: 4rem 0 3rem 0;
+        list-style: none;
+        text-align: center;
+    }
+
+    ul.pager li {
+        display: inline;
+        list-style: none;
+        font-family: @font-secondary;
+        font-size: @font-small;
+        
+        a, span {
+            display: inline-block;
+            margin: 1rem 0.2rem;
+            line-height: 3.2rem;
+            width: 2.8rem;
+            height: 2.8rem;
+            background-color: @color-grey;
+            color: @color-grey--80;
+            transition: background-color @trans-normal-material, color @trans-normal-material;
+
+            &:hover {
+                color: white;
+                background-color: @color-primary; 
+                border-color: @color-primary;
+            }
+
+            &.prev {
+                width: 9.6rem;
+                margin-right: 4rem;
+                text-transform: uppercase;
+            }
+
+            &.next {
+                width: 6.2rem;
+                margin-left: 4rem;
+                text-transform: uppercase;
+            }
+
+            &.current {
+                background-color: @color-grey--40;
+
+                &:hover {
+                    background-color: @color-primary; 
+                }
+            }
+
+            &.dots {
+                background-color: transparent;                
+                
+                &:hover {
+                    color: inherit;
+                    background-color: inherit; 
+                    border-color: inherit;
+                }
+
+            }
+
+        }
+
+
+    }
