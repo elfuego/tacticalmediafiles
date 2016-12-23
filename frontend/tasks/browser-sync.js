@@ -17,9 +17,9 @@ export default () => {
         files: [
             config.paths.test + "/**/*.*"
         ],
-        browser: "google chrome"
-        //reloadDelay: 500,
-        //reloadDebounce: 1000
+        browser: "google chrome",
+        reloadDelay: 500,
+        reloadDebounce: 1000
     });
 
 }
