@@ -31,9 +31,22 @@
 
         .content-related__image {
             display: block;
-            margin: 2rem 3rem 0 0;
-            max-width: 18rem;
+            margin: 2rem 1rem 0 3rem;
+
+            @media @screen-md-max {
+                margin-left: 0;
+                margin-right: 3rem; 
+            }
             
+            .content-related__image-bg {
+                width: 20rem;
+                height: 15rem;
+                background-size: cover;
+                background-position: center;
+                background-repeat: none;
+                margin-bottom: 1rem;
+            }
+
             img {
                 width: 100%;
                 margin-bottom: 1rem;

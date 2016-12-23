@@ -21,7 +21,7 @@ append main
                             img( src='styles/images/portrait-eric.png' alt="Eric Cattenberg" )
                         .content-info__text
                             .author 
-                                a(href="#") Eric Cattenberg
+                                a(href="person.html") Eric Cattenberg
                             .date November 25, 2016
                             .tags 
                                 a( href="#" ) Activism, 
@@ -31,13 +31,13 @@ append main
                         .content-info__related
                             ul
                                 li
-                                    a( href="#" ) 3 files
+                                    a( href="#files" ) 3 files
                                 li
-                                    a( href="#" ) 4 links
+                                    a( href="#links" ) 4 links
                                 li
-                                    a( href="#" ) 1 video
+                                    a( href="#videos" ) 1 video
                                 li
-                                    a( href="#" ) 4 images
+                                    a( href="#images" ) 4 images
 
                     p.intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
 
@@ -47,7 +47,7 @@ append main
 
             .col-md-2
         
-        section.content-related
+        section#links.content-related
             .row
                 .col-md-2
                 .col-md-8
@@ -60,7 +60,7 @@ append main
                             a( href="#" ) https://nrapress.org
                 .col-md-2
         
-        section.content-related
+        section#files.content-related
             .row
                 .col-md-2
                 .col-md-8
@@ -71,7 +71,7 @@ append main
                 .col-md-2
 
 
-        section.content-related
+        section#videos.content-related
             .row
                 .col-md-10.col-md-offset-2 
                     h4.content-related__title.__video Video
@@ -80,11 +80,11 @@ append main
                     ul.content-related__list
                         li 
                             a.content-related__image(href="#")
-                                img( src='styles/images/lol-cat.png' )
+                                .content-related__image-bg( style="background-image: url(styles/images/Share_the_Security.jpg)" )
                                 span Video description
 
         
-        section.content-related
+        section#images.content-related
             .row
                 .col-md-10.col-md-offset-2 
                     h4.content-related__title.__images Images
@@ -94,19 +94,27 @@ append main
                     ul.content-related__list
                         li 
                             a.content-related__image(href="#")
-                                img( src='styles/images/lol-cat.png' )
+                                .content-related__image-bg( style="background-image:url(styles/images/lol-cat.png)" )
                                 span Image description
                         li 
                             a.content-related__image(href="#")
-                                img( src='styles/images/lol-cat.png' )
+                                .content-related__image-bg( style="background-image:url(styles/images/lol-cat.png)" )
                                 span Image description
                         li 
                             a.content-related__image(href="#")
-                                img( src='styles/images/lol-cat.png' )
+                                .content-related__image-bg( style="background-image:url(styles/images/lol-cat.png)" )
                                 span Image description
                         li 
-                            a.content-related__image(href="#1")
-                                img( src='styles/images/lol-cat.png' )
+                            a.content-related__image(href="#")
+                                .content-related__image-bg( style="background-image:url(styles/images/lol-cat.png)" )
                                 span Image description
+                        li 
+                            a.content-related__image(href="#")
+                                .content-related__image-bg( style="background-image:url(styles/images/lol-cat.png)" )
+                                span Image description
+                        //- li 
+                        //-     a.content-related__image(href="#")
+                        //-         img( src='styles/images/lol-cat.png' )
+                        //-         span Image description
 
 
