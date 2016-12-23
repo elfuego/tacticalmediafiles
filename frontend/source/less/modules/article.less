@@ -1,0 +1,101 @@
+article {
+    
+
+    a {
+        color: @color-primary;
+
+        &:hover, 
+        &:active {
+            text-decoration: underline;
+        }
+    }
+
+    .title {
+        margin: 2rem 0 3rem 0;
+        color: @color-grey--50;
+        font-size: @font-title-normal;
+        line-height: @line-height--title-normal;
+        font-weight: normal;
+    }
+    
+    .content-info {
+        display: flex;
+        flex-direction: row;
+
+        padding: 1rem;
+        background-color: @color-grey;
+        margin-bottom: 4rem;
+
+        font-family: @font-tertiary;
+        letter-spacing: .1rem;
+        font-size: @font-small;
+        line-height: @line-height--small;
+
+
+        .content-info__image {
+            flex-shrink: 0;
+            
+            width: 11rem;
+            img {
+                width: 8rem;
+                height: 8rem;
+                margin: 0 2rem 0 1rem;
+                border-radius: 50%;
+            }
+
+            @media @screen-sm-max {
+                width: 8rem;
+                img {
+                    width: 5rem;
+                    height: 5rem;
+                }
+            }
+        }
+        .content-info__text {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 0 2rem 0 0;
+
+            .author {
+                text-transform: uppercase;
+                color: @color-grey--50;
+                a {
+                   color: @color-grey--50; 
+                }
+            }
+            .date {
+                color: @color-grey--30;
+            }
+            .tags a { 
+                color: @color-grey--30;
+                text-transform: uppercase;
+            }
+
+        }
+
+        .content-info__related {
+            border-left: 0.1rem solid @color-grey--20;
+            padding-left: 2rem;
+            li {
+                white-space: nowrap;
+                line-height: 2rem;
+            }
+        }
+    }
+
+    p.intro {
+        margin: 0 0 4rem 10rem;
+        font-size: @font-large;
+        line-height: @line-height--large;
+        color: @color-grey--30;
+        font-style: oblique;
+    }
+
+    p {
+        color: @color-grey--50;
+        font-size: @font-base;
+        line-height: @line-height--base;
+    }
+
+}
