@@ -18,7 +18,7 @@
     
     transition: @trans-normal-material;
     background-color: @color-black-transparent;
-    z-index: @lift-20;
+    z-index: @index-2;
 
     .overlay-content {
     	height: 100%;
@@ -35,21 +35,22 @@
 
 		&:hover, 
 		&:active {
-			color: @color-white;
-			border-bottom: 1px solid @color-white;
+			color: white;
+			border-bottom: 1px solid white;
 		}
     }
     
 	a.close {
 		position: absolute;
-		left: 4rem;
+		right: 4rem;
 		top: 4rem;		
 		
-		.icon(close);		
-	    color: @color-white;
-		&:before {
-			font-size: 2rem;
-			outline: none;
+        &:before {
+	        .fa-icon();
+            content: @fa-var-times;
+            color: white;
+            font-size: 3rem;
+            outline: none;
 		}
 		&:hover { 
 			color: @color-primary; 
@@ -61,11 +62,12 @@
 
     h2 {
         margin: 6rem 0 0 0;
-        color: @color-white;
+        color: white;
         font-family: @font-secondary;
         text-transform: uppercase;
         text-align: center;
-        font-size: @font-small;    	
+        font-size: @font-extra-small;
+        letter-spacing: 0.2rem;
     }
 
     .collections {
@@ -109,12 +111,12 @@
 			line-height: 3.2rem;
 			width: 2.8rem;
 			height: 2.8rem;
-			background-color: @color-grey;
-			color: @color-black;
+			background-color: @color-grey--60;
+			color: @color-grey--80;
 			transition: background-color @trans-normal-material, color @trans-normal-material;
 
 			&:hover {
-				color: @color-white;
+				color: white;
 				background-color: @color-primary; 
 				border-color: @color-primary;
 			}
@@ -122,7 +124,7 @@
 	}
 
 	.topics {
-		color: @color-white;
+		color: white;
 
 		ul.items {
 			list-style: none;

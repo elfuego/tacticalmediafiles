@@ -3,13 +3,15 @@
 import config from './config/default';
 
 import gulp   from 'gulp';
+import browserSync from 'browser-sync';
 //import notify from 'gulp-notify';
+
 
 
 // Task: Browser Sync
 
-import taskBrowserSync from './tasks/browser-sync';
-gulp.task('browser-sync', taskBrowserSync);
+// import taskBrowserSync from './tasks/browser-sync';
+// gulp.task('browser-sync', taskBrowserSync);
 
 
 // Task: Clean build
@@ -35,13 +37,16 @@ gulp.task('styles', taskStyles);
 import taskFonts from './tasks/fonts';
 gulp.task('fonts', taskFonts);
 
+import taskFavicon from './tasks/favicon';
+gulp.task('favicon', taskFavicon);
+
 import taskIcons from './tasks/icons';
 gulp.task('icons', taskIcons);
 
 import taskImages from './tasks/images';
 gulp.task('images', taskImages);
 
-gulp.task('assets', ['fonts', 'icons', 'images']);
+gulp.task('assets', ['favicon', 'fonts', 'images']);
 
 
 //
@@ -64,26 +69,43 @@ gulp.task('js-prettify', taskJSPretty);
 // Default: Watch
 //
 
-gulp.task('default', ['clean'], function () {
+gulp.task('default', ['clean'], () => {
     gulp.start(['develop']);
 });
 
-
 // All watch tasks for development
 
-gulp.task('html-watch', ['html'], taskBrowserSync.reload);
-gulp.task('js-watch', ['js-lint', 'js'], taskBrowserSync.reload);
-gulp.task('styles-watch', ['styles'], taskBrowserSync.reload);
+gulp.task('html-watch', ['html'], browserSync.reload);
+gulp.task('js-watch', ['js-lint', 'js'], browserSync.reload);
+gulp.task('styles-watch', ['styles']);
+gulp.task('assets-watch', ['assets'], browserSync.reload);
 
 
 // Task 'develop' runs all tasks, starts a watch for each directory and starts browser sync.
 
-gulp.task('develop', ['html', 'styles', 'js', 'assets'], function() {
+gulp.task('develop', ['html', 'styles', 'js', 'assets'], () => {
+
+    browserSync.init({
+        server: {
+            baseDir: config.paths.test
+        },
+        watchOptions: {
+            ignoreInitial: true,
+            ignored: '*.txt'
+        },
+        files: [
+            config.paths.test + "/**/*.*"
+        ],
+        browser: "google chrome",
+        reloadDelay: 250,
+        reloadDebounce: 500
+    });
 
     gulp.watch([config.paths.source + '/pug/**/*.pug'],     ['html-watch']);
     gulp.watch([config.paths.source + '/less/**/*.less'],   ['styles-watch']);
     gulp.watch([config.paths.source + '/js/**/*.js'],       ['js-watch']);
-    //gulp.watch(config.paths.build, ['html-watch']);
+    gulp.watch([config.paths.source + '/fonts/**/*', 
+                config.paths.source + '/images/**/*'],      ['assets-watch']);
 
-    gulp.start('browser-sync');
+    // gulp.start('browser-sync');
 });

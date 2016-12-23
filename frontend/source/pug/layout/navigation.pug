@@ -1,18 +1,25 @@
+- selected = selected ? selected : 'all';
+
 nav.navigation
     .container
         .row
-            .col-md-2
-                a( href="#topics" data-select-topics ) Topics
-            .col-md-2
-                a( href="#collections" data-select-collections ) Collections
-            .col-md-4
-                form.navigation__search( action="list.html" )
-                    label( for="search" hidden ) Search
-                    input.navigation__search-input( id="search" type="text" placeholder="Search the archive" )
-                    button Go
-            .col-md-4
+            .col-md-4.around-xs.center-xs
+                a.nav__topics( href="#topics" data-select-topics ) Topics
+                a.nav__collections( href="#collections" data-select-collections ) Collections
+            .col-md-4.middle-xs.center-xs
+                form.nav__search( action="list.html" )
+                    label.nav__search-label( for="search" hidden ) Search
+                    input.nav__search-input( id="search" type="text" placeholder="Search the archive" )
+                    button.nav__search-button Go
+            .col-md-4.end-md.middle-xs.center-xs
                 label.select-label( for="filter" ) Filter
                 select( id="filter" name="filter" data-select-filter )
-                    option( value="all" selected ) All
-                    option( value="articles" ) Articles
-                    option( value="videos" ) Videos
+                    option( value="list.html" selected=(selected === 'all') ) All
+                    option( value="articles.html" selected=(selected === 'articles') ) Articles
+                    option( value="videos.html" selected=(selected === 'videos') ) Videos
+                    option( value="pictures" ) Pictures
+                    option( value="files" ) Files
+                    //option( value="collections" ) Collections
+                    option( value="events" ) Events
+                    option( value="campaigns" ) Campaigns
+                    option( value="people"  selected=(selected === 'people')  ) People

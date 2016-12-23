@@ -103,14 +103,14 @@
             $(this).addClass('___has-focus');
         }).on('focusout', function () {
             $(this).removeClass('___has-focus');
-            $(this).parent('.selector').removeClass('___is-open');
+            $(this).parent('.selector').removeClass(openState);
         });
 
         // Remove .___is-open and close our selector when navigating outside of this element
         $(document).mouseup(function (e) {
             // If the target of the click isn't the container nor a descendant of the container
-            if (!$('.selector.___is-open').is(e.target) && $('.selector.___is-open').has(e.target).length === 0) {
-                $('.selector.___is-open').removeClass(openState);
+            if (!$('.selector.' + openState).is(e.target) && $('.selector.' + openState).has(e.target).length === 0) {
+                $('.selector.' + openState).removeClass(openState);
             }
         });
 

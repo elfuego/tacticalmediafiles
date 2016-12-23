@@ -6,19 +6,19 @@
 @color-secondary:                   #6D6D6D;
 
 // Black & white
-@color-black:                       #000;
-@color-black-transparent:           fade(@color-black, 85%);
-@color-white:                       #fff;
-@color-white-transparent:           fade(@color-white, 60%);
+@color-black-transparent:           fade(#444, 96%);
+@color-white-transparent:           fade(white, 60%);
+@color-primary-transparent:         fade(@color-primary, 50%);
 @color-grey:                        #EFEFEF;
 
 // Grey
 @color-grey--10:                    #F0F0F0;
-@color-grey--20:                    #9B9B9B;
-@color-grey--40:                    #C8C8C8;
-@color-grey--50:                    #E1E1E1;
-@color-grey--60:                    ;
-@color-grey--80:                    #4A4A4A;
+@color-grey--20:                    #BBBBBB;
+@color-grey--30:                    #808080;
+@color-grey--40:                    #c4c4c4;
+@color-grey--50:                    #333333;
+@color-grey--60:                    #ccc;
+@color-grey--80:                    #444;
 
 
 // Fonts
@@ -39,7 +39,7 @@
 @font-title-normal:                 3.6rem;
 @font-title-main:                   4.2rem;
 
-@line-height--addition:             0.8rem;
+@line-height--addition:             .8rem;
 
 @line-height--base:                 @font-base + @line-height--addition;
 @line-height--small:                @font-small + @line-height--addition;
@@ -102,15 +102,15 @@
 
 // Z-indexes
 // -------------------------------
-
-@lift-10:                           1;
-@lift-20:                           2;
-@lift-30:                           3;
-@lift-40:                           4;
-@lift-50:                           5;
-@lift-60:                           6;
-@lift-70:                           7;
-@lift-80:                           8;
-@lift-90:                           9;
-@lift-100:                          10;
-@lift-max:                          9999;
+@index-min:                         -1;
+@index-1:                           1;
+@index-2:                           2;
+@index-3:                           3;
+@index-4:                           4;
+@index-5:                           5;
+@index-6:                           6;
+@index-7:                           7;
+@index-8:                           8;
+@index-9:                           9;
+@index-10:                          10;
+@index-max:                         999;

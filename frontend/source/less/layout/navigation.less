@@ -1,38 +1,109 @@
 .home {
     .navigation {
         position: absolute;
-        top: 44rem;
-        border-top: 0.1rem solid @color-grey--40;
-        border-bottom: 0.1rem solid @color-grey--40;
+        top: 63rem;
+
+        @media @screen-md-max {
+            top: 40rem;
+        }
     }
 }
 
 .navigation {
-    position: absolute;
+    position: relative;
     left: 0;
     top: 0;
     
     z-index: 1;
     background: @color-grey;
     width: 100%;
-
-    font-family: @font-secondary;
-    font-size: @font-small;
-    color: @color-grey--20;
-    line-height: 5rem;
+    line-height: 5.6rem;
 
     a, label {
+        font-family: @font-secondary;
+        font-size: @font-extra-small;
+        letter-spacing: 0.2rem;
         text-transform: uppercase;
         vertical-align: middle;
         color: @color-grey--20;
     }
-    input, button {
-        line-height: 2rem;
-        text-align: center;
-        color: @color-grey--20;
-        text-transform: uppercase; 
+    
+    form.nav__search {
+        position: relative;
+        height: 2.6rem;
+        width: 28.2rem;
+        overflow: hidden;
     }
-    button { color: @color-black; }
+
+    input, button {
+        position: absolute;
+        top: 0;
+        height: 2.6rem;
+        border: none;
+
+        font-family: @font-secondary;
+        font-size: @font-extra-small;
+        color: @color-secondary;
+        letter-spacing: .2rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    input.nav__search-input {
+        left: 0;
+        padding: 1.3rem;
+        width: 24rem;
+        line-height: 2rem;
+
+        -webkit-appearance: none;
+        -webkit-border-radius: 0rem;
+    }
+    button.nav__search-button { 
+        right: 0;
+        color: black;
+        width: 4.2rem;
+        line-height: 2.6rem;
+        background-color: @color-grey--40;
+        cursor: pointer;
+    }
+
+    .nav__search-input::-webkit-input-placeholder {
+        color: @color-secondary;
+    }
+
+    .nav__search-input:-moz-placeholder {
+        color: @color-secondary;
+    }
+
+    .nav__search-input::-moz-placeholder {
+        color: @color-secondary;
+    }
+
+    .nav__search-input:-ms-input-placeholder {
+        color: @color-secondary;
+    }
+
+    .nav__topics, 
+    .nav__collections {
+        white-space: nowrap;
+        //margin: 0 2rem;
+
+        &:after {
+            .fa-icon();
+            content: @fa-var-chevron-down;
+            font-size: .8rem;
+            color: black;
+            display: inline-block;
+            vertical-align: text-top;
+            margin-left: .8rem;
+        }        
+    }
+    .nav__topics {
+        .list & {
+            margin-left: 5rem;
+        }
+
+    }
+    .nav__search-label { display: none; }
 
     .select-label { 
     	float: left;
@@ -41,16 +112,55 @@
     }
 
     .selector { 
-        margin: 0.7rem 0 0 8rem;
-        .selector__select { line-height: 3rem; }
+        font-family: @font-secondary;
+        width: 13rem;
+        text-align: right;
+        
+        .selector__select { 
+            font-size: @font-small + .1rem;
+            color: @color-primary;
+            text-transform: lowercase;
+            font-style: italic;
+            padding: 0 3rem 0 0;
+
+            &:after {
+                .fa-icon();
+                content: @fa-var-chevron-down;
+                outline: none;
+                
+                position: absolute;
+                right: 1rem;
+                top: 2rem;
+                font-size: .8rem;
+                color: black;
+                z-index: 2;
+                pointer-events: none;
+                transition: color @trans-fast, transform @trans-fast;
+            }
+        }
+
+        .selector__options {
+            border: none;
+            top: .8rem;
+            line-height: 4rem;
+        }
+
+        .selector__option {
+            font-size: @font-small;
+            text-transform: lowercase;
+            padding: 0 3rem 0 0;
+            color: @color-secondary;
+            
+            &.___is-selected {
+                font-size: @font-small + .1rem;
+                color: @color-primary;
+                font-style: italic;
+            }
+
+            &:hover {
+                background-color: @color-grey--10;
+            }
+        }
     }
 
-    .col-md-2, .col-md-4 {
-        text-align: center;
-    }
 }
-
-
-
-
-
