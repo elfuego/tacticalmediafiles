@@ -1,0 +1,66 @@
+.video {
+    
+    .container {
+        &.__video {
+            background-color: black;
+            max-width: 100%;
+        }
+    }
+
+    
+    .video-background {
+        background-color: black;
+        width: 100%;
+
+        video {
+            width: 100%;
+
+            display: block;
+            margin: 0 auto;
+            background-size: cover;
+            background-position: center;
+            background-repeat: none;
+        }
+
+    }
+
+    a {
+        color: @color-primary;
+
+        &:hover, 
+        &:active {
+            text-decoration: underline;
+        }
+    }
+
+    .title {
+        margin: 2rem 0 3rem 0;
+        color: @color-grey--50;
+        font-size: @font-title-small;
+        line-height: @line-height--title-small;
+        font-weight: normal;
+    }
+
+    .content-type {
+        margin-top: 2rem;
+    }
+
+    .tags { 
+        text-align: left;
+    }
+
+    p.intro {
+        margin: 0 0 4rem  0;
+        font-size: @font-large;
+        line-height: @line-height--large;
+        color: @color-grey--30;
+        font-style: oblique;
+    }
+
+    p {
+        color: @color-grey--50;
+        font-size: @font-base;
+        line-height: @line-height--base;
+    }
+
+}

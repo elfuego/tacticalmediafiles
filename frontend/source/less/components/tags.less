@@ -1,0 +1,31 @@
+.tags {
+    list-style: none;
+    
+    font-family: @font-tertiary;
+    font-size: @font-medium;
+    color: @color-secondary;
+    text-transform: uppercase;
+    text-align: center;
+    
+    margin: 4rem 0;
+
+    .content-info & {
+        margin: 0;
+        font-size: @font-small;
+    }
+
+    li {
+        list-style: none;
+        display: inline;
+        
+        a {
+            color: @color-secondary;
+            transition: @trans-normal-material;
+
+            &:hover {
+                color: @color-primary;
+            }
+        }
+    }
+
+}

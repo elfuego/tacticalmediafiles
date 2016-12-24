@@ -23,11 +23,19 @@ append main
                             .author 
                                 a(href="person.html") Eric Cattenberg
                             .date November 25, 2016
-                            .tags 
-                                a( href="#" ) Activism, 
-                                a( href="#" ) The Yesmen, 
-                                a( href="#" ) Performance, 
-                                a( href="#" ) Firearms
+                            +tags({
+                                    tag: 'Activism',
+                                    url: 'list.html'
+                                }, {
+                                    tag: 'The Yesmen',
+                                    url: 'list.html'
+                                }, {
+                                    tag: 'Performance',
+                                    url: 'list.html'
+                                }, {
+                                    tag: 'Firearms',
+                                    url: 'list.html'
+                                })
                         .content-info__related
                             ul
                                 li
@@ -79,7 +87,7 @@ append main
                 .col-md-11.col-md-offset-1
                     ul.content-related__list
                         li 
-                            a.content-related__image(href="#")
+                            a.content-related__image(href="video.html")
                                 .content-related__image-bg( style="background-image: url(styles/images/Share_the_Security.jpg)" )
                                 span Video description
 

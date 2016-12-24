@@ -8,7 +8,9 @@ import pug          from 'gulp-pug';
 
 export default () => {
 
-    return gulp.src(config.paths.source + '/pug/*.pug')
+    return gulp.src([config.paths.source + '/pug/**/*.pug',
+            '!' + config.paths.source + '/pug/layout/*',
+            '!' + config.paths.source + '/pug/modules/*'])
         .pipe(pug({
             pretty: true,
             data: { config: config }

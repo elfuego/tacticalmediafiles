@@ -1,0 +1,8 @@
+mixin tags(...tags)
+    ul.tags
+        each tag, index in tags
+            - tag.url = tag.url || '#'
+            li.tag
+                a( href=tag.url ) #{tag.tag}
+                if index < tags.length - 1 
+                    |,
