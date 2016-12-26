@@ -1,0 +1,98 @@
+    .content-info {
+        display: flex;
+        flex-direction: row;
+
+        padding: 1rem;
+        background-color: @color-grey;
+        margin-bottom: 4rem;
+
+        font-family: @font-tertiary;
+        letter-spacing: .1rem;
+        font-size: @font-small;
+        line-height: @line-height--small;
+
+        &.__person {
+            flex-direction: column;
+            margin-top: 6rem;
+            padding: 2rem;
+            border-bottom: .2rem solid @color-grey--60;
+
+            .content-type {
+                margin-top: 0;
+            }
+
+            .content-info__image {            
+                width: 6rem;
+                float: right;
+                img {
+                    width: 5rem;
+                    height: 5rem;
+                }
+            }
+            p.content-info__text {
+                display: block;
+                margin-top: 1rem;
+                font-family: @font;
+                font-size: @font-small;
+                line-height: @line-height--small;
+            }
+        }
+
+        .content-info__title {
+            color: @color-grey--50;
+            font-size: @font-title-small;
+            line-height: @line-height--title-small;
+            font-weight: normal;            
+        }
+
+        .content-info__image {
+            flex-shrink: 0;
+            
+            width: 11rem;
+            img {
+                width: 8rem;
+                height: 8rem;
+                margin: 0 2rem 0 1rem;
+                border-radius: 50%;
+            }
+
+            @media @screen-sm-max {
+                width: 8rem;
+                img {
+                    width: 5rem;
+                    height: 5rem;
+                }
+            }
+        }
+        .content-info__text {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 0 2rem 0 0;
+
+            .author {
+                text-transform: uppercase;
+                color: @color-grey--50;
+                a {
+                   color: @color-grey--50; 
+                }
+            }
+            .date {
+                color: @color-grey--30;
+            }
+            .tags a { 
+                color: @color-grey--30;
+                text-transform: uppercase;
+            }
+
+        }
+
+        .content-info__related {
+            border-left: 0.1rem solid @color-grey--20;
+            padding-left: 2rem;
+            li {
+                white-space: nowrap;
+                line-height: 2rem;
+            }
+        }
+    }

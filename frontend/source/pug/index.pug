@@ -1,7 +1,5 @@
 extends layout/page
 
-include modules/carousel
-
 prepend variables
     - title = 'Home'
     - bodyClass = 'home'
@@ -14,22 +12,22 @@ append main
         +carousel({
                 title : 'The Manifesto of John Doe: The Revolution Will Be Digitized', 
                 type : 'video', 
-                url : '#', 
+                url : 'article.html', 
                 image: 'styles/images/ferguson_black_power_0814.jpg'
             }, {
                 title : 'NRA and Smith & Wesson Partner to "Share the Safety" With All Americans', 
                 type : 'article', 
-                url : '#', 
+                url : 'article.html', 
                 image: 'styles/images/occupy-sandy-banner-we-the-people.jpg'
             }, {
                 title : 'Nuit Debout', 
                 type : 'article', 
-                url : '#', 
+                url : 'article.html', 
                 image: 'styles/images/Nuit_Debout_16.jpg'
             }, {
                 title : 'NRA and Smith & Wesson Partner to "Share the Safety" With All Americans', 
                 type : 'article', 
-                url : '#', 
+                url : 'article.html', 
                 image: 'styles/images/occupy-sandy-banner-we-the-people.jpg'
             })
 
@@ -40,14 +38,23 @@ append main
                 .content
                     .content-type Article
                     h2.title 
-                        a( href="#" ) NRA and Smith &amp; Wesson Partner to "Share the Safety" With All Americans
+                        a( href="article.html" ) NRA and Smith &amp; Wesson Partner to "Share the Safety" With All Americans
                     p.intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
-                    a.read-more( href="#" ) Read
-                    .tags 
-                        a( href="#" ) Activism, 
-                        a( href="#" ) The Yesmen, 
-                        a( href="#" ) Performance, 
-                        a( href="#" ) Firearms
+                    a.read-more( href="article.html" ) Read                    
+                    +tags({
+                            tag: 'Activism',
+                            url: 'list.html'
+                        }, {
+                            tag: 'The Yesmen',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Performance',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Firearms',
+                            url: 'list.html'
+                        })
+
                 hr
             .col-md-2
         .row
@@ -56,16 +63,28 @@ append main
                 .content
                     .content-type Article
                     h2.title 
-                        a( href="#" ) Nuit Debout
+                        a( href="article.html" ) Nuit Debout
                     p.intro Nuit Debout is a French social movement that began on March 31, 2016, arising out of protests against proposed neoliberal labor reforms known as the "Loi Travail," or the "El Khomri Law". The movement is centred at Paris's Place de la République, where protestors have held nightly assemblies following the
-                    a.read-more( href="#" ) Read
-                    .tags 
-                        a( href="#" ) Campaign, 
-                        a( href="#" ) Precarity, 
-                        a( href="#" ) Art Of Campaigning, 
-                        a( href="#" ) Labour, 
-                        a( href="#" ) Street Protest, 
-                        a( href="#" ) Economics
+                    a.read-more( href="article.html" ) Read
+                    +tags({
+                            tag: 'Campaign',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Precarity',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Art Of Campaigning',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Labour',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Street Protest',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Economics',
+                            url: 'list.html'
+                        })
 
             .col-md-2
                 
