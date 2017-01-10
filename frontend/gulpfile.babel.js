@@ -96,9 +96,9 @@ gulp.task('develop', ['html', 'styles', 'js', 'assets'], () => {
         files: [
              config.paths.test + "/**/*.*"
         ],
-        browser: "google chrome"
-        // reloadDelay: 250,
-        // reloadDebounce: 500
+        browser: "google chrome",
+        reloadDelay: 250,
+        reloadDebounce: 500
     });
 
     gulp.watch([config.paths.source + '/pug/**/*.pug'],     ['html-watch']);

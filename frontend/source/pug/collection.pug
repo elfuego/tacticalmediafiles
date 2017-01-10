@@ -1,0 +1,93 @@
+extends layout/page
+
+prepend variables
+    - title = 'Collection'
+    - bodyClass = 'collection'
+    - selected = 'all';
+
+append main
+    .heading.__collection( style="background-image: url('styles/images/raster-lightgrey.png');" )
+        .container
+            .row
+                .col-md-2
+                .col-md-8
+        
+                    h1.collection__content-type Collection
+                    h2.collection__author Kurt Geiger
+                    
+                    .collection__heading
+                        h3.collection__title The right to be offended
+                        p.collection__intro Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                
+                .col-md-2
+
+    .container
+        .row
+            .col-md-2
+            .col-md-8
+                .content
+                    .content-type Article
+                    h2.title 
+                        a( href="article.html" ) NRA and Smith &amp; Wesson Partner to "Share the Safety" With All Americans
+                    p.intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
+                    a.read-more( href="article.html" ) Read
+                    +tags({
+                            tag: 'Activism',
+                            url: 'list.html'
+                        }, {
+                            tag: 'The Yesmen',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Performance',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Firearms',
+                            url: 'list.html'
+                        })
+                hr
+            .col-md-2
+        .row
+            .col-md-2
+            .col-md-8
+                .content.__video
+                    .content-type Video
+                    h2.title 
+                        a( href="video.html" ) Lol cats in the kitchen
+                    .content__video-still
+                        a( href="video.html" )
+                            img( src='styles/images/Share_the_Security.jpg' )
+                            .read-more.__play(  ) Play
+                    
+                    p.intro Nuit Debout is a French social movement that began on March 31, 2016, arising out of protests against proposed neoliberal labor reforms known as the "Loi Travail," or the "El Khomri Law".
+                    
+                    +tags({
+                            tag: 'Cats',
+                            url: 'list.html'
+                        }, {
+                            tag: 'LOL',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Fun',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Kitten',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Mess',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Disobedience',
+                            url: 'list.html'
+                        }, {
+                            tag: 'fluf',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Soft',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Cute',
+                            url: 'list.html'
+                        })
+
+            .col-md-2
+
