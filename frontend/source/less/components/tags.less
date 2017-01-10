@@ -9,9 +9,18 @@
     
     margin: 4rem 0;
 
+    @media @screen-sm-max {
+        font-size: @font-small;
+    }
+    
     .content-info & {
         margin: 0;
         font-size: @font-small;
+        
+        @media @screen-sm-max {
+            font-size: @font-extra-small;
+            text-align: left;
+        }
     }
 
     li {
