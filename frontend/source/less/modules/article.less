@@ -10,40 +10,34 @@ article {
     }
 
     .title {
+        .font(title-normal);
         margin: 2rem 0 3rem 0;
         color: @color-grey--50;
-        font-size: @font-title-normal;
-        line-height: @line-height--title-normal;
         font-weight: normal;
 
         @media @screen-sm-max {
-            font-size: @font-title-extra-small;
-            line-height: @line-height--title-extra-small;
+            .font(title-extra-small);
         }
     }
     
     p.intro {
         margin: 0 0 4rem 10rem;
-        font-size: @font-large;
-        line-height: @line-height--large;
+        .font(large);
         color: @color-grey--30;
         font-style: oblique;
 
         @media @screen-sm-max {
-            font-size: @font-medium;
-            line-height: @line-height--medium;
+            .font(medium);
             margin-left: 3rem;
         }
     }
 
     p {
+        .font(base);
         color: @color-grey--50;
-        font-size: @font-base;
-        line-height: @line-height--base;
         
         @media @screen-sm-max {
-            font-size: @font-medium;
-            line-height: @line-height--medium;
+            .font(medium);
         }
     }
 

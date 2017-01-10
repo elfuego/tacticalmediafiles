@@ -5,14 +5,12 @@
     .title {
         margin: 2rem 0 3rem 0;
         color: @color-grey--50;
-        font-size: @font-title-normal;
-        line-height: @line-height--title-normal;
+        .font(title-normal);
         text-align: center;
         font-weight: normal;
 
         @media @screen-sm-max {
-            font-size: @font-title-small;
-            line-height: @line-height--title-small;
+            .font(title-small);
         }
 
         a {
@@ -21,8 +19,7 @@
     }
 
     p, .intro {
-        font-size: @font-large;
-        line-height: @line-height--large;
+        .font(large);
         color: @color-grey--30;
         font-style: oblique;
         text-align: center;
@@ -31,8 +28,7 @@
         margin-bottom: 4rem;
         
         @media @screen-sm-max {
-            font-size: @font-medium;
-            line-height: @line-height--medium;
+            .font(medium);
         }
     }
 

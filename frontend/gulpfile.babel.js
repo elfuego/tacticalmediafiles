@@ -94,11 +94,11 @@ gulp.task('develop', ['html', 'styles', 'js', 'assets'], () => {
             ignored: '*.txt'
         },
         files: [
-            config.paths.test + "/**/*.*"
+             config.paths.test + "/**/*.*"
         ],
-        browser: "google chrome",
-        reloadDelay: 250,
-        reloadDebounce: 500
+        browser: "google chrome"
+        // reloadDelay: 250,
+        // reloadDebounce: 500
     });
 
     gulp.watch([config.paths.source + '/pug/**/*.pug'],     ['html-watch']);
