@@ -1,7 +1,5 @@
 .content {
     
-    text-align: center;
-
     .title {
         margin: 2rem 0 3rem 0;
         color: @color-grey--50;
@@ -22,7 +20,7 @@
         .font(large);
         color: @color-grey--30;
         font-style: oblique;
-        text-align: center;
+        //text-align: center;
     }
     .intro {
         margin-bottom: 4rem;
@@ -32,25 +30,46 @@
         }
     }
 
-    &.__video {    
+    &.__video {
+
+        .content__video-still {
+            position: relative;
+
+            img {            
+                max-width: 100%;
+                margin: 0 auto;
+                height: auto;
+            }
+            .read-more {
+                position: absolute;
+                bottom: 6rem;
+                left: 50% - 9rem;
+
+                @media @screen-md-max {
+                    left: 50% - 8rem;
+                }
+            }
+
+        }
+
         .intro {
             margin-top: 4rem;
         }
     }
 
-    .content__video {
-        position: relative;
+    // .content__video {
+    //     position: relative;
 
-        video {
-            width: 100%;
-            //height: 36rem;
-        }
+    //     video {
+    //         width: 100%;
+    //         //height: 36rem;
+    //     }
 
-        .read-more {
-            position: absolute;
-            bottom: 6rem;
-            left: 50% - 9rem;
-        }
+    //     .read-more {
+    //         position: absolute;
+    //         bottom: 6rem;
+    //         left: 50% - 9rem;
+    //     }
 
-    }
+    // }
 }
