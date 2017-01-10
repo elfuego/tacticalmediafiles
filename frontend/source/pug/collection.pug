@@ -90,4 +90,26 @@ append main
                         })
 
             .col-md-2
+                
+        .row
+            .col-md-2
+            .col-md-8
+
+                ul.pager
+                    li 
+                        a.prev( href="#" ) Previous
+                    li 
+                        a( href="#" ) 1
+                    li 
+                        span.dots ...
+                    li 
+                        a.current( href="#" ) 5
+
+                    each val in ["6", "7", "8", "9", "10"]
+                        li 
+                            a( href=val ) #{val}
+                    li 
+                        a.next( href="#" ) Next
+
+            .col-md-2
 
