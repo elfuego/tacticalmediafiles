@@ -34,11 +34,10 @@
     }
 
     .title {
-        margin: 2rem 0 3rem 0;
+        .font(title-small);
         color: @color-grey--50;
-        font-size: @font-title-small;
-        line-height: @line-height--title-small;
         font-weight: normal;
+        margin: 2rem 0 3rem 0;
     }
 
     .content-type {
@@ -50,22 +49,19 @@
     }
 
     p.intro {
+        .font(large);
         margin: 0 0 4rem  0;
-        font-size: @font-large;
-        line-height: @line-height--large;
         color: @color-grey--30;
         font-style: oblique;
 
         @media @screen-sm-max {
-            font-size: @font-medium;
-            line-height: @line-height--medium;
+            .font(medium);
         }
     }
 
     p {
         color: @color-grey--50;
-        font-size: @font-base;
-        line-height: @line-height--base;
+        .font(base);
     }
 
 }

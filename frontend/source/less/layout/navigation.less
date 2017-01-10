@@ -21,7 +21,7 @@
 
     a, label {
         font-family: @font-secondary;
-        font-size: @font-extra-small;
+        font-size: 1.2rem;
         letter-spacing: 0.2rem;
         text-transform: uppercase;
         vertical-align: middle;
@@ -41,8 +41,8 @@
         height: 2.6rem;
         border: none;
 
+        .font(extra-small);
         font-family: @font-secondary;
-        font-size: @font-extra-small;
         color: @color-secondary;
         letter-spacing: .2rem;
         text-transform: uppercase;
@@ -118,7 +118,7 @@
         text-align: right;
         
         .selector__select { 
-            font-size: @font-small + .1rem;
+            font-size: 1.5rem;
             color: @color-primary;
             text-transform: lowercase;
             font-style: italic;
@@ -147,14 +147,13 @@
         }
 
         .selector__option {
-            font-size: @font-small;
+            font-size: 1.4rem;
             text-transform: lowercase;
             padding: 0 3rem 0 0;
             color: @color-secondary;
             
             &.___is-selected {
-                font-size: @font-small + .1rem;
-                color: @color-primary;
+                font-size: 1.5rem;
                 font-style: italic;
             }
 
