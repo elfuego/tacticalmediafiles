@@ -10,6 +10,11 @@
         text-align: center;
         font-weight: normal;
 
+        @media @screen-sm-max {
+            font-size: @font-title-small;
+            line-height: @line-height--title-small;
+        }
+
         a {
             color: @color-grey--50;
         }
@@ -24,6 +29,11 @@
     }
     .intro {
         margin-bottom: 4rem;
+        
+        @media @screen-sm-max {
+            font-size: @font-medium;
+            line-height: @line-height--medium;
+        }
     }
 
     &.__video {    

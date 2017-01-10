@@ -15,6 +15,11 @@ article {
         font-size: @font-title-normal;
         line-height: @line-height--title-normal;
         font-weight: normal;
+
+        @media @screen-sm-max {
+            font-size: @font-title-extra-small;
+            line-height: @line-height--title-extra-small;
+        }
     }
     
     p.intro {
@@ -23,12 +28,23 @@ article {
         line-height: @line-height--large;
         color: @color-grey--30;
         font-style: oblique;
+
+        @media @screen-sm-max {
+            font-size: @font-medium;
+            line-height: @line-height--medium;
+            margin-left: 3rem;
+        }
     }
 
     p {
         color: @color-grey--50;
         font-size: @font-base;
         line-height: @line-height--base;
+        
+        @media @screen-sm-max {
+            font-size: @font-medium;
+            line-height: @line-height--medium;
+        }
     }
 
 }
