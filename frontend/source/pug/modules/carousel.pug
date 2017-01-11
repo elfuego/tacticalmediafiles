@@ -2,7 +2,7 @@ mixin carousel(...items)
     .slider( data-slider-featured="home-page" )
         each item in items
             - item.url = item.url || '#'
-            .slider-item
+            article.slider-item
                 .item( style="background-image: url(" + item.image + ");" )
                     .container
                         p.item__type 

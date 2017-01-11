@@ -4,6 +4,9 @@
         height: 57.4rem;
         padding: 4rem;
 
+        @media @screen-md-max {
+            height: 40rem;
+        }
     }
 
     .collection__heading {
@@ -12,8 +15,13 @@
         align-items: center;
         justify-content: space-around;
 
-        height: 36rem;
-        margin: 3rem 0;
+        height: 40rem;
+        margin: 3rem 0 0 0;
+
+        @media @screen-md-max {
+            height: 27rem;
+            margin: 2rem 0 0 0;
+        }
     }
 
     h1 {
@@ -26,35 +34,39 @@
             color: white;
             text-align: center;
             margin: 0 0 3rem 0;
+            
+            @media @screen-md-max {
+                margin-bottom: 1rem
+            }
         }
     }
 
     h2.collection__author {
-        .font(base);
+        .font(medium);
         font-family: @font-secondary;
         letter-spacing: .1rem;
         color: @color-primary;
         text-align: center;
-        //margin: 0 0 3rem 0;
     }
 
     h3.collection__title {
         .font(title-normal);
         font-weight: normal;
         color: white;
-        //margin: 0 4rem;
+        
+        @media @screen-sm-max {
+            .font(title-small); 
+        }
     }
 
     p.collection__intro {
         .font(large);
         color: white;
         font-style: oblique;
-        //margin: 0 6rem;
-        
-        //margin: 2rem 0;
+        margin: 0;
 
-        @media @screen-sm-max {
-            .font(medium);
+        @media @screen-md-max {
+            .font(base);
         }
     }
 

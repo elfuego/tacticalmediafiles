@@ -6,26 +6,25 @@ prepend variables
     - selected = 'all';
 
 append main
-    .heading.__collection( style="background-image: url('styles/images/raster-lightgrey.png');" )
-        .container
-            .row
-                .col-md-2
-                .col-md-8
-        
-                    h1.collection__content-type Collection
-                    h2.collection__author Kurt Geiger
-                    
-                    .collection__heading
-                        h3.collection__title The right to be offended
-                        p.collection__intro Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                
-                .col-md-2
-
-    .container
+    section.heading.__collection( style="background-image: url('styles/images/raster-lightgrey.png');" )
         .row
             .col-md-2
             .col-md-8
-                .content
+    
+                h1.collection__content-type Collection
+                h2.collection__author Kurt Geiger
+                
+                .collection__heading
+                    h3.collection__title The right to be offended
+                    p.collection__intro Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            
+            .col-md-2
+
+    section.container
+        .row
+            .col-md-2
+            .col-md-8
+                article.content
                     .content-type Article
                     h2.title 
                         a( href="article.html" ) NRA and Smith &amp; Wesson Partner to "Share the Safety" With All Americans
@@ -49,7 +48,7 @@ append main
         .row
             .col-md-2
             .col-md-8
-                .content.__video
+                article.content.__video
                     .content-type Video
                     h2.title 
                         a( href="video.html" ) Lol cats in the kitchen
@@ -90,7 +89,7 @@ append main
                         })
 
             .col-md-2
-                
+
         .row
             .col-md-2
             .col-md-8

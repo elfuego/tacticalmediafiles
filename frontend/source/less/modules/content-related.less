@@ -19,12 +19,14 @@
         font-family: @font-tertiary;
         .font(small);
 
-        list-style: none;
+        a { color: @color-secondary; }
 
-        li {
-            list-style: none;
-            float: left;
-            display: inline;
+        &.__images,
+        &.__video {
+            li {
+                display: inline;
+                float: left;
+            }
         }
 
         .content-related__image {
@@ -51,6 +53,5 @@
             }
         }
     }
-
 
 }
