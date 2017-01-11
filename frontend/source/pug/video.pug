@@ -12,7 +12,14 @@ append main
             .col-md-10.col-md-offset-1
                 .video
                     .video-background
-                        video( style="background-image:url(styles/images/lol-cat.png)" )
+                        video( 
+                            poster="styles/images/lol-cat-16x9.png"
+                            width="640" 
+                            height="360"
+                            controls                        
+                        )
+                            source( src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" )
+                            source( src='http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4' )
                         a.read-more.__play( href="video.html" ) Play
     .container
         .row
