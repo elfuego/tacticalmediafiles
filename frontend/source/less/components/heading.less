@@ -7,6 +7,9 @@
         @media @screen-md-max {
             height: 40rem;
         }
+        @media @screen-sm-max {
+            height: 36rem;
+        }
     }
 
     .collection__heading {
@@ -15,18 +18,22 @@
         align-items: center;
         justify-content: space-around;
 
-        height: 40rem;
+        height: 42rem;
         margin: 3rem 0 0 0;
 
         @media @screen-md-max {
-            height: 27rem;
+            height: 26rem;
             margin: 2rem 0 0 0;
+        }
+        @media @screen-sm-max {
+            height: 24rem;
+            margin: 0rem 0 0 0;
         }
     }
 
     h1 {
         .font(small);
-        
+
         &.collection__content-type {
             font-family: @font-secondary;
             letter-spacing: .1rem;
@@ -52,10 +59,11 @@
     h3.collection__title {
         .font(title-normal);
         font-weight: normal;
+        text-align: center;
         color: white;
         
         @media @screen-sm-max {
-            .font(title-small); 
+            .font(large); 
         }
     }
 
@@ -65,9 +73,21 @@
         font-style: oblique;
         margin: 0;
 
+        display: -webkit-box;
+        -webkit-line-clamp: 12;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+
         @media @screen-md-max {
             .font(base);
         }
+        @media @screen-sm-max {
+            -webkit-line-clamp: 7;
+            .font(medium);
+        }
+
     }
 
 }

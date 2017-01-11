@@ -35,6 +35,8 @@
         .content__video-still {
             position: relative;
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
             
             img {            
@@ -43,21 +45,30 @@
                 height: auto;
             }
             .read-more {
-                position: absolute;
-                bottom: 6rem;
+                margin-top: -12rem;
+                margin-bottom: 12rem;
 
                 @media @screen-sm-max {
-                    bottom: 0rem;
+                    margin-top: -8rem;
+                    margin-bottom: 6rem;
                 }
                 @media @screen-xs-max {
-                    bottom: 0.5rem;
+                    margin-top: -4rem;
+                    margin-bottom: 2rem;
                 }
             }
 
         }
 
         .intro {
-            margin-top: 4rem;
+            //margin-top: 16rem;  // 4 + 12 rem
+            
+            @media @screen-sm-max {
+                //margin-top: 9rem;
+            }
+            @media @screen-xs-max {
+                //margin-top: 6rem;
+            }
         }
     }
 
