@@ -32,4 +32,9 @@
         $overlay.find('.topics').hide();
     });
 
+    $('body').oiplayer({
+        controls: 'light top',
+        log: 'error'
+    });   // on all video and audio tags in body
+
 })();

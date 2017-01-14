@@ -21,9 +21,35 @@
             width: 100%;
             height: auto;
 
-            background-size: cover;
-            background-position: center;
-            background-repeat: none;
+            // background-size: cover;
+            // background-position: center;
+            // background-repeat: none;
+        }
+
+        .oiplayer {
+            margin: 0 auto;
+
+            .oipcontrols {
+                background-color: rgba(0, 0, 0, .65);
+                color: white;
+                border-radius: 0;
+            }
+            a {
+                color: @color-primary;
+                &:hover {
+                    color: @color-primary-dark;                        
+                }
+            }
+
+            .pos {
+                a {
+                    background-color: @color-primary;
+
+                    &:hover {
+                        background-color: @color-primary-dark;                        
+                    }
+                }
+            }
         }
 
         .read-more {
@@ -47,6 +73,12 @@
         color: @color-grey--50;
         font-weight: normal;
         margin: 2rem 0 3rem 0;
+
+        .icon(fullscreen);
+        &:before {
+            font-size: 6rem;
+            color: @color-primary;
+        }
     }
 
     .content-type {
