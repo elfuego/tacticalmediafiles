@@ -81,13 +81,13 @@
         </tmf:head>
 
         <body class="${styleClass}">
-          <div class="GlobalContainer">
+          <div class="page-layout">
+            <a id="skip-link" href="#main">Skip to main content</a>
+            <tmf:header />
             
-            <tmf:top-container />
-
             <c:choose>
               <c:when test="${empty page}">
-                <jsp:invoke fragment="body"  /> 
+                <jsp:invoke fragment="body"  />
               </c:when>
               <c:otherwise>
                 <mm:node referid="page">

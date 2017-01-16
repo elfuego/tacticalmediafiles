@@ -27,11 +27,14 @@
             <c:otherwise>Tactical Media Files</c:otherwise>
           </c:choose>
         </title>
-        <link href="${mm:link('/style/css/tmf.css')}" rel="stylesheet" type="text/css" />
-        <link href="${mm:link('/style/css/tmf2.css')}" rel="stylesheet" type="text/css" />
-        <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
-        <jsp:include page="/mmbase/jquery/jquery.jspx" />
-        <script src="${mm:link('/main.js.jsp')}" type="text/javascript"><jsp:text><!-- help ie --></jsp:text></script>
+        <link rel="icon shortcut" href="${mm:link('/favicon.ico')}" />
+        <link rel="apple-touch-icon" sizes="152x152" href="${mm:link('/apple-touch-icon.png')}" />
+        <link rel="icon" type="image/png" href="${mm:link('/favicon-32x32.png')}" sizes="32x32" />
+        <link rel="icon" type="image/png" href="${mm:link('/favicon-16x16.png')}" sizes="16x16" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link href="${mm:link('/styles/css/styles.css')}" rel="stylesheet" type="text/css" />
+        
         <jsp:doBody />
       </head>
     </mm:formatter>
