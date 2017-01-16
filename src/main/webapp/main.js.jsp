@@ -31,6 +31,14 @@ $(document).ready(function() {
             'controls' : 'top'
         });
         
+        /* Jump to position in media */
+        $("[data-position-trigger]").click(function(ev) {
+            ev.preventDefault();
+            var pos = $(this).data('position-trigger');
+            var media = $(this).data('media-number');
+            $.fn.oiplayer('jump','oip_ea_id_' + media, pos);
+        });
+        
         /* Media play statistics: registers start and end of video plays */
         if (ga != null) {
             $('div.oiplayer').bind("oiplayerplay", function(ev, pl) {

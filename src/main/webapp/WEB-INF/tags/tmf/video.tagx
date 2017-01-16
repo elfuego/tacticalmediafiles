@@ -54,7 +54,8 @@
               class="oip_ea_duration_${length / 1000} oip_ea_start_0 oip_ea_id_${!empty id ? id : _node.number}"
               width="${width}"
               height="${height}"
-              poster="${poster}">
+              poster="${poster}"
+              id="oip_ea_id_${!empty id ? id : _node.number}">
          <mm:write referid="mediaurls" escape="none" />
          <span class="html5warning">You need a browser that understands the html5 video tag to play this item.</span>
        </video>
