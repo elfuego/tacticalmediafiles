@@ -32,9 +32,23 @@
         $overlay.find('.topics').hide();
     });
 
+    
+    // video player stuff
     $('body').oiplayer({
-        controls: 'light top',
-        log: 'error'
-    });   // on all video and audio tags in body
+        controls: 'dark top',
+        log: 'error',
+        show: false
+    });
+
+    $('a.__play').click(function(ev) {
+        ev.preventDefault();
+        $.fn.oiplayer('start', 'tmf-player');
+        $(this).fadeOut('fast');
+    });
+
+    $('.oiplayer').bind('oiplayerplay', function(ev, player) {
+        //console.log("I started playing: " + $(player.el).attr('id'));
+        $('a.__play').fadeOut('fast');
+    });
 
 })();
