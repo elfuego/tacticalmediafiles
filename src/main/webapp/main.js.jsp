@@ -30,7 +30,28 @@ $(document).ready(function() {
             'flash' : '/style/oiplayer/plugins/flowplayer-3.2.7.swf',
             'controls' : 'top'
         });
+        
+        /* Jump to position in media */
+        $("[data-position-trigger]").click(function(ev) {
+            ev.preventDefault();
+            var pos = $(this).data('position-trigger');
+            var media = $(this).data('media-number');
+            $.fn.oiplayer('jump','oip_ea_id_' + media, pos);
+        });
+        
+        /* Media play statistics: registers start and end of video plays */
+        if (ga != null) {
+            $('div.oiplayer').bind("oiplayerplay", function(ev, pl) {
+                //console.log('play!! ' + pl.id);
+                ga('send', 'event', 'video', 'play', pl.id);
+            })
+            .bind("oiplayerended", function(ev, pl){
+                //console.log('ended!! ' + pl.id);
+                ga('send', 'event', 'video', 'ended', pl.id);
+            });
+        }
     }
+    
     
     if ($('#videothumbs').length || $('#homethumbs').length) {
         var loadVideoThumbs = function(move){

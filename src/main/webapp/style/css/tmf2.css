@@ -41,16 +41,17 @@ div.HomeFeaturedList div.HomeFeaturedItem {
 div.HomeFeaturedList div.HomeFeaturedItem.HomeFeaturedPhotoAuthor { font-size: 0.8em; }
 
 #tagcloud h2 { text-transform: uppercase; }
-#tagcloud li.tag_0{ font-size: 0.7em; font-weight: 100; } 
-#tagcloud li.tag_1{ font-size: 0.8em; font-weight: 200; } 
-#tagcloud li.tag_2{ font-size: 0.9em; font-weight: 300; } 
-#tagcloud li.tag_3{ font-size: 1.0em; font-weight: 400; } 
-#tagcloud li.tag_4{ font-size: 1.1em; font-weight: 500; } 
-#tagcloud li.tag_5{ font-size: 1.2em; font-weight: 600; }
-#tagcloud li.tag_6{ font-size: 1.3em; font-weight: 700; }
-#tagcloud li.tag_7{ font-size: 1.4em; font-weight: 800; }
-#tagcloud li.tag_8{ font-size: 1.5em; font-weight: 900; }
-#tagcloud li.tag_9{ font-size: 1.6em; font-weight: 900; }
+#tagcloud li.tag_0 { font-size: 0.7em; font-weight: 100; } 
+#tagcloud li.tag_1 { font-size: 0.8em; font-weight: 200; } 
+#tagcloud li.tag_2 { font-size: 0.9em; font-weight: 300; } 
+#tagcloud li.tag_3 { font-size: 1.0em; font-weight: 400; } 
+#tagcloud li.tag_4 { font-size: 1.1em; font-weight: 500; } 
+#tagcloud li.tag_5 { font-size: 1.2em; font-weight: 600; }
+#tagcloud li.tag_6 { font-size: 1.3em; font-weight: 700; }
+#tagcloud li.tag_7 { font-size: 1.4em; font-weight: 800; }
+#tagcloud li.tag_8 { font-size: 1.5em; font-weight: 900; }
+#tagcloud li.tag_9 { font-size: 1.6em; font-weight: 900; }
+#tagcloud li { display: inline-block; }
 
 input.SearchNav { 
     width: 80px;

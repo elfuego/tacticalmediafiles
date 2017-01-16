@@ -10,6 +10,9 @@
   <mm:import externid="cacheable" />
   
   <mm:node referid="media">
+    <mm:nodeinfo type="type" id="type" write="false" />
+    <c:if test="${type ne 'video'}"><c:redirect url="/error/404.jspx" /></c:if>
+    
     <mm:import id="media_title" reset="true"><mm:field name="title" escape="inline" /></mm:import>
   </mm:node>
   
@@ -27,7 +30,7 @@
     <jsp:attribute name="title">${media_title}</jsp:attribute>
     
     <jsp:attribute name="head">
-      <script type="text/javascript" src="${mm:link('/style/oiplayer/js/jquery.oiplayer.js')}"><!-- salut msie --></script>
+      <script type="text/javascript" src="${mm:link('/style/oiplayer/js/jquery.oiplayer.min.js')}"><!-- salut msie --></script>
       <link href="${mm:link('/style/oiplayer/css/oiplayer.css')}" rel="stylesheet" type="text/css" />
       <style type="text/css">
       video { 
@@ -58,6 +61,7 @@
       {
         list-style: none;
         font-size: 0.8em;
+        clear: both;
       }
       ul.videomarkers li
       {
@@ -65,6 +69,23 @@
         margin: 0;
       }
       </style>
+
+      <mm:escaper id="wrapper" type="substring">
+        <mm:param name="from" value="0" />
+        <mm:param name="to" value="254" />
+        <mm:param name="ellipsis" value="..." />
+      </mm:escaper>
+      <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+        <mm:relatednodes>
+          <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">, </mm:first>${keywords}</c:set>
+        </mm:relatednodes>
+      </mm:relatednodescontainer>
+      <mm:import id="meta_description"><mm:field name="description" escape="wrapper,text/html/attribute" /></mm:import>
+      <c:if test="${!empty meta_description}"><meta name="description" content="${mm:escape('text/html/attribute',meta_description)}" /></c:if>
+      <c:if test="${!empty keywords}">
+         <meta name="keywords" content="${keywords}" />
+      </c:if>
+
     </jsp:attribute>
 
     <jsp:attribute name="body">
@@ -116,7 +137,7 @@
               <!-- Video Markers -->
 
               <mm:relatednodescontainer type="fragment" role="posrel" searchdirs="destination">
-                <mm:sortorder field="number" direction="UP" />
+                <mm:sortorder field="posrel.pos" direction="UP" />
 
                 <mm:size>
                   <mm:isgreaterthan value="0">
@@ -129,8 +150,10 @@
                 <ul class="videomarkers">
                 <mm:relatednodes>
                   <li>
-                    [<tmf:duration milliseconds="${_node.start}" />]
-                    <a href="#" class="linkg"><mm:field name="title" /></a>
+                    [<tmf:duration milliseconds="${_node.start}" /><mm:field name="stop"><mm:isnotempty> - <tmf:duration milliseconds="${_}" /></mm:isnotempty></mm:field>]
+                    <a href="#t=${fn:substringBefore(_node.start / 1000, '.')}" 
+                        data-position-trigger="${fn:substringBefore(_node.start / 1000, '.')}" 
+                        data-media-number="${media}" class="linkg"><mm:field name="title" /></a>
                   </li>
                 </mm:relatednodes>
                 </ul>
@@ -161,7 +184,7 @@
                 <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
                   <mm:maxnumber value="1" />
                   <mm:relatednodes>
-                    <tmf:video width="480" height="360" poster="${poster}" />
+                    <tmf:video width="480" height="360" poster="${poster}" id="${media}" />
                   </mm:relatednodes>
                 </mm:relatednodescontainer>
 
@@ -207,7 +230,8 @@
           <div class="clearBoth"><!-- empty --></div>
           
         </div><!-- EOF .VideoContainer -->
-        <div class="clearBoth"><!-- empty --></div>
+        <div class="clearBoth"><!-- empty --></div>        
+        
       </mm:node>
     </jsp:attribute>
   </tmf:html>

@@ -1,0 +1,56 @@
+.selector {
+    position: relative;
+    //width: 100%;
+    //max-width: 16rem;
+    user-select: none;
+    text-align: left;
+
+    &.___is-open {
+        .selector__select:after {
+            transform: scaleY(-1);
+        }
+        .selector__options {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0, 0);
+        }
+    }
+
+    select {
+        position: absolute;
+        right: 0;
+        //width: 100%;
+        //width: 16rem;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+.selector__label {
+    display: none;
+}
+
+.selector__select {
+    //padding: 0 2rem;
+    //color: black;
+    //line-height: 4.6rem;
+    //border: 0.2rem solid @color-grey--40;
+    cursor: pointer;
+    transition: color @trans-fast, border-color @trans-fast;
+}
+
+.selector__options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    //border: 1px solid transparent;
+    box-shadow: @box-shadow;
+    z-index: 1;
+    opacity: 0;
+    transform: translate(0, -0.5rem);
+    visibility: hidden;
+    transition: opacity @trans-fast, visibility @trans-fast, transform @trans-fast;
+}
+

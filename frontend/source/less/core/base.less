@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+// *:focus {
+//     // remove outline from all focused elements
+//     outline: none;
+// }
+
+html {
+    //Set the base box-sizing that will be inherited by all other elements
+    box-sizing: border-box;
+
+    // Set the base font size for rem sizes
+    font-size: 10px;
+
+    // Add cross-browser antialiasing
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    // Other base styling
+    text-rendering: auto;
+    -webkit-text-size-adjust: 100%;
+    position: relative;
+    height: 100%;
+    margin: 0;
+    cursor: default;
+
+    @media @screen-xl {
+        font-size: 12px;
+    }
+}
+
+body {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    font-family: @font;
+    font-size: @font-medium;
+    line-height: @line-height--medium;
+    color: black;
+    background-color: white;
+    overflow-y: scroll;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    border: none;
+}
+
+a {
+    color: @color-secondary;
+    text-decoration: none;
+}
+
+// Usability
+// -------------------------------
+
+// Skip directly to main content
+#skip-link {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    color: black;
+    background-color: @color-primary;
+    padding: 0.5rem 1rem;
+    
+    &:focus {
+        right: auto;
+        z-index: @index-9;
+    }
+}
+
+// Normalize focusable elements cross browser
+a:focus {
+   outline: none;
+   background-color: @color-primary-transparent;
+   //background-color: fade(@color-grey--20, 75%);
+   // text-shadow: 0.05em 0 0 @color-grey--20, -0.05em 0 0 @color-grey--20, 0 0.05em 0 @color-grey--20, 0 -0.05em 0 @color-grey--20, 0.1em 0 0 @color-grey--20, -0.1em 0 0 @color-grey--20, 0 0.1em 0 @color-grey--20, 0 -0.1em 0 @color-grey--20;
+}

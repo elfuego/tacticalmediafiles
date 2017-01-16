@@ -93,6 +93,8 @@
     <relation from="person" to="dates" type="related" />
     <relation from="person" to="address" type="related" />
     <relation from="person" to="article" type="related" />
+    <relation from="person" to="video" type="related" />
+    <relation from="person" to="file" type="related" />
     <relation from="event" to="file" type="related" />
     <relation from="person" to="organisation" type="related" />
     <relation from="person" to="event" type="related" />
@@ -137,6 +139,7 @@
     
     <!-- create new relationtype -->
     <relation from="video" to="mediafragments" type="related" />
+    <relation from="video" to="keyword"        type="related" />
   </allowedrelationlist>
 
   <datasourcelist>
@@ -176,9 +179,8 @@
     TMF2 installs builders and relations for the TMF archive website.
     This application uses and depends on the MMBase applications Resources, Media and Streams. 
     In it the original builder videofragments is renamed fragment
-    and media is renamed to video
-    to prevent conflicting with videofragments in Media.
+    and media is renamed to video to prevent conflicting with videofragments in Media.
   </description>
 
-  <install-notice>TMF2 installed.</install-notice>
+  <install-notice>TMF2 is installed.</install-notice>
 </application>

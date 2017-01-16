@@ -1,0 +1,28 @@
+{
+    "project": { 
+        "name" : "Tactical Media Files",
+        "description" : "Hello world!"
+    },
+    "paths": {
+        "source": "source",
+        "test": "public",
+        "build": "public",
+        "assets": {
+            "css": "styles/css",
+            "fonts": "styles/fonts",
+            "icons": "styles/icons",
+            "images": "styles/images",
+            "js": "styles/js"
+        }
+    },
+    "navigation": [
+        {
+            "name": "Home",
+            "href": "index.html"
+        },       
+        {
+            "name": "News",
+            "href": "news.html"
+        }       
+    ]
+}

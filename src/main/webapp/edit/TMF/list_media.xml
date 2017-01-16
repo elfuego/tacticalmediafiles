@@ -18,8 +18,8 @@
 			</item>
 
 			<command name="search" nodepath="video" fields="title,handle" age="-1">
-				<prompt xml:lang="en">Search Articles</prompt>
-				<prompt xml:lang="nl">Zoek Artiekelen</prompt>
+				<prompt xml:lang="en">Search video</prompt>
+				<prompt xml:lang="nl">Zoek video</prompt>
 
 				<search-filter>
 					<name xml:lang="en">Title:</name>

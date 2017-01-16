@@ -1,0 +1,34 @@
+article {
+    
+    a {
+        color: @color-primary;
+
+        &:hover, 
+        &:active {
+            text-decoration: underline;
+        }
+    }
+
+    .title {
+        margin: 2rem 0 3rem 0;
+        color: @color-grey--50;
+        font-size: @font-title-normal;
+        line-height: @line-height--title-normal;
+        font-weight: normal;
+    }
+    
+    p.intro {
+        margin: 0 0 4rem 10rem;
+        font-size: @font-large;
+        line-height: @line-height--large;
+        color: @color-grey--30;
+        font-style: oblique;
+    }
+
+    p {
+        color: @color-grey--50;
+        font-size: @font-base;
+        line-height: @line-height--base;
+    }
+
+}

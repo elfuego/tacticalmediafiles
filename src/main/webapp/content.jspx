@@ -24,21 +24,25 @@
       cacheable="${cacheable}"
       styleClass="${type}">
     
-    <jsp:attribute name="title">${page_title}</jsp:attribute>
+    <jsp:attribute name="title"><mm:write referid="page_title" escape="inline" /></jsp:attribute>
     
     <jsp:attribute name="head">
        
-       <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
-         <mm:relatednodes>
-           <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">,</mm:first>${keywords}</c:set>
-         </mm:relatednodes>
-       </mm:relatednodescontainer>
-       <mm:field name="intro">
-         <mm:isnotempty><meta name="description" content="${mm:escape('text/html/attribute',_)}" /></mm:isnotempty>
-       </mm:field>
-       <c:if test="${!empty keywords}">
-          <meta name="keywords" content="${keywords}" />
-       </c:if>
+      <mm:escaper id="wrapper" type="substring">
+        <mm:param name="from" value="0" />
+        <mm:param name="to" value="254" />
+        <mm:param name="ellipsis" value="..." />
+      </mm:escaper>
+      <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+        <mm:relatednodes>
+          <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">, </mm:first>${keywords}</c:set>
+        </mm:relatednodes>
+      </mm:relatednodescontainer>
+      <mm:import id="meta_description"><mm:field name="intro" escape="wrapper,text/html/attribute" /></mm:import>
+      <c:if test="${!empty meta_description}"><meta name="description" content="${mm:escape('text/html/attribute',meta_description)}" /></c:if>
+      <c:if test="${!empty keywords}">
+         <meta name="keywords" content="${keywords}" />
+      </c:if>
 
     </jsp:attribute>
 

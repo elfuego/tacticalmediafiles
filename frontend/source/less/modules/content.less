@@ -1,0 +1,50 @@
+.content {
+    
+    text-align: center;
+
+    .title {
+        margin: 2rem 0 3rem 0;
+        color: @color-grey--50;
+        font-size: @font-title-normal;
+        line-height: @line-height--title-normal;
+        text-align: center;
+        font-weight: normal;
+
+        a {
+            color: @color-grey--50;
+        }
+    }
+
+    p, .intro {
+        font-size: @font-large;
+        line-height: @line-height--large;
+        color: @color-grey--30;
+        font-style: oblique;
+        text-align: center;
+    }
+    .intro {
+        margin-bottom: 4rem;
+    }
+
+    &.__video {    
+        .intro {
+            margin-top: 4rem;
+        }
+    }
+
+    .content__video {
+        position: relative;
+
+        video {
+            width: 100%;
+            //height: 36rem;
+        }
+
+        .read-more {
+            position: absolute;
+            bottom: 6rem;
+            left: 50% - 9rem;
+        }
+
+    }
+}

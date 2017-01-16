@@ -27,9 +27,16 @@
           <h1 class="Title">${title}</h1>
         </div>
         <div class="ArticleLabel">
-          <mm:link page="/style/images/labels/${empty label ? 'article' : label}.png">
-            <img src="${_}" alt="${empty label ? 'article' : label}" />
-          </mm:link>
+          <c:choose>
+            <c:when test="${!empty label}">
+              <mm:link page="/style/images/labels/${label}.png">
+                <img src="${_}" alt="${label}" />
+              </mm:link>
+            </c:when>
+            <c:otherwise>
+            
+            </c:otherwise>
+          </c:choose>
         </div>
     </div><!-- EOF .ArticleTitleContainer -->
     <div style="clear: right ;"><!-- empty --></div>

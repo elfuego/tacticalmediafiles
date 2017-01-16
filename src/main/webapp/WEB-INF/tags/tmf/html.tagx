@@ -53,7 +53,7 @@
             <c:choose>
               <c:when test="${empty title and !empty page}">
                 <mm:node referid="page">
-                  <mm:hasfield name="title"><mm:field name="title" /> - </mm:hasfield>
+                  <mm:hasfield name="title"><mm:field name="title" escape="inline" /> - </mm:hasfield>
                 </mm:node>
               </c:when>
               <c:otherwise>
@@ -97,7 +97,7 @@
             </c:choose>
             
             <tmf:footer />
-            <!-- tmf:googleanalytics / -->
+            <tmf:googleanalytics />
           
           </div>
         </body>

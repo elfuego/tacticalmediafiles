@@ -1,0 +1,38 @@
+<mm:content 
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    expires="0" type="text/html" language="client" postprocessor="none">
+<jsp:output doctype-root-element="html"
+      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+
+<mm:cloud method="logout" />
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+<head>
+  <title>TMF editors - Logged out</title>
+  
+  <link href="${mm:link('/style/css/tmf.css')}" rel="stylesheet" type="text/css" />
+  <link href="${mm:link('/style/css/tmf2.css')}" rel="stylesheet" type="text/css" />
+  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
+<style type="text/css">
+  .login { margin-left: 80px; }
+  .ArticleContainer { width: 720px; }
+  p { margin-left: 12px; }
+</style>
+</head>
+<body>
+
+<div class="ArticleContainer">
+  <tmf:header-simple title="Logged out" />
+  <div class="login">
+    <p>
+      <mm:link page="/edit/index.jspx"><a href="${_}">Log back in &gt;&gt;</a></mm:link>
+    </p>
+  </div>
+</div>
+ 
+</body>
+</html>
+</mm:content>

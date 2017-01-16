@@ -9,3 +9,8 @@ src/main/webapp/WEB-INF/config/applications
 *.iws
 *.ipr
 *.iml
+*.sublime-project
+*.sublime-workspace
+# frontend stuff
+frontend/node_modules
+frontend/public/*

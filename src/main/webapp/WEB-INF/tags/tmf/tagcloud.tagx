@@ -26,7 +26,7 @@
              <mm:frameworkparam name="component">tmf</mm:frameworkparam>
              <mm:frameworkparam name="page">search</mm:frameworkparam>
              <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
-             <a class="tag" href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">,</mm:last>
+             <a class="tag" href="${_}"><mm:field name="keyword" /></a>
            </mm:link>
           </li>
         </mm:listnodes>

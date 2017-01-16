@@ -1,0 +1,102 @@
+extends layout/page
+
+prepend variables
+    - title = 'Videos'
+    - selected = 'videos';
+    - bodyClass = 'videos'
+
+append main
+
+    .container
+        .row
+            .col-md-2
+            .col-md-8
+                .content.__video
+                    .content-type Video
+                    h2.title 
+                        a( href="video.html" ) Lol cats in the kitchen
+
+                    .content__video 
+                        video( width="640" height="360" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" )
+                        a.read-more( href="video.html" ) Play
+                    
+                    +tags({
+                            tag: 'Mess',
+                            url: 'list.html'
+                        },{
+                            tag: 'Fun',
+                            url: 'list.html'
+                        },{
+                            tag: 'Soft',
+                            url: 'list.html'
+                        },{
+                            tag: 'Cool Aid',
+                            url: 'list.html'
+                        },{
+                            tag: 'Precarity',
+                            url: 'list.html'
+                        },{
+                            tag: 'Art Of Campaigning',
+                            url: 'list.html'
+                        },{
+                            tag: 'Cure it',
+                            url: 'list.html'
+                        })
+                hr
+            .col-md-2
+        .row
+            .col-md-2
+            .col-md-8
+                .content.__video
+                    .content-type Video
+                    h2.title 
+                        a( href="video.html" ) Nuit Debout
+                    
+                    .content__video
+                        video( width="640" height="360" start="12" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" )
+                        a.read-more( href="video.html" ) Play
+
+                    p.intro Nuit Debout is a French social movement that began on March 31, 2016, arising out of protests against proposed neoliberal labor reforms known as the "Loi Travail," or the "El Khomri Law". The movement is centred at Paris's Place de la République, where protestors have held nightly assemblies following the
+                    
+                    +tags({
+                            tag: 'Campaign',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Precarity',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Art Of Campaigning',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Labour',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Street Protest',
+                            url: 'list.html'
+                        }, {
+                            tag: 'Economics',
+                            url: 'list.html'
+                        })
+            .col-md-2
+
+        .row
+            .col-md-2
+            .col-md-8
+
+                ul.pager
+                    li 
+                        a.prev( href="#" ) Previous
+                    li 
+                        a( href="#" ) 1
+                    li 
+                        span.dots ...
+                    li 
+                        a.current( href="#" ) 5
+
+                    each val in ["6", "7", "8", "9", "10"]
+                        li 
+                            a( href=val ) #{val}
+                    li 
+                        a.next( href="#" ) Next
+
+            .col-md-2
