@@ -23,18 +23,41 @@
             // background-size: cover;
             // background-position: center;
             // background-repeat: none;
+
+            // width: 64rem;
+            // height: 36rem;
+
+            // @media @screen-md-max {
+            //     width: 32rem;
+            //     height: 18rem;
+            // }
         }
 
         .oiplayer {
             margin: 0 auto;
-
-            .oipcontrols {
-                background-color: rgba(0, 0, 0, .65);
-                color: white;
-                border-radius: 0;
-                line-height: 22px;
+        }
+        .oipcontrols {
+            background-color: rgba(0, 0, 0, .65);
+            color: white;
+            border-radius: 0;
+            line-height: 22px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .play {
+            a {
+                color: @color-primary;
+                &:hover {
+                    color: @color-primary-dark;
+                }
+                &:before {
+                    .fa-icon();
+                    content: @fa-var-play;
+                    font-size: 2.2rem;
+                    outline: none;
+                }
             }
-            .play {
+            &.pause {               
                 a {
                     color: @color-primary;
                     &:hover {
@@ -42,71 +65,57 @@
                     }
                     &:before {
                         .fa-icon();
-                        content: @fa-var-play;
+                        content: @fa-var-pause;
                         font-size: 2.2rem;
                         outline: none;
                     }
                 }
-                &.pause {               
-                    a {
-                        color: @color-primary;
-                        &:hover {
-                            color: @color-primary-dark;
-                        }
-                        &:before {
-                            .fa-icon();
-                            content: @fa-var-pause;
-                            font-size: 2.2rem;
-                            outline: none;
-                        }
-                    }
+            }
+        }
+        .sound {
+            a {
+                color: @color-primary;
+                &:hover {
+                    color: @color-primary-dark;                        
+                }
+                &:before {
+                    .fa-icon();
+                    content: @fa-var-volume-up;
+                    font-size: 2.2rem;
+                    outline: none;
                 }
             }
-            .sound {
+            &.muted {
+                right: 2rem;
                 a {
                     color: @color-primary;
                     &:hover {
-                        color: @color-primary-dark;                        
+                        color: @color-primary-dark;
                     }
                     &:before {
                         .fa-icon();
-                        content: @fa-var-volume-up;
+                        content: @fa-var-volume-off;
                         font-size: 2.2rem;
                         outline: none;
                     }
                 }
-                &.muted {
-                    right: 2rem;
-                    a {
-                        color: @color-primary;
-                        &:hover {
-                            color: @color-primary-dark;
-                        }
-                        &:before {
-                            .fa-icon();
-                            content: @fa-var-volume-off;
-                            font-size: 2.2rem;
-                            outline: none;
-                        }
-                    }
+            }
+        }
+        .screen {
+            a {
+                color: @color-primary;
+                &:hover {
+                    color: @color-primary-dark;                        
                 }
             }
-            .screen {
-                a {
-                    color: @color-primary;
-                    &:hover {
-                        color: @color-primary-dark;                        
-                    }
-                }
 
-            }
-            .pos {
-                a {
-                    background-color: @color-primary;
+        }
+        .pos {
+            a {
+                background-color: @color-primary;
 
-                    &:hover {
-                        background-color: @color-primary-dark;                        
-                    }
+                &:hover {
+                    background-color: @color-primary-dark;                        
                 }
             }
         }
