@@ -152,7 +152,9 @@
                             }
                         }
                         var ctrlsWidth = controlsWidth(player);
-                        if (player.type == 'video' || $(player.div).find('img').length > 0) {
+                        if (isIpad() || isIphone() ) {
+                            // do nada
+                        } else if ((player.type == 'video' || $(player.div).find('img').length > 0)) {
                             $(player.ctrls).css('margin-left', Math.round((player.width - ctrlsWidth) / 2) + 'px');
                         } else {
                             $(player.ctrls).css('margin-left', '0px');
@@ -977,10 +979,10 @@
         this.controls = $(this.player).attr('controls');
         if (this.controls === undefined) this.controls = false;
         if (this.duration === undefined) this.duration = 0;
-        this.width = $(this.player).attr('width') > 0 ? parseInt($(this.player).attr('width')) : 320;
-        var default_height = 240;
-        if (this.type == 'audio') default_height = 32;
-        this.height = $(this.player).attr('height') > 0 ? parseInt($(this.player).attr('height')) : default_height;
+        this.width = $(this.player).attr('width') > 0 ? parseInt($(this.player).attr('width')) : $(this.player).closest('div').width();
+        //var default_height = $(this.player).closest('div').height();
+        //if (this.type == 'audio') { default_height = 32; }
+        //this.height = $(this.player).attr('height') > 0 ? parseInt($(this.player).attr('height')) : default_height;
         if (this.type == 'audio') {
             $(this.player).removeAttr('width').removeAttr('height');
         }
