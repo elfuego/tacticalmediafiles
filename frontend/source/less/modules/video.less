@@ -20,7 +20,6 @@
         video {
             width: 100%;
             height: auto;
-
             // background-size: cover;
             // background-position: center;
             // background-repeat: none;
@@ -33,14 +32,74 @@
                 background-color: rgba(0, 0, 0, .65);
                 color: white;
                 border-radius: 0;
+                line-height: 22px;
             }
-            a {
-                color: @color-primary;
-                &:hover {
-                    color: @color-primary-dark;                        
+            .play {
+                a {
+                    color: @color-primary;
+                    &:hover {
+                        color: @color-primary-dark;
+                    }
+                    &:before {
+                        .fa-icon();
+                        content: @fa-var-play;
+                        font-size: 2.2rem;
+                        outline: none;
+                    }
+                }
+                &.pause {               
+                    a {
+                        color: @color-primary;
+                        &:hover {
+                            color: @color-primary-dark;
+                        }
+                        &:before {
+                            .fa-icon();
+                            content: @fa-var-pause;
+                            font-size: 2.2rem;
+                            outline: none;
+                        }
+                    }
                 }
             }
+            .sound {
+                a {
+                    color: @color-primary;
+                    &:hover {
+                        color: @color-primary-dark;                        
+                    }
+                    &:before {
+                        .fa-icon();
+                        content: @fa-var-volume-up;
+                        font-size: 2.2rem;
+                        outline: none;
+                    }
+                }
+                &.muted {
+                    right: 2rem;
+                    a {
+                        color: @color-primary;
+                        &:hover {
+                            color: @color-primary-dark;
+                        }
+                        &:before {
+                            .fa-icon();
+                            content: @fa-var-volume-off;
+                            font-size: 2.2rem;
+                            outline: none;
+                        }
+                    }
+                }
+            }
+            .screen {
+                a {
+                    color: @color-primary;
+                    &:hover {
+                        color: @color-primary-dark;                        
+                    }
+                }
 
+            }
             .pos {
                 a {
                     background-color: @color-primary;
@@ -57,12 +116,13 @@
             left: 0;
             right: 0;
             bottom: 8rem;
-            
+            z-index: @index-9;
+
             @media @screen-md-max {
-                bottom: 4rem;
+                bottom: 6rem;
             }
             @media @screen-sm-max {
-                bottom: 2rem;
+                bottom: 4rem;
             }
         }
 
@@ -73,12 +133,6 @@
         color: @color-grey--50;
         font-weight: normal;
         margin: 2rem 0 3rem 0;
-
-        .icon(fullscreen);
-        &:before {
-            font-size: 6rem;
-            color: @color-primary;
-        }
     }
 
     .content-type {

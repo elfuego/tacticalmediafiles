@@ -31,7 +31,8 @@
  *                    Simply 'true' means show me controls below player.
  *                    Value 'top' will add a css class of that name and will hide/show controls on top of the player window.
  *                    Add a css class of your own to edit the appearance of the controls (f.e. 'top dark').
-                      Still in development: to enable a volume control add a string 'volume'.
+                      Still in development: to enable a volume control add 'volume' as a css class.
+         'show' : Show controls on start
  *       'log' : when your specify 'info' some debug messages are shown about the media playing 
  *
  * @changes: completely redesigned into a 'true' jQuery plugin, added methods to be reached from 
@@ -56,6 +57,7 @@
                 jar: '/oiplayer/plugins/cortado-ovt-stripped-0.6.0.jar',
                 flash: '/oiplayer/plugins/flowplayer-3.2.7.swf',
                 controls: true,
+                show: true,
                 log: 'error'
             };
 
@@ -237,12 +239,17 @@
 
                         // show/hide
                         if (pl.ctrlspos == 'top' && pl.type != 'audio') {
+                            if (! config.show) {
+                                $(pl.ctrls).hide();
+                            }
                             $(pl.div).mouseover(
                                 function (ev) {
-                                    $(pl.ctrls).fadeIn();
+                                    if (pl.state !== 'init') {
+                                        $(pl.ctrls).fadeIn();
+                                    }
                                 }).mouseleave(
                                 function (ev) {
-                                    if (pl.state != 'init') {
+                                    if (pl.state !== 'init') {
                                         $(pl.ctrls).fadeOut('slow');
                                     }
                                 }
@@ -257,6 +264,7 @@
                 });
 
                 function startScrubbing(player, ev, self) {
+                    //hidePreview(player);
                     if (player.type == 'video') {
                         $(player.div).find('.preview').fadeOut('normal');
                     }
