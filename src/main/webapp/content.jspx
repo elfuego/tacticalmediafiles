@@ -23,7 +23,13 @@
   <mm:escaper id="myfilesize" type="filesize">
     <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
   </mm:escaper>
-        
+
+  <mm:escaper type="substring" id="wrap_intro">
+    <mm:param name="from" value="0" />
+    <mm:param name="to" value="128" />
+    <mm:param name="ellipsis" value="..." />
+  </mm:escaper>
+           
   <tmf:html
       cacheable="${cacheable}"
       styleClass="article ${nodetype}">
@@ -55,7 +61,17 @@
       
         <article class="container">
           <div class="row">
-            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-2">
+              <!-- mm:relatednodescontainer path="posrel,picture">
+                <mm:sortorder field="posrel.pos" />
+                <mm:maxnumber value="1" />
+                <mm:relatednodes>
+                  <mm:link page="/picture" referids="_node@pic">
+                    <a href="${_}" class=" "><mm:image styleClass="" mode="img" width="240" height="240" /></a>
+                  </mm:link>
+                </mm:relatednodes>
+              </mm:relatednodescontainer -->                
+            </div>
             <div class="col-md-8">
               <div class="article">
                 <div class="content-type">${nodetype}</div>
@@ -125,32 +141,52 @@
                       <mm:relatednodescontainer role="related" type="file" searchdirs="destination">
                         <mm:size>
                           <mm:isgreaterthan value="0">
-                            <li><a href="#files">${_} files</a></li>
+                            <li><a href="#files">${_} ${_ gt 1 ? 'files' : 'file'}</a></li>
                           </mm:isgreaterthan>
                         </mm:size>
                       </mm:relatednodescontainer>
                       <mm:relatednodescontainer role="related" type="url" searchdirs="destination">
                         <mm:size>
                           <mm:isgreaterthan value="0">
-                            <li><a href="#links">${_} links</a></li>
+                            <li><a href="#links">${_} ${_ gt 1 ? 'links' : 'link'}</a></li>
                           </mm:isgreaterthan>
                         </mm:size>
                       </mm:relatednodescontainer>
                       <mm:relatednodescontainer role="related" type="video" searchdirs="destination">
                         <mm:size>
                           <mm:isgreaterthan value="0">
-                            <li><a href="#videos">${_} videos</a></li>
+                            <li><a href="#videos">${_} ${_ gt 1 ? 'videos' : 'video'}</a></li>
                           </mm:isgreaterthan>
                         </mm:size>
                       </mm:relatednodescontainer>
                       <mm:relatednodescontainer path="posrel,picture">
                         <mm:size>
                           <mm:isgreaterthan value="0">
-                            <li><a href="#images">${_} images</a></li>
+                            <li><a href="#images">${_} ${_ gt 1 ? 'images' : 'image'}</a></li>
                           </mm:isgreaterthan>
                         </mm:size>
                       </mm:relatednodescontainer>
-                      
+                      <mm:relatednodescontainer role="related" type="campaign" searchdirs="source">
+                        <mm:size>
+                          <mm:isgreaterthan value="0">
+                            <li><a href="#campaigns">${_} ${_ gt 1 ? 'campaigns' : 'campaign'}</a></li>
+                          </mm:isgreaterthan>
+                        </mm:size>
+                      </mm:relatednodescontainer>
+                      <mm:relatednodescontainer role="related" type="event" searchdirs="source">
+                        <mm:size>
+                          <mm:isgreaterthan value="0">
+                            <li><a href="#events">${_} ${_ gt 1 ? 'events' : 'event'}</a></li>
+                          </mm:isgreaterthan>
+                        </mm:size>
+                      </mm:relatednodescontainer>
+                      <!-- mm:relatednodescontainer role="related" type="person" searchdirs="source">
+                        <mm:size>
+                          <mm:isgreaterthan value="0">
+                            <li><a href="#persons">${_} ${_ gt 1 ? 'persons' : 'person'}</a></li>
+                          </mm:isgreaterthan>
+                        </mm:size>
+                      </mm:relatednodescontainer -->
                     </ul>
                   </div>
                 </div>
@@ -173,6 +209,62 @@
         
           <aside>
 
+            <!-- campaign -->
+            <mm:relatednodescontainer role="related" type="campaign" searchdirs="source">
+              <mm:size>
+                <mm:isgreaterthan value="0">
+                  <div class="content-related row" id="campaigns">
+                    <div class="col-md-2"><!-- empty --></div>
+                    <div class="col-md-8">
+                      <h4 class="content-related__title">Campaigns</h4>
+                      <ul class="content-related__list __campaigns">
+                      <mm:relatednodes>
+                        <li>
+                          <mm:link page="content">
+                            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                            <a href="${_}"><mm:field name="title" /></a>
+                            <mm:field name="subtitle"><mm:isnotempty><span class="content-related__link-description"><mm:write /></span></mm:isnotempty></mm:field>
+                          </mm:link>
+                        </li>
+                      </mm:relatednodes>
+                      </ul>
+                    </div>
+                    <div class="col-md-2"><!-- empty --></div>
+                  </div>
+                </mm:isgreaterthan>
+              </mm:size>
+            </mm:relatednodescontainer>
+            
+            <!-- event -->
+            <mm:relatednodescontainer role="related" type="event" searchdirs="source">
+              <mm:size>
+                <mm:isgreaterthan value="0">
+                  <div class="content-related row" id="events">
+                    <div class="col-md-2"><!-- empty --></div>
+                    <div class="col-md-8">
+                      <h4 class="content-related__title">Events</h4>
+                      <ul class="content-related__list __events">
+                      <mm:relatednodes>
+                        <li>
+                          <mm:link page="content">
+                            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                            <a href="${_}"><mm:field name="title" /></a>
+                            <mm:field name="intro">
+                              <mm:isnotempty><span class="content-related__link-description"><mm:write escape="tagstripper, wrap_intro" /></span></mm:isnotempty>
+                            </mm:field>
+                          </mm:link>
+                        </li>
+                      </mm:relatednodes>
+                      </ul>
+                    </div>
+                    <div class="col-md-2"><!-- empty --></div>
+                  </div>
+                </mm:isgreaterthan>
+              </mm:size>
+            </mm:relatednodescontainer>
+                        
             <!-- url -->
             <mm:relatednodescontainer role="related" type="url" searchdirs="destination">
               <mm:size>
@@ -181,12 +273,12 @@
                     <div class="col-md-2"><!-- empty --></div>
                     <div class="col-md-8">
                       <h4 class="content-related__title">Links</h4>
-                      <ul class="content-related__list">
+                      <ul class="content-related__list __links">
                       <mm:relatednodes>
                         <li>
                           <a href="${_node.url}"><mm:field name="title" /></a>
                           <mm:field name="description"><mm:isnotempty>
-                            <span class="description"><mm:write /></span>
+                            <span class="content-related__link-description"><mm:write /></span>
                           </mm:isnotempty></mm:field>
                         </li>
                       </mm:relatednodes>
@@ -206,12 +298,12 @@
                     <div class="col-md-2"><!-- empty --></div>
                     <div class="col-md-8">
                       <h4 class="content-related__title">Files</h4>
-                      <ul class="content-related__list">
+                      <ul class="content-related__list __files">
                       <mm:relatednodes>
                         <mm:attachment>
                           <li>
                             <a href="${_}"><mm:field name="title" /></a>
-                            <span class="filelabel"><mm:field name="filename" />, <mm:field name="size" escape="myfilesize" /></span>
+                            <span class="content-related__link-description"><mm:field name="filename" />, <mm:field name="size" escape="myfilesize" /></span>
                           </li>
                         </mm:attachment>
                       </mm:relatednodes>
@@ -222,7 +314,7 @@
                 </mm:isgreaterthan>
               </mm:size>
             </mm:relatednodescontainer>
-        
+
             <!-- video -->
             <mm:relatednodescontainer role="related" type="video" searchdirs="destination">
               <mm:size>
@@ -245,7 +337,7 @@
                             <mm:notpresent referid="image">
                               <mm:import id="image" reset="true">${mm:link('/style/images/video-003.gif')}</mm:import>
                             </mm:notpresent>
-                            <div class="content-related__image-bg" style="background-image:url(${image})"></div>
+                            <div class="content-related__image-bg" style="background-image:url(${image})"><!-- empty --></div>
                             <span><mm:field name="title" escape="inline" /></span>
                           </a>
                         </mm:link>
@@ -256,25 +348,36 @@
               </mm:size>
             </mm:relatednodescontainer>
 
+            <!-- picture -->
             <mm:relatednodescontainer path="posrel,picture">
               <mm:size>
                 <mm:isgreaterthan value="0">
-
-                  <mm:sortorder field="posrel.pos" />
-                  <mm:relatednodes>		
-
-                    <div class="ArticleImageContainer">
-                        <mm:field name="title" />
-                        <mm:link page="/picture" referids="_node@pic">
-                          <a href="${_}"><mm:image mode="img" template="s(414)" /></a>
-                        </mm:link>
+                  <div class="content-related row" id="images">
+                    <div class="col-md-10 col-md-offset-2"> 
+                      <h4 class="content-related__title __images">Images</h4>
                     </div>
-
-                  </mm:relatednodes>
+                  </div>
+                  <div class="content-related row">
+                    <div class="col-md-11 col-md-offset-1">
+                      <ul class="content-related__list __images">
+                      <mm:sortorder field="posrel.pos" />
+                      <mm:relatednodes>		
+                        <mm:link page="/picture" referids="_node@pic">
+                          <mm:import id="image" reset="true"><mm:image mode="url" width="200" height="150" /></mm:import>
+                          <li>
+                            <a href="${_}" class="content-related__image">
+                              <div class="content-related__image-bg" style="background-image:url(${image})"><!-- empty --></div>
+                              <span><mm:field name="title" /></span>
+                            </a>
+                          </li>
+                        </mm:link>
+                      </mm:relatednodes>
+                      </ul>
+                    </div>
+                  </div>
                 </mm:isgreaterthan>
               </mm:size>
             </mm:relatednodescontainer>
-
             
           </aside>
         </article>
