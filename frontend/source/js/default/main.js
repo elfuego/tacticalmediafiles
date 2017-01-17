@@ -3,18 +3,15 @@
     'use strict';
 
     /**
-     * Does something...
+     * Data selecters and targets.
      */
     var $overlaySelector = $('[data-select-overlay]'),
-        $closeSelector = $('[data-select-results-close]'),
         $overlay = $('[data-select-results]'),
+        $closeSelector = $('[data-select-results-close]'),
+        $topicLetterSelector = $('[data-select-results-letter]'),
+        $topicsTarget = $('[data-select-results-topics]'),
         $body = $('body');
 
-    /* Close overlay */
-    $closeSelector.on('click', function (ev) {
-        ev.preventDefault();
-        $body.toggleClass('show-overlay');
-    });
 
     /* Open overlay: data attribute corresponds with classname of overlay */
     $overlaySelector.on('click', function (ev) {
@@ -25,9 +22,27 @@
         $overlay.find('.container').hide();
         $overlay.find('.' + over).show();
     });
-
     
-    // video player stuff
+    /* Select char in overlay and load its topics */
+    $topicLetterSelector.on('click', function(ev) {
+        ev.preventDefault();
+        var letter = $(this).data('select-results-letter').toLowerCase();
+        //console.log(letter);
+        //var relativePath = $('meta[name="relative-path"]').attr('content');
+        if (letter === 'a' || letter === 'c') {
+            $topicsTarget.load('ajax/topics-a.html');
+        } else {
+            $topicsTarget.load('ajax/topics-b.html');
+        }
+    });
+
+    /* Close overlay */
+    $closeSelector.on('click', function (ev) {
+        ev.preventDefault();
+        $body.toggleClass('show-overlay');
+    });
+        
+    /* Video player stuff */
     $('body').oiplayer({
         controls: 'dark top',
         log: 'error',
