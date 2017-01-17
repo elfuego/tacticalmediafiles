@@ -8,8 +8,12 @@
 
         font-family: @font-tertiary;
         letter-spacing: .1rem;
-        font-size: @font-small;
-        line-height: @line-height--small;
+        .font(small);
+
+        @media @screen-sm-max {
+            //flex-direction: column;
+            .font(extra-small);
+        }
 
         &.__person {
             flex-direction: column;
@@ -30,18 +34,16 @@
                 }
             }
             p.content-info__text {
+                .font(small);
                 display: block;
                 margin-top: 1rem;
                 font-family: @font;
-                font-size: @font-small;
-                line-height: @line-height--small;
             }
         }
 
         .content-info__title {
+            .font(title-small);
             color: @color-grey--50;
-            font-size: @font-title-small;
-            line-height: @line-height--title-small;
             font-weight: normal;            
         }
 
@@ -57,10 +59,12 @@
             }
 
             @media @screen-sm-max {
-                width: 8rem;
+                width: 6rem;
+                margin-bottom: 1rem;
                 img {
                     width: 5rem;
                     height: 5rem;
+                    margin-left: 0;
                 }
             }
         }
@@ -90,6 +94,9 @@
         .content-info__related {
             border-left: 0.1rem solid @color-grey--20;
             padding-left: 2rem;
+            @media @screen-sm-max {
+                padding-left: 1rem;
+            }
             li {
                 white-space: nowrap;
                 line-height: 2rem;

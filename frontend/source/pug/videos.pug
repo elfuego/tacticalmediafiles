@@ -6,19 +6,24 @@ prepend variables
     - bodyClass = 'videos'
 
 append main
-
-    .container
+    .heading.___hidden
+        h1 Videos
+    section.container
         .row
             .col-md-2
             .col-md-8
-                .content.__video
+                article.content.__video
                     .content-type Video
                     h2.title 
-                        a( href="video.html" ) Lol cats in the kitchen
+                        a( href="video.html" ) Lol cats in the kitchen!
 
-                    .content__video 
-                        video( width="640" height="360" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" )
-                        a.read-more( href="video.html" ) Play
+                    .content__video-still
+                        a( href="video.html" )
+                            img( src='styles/images/lol-cat.png' width="640" )
+                        a.read-more.__play( href="video.html" ) Play
+                    //- .content__video 
+                    //-     video( width="640" height="360" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" )
+                    //-     a.read-more( href="video.html" ) Play
                     
                     +tags({
                             tag: 'Mess',
@@ -47,14 +52,18 @@ append main
         .row
             .col-md-2
             .col-md-8
-                .content.__video
+                article.content.__video
                     .content-type Video
                     h2.title 
                         a( href="video.html" ) Nuit Debout
                     
-                    .content__video
-                        video( width="640" height="360" start="12" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" )
-                        a.read-more( href="video.html" ) Play
+                    .content__video-still
+                        a( href="video.html" )
+                            img( src='styles/images/Share_the_Security.jpg' width="640" )
+                        a.read-more.__play( href="video.html" ) Play
+                    //- .content__video
+                    //-     video( width="640" height="360" start="12" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" )
+                    //-     a.read-more( href="video.html" ) Play
 
                     p.intro Nuit Debout is a French social movement that began on March 31, 2016, arising out of protests against proposed neoliberal labor reforms known as the "Loi Travail," or the "El Khomri Law". The movement is centred at Paris's Place de la République, where protestors have held nightly assemblies following the
                     

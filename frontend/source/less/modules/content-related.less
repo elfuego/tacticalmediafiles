@@ -7,8 +7,7 @@
         font-style: italic;
         text-transform: lowercase;
 
-        font-size: @font-medium;
-        line-height: @line-height--medium;
+        .font(medium);
 
         &.__images,
         &.__video {
@@ -18,15 +17,16 @@
 
     .content-related__list {
         font-family: @font-tertiary;
-        font-size: @font-small;
-        line-height: @line-height--small;
+        .font(small);
 
-        list-style: none;
+        a { color: @color-secondary; }
 
-        li {
-            list-style: none;
-            float: left;
-            display: inline;
+        &.__images,
+        &.__video {
+            li {
+                display: inline;
+                float: left;
+            }
         }
 
         .content-related__image {
@@ -53,6 +53,5 @@
             }
         }
     }
-
 
 }

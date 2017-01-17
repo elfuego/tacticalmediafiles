@@ -1,4 +1,4 @@
-article {
+.article {
     
     a {
         color: @color-primary;
@@ -10,25 +10,35 @@ article {
     }
 
     .title {
-        margin: 2rem 0 3rem 0;
+        .font(title-normal);
         color: @color-grey--50;
-        font-size: @font-title-normal;
-        line-height: @line-height--title-normal;
         font-weight: normal;
+        margin: 2rem 0 3rem 0;
+
+        @media @screen-sm-max {
+            .font(title-extra-small);
+        }
     }
     
     p.intro {
-        margin: 0 0 4rem 10rem;
-        font-size: @font-large;
-        line-height: @line-height--large;
+        .font(large);
         color: @color-grey--30;
         font-style: oblique;
+        margin: 0 0 4rem 10rem;
+
+        @media @screen-sm-max {
+            .font(medium);
+            margin-left: 3rem;
+        }
     }
 
     p {
+        .font(base);
         color: @color-grey--50;
-        font-size: @font-base;
-        line-height: @line-height--base;
+        
+        @media @screen-sm-max {
+            .font(medium);
+        }
     }
 
 }

@@ -4,41 +4,144 @@
         &.__video {
             background-color: black;
             max-width: 100%;
+            padding: 0;
         }
     }
 
     
     .video-background {
         background-color: black;
-        width: 100%;
+        
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         video {
             width: 100%;
+            height: auto;
+            // background-size: cover;
+            // background-position: center;
+            // background-repeat: none;
 
-            display: block;
+            // width: 64rem;
+            // height: 36rem;
+
+            // @media @screen-md-max {
+            //     width: 32rem;
+            //     height: 18rem;
+            // }
+        }
+
+        .oiplayer {
             margin: 0 auto;
-            background-size: cover;
-            background-position: center;
-            background-repeat: none;
+        }
+        .oipcontrols {
+            background-color: rgba(0, 0, 0, .65);
+            color: white;
+            border-radius: 0;
+            line-height: 22px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .play {
+            a {
+                color: @color-primary;
+                &:hover {
+                    color: @color-primary-dark;
+                }
+                &:before {
+                    .fa-icon();
+                    content: @fa-var-play;
+                    font-size: 2.2rem;
+                    outline: none;
+                }
+            }
+            &.pause {               
+                a {
+                    color: @color-primary;
+                    &:hover {
+                        color: @color-primary-dark;
+                    }
+                    &:before {
+                        .fa-icon();
+                        content: @fa-var-pause;
+                        font-size: 2.2rem;
+                        outline: none;
+                    }
+                }
+            }
+        }
+        .sound {
+            a {
+                color: @color-primary;
+                &:hover {
+                    color: @color-primary-dark;                        
+                }
+                &:before {
+                    .fa-icon();
+                    content: @fa-var-volume-up;
+                    font-size: 2.2rem;
+                    outline: none;
+                }
+            }
+            &.muted {
+                right: 2rem;
+                a {
+                    color: @color-primary;
+                    &:hover {
+                        color: @color-primary-dark;
+                    }
+                    &:before {
+                        .fa-icon();
+                        content: @fa-var-volume-off;
+                        font-size: 2.2rem;
+                        outline: none;
+                    }
+                }
+            }
+        }
+        .screen {
+            a {
+                color: @color-primary;
+                &:hover {
+                    color: @color-primary-dark;                        
+                }
+            }
+
+        }
+        .pos {
+            a {
+                background-color: @color-primary;
+
+                &:hover {
+                    background-color: @color-primary-dark;                        
+                }
+            }
         }
 
-    }
+        .read-more {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 8rem;
+            z-index: @index-9;
 
-    a {
-        color: @color-primary;
-
-        &:hover, 
-        &:active {
-            text-decoration: underline;
+            @media @screen-md-max {
+                bottom: 6rem;
+            }
+            @media @screen-sm-max {
+                bottom: 4rem;
+            }
         }
+
     }
 
     .title {
-        margin: 2rem 0 3rem 0;
+        .font(title-normal);
         color: @color-grey--50;
-        font-size: @font-title-small;
-        line-height: @line-height--title-small;
         font-weight: normal;
+        margin: 2rem 0 3rem 0;
     }
 
     .content-type {
@@ -50,17 +153,19 @@
     }
 
     p.intro {
+        .font(large);
         margin: 0 0 4rem  0;
-        font-size: @font-large;
-        line-height: @line-height--large;
         color: @color-grey--30;
         font-style: oblique;
+
+        @media @screen-sm-max {
+            .font(medium);
+        }
     }
 
     p {
         color: @color-grey--50;
-        font-size: @font-base;
-        line-height: @line-height--base;
+        .font(base);
     }
 
 }

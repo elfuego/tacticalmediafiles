@@ -1,14 +1,15 @@
 .content {
     
-    text-align: center;
-
     .title {
         margin: 2rem 0 3rem 0;
         color: @color-grey--50;
-        font-size: @font-title-normal;
-        line-height: @line-height--title-normal;
+        .font(title-normal);
         text-align: center;
         font-weight: normal;
+
+        @media @screen-sm-max {
+            .font(title-small);
+        }
 
         a {
             color: @color-grey--50;
@@ -16,35 +17,59 @@
     }
 
     p, .intro {
-        font-size: @font-large;
-        line-height: @line-height--large;
+        .font(large);
         color: @color-grey--30;
         font-style: oblique;
-        text-align: center;
+        //text-align: center;
     }
     .intro {
         margin-bottom: 4rem;
+        
+        @media @screen-sm-max {
+            .font(medium);
+        }
     }
 
-    &.__video {    
+    &.__video {
+
+        .content__video-still {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+            img {            
+                max-width: 100%;
+                margin: 0 auto;
+                height: auto;
+            }
+            .read-more {
+                margin-top: -12rem;
+                margin-bottom: 12rem;
+
+                @media @screen-sm-max {
+                    margin-top: -8rem;
+                    margin-bottom: 6rem;
+                }
+                @media @screen-xs-max {
+                    margin-top: -4rem;
+                    margin-bottom: 2rem;
+                }
+            }
+
+        }
+
         .intro {
-            margin-top: 4rem;
+            //margin-top: 16rem;  // 4 + 12 rem
+            
+            @media @screen-sm-max {
+                //margin-top: 9rem;
+            }
+            @media @screen-xs-max {
+                //margin-top: 6rem;
+            }
         }
     }
 
-    .content__video {
-        position: relative;
-
-        video {
-            width: 100%;
-            //height: 36rem;
-        }
-
-        .read-more {
-            position: absolute;
-            bottom: 6rem;
-            left: 50% - 9rem;
-        }
-
-    }
 }

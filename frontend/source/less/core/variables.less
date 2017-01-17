@@ -29,29 +29,47 @@
 @font-tertiary:                     'Helvetica Neue', Helvetica, sans-serif;
 
 // Font sizes
-@font-extra-small:                  1.2rem;
-@font-small:                        1.4rem;
-@font-medium:                       1.8rem;
-@font-base:                         2rem;
-@font-large:                        2.4rem;
-
-@font-title-extra-small:            2.4rem;
-@font-title-small:                  3.2rem;
-@font-title-normal:                 3.6rem;
-@font-title-main:                   4.2rem;
 
 @line-height--addition:             .9rem;
 
-@line-height--base:                 @font-base + @line-height--addition;
-@line-height--small:                @font-small + @line-height--addition;
-@line-height--medium:               @font-medium + @line-height--addition;
-@line-height--large:                @font-large + @line-height--addition;
-
-@line-height--title-main:           @font-title-main + @line-height--addition;
-@line-height--title-normal:         @font-title-normal + @line-height--addition;
-@line-height--title-small:          @font-title-small + @line-height--addition;
-@line-height--title-extra-small:    @font-title-extra-small + @line-height--addition;
-
+.font(@size) {
+    & when (@size = extra-small) {
+        font-size: 1.2rem;
+        line-height: 1.2rem + @line-height--addition;
+    }
+    & when (@size = small) {
+        font-size: 1.4rem;
+        line-height: 1.4rem + @line-height--addition;
+    }
+    & when (@size = medium) {
+        font-size: 1.6rem;
+        line-height: 1.8rem + @line-height--addition;
+    }
+    & when (@size = base) {
+        font-size: 2rem;
+        line-height: 2rem + @line-height--addition;
+    }
+    & when (@size = large) {
+        font-size: 2.4rem;
+        line-height: 2.4rem + @line-height--addition;
+    }
+    & when (@size = title-extra-small) {
+        font-size: 2.4rem;
+        line-height: 2.4rem + @line-height--addition;
+    }
+    & when (@size = title-small) {
+        font-size: 3.2rem;
+        line-height: 3.2rem + @line-height--addition;
+    }
+    & when (@size = title-normal) {
+        font-size: 3.6rem;
+        line-height: 3.6rem + @line-height--addition;
+    }
+    & when (@size = title-main) {
+        font-size: 4.2rem;
+        line-height: 4.2rem + @line-height--addition;
+    }
+}
 
 // Border radius
 // -------------------------------
@@ -104,14 +122,14 @@
 // Z-indexes
 // -------------------------------
 @index-min:                         -1;
-@index-1:                           1;
-@index-2:                           2;
-@index-3:                           3;
-@index-4:                           4;
-@index-5:                           5;
-@index-6:                           6;
-@index-7:                           7;
-@index-8:                           8;
-@index-9:                           9;
-@index-10:                          10;
+@index-1:                           10;
+@index-2:                           20;
+@index-3:                           30;
+@index-4:                           40;
+@index-5:                           50;
+@index-6:                           60;
+@index-7:                           70;
+@index-8:                           80;
+@index-9:                           90;
+@index-10:                          100;
 @index-max:                         999;

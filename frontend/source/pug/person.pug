@@ -7,27 +7,27 @@ prepend variables
 
 append main
 
-    .container
+    section.container
         .row
             .col-md-2
             .col-md-8
                 
-                article.__person
+                .__person
                     .content-info.__person
                         .row
-                            .col-md-2
+                            .col-md-2.start-xs
                                 .content-type Person
                             .col-md-10
                                 .content-info__image
-                                    img( src='styles/images/portrait-eric.png' alt="Eric Cattenberg" )
-                                h2.content-info__title Eric Cattenberg
+                                    img( src='styles/images/portrait-eric.png' alt="Eric Cattenberg" width="240" )
+                                h1.content-info__title Eric Cattenberg
 
                         p.content-info__text Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta #[a(href="#") nobis est eligendi] optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
 
         .row
             .col-md-2
             .col-md-8
-                .content
+                article.content
                     .content-type Article
                     h2.title 
                         a( href="article.html" ) NRA and Smith &amp; Wesson Partner to "Share the Safety" With All Americans
@@ -51,7 +51,7 @@ append main
         .row
             .col-md-2
             .col-md-8
-                .content
+                article.content
                     .content-type Article
                     h2.title 
                         a( href="article.html" ) Nuit Debout

@@ -46,7 +46,7 @@ gulp.task('icons', taskIcons);
 import taskImages from './tasks/images';
 gulp.task('images', taskImages);
 
-gulp.task('assets', ['favicon', 'fonts', 'images']);
+gulp.task('assets', ['favicon', 'fonts', 'images', 'icons']);
 
 
 //
@@ -94,7 +94,7 @@ gulp.task('develop', ['html', 'styles', 'js', 'assets'], () => {
             ignored: '*.txt'
         },
         files: [
-            config.paths.test + "/**/*.*"
+             config.paths.test + "/**/*.*"
         ],
         browser: "google chrome",
         reloadDelay: 250,
@@ -105,6 +105,7 @@ gulp.task('develop', ['html', 'styles', 'js', 'assets'], () => {
     gulp.watch([config.paths.source + '/less/**/*.less'],   ['styles-watch']);
     gulp.watch([config.paths.source + '/js/**/*.js'],       ['js-watch']);
     gulp.watch([config.paths.source + '/fonts/**/*', 
+                config.paths.source + '/icons/**/*', 
                 config.paths.source + '/images/**/*'],      ['assets-watch']);
 
     // gulp.start('browser-sync');
