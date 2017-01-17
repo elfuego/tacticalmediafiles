@@ -21,8 +21,160 @@
     </jsp:attribute>
 
     <jsp:attribute name="body">
-    
+      <div class="heading ___hidden">
+        <h1>Tactical Media Files Home</h1>
+      </div>
 
+      <div class="carousel">
+        <div class="slider" data-slider-featured="home-page">
+          <mm:node number="special">
+            <mm:listrelations max="5">
+              <mm:relatednode> 
+              <mm:nodeinfo type="type" id="type" write="false" />
+                <mm:import id="img" reset="true" />
+                <mm:relatednodes type="picture" searchdir="destination" max="1">
+                  <mm:import id="img" reset="true"><mm:image template="s(480)+part(0,0,480,360)" mode="url" /></mm:import>
+                </mm:relatednodes>
+              
+                <div class="slider-item">
+                  <c:choose>
+                    <c:when test="${type eq 'video'}">
+                      <mm:link page="media">
+                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                        <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                              
+                        <div class="item" style="background-image: url(${img})">
+                          <div class="container">
+                            <p class="item__type"> <strong>featured video</strong></p>
+                            <h2 class="item__title">
+                              <a href="${_}">
+                                <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
+                              </a>
+                            </h2>
+                            <div class="item__read-more"><a class="read-more" href="${_}">View</a></div>
+                          </div>
+                        </div>
+                      
+                      </mm:link>
+                    </c:when>
+                    <c:otherwise>
+                      <mm:link page="content">
+                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                        <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                      
+                        <div class="item" style="background-image: url(${img})">
+                          <div class="container">
+                            <p class="item__type"> <strong>featured ${type}</strong></p>
+                            <h2 class="item__title">
+                              <a href="${_}">
+                                <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
+                              </a>
+                            </h2>
+                            <div class="item__read-more"><a class="read-more" href="${_}">Read</a></div>
+                          </div>
+                        </div>
+                      
+                      </mm:link>
+                    </c:otherwise>
+                  </c:choose>
+                </div>
+              
+              </mm:relatednode>
+            </mm:listrelations>
+          </mm:node>
+        </div>
+      </div>
+      
+      <div class="container">
+        
+        <mm:node number="special">
+          <mm:listrelations offset="5" max="9">
+            <mm:relatednode> 
+              
+              <div class="row">
+                <div class="col-md-2"><!-- empty --></div>
+                <div class="col-md-8">
+                  <div class="content">
+
+                    <mm:nodeinfo type="type" id="ntype" write="false" />
+                    
+                    <c:choose>
+                      <c:when test="${ntype eq 'video'}">
+                        
+                        <mm:link page="media">
+                          <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                          <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                                  
+                          <div class="content-type">Video</div>
+                          <h2 class="title">
+                            <a href="${_}">
+                              <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
+                            </a>
+                          </h2>
+                          <mm:field name="intro" escape="paragraph(intro)" />
+                          <a class="read-more" href="${_}">View</a>
+                          <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+                            <ul class="tags">
+                            <mm:relatednodes>
+                              <mm:link page="pages">
+                                <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                                <mm:frameworkparam name="page">search</mm:frameworkparam>
+                                <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+                                <li class="tag">
+                                  <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
+                                </li>
+                              </mm:link>
+                            </mm:relatednodes>
+                            </ul>
+                          </mm:relatednodescontainer>
+                        </mm:link>
+                        
+                      </c:when>
+                      <c:otherwise>
+                      
+                        <mm:link page="content">
+                          <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                          <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                                  
+                          <div class="content-type">${ntype}</div>
+                          <h2 class="title">
+                            <a href="${_}">
+                              <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
+                            </a>
+                          </h2>
+                          <mm:field name="intro" escape="paragraph(intro)" />
+                          <a class="read-more" href="${_}">Read</a>
+                          <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+                            <ul class="tags">
+                            <mm:relatednodes>
+                              <mm:link page="pages">
+                                <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                                <mm:frameworkparam name="page">search</mm:frameworkparam>
+                                <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+                                <li class="tag">
+                                  <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
+                                </li>
+                              </mm:link>
+                            </mm:relatednodes>
+                            </ul>
+                          </mm:relatednodescontainer>
+                          
+                        </mm:link>
+                                           
+                      </c:otherwise>
+                    </c:choose>
+                  
+                  </div>
+                  <hr />
+                </div>
+                <div class="col-md-2"><!-- empty --></div>
+              </div>
+                      
+            </mm:relatednode>
+          </mm:listrelations>
+        </mm:node>
+      </div>
+    
     </jsp:attribute>
   </tmf:html>
 </jsp:root>

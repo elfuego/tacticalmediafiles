@@ -5,14 +5,45 @@
   version="2.0">
   
   <jsp:directive.tag
-      display-name="header-simple"
-      description="Header part of (article) page"
+      display-name="header"
+      description="Header part a page"
       />
+  <jsp:directive.attribute name="q"  description="Search term" />
 
     <header class="page-layout__header">
       <div class="header">
         <h1><a class="header__logo" href="${mm:link('/')}"><img src="${mm:link('/styles/images/logo-tmf.svg')}" alt="Tactical Media Files" width="320" /></a></h1>
         <h2 class="header_motto">The 'living archive' for Tactical Media's present, past and future.</h2>
       </div>
+      <nav class="navigation">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 around-xs center-xs">
+              <a class="nav__topics" href="#topics" data-select-overlay="topics">Topics</a>
+              <a class="nav__collections" href="#collections" data-select-overlay="collections">Collections</a>
+            </div>
+            <div class="col-md-4 middle-xs center-xs">
+              <form class="nav__search" action="${mm:link('/search')}" method="post">
+                <label class="nav__search-label" for="search" hidden="true">Search</label>
+                <input name="q" value="${q}" class="nav__search-input" id="search" type="text" placeholder="Search the archive" />
+                <button class="nav__search-button">Go</button>
+              </form>
+            </div>
+            <div class="col-md-4 end-md middle-xs center-xs">
+              <label class="select-label" for="filter">Filter</label>
+              <select id="filter" name="filter" data-select-filter="filter">
+                <option value="list.html" selected="selected">All</option>
+                <option value="article.html">Articles</option>
+                <option value="videos.html">Videos</option>
+                <option value="pictures">Pictures</option>
+                <option value="files">Files</option>
+                <option value="events">Events</option>
+                <option value="campaigns">Campaigns</option>
+                <option value="person.html">People</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
 </jsp:root>

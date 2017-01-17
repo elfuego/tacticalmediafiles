@@ -43,6 +43,7 @@
           xmlns="http://www.w3.org/1999/xhtml">
 
         <mm:import id="page" externid="n" />
+        <mm:import externid="q" />
 
         <c:if test="${! empty page}">
           <mm:node id="page" referid="page" />
@@ -83,23 +84,26 @@
         <body class="${styleClass}">
           <div class="page-layout">
             <a id="skip-link" href="#main">Skip to main content</a>
-            <tmf:header />
-            
-            <c:choose>
-              <c:when test="${empty page}">
-                <jsp:invoke fragment="body"  />
-              </c:when>
-              <c:otherwise>
-                <mm:node referid="page">
-                  <jsp:invoke fragment="body"  />
-                </mm:node>
-              </c:otherwise>
-            </c:choose>
-            
+            <tmf:header q="${q}" />
+            <main class="page-layout__main" id="main">
+              <div class="main-content">
+                <c:choose>
+                  <c:when test="${empty page}">
+                    <jsp:invoke fragment="body"  />
+                  </c:when>
+                  <c:otherwise>
+                    <mm:node referid="page">
+                      <jsp:invoke fragment="body"  />
+                    </mm:node>
+                  </c:otherwise>
+                </c:choose>
+              </div>
+            </main>
             <tmf:footer />
-            <tmf:googleanalytics />
+            <!-- tmf:googleanalytics / -->
           
           </div>
+          <script src="${mm:link('/styles/js/main.js')}"><!-- empty --></script>
         </body>
       </html>
     </mm:cloud>
