@@ -5,31 +5,25 @@
     /**
      * Does something...
      */
-    var $topicSelector = $('[data-select-topics]'),
-        $collectionSelector = $('[data-select-collections]'),
+    var $overlaySelector = $('[data-select-overlay]'),
         $closeSelector = $('[data-select-results-close]'),
         $overlay = $('[data-select-results]'),
         $body = $('body');
 
+    /* Close overlay */
     $closeSelector.on('click', function (ev) {
         ev.preventDefault();
         $body.toggleClass('show-overlay');
     });
 
-    $topicSelector.on('click', function (ev) {
+    /* Open overlay: data attribute corresponds with classname of overlay */
+    $overlaySelector.on('click', function (ev) {
         ev.preventDefault();
 
+        var over = $(this).data('select-overlay');
         $body.toggleClass('show-overlay');
-        $overlay.find('.collections').hide();
-        $overlay.find('.topics').show();
-    });
-
-    $collectionSelector.on('click', function (ev) {
-        ev.preventDefault();
-
-        $body.toggleClass('show-overlay');
-        $overlay.find('.collections').show();
-        $overlay.find('.topics').hide();
+        $overlay.find('.container').hide();
+        $overlay.find('.' + over).show();
     });
 
     
