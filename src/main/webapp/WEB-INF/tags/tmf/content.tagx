@@ -1,0 +1,78 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="footer"
+      description="Footer of this site."
+      />
+    
+    <mm:nodeinfo type="type" id="nodetype" write="false" />
+    
+    <div class="content">
+      <c:choose>
+        <c:when test="${nodetype eq 'video'}">
+    
+          <mm:link page="media">
+            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+              
+            <div class="content-type">Video</div>
+            <h2 class="title"><a href="${_}"><mm:field name="title" escape="inline" /></a></h2>
+            <mm:field name="intro" escape="paragraph(intro)" />
+            <a class="read-more" href="${_}">View</a>
+            <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+              <ul class="tags">
+              <mm:relatednodes>
+                <mm:link page="pages">
+                  <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                  <mm:frameworkparam name="page">search</mm:frameworkparam>
+                  <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+                  <li class="tag">
+                    <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
+                  </li>
+                </mm:link>
+              </mm:relatednodes>
+              </ul>
+            </mm:relatednodescontainer>
+          </mm:link>
+    
+        </c:when>
+        <c:otherwise>
+  
+          <mm:link page="content">
+            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+              
+            <div class="content-type">${nodetype}</div>
+            <h2 class="title">
+              <a href="${_}">
+                <mm:hasfield name="title"><mm:field name="title" escape="inline" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
+              </a>
+            </h2>
+            <mm:field name="intro" escape="paragraph(intro)" />
+            <a class="read-more" href="${_}">Read</a>
+            <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+              <ul class="tags">
+              <mm:relatednodes>
+                <mm:link page="pages">
+                  <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                  <mm:frameworkparam name="page">search</mm:frameworkparam>
+                  <mm:frameworkparam name="keyword"><mm:field name="keyword" escape="url" /></mm:frameworkparam>
+                  <li class="tag">
+                    <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
+                  </li>
+                </mm:link>
+              </mm:relatednodes>
+              </ul>
+            </mm:relatednodescontainer>
+      
+          </mm:link>
+                       
+        </c:otherwise>
+      </c:choose>
+    </div>
+
+</jsp:root>

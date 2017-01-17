@@ -94,78 +94,10 @@
               <div class="row">
                 <div class="col-md-2"><!-- empty --></div>
                 <div class="col-md-8">
-                  <div class="content">
-
-                    <mm:nodeinfo type="type" id="ntype" write="false" />
-                    
-                    <c:choose>
-                      <c:when test="${ntype eq 'video'}">
-                        
-                        <mm:link page="media">
-                          <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                          <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-                                  
-                          <div class="content-type">Video</div>
-                          <h2 class="title">
-                            <a href="${_}">
-                              <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
-                            </a>
-                          </h2>
-                          <mm:field name="intro" escape="paragraph(intro)" />
-                          <a class="read-more" href="${_}">View</a>
-                          <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
-                            <ul class="tags">
-                            <mm:relatednodes>
-                              <mm:link page="pages">
-                                <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                                <mm:frameworkparam name="page">search</mm:frameworkparam>
-                                <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
-                                <li class="tag">
-                                  <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
-                                </li>
-                              </mm:link>
-                            </mm:relatednodes>
-                            </ul>
-                          </mm:relatednodescontainer>
-                        </mm:link>
-                        
-                      </c:when>
-                      <c:otherwise>
-                      
-                        <mm:link page="content">
-                          <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                          <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-                                  
-                          <div class="content-type">${ntype}</div>
-                          <h2 class="title">
-                            <a href="${_}">
-                              <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
-                            </a>
-                          </h2>
-                          <mm:field name="intro" escape="paragraph(intro)" />
-                          <a class="read-more" href="${_}">Read</a>
-                          <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
-                            <ul class="tags">
-                            <mm:relatednodes>
-                              <mm:link page="pages">
-                                <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                                <mm:frameworkparam name="page">search</mm:frameworkparam>
-                                <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
-                                <li class="tag">
-                                  <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
-                                </li>
-                              </mm:link>
-                            </mm:relatednodes>
-                            </ul>
-                          </mm:relatednodescontainer>
-                          
-                        </mm:link>
-                                           
-                      </c:otherwise>
-                    </c:choose>
                   
-                  </div>
+                  <tmf:content />
                   <hr />
+                  
                 </div>
                 <div class="col-md-2"><!-- empty --></div>
               </div>
