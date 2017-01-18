@@ -2,7 +2,7 @@ extends layout/page
 
 prepend variables
     - title = 'NRA and Smith & Wesson Partner to "Share the Safety" With All Americans'
-    - bodyClass = 'article person'
+    - bodyClass = 'content person'
     - selected = 'people';
 
 append main
@@ -11,28 +11,34 @@ append main
         .row
             .col-md-2
             .col-md-8
-                
-                .content-type Person
-                h1.article-title Eric Cattenberg
-                
-                .content-info.__person
-                    .content-info__image
-                        img( src='styles/images/portrait-eric.png' alt="Eric Cattenberg" width="240" )
-                    .content-info__related
-                        ul
-                            li
-                                a( href="#files" ) 3 files
-                            li
-                                a( href="#links" ) 4 links
-                            li
-                                a( href="#videos" ) 1 video
-                            li
-                                a( href="#images" ) 4 images
+                header
+                    .content-type Person
+                    h1.content-title Eric Cattenberg
+                    
+                    .content-info.__person
+                        .content-info__image
+                            img( src='styles/images/portrait-eric.png' alt="Eric Cattenberg" width="240" )
+                        .content-info__related
+                            ul
+                                li
+                                    a( href="#files" ) 3 files
+                                li
+                                    a( href="#links" ) 4 links
+                                li
+                                    a( href="#videos" ) 1 video
+                                li
+                                    a( href="#images" ) 4 images
 
-                p.article-intro Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta #[a(href="#") nobis est eligendi] optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                
-                p Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta #[a(href="#") nobis est eligendi] optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+                    p.content-intro Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta #[a(href="#") nobis est eligendi] optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+            .col-md-2
+        
+        section.row
+            .col-md-2
+            .col-md-8
+                        
+                    p Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta #[a(href="#") nobis est eligendi] optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
 
+            .col-md-2
 
 
         

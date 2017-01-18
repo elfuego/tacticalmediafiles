@@ -2,7 +2,7 @@ extends layout/page
 
 prepend variables
     - title = 'Video: Cat sits in bathroom with liquor in the back and oh oh oh it’s so'
-    - bodyClass = 'video'
+    - bodyClass = 'content video'
     - selected = 'videos';
 
 append main
@@ -31,7 +31,7 @@ append main
 
             .col-md-6
                 header 
-                    h1.title Cat sits in bathroom with liquor in the back and oh oh oh it’s so cute duh
+                    h1.video-title Cat sits in bathroom with liquor in the back and oh oh oh it’s so cute duh
                     
                     +tags({
                             tag: 'Activism',
@@ -47,7 +47,7 @@ append main
                             url: 'list.html'
                         })
 
-                    p.intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
+                    p.video-intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
             
             .col-md-2
 
