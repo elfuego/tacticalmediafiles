@@ -24,21 +24,6 @@
     	height: 100%;
     	overflow: scroll;
     }
-
-    a {
-    	color: @color-grey;
-    	
-    	&:link,
-    	&:visited {
-			color: @color-grey;
-    	}
-
-		&:hover, 
-		&:active {
-			color: white;
-			border-bottom: 1px solid white;
-		}
-    }
     
 	a.close {
 		position: absolute;
@@ -52,10 +37,11 @@
             font-size: 3rem;
             outline: none;
 		}
-		&:hover { 
-			color: @color-primary; 
-			border-bottom: none; 
-			transition: color @trans-normal-material;
+		&:hover { 			
+            &:before {
+                color: @color-primary;     
+                transition: color @trans-normal-material;
+            }
 		}
 	}
 
@@ -89,9 +75,10 @@
 		    		font-weight: normal;
 
                     a {
+                        color: @color-grey;
                         text-decoration: none;
                         &:hover {
-                            border-bottom: 0.2rem solid white;
+                            color: @color-primary;
                         }
                     }
 
@@ -147,10 +134,11 @@
 				margin: 2rem;
 
                 a {
+                    color: @color-grey;
                     text-decoration: none;
                     white-space: nowrap;
                     &:hover {
-                        border-bottom: 0.2rem solid white;
+                        color: @color-primary;
                     }
                 }
 			}

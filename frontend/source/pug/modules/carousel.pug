@@ -3,11 +3,11 @@ mixin carousel(...items)
         each item in items
             - item.url = item.url || '#'
             article.slider-item
-                .item( style="background-image: url(" + item.image + ");" )
+                .carousel-item( style="background-image: url(" + item.image + ");" )
                     .container
-                        p.item__type 
-                            strong featured #{item.type}
-                        h3.item__title 
+                        .carousel-item__type 
+                            strong #{item.type}
+                        h3.carousel-item__title 
                             a( href=item.url ) #{item.title}
-                        .item__read-more
+                        .carousel-item__read-more
                             a.read-more( href=item.url ) Read

@@ -16,28 +16,11 @@
     }
 
     &.__person {
-        flex-direction: column;
-        margin-top: 6rem;
-        padding: 2rem;
         border-bottom: .2rem solid @color-grey--60;
 
-        .content-type {
-            margin-top: 0;
-        }
-
-        .content-info__image {            
-            width: 6rem;
-            float: right;
-            img {
-                width: 5rem;
-                height: 5rem;
-            }
-        }
-        p.content-info__text {
-            .font(small);
-            display: block;
-            margin-top: 1rem;
-            font-family: @font;
+        .content-info__related {
+            border-left: none;
+            padding-left: 0;
         }
     }
 
@@ -77,9 +60,13 @@
 
         .author {
             text-transform: uppercase;
-            color: @color-grey--50;
             a {
-               color: @color-grey--50; 
+                color: @color-grey--50; 
+                
+                &:hover, 
+                &:active {
+                    color: @color-primary;
+                }
             }
         }
         .date {
@@ -88,6 +75,12 @@
         .tags a { 
             color: @color-grey--30;
             text-transform: uppercase;
+
+            &:hover, 
+            &:active {
+                color: @color-primary;
+            }
+
         }
 
     }
@@ -101,19 +94,17 @@
         li {
             white-space: nowrap;
             line-height: 2rem;
+
+            a {
+                color: @color-primary;
+
+                &:hover, 
+                &:active {
+                    text-decoration: underline;
+                }
+            }            
         }
+
     }
 }
 
-// @TODO: this does not belong here 
-p.person-intro {
-    .font(large);
-    color: @color-grey--30;
-    font-style: oblique;
-    margin: 0 0 4rem 10rem;
-
-    @media @screen-sm-max {
-        .font(medium);
-        margin-left: 3rem;
-    }    
-}

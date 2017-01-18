@@ -1,15 +1,6 @@
 .article {
     
-    a {
-        color: @color-primary;
-
-        &:hover, 
-        &:active {
-            text-decoration: underline;
-        }
-    }
-
-    .title {
+    .article-title {
         .font(title-normal);
         color: @color-grey--50;
         font-weight: normal;
@@ -27,11 +18,11 @@
         }
     }
 
-    p.intro {
+    p.article-intro {
         .font(large);
         color: @color-grey--30;
         font-style: oblique;
-        margin: 0 0 4rem 10rem;
+        margin: 0 0 4rem 12rem;
 
         @media @screen-sm-max {
             .font(medium);
@@ -41,11 +32,24 @@
 
     p {
         .font(base);
-        color: @color-grey--50;
+        color: @color-grey--80;
+
+        a {
+            color: @color-primary;
+
+            &:hover, 
+            &:active {
+                text-decoration: underline;
+            }
+        }
         
         @media @screen-sm-max {
             .font(medium);
         }
+    }
+
+    h2, h3, h4, h5, h6 {
+        color: @color-grey--50;
     }
 
 }
