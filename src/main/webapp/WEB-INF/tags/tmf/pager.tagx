@@ -23,17 +23,17 @@
   <c:if test="${empty baseurl}"><mm:url id="baseurl" absolute="context" write="false" /></c:if>
   
   <c:if test="${total > max}">
-    <div class="pager">
+    <ul class="pager">
     <c:if test="${offset != 0}">
-      <mm:link referid="baseurl">
+      <!-- mm:link referid="baseurl">
         <mm:param name="offset">0</mm:param>
         <mm:param name="max">${max}</mm:param>
-        <a href="${_}${empty fragment ? '' : fragment}" class="first">«« first</a>
-      </mm:link>
+        <li><a href="${_}${empty fragment ? '' : fragment}" class="first">«« first</a></li>
+      </mm:link -->
       <mm:link referid="baseurl">
         <mm:param name="offset">${offset - max}</mm:param>
         <mm:param name="max">${max}</mm:param>
-        <a href="${_}${empty fragment ? '' : fragment}" class="previous">« previous</a>
+        <li><a href="${_}${empty fragment ? '' : fragment}" class="prev">Previous</a></li> 
       </mm:link>
     </c:if>
     
@@ -70,14 +70,14 @@
       <c:choose>
         <c:when test="${(index * max) == offset}">
           <c:if test="${pages gt 1}">
-            <strong>${(index + 1)}</strong>
+            <li><a class="current" href="#">${(index + 1)}</a></li> 
           </c:if>
         </c:when>
         <c:otherwise>
           <mm:link referid="baseurl">
             <mm:param name="offset">${(index * max)}</mm:param>
             <mm:param name="max">${max}</mm:param>
-            <a href="${_}${empty fragment ? '' : fragment}">${(index + 1)}</a>
+            <li><a href="${_}${empty fragment ? '' : fragment}">${(index + 1)}</a></li> 
           </mm:link>
         </c:otherwise>
       </c:choose>
@@ -88,15 +88,15 @@
       <mm:link referid="baseurl">
         <mm:param name="offset">${offset + max}</mm:param>
         <mm:param name="max">${max}</mm:param>
-        <a href="${_}${empty fragment ? '' : fragment}" class="next">next »</a>
+        <li><a href="${_}${empty fragment ? '' : fragment}" class="next">Next</a></li> 
       </mm:link>
-      <mm:link referid="baseurl">
+      <!-- mm:link referid="baseurl">
         <mm:param name="offset">${total - (total mod max) ge total ? total - max : total - (total mod max)}</mm:param>
         <mm:param name="max">${max}</mm:param>
-        <a href="${_}${empty fragment ? '' : fragment}" class="last">last »»</a>
-      </mm:link>
+        <li><a href="${_}${empty fragment ? '' : fragment}" class="last">last »»</a></li>
+      </mm:link -->
     </c:if>
-    </div>
+    </ul>
   </c:if>
   
 

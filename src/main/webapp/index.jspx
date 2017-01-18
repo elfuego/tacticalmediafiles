@@ -43,15 +43,15 @@
                         <mm:frameworkparam name="component">tmf</mm:frameworkparam>
                         <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
                               
-                        <div class="item" style="background-image: url(${img})">
+                        <div class="carousel-item" style="background-image: url(${img})">
                           <div class="container">
-                            <p class="item__type"> <strong>featured video</strong></p>
-                            <h2 class="item__title">
+                            <p class="carousel-item__type"> <strong>featured video</strong></p>
+                            <h2 class="carousel-item__title">
                               <a href="${_}">
                                 <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
                               </a>
                             </h2>
-                            <div class="item__read-more"><a class="read-more" href="${_}">View</a></div>
+                            <div class="carousel-item__read-more"><a class="read-more" href="${_}">View</a></div>
                           </div>
                         </div>
                       
@@ -62,15 +62,15 @@
                         <mm:frameworkparam name="component">tmf</mm:frameworkparam>
                         <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
                       
-                        <div class="item" style="background-image: url(${img})">
+                        <div class="carousel-item" style="background-image: url(${img})">
                           <div class="container">
-                            <p class="item__type"> <strong>featured ${type}</strong></p>
-                            <h2 class="item__title">
+                            <p class="carousel-item__type"> <strong>featured ${type}</strong></p>
+                            <h2 class="carousel-item__title">
                               <a href="${_}">
                                 <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
                               </a>
                             </h2>
-                            <div class="item__read-more"><a class="read-more" href="${_}">Read</a></div>
+                            <div class="carousel-item__read-more"><a class="read-more" href="${_}">Read</a></div>
                           </div>
                         </div>
                       
@@ -95,7 +95,7 @@
                 <div class="col-md-2"><!-- empty --></div>
                 <div class="col-md-8">
                   
-                  <tmf:content />
+                  <tmf:listitem />
                   
                   <mm:last inverse="true"><hr /></mm:last>
                   

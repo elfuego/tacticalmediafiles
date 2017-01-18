@@ -13,8 +13,8 @@
       <div class="footer">
         <div class="container">
           <div class="row">
-            <div class="col-md-2"><!-- empty --></div>
-            <div class="col-md-3 center-xs start-md">
+            <div class="col-sm-2"><!-- empty --></div>
+            <div class="col-sm-3 center-xs start-sm">
               <div class="footer-inner"><strong>Tactical Media Files</strong>
                 <ul class="footer__navigation">
                   <li><a class="footer__link" href="${mm:link('/articles/about')}">About</a></li>
@@ -22,7 +22,7 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-3 center-xs start-md">
+            <div class="col-sm-3 center-xs start-sm">
               <div class="footer-inner"><strong>Filter archive</strong>
                 <ul class="footer__navigation">
                   <li><a class="footer__link" href="${mm:link('/articles')}">Articles</a></li>
@@ -32,7 +32,7 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-3 center-xs start-md">
+            <div class="col-sm-3 center-xs start-sm">
               <div class="footer-inner"><strong>Browse archive</strong>
                 <ul class="footer__navigation">
                   <li><a class="footer__link" data-select-overlay="collections" href="#collections">By collection</a></li>
@@ -40,7 +40,7 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-1"><!-- empty --></div>
+            <div class="col-sm-1"><!-- empty --></div>
           </div>
         </div>
       </div>

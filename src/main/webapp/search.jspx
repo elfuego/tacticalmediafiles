@@ -30,196 +30,110 @@
     </jsp:attribute>
 
     <jsp:attribute name="body">
-		
-		<!-- escapers -->
-		<mm:escaper id="myfilesize" type="filesize">
-		  <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
-		</mm:escaper>
-		<mm:escaper type="substring" id="wrap_intro">
-		  <mm:param name="from" value="0" />
-		  <mm:param name="to" value="256" />
-		  <mm:param name="ellipsis" value="..." />
-		</mm:escaper>
-        
-        <!-- <tmf:header-simple title="Search ${q}" label="search" /> -->
-        
-        <div class="clearBoth"><!-- empty --></div>
-        <div class="ArticleSpacer"><!-- empty --></div>
-        <div class="ArticleTMFLogo">
-          <a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="195" height="121" /></a> 
-        </div>
-        <div class="clearBoth"><!-- empty --></div>
 
-        <!-- search -->
-        <div class="SearchBarContainer">
+      <mm:escaper id="myfilesize" type="filesize">
+        <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
+      </mm:escaper>
       
-          <form action="${mm:link('/search')}" method="post">
-            <div class="SearchOptions">
-              <div class="SearchSimpleLinks" id="SearchSimpleLinks">
-                <ul class="SearchSimpleOptions">
-                  <mm:link page="search" referids="q?">
-                    <li><a href="${_}">all</a></li>
-                  </mm:link>
-                  <mm:link page="search" referids="q?">
-                    <mm:param name="type">article</mm:param>
-                    <li><a href="${_}">texts</a></li>
-                  </mm:link>
-                  <mm:link page="search" referids="q?">
-                    <mm:param name="type">person</mm:param>
-                    <li><a href="${_}">people</a></li>    
-                  </mm:link>
-                  <mm:link page="search" referids="q?">
-                    <mm:param name="type">event</mm:param>
-                    <li><a href="${_}">events</a></li>
-                  </mm:link>
-                  <mm:link page="search" referids="q?">
-                    <mm:param name="type">campaign</mm:param>
-                    <li><a href="${_}">campaign</a></li>
-                  </mm:link>
-                  <mm:link page="search" referids="q?">
-                    <mm:param name="type">picture</mm:param>
-                    <li><a href="${_}">pictures</a></li>
-                  </mm:link>
-                  <mm:link page="search" referids="q?">
-                    <mm:param name="type">video</mm:param>
-                    <li><a href="${_}">videos</a></li>
-                  </mm:link>
-                  <mm:link page="search" referids="q?">
-                    <mm:param name="type">file</mm:param>
-                    <li><a href="${_}">files</a></li>
-                  </mm:link>
-                </ul>
-              </div>
-            </div>
-            <div class="SearchField">
-              <input type="text" name="q" value="${q}" class="SearchInput" />
-            </div>
-            <div class="SearchLabel">
-              <img src="${mm:link('/style/images/labels/search.png')}" alt="Search" />
-            </div>
-          </form>
-        </div><!-- EOF .SearchBarContainer -->
-        <!-- END search -->
+      <mm:import id="index">content</mm:import>
 
-    <div style="clear: right ;"><!-- empty --></div>
-    <div class="ArticleSpacer2"><!-- empty --></div>
+      <c:choose>
+        <c:when test="${empty q}">
+          <!-- not searched, display latest -->
+          <mm:import id="value">${index}*</mm:import>
+          <mm:import id="fields" reset="true">indexId</mm:import>
+        </c:when>
+        <c:otherwise>
+          <mm:import id="value">
+            <c:if test="${!empty q}">${q} </c:if>
+          </mm:import>
+        </c:otherwise>
+      </c:choose>
 
-        <div class="SearchSpacer2"><!-- empty --></div>
-        <div class="SearchResultsLeft">
-          <tmf:tagcloud />
-        </div><!-- EOF .SearchResultsLeft -->
-        
-        <div class="SearchResults">
-          
-          <mm:import id="index">content</mm:import>
+      <c:if test="${!empty type}">
+        <mm:import id="extraconstraints">${extraconstraints} otype:EQ:<mm:nodeinfo type="number" nodetype="$type" /></mm:import>
+      </c:if>
+      <mm:import id="max">10</mm:import>
+      <mm:import externid="offset">0</mm:import>
+      <c:if test="${offset lt 0}"><mm:import id="offset" reset="true">0</mm:import></c:if>
+      
+      <!-- extraconstraints: ${extraconstraints} -->
+      <mm:function
+        id="total"
+        write="false"
+        module="lucene"
+        name="searchsize"
+        referids="index,value,fields?,filter?,analyzer?,extraconstraints?" />
 
-          <c:choose>
-            <c:when test="${empty q}">
-              <!-- not searched nor a portal, display latest -->
-              <mm:import id="value">${index}*</mm:import>
-              <mm:import id="fields" reset="true">indexId</mm:import>
-            </c:when>
-            <c:otherwise>
-              <mm:import id="value">
-                <c:if test="${!empty q}">${q} </c:if>
-              </mm:import>
-            </c:otherwise>
-          </c:choose>
+      <mm:nodelistfunction
+        module="lucene" name="search" id="results"
+        referids="index,value,offset,max,fields?,sortfields?,filter?,extraconstraints?,analyzer?" />
 
-          <c:if test="${!empty type}">
-            <mm:import id="extraconstraints">${extraconstraints} otype:EQ:<mm:nodeinfo type="number" nodetype="$type" /></mm:import>
-          </c:if>
-          <mm:import id="max">20</mm:import>
-          <mm:import externid="offset">0</mm:import>
-          <c:if test="${offset lt 0}"><mm:import id="offset" reset="true">0</mm:import></c:if>
-          
-          <!-- extraconstraints: ${extraconstraints} -->
-          <mm:function
-            id="total"
-            write="false"
-            module="lucene"
-            name="searchsize"
-            referids="index,value,fields?,filter?,analyzer?,extraconstraints?" />
-
-          <mm:nodelistfunction
-            module="lucene" name="search" id="results"
-            referids="index,value,offset,max,fields?,sortfields?,filter?,extraconstraints?,analyzer?" />
-         
-          <c:if test="${!empty q}">
-            <h2 class="searched_with">
-              ${total} found for '${mm:escape('text/xml', q)}' 
-              <c:if test="${!empty type}">
-                in 
-                  <mm:nodeinfo type="plural_guitype" nodetype="$type" escape="lowercase">
-                    <c:choose>
-                      <c:when test="${type eq 'article'}">
-                        texts
-                      </c:when>
-                      <c:otherwise>
-                        ${_}
-                      </c:otherwise>
-                    </c:choose>
-                  </mm:nodeinfo>
-              </c:if>
-            </h2>
-          </c:if>
-          <c:if test="${total eq 0}">
-            <p>
-              <strong>Nothing found:</strong> 0 results with '${q}'
-              <c:if test="${!empty type}">
-                in <mm:nodeinfo type="plural_guitype" nodetype="$type" escape="lowercase" />
-              </c:if>.
-            </p>
-          </c:if>
+      
+      <div class="heading ___hidden">
+        <h1>Search results for ${q}</h1>
+      </div>
+      <section class="container">
           
           <mm:listnodes referid="results" varStatus="status" id="content">
 			<mm:nodeinfo type="type" id="ty" write="false" />
-            <c:choose>
-              <c:when test="${ty eq 'picture'}">
-              	
-              	<h5>picture</h5>
-              	<mm:link page="/picture" referids="_node@pic">
-				  <a href="${_}"><mm:image mode="img" width="100" /></a><br />
-				  <a href="${_}" class="medium"><mm:field name="title" /></a>
-				  <mm:field name="description">
-					<mm:isnotempty><br /><mm:write escape="wrap_intro" /></mm:isnotempty>
-				  </mm:field>
-              	</mm:link>
-              </c:when>
-              <c:when test="${ty eq 'file'}">
-				
-				<h5>file</h5>
-				<mm:attachment>
-				  <a href="${_}" class="medium"><mm:field name="title" /></a>
-				  <span class="filelabel"> 
-					<mm:field name="filename" />, <mm:field name="size" escape="myfilesize" />
-				  </span>
-				  <mm:field name="description">
-					<mm:isnotempty><br /><mm:write escape="wrap_intro" /></mm:isnotempty>
-				  </mm:field>
-				</mm:attachment>
 
-              </c:when>
-              <c:otherwise>
-	            <tmf:node-listitem />
-              </c:otherwise>
-            </c:choose>
-            <br /><br /><br />
+            <div class="row">
+              <div class="col-md-2"><!-- empty --></div>
+              <div class="col-md-8">
+
+                <c:choose>
+                  <c:when test="${ty eq 'picture'}">
+                
+                    <article class="listitem __picture">
+                      <mm:link page="/picture" referids="_node@pic">
+                        <div class="content-type">Picture</div>
+                        <h2 class="listitem-title"><a href="${_}"><mm:field name="title" /></a></h2>
+                        <div class="listitem-picture">
+                          <a href="${_}"><mm:image mode="img" width="640" height="360" /></a>
+                          <a class="read-more" href="${_}">View</a>
+                        </div>
+                      </mm:link>
+                    </article>
+                    
+                  </c:when>
+                  <c:when test="${ty eq 'file'}">
+                
+                    <article class="listitem __file">
+                      <div class="content-type">File</div>
+                      <mm:attachment>
+                        <h2 class="listitem-title"><a href="${_}" class="medium"><mm:field name="title" /></a></h2>
+                        <div class="listitem-intro">
+                          <span class="filelabel"> 
+                            <a href="${_}"><mm:field name="filename" /></a>, <mm:field name="size" escape="myfilesize" />
+                          </span>
+                          <mm:field name="description">
+                            <mm:isnotempty><br /><mm:write escape="tagstripper" /></mm:isnotempty>
+                          </mm:field>
+                        </div>
+                      </mm:attachment>
+                    </article>
+
+                  </c:when>
+                  <c:otherwise>
+                  
+                    <tmf:listitem />
+                  
+                  </c:otherwise>
+                </c:choose>
+                
+                <mm:last inverse="true"><hr /></mm:last>
+                
+              </div>
+              <div class="col-md-2"><!-- empty --></div>
+            </div>
           </mm:listnodes>
              
           <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" write="false" />
           <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" />
+      
+      </section>
         
-        </div><!-- EOF .SearchResults -->
-
-    	<div class="clearBoth"><!-- empty --></div>
-    	<div class="SearchSpacer"><!-- empty --></div>
-    	<div style="text-align:right;"><img src="${mm:link('/style/images/x-blue.gif')}" alt="x blue" /></div>
-    	<div class="SearchSpacer"><!-- empty --></div>
-        <div class="SearchBottomLineLeft"><hr /></div>
-        <div class="SearchBottomLineRight"><hr /></div>
-    	<div class="clearBoth"><!-- empty --></div> <br />
-    	
     </jsp:attribute>
   </tmf:html>
 </jsp:root>

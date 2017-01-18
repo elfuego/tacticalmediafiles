@@ -12,8 +12,8 @@
 
     <header class="page-layout__header">
       <div class="header">
-        <h1><a class="header__logo" href="${mm:link('/')}"><img src="${mm:link('/styles/images/logo-tmf.svg')}" alt="Tactical Media Files" width="320" /></a></h1>
-        <h2 class="header_motto">The 'living archive' for Tactical Media's present, past and future.</h2>
+        <h1><a class="header-logo" href="${mm:link('/')}"><img src="${mm:link('/styles/images/logo-tmf.svg')}" alt="Tactical Media Files" width="320" /></a></h1>
+        <h2 class="header-motto">The 'living archive' for Tactical Media's present, past and future.</h2>
       </div>
       <nav class="navigation">
         <div class="container">
