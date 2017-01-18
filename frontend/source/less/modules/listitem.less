@@ -1,6 +1,6 @@
-.content {
+.listitem {
     
-    .title {
+    .listitem-title {
         margin: 2rem 0 3rem 0;
         color: @color-grey--50;
         .font(title-normal);
@@ -16,23 +16,23 @@
         }
     }
 
-    p, .intro {
+
+    .listitem-intro {
         .font(large);
         color: @color-grey--30;
-        font-style: oblique;
-        //text-align: center;
-    }
-    .intro {
         margin-bottom: 4rem;
+        font-style: oblique;
         
         @media @screen-sm-max {
             .font(medium);
         }
     }
 
-    &.__video {
+    &.__video,
+    &.__picture {
 
-        .content__video-still {
+        .listitem-video-still,
+        .listitem-picture {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -60,7 +60,7 @@
 
         }
 
-        .intro {
+        .listitem-intro {
             //margin-top: 16rem;  // 4 + 12 rem
             
             @media @screen-sm-max {
