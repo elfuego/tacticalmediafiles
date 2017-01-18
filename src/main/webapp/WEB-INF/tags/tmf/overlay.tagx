@@ -1,0 +1,110 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="overlay"
+      description="Content for overlays"
+      />
+  
+      <div class="overlay" data-select-results="">
+        <div class="overlay-content">
+          <div class="container topics">
+            <div class="row">
+              <div class="col-md-12">
+                <a class="close" href="#close" title="Close" data-select-results-close="close"><!-- empty --></a>
+                <h2>Topics</h2>
+                <ol class="alphabet">
+                  <li><a href="A" data-select-results-letter="A">A</a></li>
+                  <li><a href="B" data-select-results-letter="B">B</a></li>
+                  <li><a href="C" data-select-results-letter="C">C</a></li>
+                  <li><a href="D" data-select-results-letter="D">D</a></li>
+                  <li><a href="E" data-select-results-letter="E">E</a></li>
+                  <li><a href="F" data-select-results-letter="F">F</a></li>
+                  <li><a href="G" data-select-results-letter="G">G</a></li>
+                  <li><a href="H" data-select-results-letter="H">H</a></li>
+                  <li><a href="I" data-select-results-letter="I">I</a></li>
+                  <li><a href="J" data-select-results-letter="J">J</a></li>
+                  <li><a href="K" data-select-results-letter="K">K</a></li>
+                  <li><a href="L" data-select-results-letter="L">L</a></li>
+                  <li><a href="M" data-select-results-letter="M">M</a></li>
+                  <li><a href="N" data-select-results-letter="N">N</a></li>
+                  <li><a href="O" data-select-results-letter="O">O</a></li>
+                  <li><a href="P" data-select-results-letter="P">P</a></li>
+                  <li><a href="Q" data-select-results-letter="Q">Q</a></li>
+                  <li><a href="R" data-select-results-letter="R">R</a></li>
+                  <li><a href="S" data-select-results-letter="S">S</a></li>
+                  <li><a href="T" data-select-results-letter="T">T</a></li>
+                  <li><a href="U" data-select-results-letter="U">U</a></li>
+                  <li><a href="V" data-select-results-letter="V">V</a></li>
+                  <li><a href="W" data-select-results-letter="W">W</a></li>
+                  <li><a href="X" data-select-results-letter="X">X</a></li>
+                  <li><a href="Y" data-select-results-letter="Y">Y</a></li>
+                  <li><a href="Z" data-select-results-letter="Z">Z</a></li>
+                </ol>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2"><!-- empty --></div>
+              <div class="col-md-8">
+                <div class="topics-target" data-select-results-topics="">
+                  <mm:listnodescontainer type="keyword">
+                    <mm:constraint field="keyword" value="a%" operator="LIKE" />
+                    <mm:maxnumber value="99" />
+                    <mm:sortorder field="keyword" direction="UP" />
+                    <ol class="items">
+                      <mm:listnodes>
+                        <li> 
+                          <mm:link page="pages">
+                            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                            <mm:frameworkparam name="page">search</mm:frameworkparam>
+                            <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+                            <a href="${_}"><mm:field name="keyword" /></a>
+                          </mm:link>
+                         </li>
+                      </mm:listnodes>
+                    </ol>
+                  </mm:listnodescontainer>
+                </div>
+
+              </div>
+              <div class="col-md2"><!-- empty --></div>
+            </div>
+          </div>
+          <div class="container collections">
+            <div class="row">
+              <div class="col-md-2"><!-- empty --></div>
+              <div class="col-md-8">
+                <h2>Collections</h2>
+                <ul>
+                  <li> <em>Anna Devon</em>
+                    <h3> <a href="collection.html">So called gun safety</a></h3>
+                  </li>
+                  <li><em>Mike Lanning</em>
+                    <h3> <a href="collection.html">There’s no such thing as free beer</a></h3>
+                  </li>
+                  <li><em>Kurt Geiger</em>
+                    <h3> <a href="collection.html">The right to be offended</a></h3>
+                  </li>
+                  <li><em>Fran Fanny</em>
+                    <h3> <a href="collection.html">East-west parallels</a></h3>
+                  </li>
+                  <li><em>Lady Gaga</em>
+                    <h3> <a href="collection.html">Confusing unrealities</a></h3>
+                  </li>
+                  <li><em>Mister X</em>
+                    <h3> <a href="collection.html">Now I’m out of collection titles</a></h3>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-2">
+                <a class="close" href="#close" title="Close" data-select-results-close="close"><!-- empty --></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+</jsp:root>

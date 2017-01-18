@@ -14,26 +14,23 @@
     <mm:formatter xslt="xslt/framework/head.xslt" escape="none">
       <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <mm:cloudinfo type="mmbaseversion">
-          <meta name="MMBase" content="${_}" />
-        </mm:cloudinfo>
-        <mm:time time="now" format=":FULL.FULL">
-          <meta name="Calculate" content="${_}" />
-        </mm:time>
-        <meta name="ContextRoot" content="${mm:link('/')}" />
         <title>
           <c:choose>
             <c:when test="${! empty title}">${title}Tactical Media Files</c:when>
             <c:otherwise>Tactical Media Files</c:otherwise>
           </c:choose>
         </title>
+        
         <link rel="icon shortcut" href="${mm:link('/favicon.ico')}" />
         <link rel="apple-touch-icon" sizes="152x152" href="${mm:link('/apple-touch-icon.png')}" />
         <link rel="icon" type="image/png" href="${mm:link('/favicon-32x32.png')}" sizes="32x32" />
         <link rel="icon" type="image/png" href="${mm:link('/favicon-16x16.png')}" sizes="16x16" />
+        <link href="${mm:link('/styles/css/styles.css')}" rel="stylesheet" type="text/css" />
+        
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <link href="${mm:link('/styles/css/styles.css')}" rel="stylesheet" type="text/css" />
+        <meta name="context-root" content="${mm:link('/')}" />
+        <mm:cloudinfo type="mmbaseversion"><meta name="MMBase" content="${_}" /></mm:cloudinfo>
         
         <jsp:doBody />
       </head>

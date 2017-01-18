@@ -96,7 +96,8 @@
                 <div class="col-md-8">
                   
                   <tmf:content />
-                  <hr />
+                  
+                  <mm:last inverse="true"><hr /></mm:last>
                   
                 </div>
                 <div class="col-md-2"><!-- empty --></div>

@@ -11,7 +11,8 @@
     
     <mm:nodeinfo type="type" id="nodetype" write="false" />
     
-    <div class="content">
+    <article class="content">
+    
       <c:choose>
         <c:when test="${nodetype eq 'video'}">
     
@@ -73,6 +74,7 @@
                        
         </c:otherwise>
       </c:choose>
-    </div>
+    
+    </article>
 
 </jsp:root>
