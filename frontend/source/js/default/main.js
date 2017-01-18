@@ -27,13 +27,8 @@
     $topicLetterSelector.on('click', function(ev) {
         ev.preventDefault();
         var letter = $(this).data('select-results-letter').toLowerCase();
-        //console.log(letter);
-        //var relativePath = $('meta[name="relative-path"]').attr('content');
-        if (letter === 'a' || letter === 'c') {
-            $topicsTarget.load('ajax/topics-a.html');
-        } else {
-            $topicsTarget.load('ajax/topics-b.html');
-        }
+        var relativePath = $('meta[name="context-root"]').attr('content');
+        $topicsTarget.load(relativePath + 'api/keywords.ol.jspx?letter=' + letter);
     });
 
     /* Close overlay */
