@@ -31,6 +31,9 @@
                 &:visited {
                     color: @color-secondary;                    
                 }
+                &:hover {
+                    color: @color-primary;
+                }
             }
         }
 
@@ -41,7 +44,11 @@
                 float: left;
                 a { 
                     .font(small);
-                    color: @color-secondary; 
+                    color: @color-secondary;
+
+                    &:hover {
+                        color: @color-primary;
+                    }
                 }
 
             }
