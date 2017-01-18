@@ -101,41 +101,41 @@
 	    }
 	}
 
-	ul.alphabet {
-		margin: 3rem 0;
-		list-style: none;
-		text-align: center;
-	}
-
-	ul.alphabet li {
-		display: inline;
-		list-style: none;
-		font-family: @font-secondary;
-		.font(small);
-
-		a {
-			display: inline-block;
-			margin: 1rem 0.2rem;
-			line-height: 3.2rem;
-			width: 2.8rem;
-			height: 2.8rem;
-			background-color: @color-grey--60;
-			color: @color-grey--80;
-			transition: background-color @trans-normal-material, color @trans-normal-material;
-
-			&:hover {
-				color: white;
-				background-color: @color-primary; 
-                text-decoration: none;
-				border-color: @color-primary;
-			}
-		}
+	ol.alphabet {
+        margin: 3rem 0;
+        list-style: none;
+        text-align: center;
+        
+        li {
+            display: inline;
+            list-style: none;
+            font-family: @font-secondary;
+            .font(small);
+    
+            a {
+                display: inline-block;
+                margin: 1rem 0.2rem;
+                line-height: 3.2rem;
+                width: 2.8rem;
+                height: 2.8rem;
+                background-color: @color-grey--60;
+                color: @color-grey--80;
+                transition: background-color @trans-normal-material, color @trans-normal-material;
+    
+                &:hover {
+                    color: white;
+                    background-color: @color-primary; 
+                    text-decoration: none;
+                    border-color: @color-primary;
+                }
+            }
+        }
 	}
 
 	.topics {
 		color: white;
 
-		ul.items {
+		ol.items {
 			list-style: none;
 			text-align: center;
 			

@@ -4,16 +4,16 @@
             .col-md-12
                 a.close( href="#close" title="Close" data-select-results-close="close" )
                 h2 Topics
-                ul.alphabet
+                ol.alphabet
                     each val in ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-                        li 
+                        li
                             a( href=val data-select-results-letter=val ) #{val}
 
         .row
             .col-md-2
             .col-md-8
                 .topics-target( data-select-results-topics="" )
-                    ul.items
+                    ol.items
                         each val in ["9/11", "accident", "act up", "activism", "AIDSaids", "Al Jazeera", "amsterdam", "anarchist", "bookfair 2010", "anonymous", "archiveart", "art of campaigning", "austerity", "Austria", "avantgarde", "avatar"]
                             li
                                 a( href=val ) #{val}
