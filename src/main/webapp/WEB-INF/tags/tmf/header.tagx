@@ -8,7 +8,11 @@
       display-name="header"
       description="Header part a page"
       />
-  <jsp:directive.attribute name="q"  description="Search term" />
+  <jsp:directive.attribute name="q"  
+        description="Search term" />
+  <jsp:directive.attribute name="filter" type="java.lang.Boolean" 
+        description="Show content type filters" />
+
 
     <header class="page-layout__header">
       <div class="header">
@@ -30,17 +34,19 @@
               </form>
             </div>
             <div class="col-md-4 end-md middle-xs center-xs">
-              <label class="select-label" for="filter">Filter</label>
-              <select id="filter" name="filter" data-select-filter="filter">
-                <option value="list.html" selected="selected">All</option>
-                <option value="article.html">Articles</option>
-                <option value="videos.html">Videos</option>
-                <option value="pictures">Pictures</option>
-                <option value="files">Files</option>
-                <option value="events">Events</option>
-                <option value="campaigns">Campaigns</option>
-                <option value="person.html">People</option>
-              </select>
+              <c:if test="${filter}">
+                <label class="select-label" for="filter">Filter</label>
+                <select id="filter" name="filter" data-select-filter="filter">
+                  <option value="list.html" selected="selected">All</option>
+                  <option value="article.html">Articles</option>
+                  <option value="videos.html">Videos</option>
+                  <option value="pictures">Pictures</option>
+                  <option value="files">Files</option>
+                  <option value="events">Events</option>
+                  <option value="campaigns">Campaigns</option>
+                  <option value="person.html">People</option>
+                </select>
+              </c:if>
             </div>
           </div>
         </div>

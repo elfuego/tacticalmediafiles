@@ -18,6 +18,10 @@
       description="Extra style class that can be added to the body"
       />
   <jsp:directive.attribute name="cacheable" type="java.lang.Boolean" />
+  <jsp:directive.attribute type="java.lang.Boolean"
+      name="filter"
+      description="To display filter options next to search"
+      />
 
   <jsp:directive.attribute name="body"  fragment="true" required="true" />
   <jsp:directive.attribute name="left"  fragment="true" />
@@ -84,7 +88,7 @@
         <body class="${styleClass}">
           <div class="page-layout">
             <a id="skip-link" href="#main">Skip to main content</a>
-            <tmf:header q="${q}" />
+            <tmf:header q="${q}" filter="${filter}" />
             <main class="page-layout__main" id="main">
               <div class="main-content">
                 <c:choose>

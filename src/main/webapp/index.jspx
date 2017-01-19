@@ -45,7 +45,7 @@
                               
                         <div class="carousel-item" style="background-image: url(${img})">
                           <div class="container">
-                            <p class="carousel-item__type"> <strong>featured video</strong></p>
+                            <p class="carousel-item__type"><strong>video</strong></p>
                             <h2 class="carousel-item__title">
                               <a href="${_}">
                                 <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
@@ -64,7 +64,7 @@
                       
                         <div class="carousel-item" style="background-image: url(${img})">
                           <div class="container">
-                            <p class="carousel-item__type"> <strong>featured ${type}</strong></p>
+                            <p class="carousel-item__type"><strong>${type}</strong></p>
                             <h2 class="carousel-item__title">
                               <a href="${_}">
                                 <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield> <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>

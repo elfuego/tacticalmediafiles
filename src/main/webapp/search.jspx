@@ -20,10 +20,11 @@
   
   <tmf:html
       cacheable="${cacheable}"
+      filter="true"
       styleClass="search">
     
     
-    <jsp:attribute name="title">Searched with ${q}</jsp:attribute>
+    <jsp:attribute name="title">Searched with '${q}'</jsp:attribute>
     
     <jsp:attribute name="head">
         <!-- nothing here yet -->
@@ -71,7 +72,7 @@
 
       
       <div class="heading ___hidden">
-        <h1>Search results for ${q}</h1>
+        <h1>Search results for '${q}'</h1>
       </div>
       <section class="container">
           
