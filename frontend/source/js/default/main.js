@@ -9,7 +9,10 @@
         $overlay = $('[data-select-results]'),
         $closeSelector = $('[data-select-results-close]'),
         $topicLetterSelector = $('[data-select-results-letter]'),
-        $topicsTarget = $('[data-select-results-topics]'),
+        $topicsTarget = $('[data-select-results-topics-target]'),
+        $typeSelector = $('[data-select-results-type]'),
+        $typeTarget = $('[data-select-results-type-target]'),
+        $filterTarget = $('[data-select-results-filter-target]'),
         $body = $('body');
 
 
@@ -29,6 +32,20 @@
         var letter = $(this).data('select-results-letter').toLowerCase();
         var relativePath = $('meta[name="context-root"]').attr('content');
         $topicsTarget.load(relativePath + 'api/keywords.ol.jspx?letter=' + letter);
+    });
+
+    $typeSelector.on('click', function(ev){
+        ev.preventDefault();
+        var type = $(this).data('select-results-type').toLowerCase();
+        $body.toggleClass('show-overlay');
+        $typeTarget.val(type);
+        if (type === 'all') {
+            $filterTarget.text('all');
+        } else if (type === 'person') {
+            $filterTarget.text('people');
+        } else {
+            $filterTarget.text(type + 's');
+        }
     });
 
     /* Close overlay */

@@ -12,7 +12,7 @@
         .row
             .col-md-2
             .col-md-8
-                .topics-target( data-select-results-topics="" )
+                .topics-target( data-select-results-topics-target="" )
                     ol.items
                         each val in ["9/11", "accident", "act up", "activism", "AIDSaids", "Al Jazeera", "amsterdam", "anarchist", "bookfair 2010", "anonymous", "archiveart", "art of campaigning", "austerity", "Austria", "avantgarde", "avatar"]
                             li
@@ -62,22 +62,22 @@
             .col-md-8
                 h2 Filter
                 ul
-                    li 
-                        a( href="list.html" ) All
-                    li 
-                        a( href="list.html" ) Articles
-                    li 
-                        a( href="videos.html" ) Videos
-                    li 
-                        a( href="list.html" ) Files
-                    li 
-                        a( href="list.html" ) Pictures
-                    li 
-                        a( href="list.html" ) Peoples
-                    li 
-                        a( href="list.html" ) Events
-                    li 
-                        a( href="list.html" ) Campaigns
+                    li
+                        a( href="#" data-select-results-type="all" ) All
+                    li
+                        a( href="#" data-select-results-type="article" ) Articles
+                    li
+                        a( href="#" data-select-results-type="video" ) Videos
+                    li
+                        a( href="#" data-select-results-type="file" ) Files
+                    li
+                        a( href="#" data-select-results-type="picture" ) Pictures
+                    li
+                        a( href="#" data-select-results-type="person" ) People
+                    li
+                        a( href="#" data-select-results-type="event" ) Events
+                    li
+                        a( href="#" data-select-results-type="campaign" ) Campaigns
 
             .col-md-2
                 a.close( href="#close" title="Close" data-select-results-close="close" )
