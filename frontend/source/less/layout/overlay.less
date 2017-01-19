@@ -49,6 +49,7 @@
     h2 {
         .font(extra-small);
         font-family: @font-secondary;
+        font-weight: normal;
         text-transform: uppercase;
         text-align: center;
         letter-spacing: 0.2rem;
@@ -123,7 +124,6 @@
 		color: white;
 
 		ol.items {
-			list-style: none;
 			text-align: center;
 			
             li {
@@ -144,4 +144,31 @@
 			}
 		}
 	}
+
+    .filter {
+
+        ul {
+            text-align: center;
+            margin-top: 2rem;
+            
+            li {
+                
+                .font(small);
+                font-family: @font-secondary;
+                text-transform: lowercase;
+                font-style: italic;
+
+                margin-bottom: 1rem;
+
+                a {
+                    color: @color-primary;
+                    text-decoration: none;
+                    &:hover {
+                        color: @color-primary-dark;
+                    }
+                }
+            }
+        }
+    }
+
 }
