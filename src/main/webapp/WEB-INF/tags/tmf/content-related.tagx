@@ -5,7 +5,7 @@
   version="2.0">
   
   <jsp:directive.tag
-      display-name="related-content"
+      display-name="content-related"
       description="Content that is related to this article (content)"
       />
   

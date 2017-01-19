@@ -9,6 +9,7 @@
   
   <tmf:html
       cacheable="${cacheable}"
+      filter="true"
       styleClass="home">
     
     

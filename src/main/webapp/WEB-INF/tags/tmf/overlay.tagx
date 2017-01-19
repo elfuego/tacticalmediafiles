@@ -111,62 +111,14 @@
               <div class="col-md-8">
                 <h2>Filter</h2>
                 <ul>
-                  <li>
-                    <mm:link page="pages">
-                      <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                      <mm:frameworkparam name="page">search</mm:frameworkparam>
-                      <a href="${_}" data-select-results-type="all">All</a>
-                    </mm:link>
-                  </li>
-                  <li>
-                    <mm:link page="pages">
-                      <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                      <mm:frameworkparam name="page">search</mm:frameworkparam>
-                      <a href="${_}?t=article" data-select-results-type="article">Articles</a>
-                    </mm:link>
-                  </li>
-                  <li>
-                    <mm:link page="pages">
-                      <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                      <mm:frameworkparam name="page">search</mm:frameworkparam>
-                      <a href="${_}?t=video" data-select-results-type="video">Video</a>
-                    </mm:link>
-                  </li>
-                  <li>
-                    <mm:link page="pages">
-                      <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                      <mm:frameworkparam name="page">search</mm:frameworkparam>
-                      <a href="${_}?t=file" data-select-results-type="file">Files</a>
-                    </mm:link>
-                  </li>
-                  <li>
-                    <mm:link page="pages">
-                      <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                      <mm:frameworkparam name="page">search</mm:frameworkparam>
-                      <a href="${_}?t=picture" data-select-results-type="picture">Pictures</a>
-                    </mm:link>
-                  </li>
-                  <li>
-                    <mm:link page="pages">
-                      <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                      <mm:frameworkparam name="page">search</mm:frameworkparam>
-                      <a href="${_}?t=person" data-select-results-type="person">People</a>
-                    </mm:link>
-                  </li>
-                  <li>
-                    <mm:link page="pages">
-                      <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                      <mm:frameworkparam name="page">search</mm:frameworkparam>
-                      <a href="${_}?t=event" data-select-results-type="event">Events</a>
-                    </mm:link>
-                  </li>
-                  <li>
-                    <mm:link page="pages">
-                      <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                      <mm:frameworkparam name="page">search</mm:frameworkparam>
-                      <a href="${_}?t=campaign" data-select-results-type="campaign">Campaigns</a>
-                    </mm:link>
-                  </li>
+                  <li><a href="#" data-select-results-type="all">All</a></li>
+                  <li><a href="#" data-select-results-type="article">Articles</a></li>
+                  <li><a href="#" data-select-results-type="video">Videos</a></li>
+                  <li><a href="#" data-select-results-type="file">Files</a></li>
+                  <li><a href="#" data-select-results-type="picture">Pictures</a></li>
+                  <li><a href="#" data-select-results-type="person">People</a></li>
+                  <li><a href="#" data-select-results-type="event">Events</a></li>
+                  <li><a href="#" data-select-results-type="campaign">Campaigns</a></li>
                 </ul>
               </div>
               <div class="col-md-2"><a class="close" href="#close" title="Close" data-select-results-close="close"></a></div>

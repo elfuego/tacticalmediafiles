@@ -48,6 +48,7 @@
 
         <mm:import id="page" externid="n" />
         <mm:import externid="q" />
+        <mm:import externid="t" />
 
         <c:if test="${! empty page}">
           <mm:node id="page" referid="page" />
@@ -88,7 +89,7 @@
         <body class="${styleClass}">
           <div class="page-layout">
             <a id="skip-link" href="#main">Skip to main content</a>
-            <tmf:header q="${q}" filter="${filter}" />
+            <tmf:header q="${q}" filter="${filter}" type="${t}" />
             <main class="page-layout__main" id="main">
               <div class="main-content">
                 <c:choose>

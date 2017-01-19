@@ -6,7 +6,7 @@
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
   <mm:import externid="q" />
-  <mm:import externid="type" />
+  <mm:import externid="t" id="type" />
   <c:if test="${type ne 'article' 
   				and type ne 'event' 
   				and type ne 'person' 
@@ -24,7 +24,7 @@
       styleClass="search">
     
     
-    <jsp:attribute name="title">Searched with '${q}'</jsp:attribute>
+    <jsp:attribute name="title">Searched with '${q}' in ${!empty type ? type : "all"}</jsp:attribute>
     
     <jsp:attribute name="head">
         <!-- nothing here yet -->
@@ -88,7 +88,7 @@
                 
                     <article class="listitem __picture">
                       <mm:link page="/picture" referids="_node@pic">
-                        <div class="content-type">Picture</div>
+                        <div class="content-type">picture</div>
                         <h2 class="listitem-title"><a href="${_}"><mm:field name="title" /></a></h2>
                         <div class="listitem-picture">
                           <a href="${_}"><mm:image mode="img" width="640" height="360" /></a>
@@ -101,7 +101,7 @@
                   <c:when test="${ty eq 'file'}">
                 
                     <article class="listitem __file">
-                      <div class="content-type">File</div>
+                      <div class="content-type">file</div>
                       <mm:attachment>
                         <h2 class="listitem-title"><a href="${_}" class="medium"><mm:field name="title" /></a></h2>
                         <div class="listitem-intro">
