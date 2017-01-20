@@ -21,7 +21,7 @@
         <h2 class="header-motto">The 'living archive' for Tactical Media's present, past and future.</h2>
       </div>
       <nav class="navigation">
-        <form class="container" action="${mm:link('/search')}" method="post">
+        <form class="container" id="form" action="${mm:link('/search')}" method="post">
           <input type="hidden" value="${type}" name="t" data-select-results-type-target="" />
           <div class="row">
             <div class="col-sm-3 end-sm center-xs col-sm-offset-1">
