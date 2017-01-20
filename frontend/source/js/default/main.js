@@ -63,7 +63,7 @@
 
     $('a.__play').click(function(ev) {
         ev.preventDefault();
-        $.fn.oiplayer('start', 'tmf-player');
+        $.fn.oiplayer('start', 'oip_ea_id_tmf-player');
         $(this).fadeOut('fast');
     });
 
