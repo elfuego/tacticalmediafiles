@@ -73,37 +73,6 @@
               <div class="col-md2"><!-- empty --></div>
             </div>
           </div>
-          <div class="container collections">
-            <div class="row">
-              <div class="col-md-2"><!-- empty --></div>
-              <div class="col-md-8">
-                <h2>Collections</h2>
-                <ul>
-                  <li> <em>Anna Devon</em>
-                    <h3> <a href="collection.html">So called gun safety</a></h3>
-                  </li>
-                  <li><em>Mike Lanning</em>
-                    <h3> <a href="collection.html">There’s no such thing as free beer</a></h3>
-                  </li>
-                  <li><em>Kurt Geiger</em>
-                    <h3> <a href="collection.html">The right to be offended</a></h3>
-                  </li>
-                  <li><em>Fran Fanny</em>
-                    <h3> <a href="collection.html">East-west parallels</a></h3>
-                  </li>
-                  <li><em>Lady Gaga</em>
-                    <h3> <a href="collection.html">Confusing unrealities</a></h3>
-                  </li>
-                  <li><em>Mister X</em>
-                    <h3> <a href="collection.html">Now I’m out of collection titles</a></h3>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-2">
-                <a class="close" href="#close" title="Close" data-select-results-close="close"><!-- empty --></a>
-              </div>
-            </div>
-          </div>
 
           <div class="container filter">
             <div class="row">
@@ -124,10 +93,8 @@
               <div class="col-md-2"><a class="close" href="#close" title="Close" data-select-results-close="close"></a></div>
             </div>
           </div>          
-          
-          
-        </div>
-        
+                  
+        </div>        
       </div>
     
 </jsp:root>

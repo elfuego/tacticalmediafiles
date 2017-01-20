@@ -15,14 +15,7 @@
     
     <mm:import id="media_title" reset="true"><mm:field name="title" escape="inline" /></mm:import>
   </mm:node>
-  
-  <jsp:scriptlet>
-    /* Sets random value devidable by 4 for initital thumbcarousel */
-    java.util.Random rand = new java.util.Random(); 
-    int off = rand.nextInt(39) * 4;		// allways start somewhere at product of 4   
-    pageContext.setAttribute("off", off);
-  </jsp:scriptlet>
-  
+    
   <tmf:html
       cacheable="${cacheable}"
       styleClass="video">
@@ -30,51 +23,13 @@
     <jsp:attribute name="title">${media_title}</jsp:attribute>
     
     <jsp:attribute name="head">
-      <script type="text/javascript" src="${mm:link('/style/oiplayer/js/jquery.oiplayer.min.js')}"><!-- salut msie --></script>
       <link href="${mm:link('/style/oiplayer/css/oiplayer.css')}" rel="stylesheet" type="text/css" />
-      <style type="text/css">
-      video { 
-          background-color: #000;
-      }
-      h2.Title {
-          text-shadow: 2px 2px #fff;
-      }
-      
-      div.video.inavailable {
-        padding: 1em;
-      }
-      div.video.inavailable p
-      {
-        margin: 0 1em;
-        padding: 0.4em;
-        background-color: #FCC;
-        text-align: center;
-        border: 12px #C00 groove;
-      }
-      
-      .videocontainerheight { 
-          height: 192px; 
-          width: 1px;
-          float: left;
-      }
-      ul.videomarkers
-      {
-        list-style: none;
-        font-size: 0.8em;
-        clear: both;
-      }
-      ul.videomarkers li
-      {
-        list-style: none;
-        margin: 0;
-      }
-      </style>
-
       <mm:escaper id="wrapper" type="substring">
         <mm:param name="from" value="0" />
         <mm:param name="to" value="254" />
         <mm:param name="ellipsis" value="..." />
       </mm:escaper>
+      
       <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
         <mm:relatednodes>
           <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">, </mm:first>${keywords}</c:set>
@@ -90,148 +45,67 @@
 
     <jsp:attribute name="body">
       <mm:node referid="media">
-        <div class="VideoContainer">
-		  <div class="videocontainerheight"><!-- empty --></div>
-          <div class="VideoSpacer"><!-- empty --> </div>
-          
-          <!-- ### ### ### List of Large thumbs: browse videos ### ### ### -->
-          <div class="VideoBrowse">
-            <div class="VideoBrowseList">
-              <div id="VideoBrowseMask2"><!-- empty --></div>
-              <div id="VideoBrowseMask1">
-                <div class="VideoTMFLogo">
-                  <a href="${mm:link('/')}"><img src="${mm:link('/style/images/tmf-logo.gif')}" width="195" height="121" alt="Tactical Media Files" /></a>
+        <article>
+          <header>
+            <div class="container __video">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="video">
+                    <div class="video-background">
+
+                      <mm:relatednodes type="picture" max="1">
+                        <mm:import id="poster"><mm:image width="480" height="360" crop="middle" /></mm:import>
+                      </mm:relatednodes>
+                      <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
+                        <mm:maxnumber value="1" />
+                        <mm:relatednodes>
+                          <tmf:video width="480" height="360" poster="${poster}" id="tmf-player" />
+                        </mm:relatednodes>
+                      </mm:relatednodescontainer>
+                      
+                      <!-- video id="tmf-player" poster="${poster}" controls="">
+                        <source type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" />
+                        <source type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" src="http://www.tacticalmediafiles.net/files/38/38884.NRA_and_SW_Share_the_Safety.mp4" />
+                        <source type="video/webm;codecs=vp8,vorbis" src="http://www.tacticalmediafiles.net/files/38/38892.38884.NRA_and_SW_Share_the_Safety.webm" />
+                      </video> -->
+                      <a class="read-more __play" data-video-target="oip_ea_id_tmf-player" href="video.html">Play</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="VideoBrowseLabel">
-                  <img src="${mm:link('/style/images/labels/browse-video.png')}" alt="Browse Video" />
-                </div>  					
-			  </div>
-              <!-- List of Thumbnails with Titles -->
-              <div class="VideoBrowseTable2" id="videothumbs">
-                <tmf:thumblist-video offset="${off}" />
-              </div>
-              <div class="VideoBrowseNext">
-                <a href="#next" class="movenext" ><img src="${mm:link('/style/images/next.gif')}" alt="Next" border="0" /></a>
-              </div>
-              <div class="VideoBrowsePrevious">
-                <a href="#previous" class="moveprev" ><img src="${mm:link('/style/images/previous.gif')}" alt="Previous" border="0" /></a>
               </div>
             </div>
-          </div><!-- EOF .VideoBrowse -->
-          
-          <div class="clearBoth"><!-- empty --></div>
-          <div class="VideoSpacer"><!-- empty --></div>
-   
-          <!-- ### ### ### current playing video ### ### ### -->
-          <div class="VideoPlaying">
-            <div class="VideoPlayingLabelTitleMarkers">
-              <div class="VideoPlayingLabel">					
-                <img src="${mm:link('/style/images/labels/playing.png')}" alt="Playing" />					
+            <div class="container">   
+              <div class="row">
+                <div class="col-md-1"><!-- empty --></div>
+                <div class="col-md-2 start-xs center-md">
+                  <div class="content-type">Video</div>
+                </div>
+                <div class="col-md-6">
+                  <h1 class="video-title">${media_title}</h1>
+                  <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+                    <ul class="tags">
+                    <mm:relatednodes>
+                      <mm:link page="pages">
+                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                        <mm:frameworkparam name="page">search</mm:frameworkparam>
+                        <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+                        <li class="tag">
+                          <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
+                        </li>
+                      </mm:link>
+                    </mm:relatednodes>
+                    </ul>
+                  </mm:relatednodescontainer>
+                  <mm:field name="description" escape="paragraph(video-intro)" />                  
+                </div>
+                <div class="col-md-2"><!-- empty --></div>
               </div>
-              <div class="VideoPlayingTitle">
-                  <h2 class="Title"><mm:field name="title" /></h2>
-                  <span><br /><mm:field name="duration"><mm:time format="mm"/>min.</mm:field></span>
-              </div>
-              <div class="clearBoth"><!-- empty --></div>
-              
-              <!-- Video Markers -->
-
-              <mm:relatednodescontainer type="fragment" role="posrel" searchdirs="destination">
-                <mm:sortorder field="posrel.pos" direction="UP" />
-
-                <mm:size>
-                  <mm:isgreaterthan value="0">
-                    <div class="VideoMarkerNote">
-                      jump to a section of the video using the markers below
-                    </div>
-                  </mm:isgreaterthan>
-                </mm:size>
-
-                <ul class="videomarkers">
-                <mm:relatednodes>
-                  <li>
-                    [<tmf:duration milliseconds="${_node.start}" /><mm:field name="stop"><mm:isnotempty> - <tmf:duration milliseconds="${_}" /></mm:isnotempty></mm:field>]
-                    <a href="#t=${fn:substringBefore(_node.start / 1000, '.')}" 
-                        data-position-trigger="${fn:substringBefore(_node.start / 1000, '.')}" 
-                        data-media-number="${media}" class="linkg"><mm:field name="title" /></a>
-                  </li>
-                </mm:relatednodes>
-                </ul>
-              </mm:relatednodescontainer>
-              
-              <!--<table id="list_Deelnemers" class="VideoMarkerList" border="0">
-                <tbody><tr>
-                  <td class="liout" valign="top">[07:44]</td>
-                  <td valign="top"><a href="#" id="0" class="linkg">IAA Research Overview</a></td>
-                </tr><tr>
-                  <td></td>
-                </tr>
-              </tbody></table> -->
-			</div><!-- EOF .VideoPlayingLabelTitleMarkers -->
-			
-			<div class="VideoPlayer">
-			  <div id="player">
-
-                <mm:relatednodes type="picture" max="1">
-                  <mm:import id="poster"><mm:image width="480" height="360" crop="middle" /></mm:import>
-                  <!-- <mm:image template="s(150x100!)" /> -->
-                  <!-- <img src=""  alt='<mm:field name="title" />' width="150" height="100" /> -->
-                </mm:relatednodes>
-                <!-- <mm:notpresent referid="poster">
-                </mm:notpresent> -->
-
-                <!-- this mediafragment contains the -->
-                <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
-                  <mm:maxnumber value="1" />
-                  <mm:relatednodes>
-                    <tmf:video width="480" height="360" poster="${poster}" id="${media}" />
-                  </mm:relatednodes>
-                </mm:relatednodescontainer>
-
-			  </div>
-              <div class="VideoSpacer3"><!-- empty --></div>
-              <p class="Summary">
-                <mm:field name="description" escape="none" />
-              </p>
-              <p style="text-align: right ;">
-                  <br /><br />
-                  <img src="${mm:link('/style/images/x-big.gif')}" alt="X" />
-              </p>
-			</div><!-- EOF .VideoPlayer -->
-          </div><!-- EOF .VideoPlaying -->
-          
-          <div class="VideoLeftContainer" style="margin-top:0;">
-			<div class="VideoRelatedTopbar"><!-- empty --></div>
-			<div class="VideoRelatedLabel"><img src="${mm:link('/style/images/labels/related.gif')}" alt="Related" /></div>
-   		    <div id="related2media">
-              <br /><br /><br />
-<!--
-        <mm:relatednodes type="person" searchdir="destination">
-          <h5>person</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="firstname"/> <mm:field name="prefix"/> <mm:field name="sirname"/></a>
-        </mm:relatednodes>
-        <mm:relatednodes type="person" searchdir="source">
-          <h5>person</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="firstname"/> <mm:field name="prefix"/> <mm:field name="sirname"/></a>
-        </mm:relatednodes>
-        <mm:relatednodes type="article" searchdir="destination"><h5>article</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-  		<mm:relatednodes type="article" searchdir="source"><h5>article</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-        <mm:relatednodes type="event" searchdir="destination"><h5>event</h5> <a href="#" onclick="window.open('<mm:url page="event.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-  		<mm:relatednodes type="event" searchdir="source"><h5>event</h5> <a href="#" onclick="window.open('<mm:url page="event.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-        <mm:relatednodes type="campaign" searchdir="destination"><h5>campaign</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-  		<mm:relatednodes type="campaign" searchdir="source"><h5>campaign</h5> <a href="#" onclick="window.open('<mm:url page="article.jsp"><mm:param name="objectnumber"><mm:field name="number"/></mm:param></mm:url>','person','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes,width=970,height=600');return false;"><mm:field name="title" /></a></mm:relatednodes> 
-  		<mm:relatednodes type="url" searchdir="destination"><h5>extern</h5><a href="#" onclick="window.open('<mm:field name="url" />"><mm:field name="title"/></mm:relatednodes>
--->
-
-    		</div>		
-			<div class="clearBoth"><!-- empty --></div>
-		  </div><!-- EOF .VideoLeftContainer -->
-          
-          <br /><img src="${mm:link('/style/images/x.gif')}" alt="X" />
-          <br /><br />
-          <div class="clearBoth"><!-- empty --></div>
-          
-        </div><!-- EOF .VideoContainer -->
-        <div class="clearBoth"><!-- empty --></div>        
-        
+            </div>
+          </header>
+          <aside>
+            <tmf:content-related />
+          </aside>
+        </article>
       </mm:node>
     </jsp:attribute>
   </tmf:html>
