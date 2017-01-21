@@ -24,7 +24,7 @@
         <form class="container" id="form" action="${mm:link('/search')}" method="post">
           <input type="hidden" value="${type}" name="t" data-select-results-type-target="" />
           <div class="row">
-            <div class="col-sm-3 end-sm center-xs col-sm-offset-1">
+            <div class="col-sm-3 center-xs col-sm-offset-1"> <!-- .end-sm -->
               <a class="nav__topics" href="#topics" data-select-overlay="topics">Topics</a>
               <!-- <a class="nav__collections" href="#collections" data-select-overlay="collections">Collections</a> -->
             </div>
