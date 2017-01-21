@@ -34,6 +34,7 @@
         $topicsTarget.load(relativePath + 'api/keywords.ol.jspx?letter=' + letter);
     });
 
+    /* Filter content type */
     $typeSelector.on('click', function(ev){
         ev.preventDefault();
         var type = $(this).data('select-results-type').toLowerCase();
@@ -46,6 +47,7 @@
         } else {
             $filterTarget.text(type + 's');
         }
+        $('#form').submit();
     });
 
     /* Close overlay */
