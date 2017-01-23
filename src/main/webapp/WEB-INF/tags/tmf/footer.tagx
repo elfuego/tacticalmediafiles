@@ -27,8 +27,9 @@
                 <ul class="footer__navigation">
                   <li><a class="footer__link" href="${mm:link('/articles')}">Articles</a></li>
                   <li><a class="footer__link" href="${mm:link('/videos')}">Videos</a></li>
-                  <li><a class="footer__link" href="${mm:link('/images')}">Pictures</a></li>
-                  <li><a class="footer__link" href="${mm:link('/files')}">Files</a></li>
+                  <li><a class="footer__link" href="${mm:link('/events')}">Events</a></li>
+                  <li><a class="footer__link" href="${mm:link('/campaigns')}">Campaigns</a></li>
+                  <li><a class="footer__link" href="${mm:link('/persons')}">People</a></li>
                 </ul>
               </div>
             </div>

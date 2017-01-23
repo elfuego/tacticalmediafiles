@@ -18,7 +18,7 @@
     
   <tmf:html
       cacheable="${cacheable}"
-      styleClass="video">
+      styleClass="video content">
     
     <jsp:attribute name="title">${media_title}</jsp:attribute>
     
@@ -62,12 +62,7 @@
                         </mm:relatednodes>
                       </mm:relatednodescontainer>
                       
-                      <!-- video id="tmf-player" poster="${poster}" controls="">
-                        <source type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" />
-                        <source type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" src="http://www.tacticalmediafiles.net/files/38/38884.NRA_and_SW_Share_the_Safety.mp4" />
-                        <source type="video/webm;codecs=vp8,vorbis" src="http://www.tacticalmediafiles.net/files/38/38892.38884.NRA_and_SW_Share_the_Safety.webm" />
-                      </video> -->
-                      <a class="read-more __play" data-video-target="oip_ea_id_tmf-player" href="video.html">Play</a>
+                      <a class="read-more __play" data-video-target="oip_ea_id_tmf-player" href="#">Play</a>
                     </div>
                   </div>
                 </div>
@@ -81,20 +76,7 @@
                 </div>
                 <div class="col-md-6">
                   <h1 class="video-title">${media_title}</h1>
-                  <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
-                    <ul class="tags">
-                    <mm:relatednodes>
-                      <mm:link page="pages">
-                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                        <mm:frameworkparam name="page">search</mm:frameworkparam>
-                        <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
-                        <li class="tag">
-                          <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
-                        </li>
-                      </mm:link>
-                    </mm:relatednodes>
-                    </ul>
-                  </mm:relatednodescontainer>
+                  <tmf:tags />
                   <mm:field name="description" escape="paragraph(video-intro)" />                  
                 </div>
                 <div class="col-md-2"><!-- empty --></div>

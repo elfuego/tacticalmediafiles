@@ -45,6 +45,63 @@
         </mm:isgreaterthan>
       </mm:size>
     </mm:relatednodescontainer>
+
+    <!-- campaign: posrel -->
+    <mm:relatednodescontainer role="posrel" type="campaign" searchdirs="source">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="campaigns">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Campaigns</h4>
+              <ul class="content-related__list __campaigns">
+              <mm:relatednodes>
+                <li>
+                  <mm:link page="content">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <mm:field name="subtitle"><mm:isnotempty><span class="content-related__link-description"><mm:write /></span></mm:isnotempty></mm:field>
+                  </mm:link>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+    
+
+    <!-- event -->
+    <mm:relatednodescontainer role="posrel" type="event" searchdirs="source">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="events">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Events</h4>
+              <ul class="content-related__list __events">
+              <mm:relatednodes>
+                <li>
+                  <mm:link page="content">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <mm:field name="intro">
+                      <mm:isnotempty><span class="content-related__link-description"><mm:write escape="tagstripper, wrap_intro" /></span></mm:isnotempty>
+                    </mm:field>
+                  </mm:link>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
     
     <!-- event -->
     <mm:relatednodescontainer role="related" type="event" searchdirs="source">
@@ -75,6 +132,35 @@
       </mm:size>
     </mm:relatednodescontainer>
 
+    <!-- articles author -->
+    <mm:relatednodescontainer role="posrel" type="article" searchdirs="source">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="articles">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Articles</h4>
+              <ul class="content-related__list __articles">
+              <mm:relatednodes>
+                <li>
+                  <mm:link page="content">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <mm:field name="intro">
+                      <mm:isnotempty><span class="content-related__link-description"><mm:write escape="tagstripper, wrap_intro" /></span></mm:isnotempty>
+                    </mm:field>
+                  </mm:link>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+    
     <!-- articles author -->
     <mm:relatednodescontainer role="author" type="article" searchdirs="source">
       <mm:size>

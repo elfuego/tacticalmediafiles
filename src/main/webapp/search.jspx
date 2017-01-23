@@ -54,7 +54,7 @@
       <c:if test="${!empty type}">
         <mm:import id="extraconstraints">${extraconstraints} otype:EQ:<mm:nodeinfo type="number" nodetype="$type" /></mm:import>
       </c:if>
-      <mm:import id="max">10</mm:import>
+      <mm:import id="max">20</mm:import>
       <mm:import externid="offset">0</mm:import>
       <c:if test="${offset lt 0}"><mm:import id="offset" reset="true">0</mm:import></c:if>
       

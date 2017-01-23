@@ -49,7 +49,7 @@
             <div class="row">
               <div class="col-md-2"><!-- empty --></div>
               <div class="col-md-8">
-                <div class="topics-target" data-select-results-topics="">
+                <div class="topics-target" data-select-results-topics-target="">
                   <mm:listnodescontainer type="keyword">
                     <mm:constraint field="keyword" value="a%" operator="LIKE" />
                     <mm:maxnumber value="99" />

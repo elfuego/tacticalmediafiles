@@ -37,11 +37,19 @@
             </div>
             <div class="col-sm-2 middle-xs center-xs end-sm">
               <c:if test="${filter}">
+                <c:choose>
+                  <c:when test="${empty type}">
+                    <c:set var="ttype">all</c:set>
+                  </c:when>
+                  <c:otherwise>
+                    <c:set var="ttype">${type}s</c:set>
+                  </c:otherwise>
+                </c:choose>
                 <a class="nav__filter" href="#filter" data-select-overlay="filter">Filter</a>
                 <span class="nav__filter-selected">
                   <a href="#filter" 
                     data-select-overlay="filter" 
-                    data-select-results-filter-target="">${empty type ? 'all' : type}</a>
+                    data-select-results-filter-target="">${ttype}</a>
                 </span>
               </c:if>
             </div>

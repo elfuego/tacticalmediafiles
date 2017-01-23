@@ -12,7 +12,8 @@
     
   <tmf:html
       cacheable="${cacheable}"
-      styleClass="list ${type}">
+      filter="true"
+      styleClass="list">
     
     
     <jsp:attribute name="title">${type_plural}</jsp:attribute>
@@ -23,44 +24,34 @@
 
     <jsp:attribute name="body">
 
-        <tmf:header-simple title="${type_plural}" label="listing" />
-
-        <div class="SearchSpacer2"><!-- empty --></div>
-        <div class="SearchResultsLeft">
-          <tmf:tagcloud />
-        </div><!-- EOF .SearchResultsLeft -->
-        
-        <div class="SearchResults">
-          
           <mm:import id="max">20</mm:import>
           <mm:import externid="offset">0</mm:import>
                     
           <mm:listnodescontainer type="${type}">
             <mm:sortorder field="number" direction="DOWN" />
-            <div class="SearchTypes">
-              <mm:size id="total" /> <!-- ARTICLES ${type} --> 
-              ${type_plural}
+            
+            <div class="heading ___hidden">
+              <h1><mm:size id="total" /> ${type_plural}</h1>
             </div>
-            <mm:maxnumber value="${max}" />
-            <mm:offset value="${offset}" />
-            <mm:listnodes>
-              <tmf:node-listitem />
-              <br /><br /><br />
-            </mm:listnodes>
+            <section class="container">
+                          
+                <mm:maxnumber value="${max}" />
+                <mm:offset value="${offset}" />
+                <mm:listnodes>
+                  <div class="row">
+                    <div class="col-md-2"><!-- empty --></div>
+                    <div class="col-md-8">
+                      <tmf:listitem />
+                    </div>
+                    <div class="col-md-2"><!-- empty --></div>
+                  </div>
+                </mm:listnodes>
+                
+                <tmf:pager total="${total}" max="${max}" offset="${offset}" />
+            </section>
           </mm:listnodescontainer>
           
-          <tmf:pager total="${total}" max="${max}" offset="${offset}" />
-        
-        </div><!-- EOF .SearchResults -->
-
-    	<div class="clearBoth"><!-- empty --></div>
-    	<div class="SearchSpacer"><!-- empty --></div>
-    	<div style="text-align: right ;"><img src="${mm:link('/style/images/x-blue.gif')}" alt="x blue" /></div>
-    	<div class="SearchSpacer"><!-- empty --></div>
-        <div class="SearchBottomLineLeft"><hr /></div>
-        <div class="SearchBottomLineRight"><hr /></div>
-    	<div class="clearBoth"><!-- empty --></div> <br />
-    	
+       	
     </jsp:attribute>
   </tmf:html>
 </jsp:root>

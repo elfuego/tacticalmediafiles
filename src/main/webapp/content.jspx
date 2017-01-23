@@ -109,21 +109,8 @@
                     </div>
                     <div class="date">
                       <mm:field name="created"><mm:time format="MMMM dd, yyyy" /></mm:field>
-                    </div>
-                    <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
-                      <ul class="tags">
-                        <mm:relatednodes>
-                          <mm:link page="pages">
-                            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                            <mm:frameworkparam name="page">search</mm:frameworkparam>
-                            <mm:frameworkparam name="keyword"><mm:field name="keyword" escape="url" /></mm:frameworkparam>
-                            <li class="tag">
-                              <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
-                            </li>
-                          </mm:link>
-                        </mm:relatednodes>
-                      </ul>
-                    </mm:relatednodescontainer>
+                    </div>                    
+                    <tmf:tags />
                   </div>
                   
                   <div class="content-info__related">

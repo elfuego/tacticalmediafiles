@@ -2,6 +2,7 @@
   xmlns:jsp="http://java.sun.com/JSP/Page"
   xmlns:c="http://java.sun.com/jsp/jstl/core"
   xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
   version="2.0">
   
   <jsp:directive.tag
@@ -29,23 +30,11 @@
 
             <div class="listitem-video-still">
               <a href="${_}"><img src="${image}" /></a>
-              <a class="read-more __play" href="${_}">View</a>
+              <a class="read-more" href="${_}">View</a>
             </div>
-                      
-            <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
-              <ul class="tags">
-              <mm:relatednodes>
-                <mm:link page="pages">
-                  <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                  <mm:frameworkparam name="page">search</mm:frameworkparam>
-                  <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
-                  <li class="tag">
-                    <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
-                  </li>
-                </mm:link>
-              </mm:relatednodes>
-              </ul>
-            </mm:relatednodescontainer>
+            
+            <tmf:tags />
+
           </mm:link>
         </article>
         
@@ -66,20 +55,8 @@
             </h2>
             <mm:field name="intro" escape="paragraph(listitem-intro)" />
             <a class="read-more" href="${_}">Read</a>
-            <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
-              <ul class="tags">
-              <mm:relatednodes>
-                <mm:link page="pages">
-                  <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                  <mm:frameworkparam name="page">search</mm:frameworkparam>
-                  <mm:frameworkparam name="keyword"><mm:field name="keyword" escape="url" /></mm:frameworkparam>
-                  <li class="tag">
-                    <a href="${_}"><mm:field name="keyword" /></a><mm:last inverse="true">, </mm:last>
-                  </li>
-                </mm:link>
-              </mm:relatednodes>
-              </ul>
-            </mm:relatednodescontainer>
+
+            <tmf:tags />
     
           </mm:link>
         </article>
