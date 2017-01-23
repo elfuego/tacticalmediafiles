@@ -29,9 +29,15 @@
     /* Select char in overlay and load its topics */
     $topicLetterSelector.on('click', function(ev) {
         ev.preventDefault();
-        var letter = $(this).data('select-results-letter').toLowerCase();
-        var relativePath = $('meta[name="context-root"]').attr('content');
-        $topicsTarget.load(relativePath + 'api/keywords.ol.jspx?letter=' + letter);
+        var link = $('meta[name="context-root"]').attr('content') +
+                    'api/keywords.ol.jspx?letter=' +
+                    $(this).data('select-results-letter').toLowerCase();
+        //console.log('link: ' + link);
+        $topicsTarget.load(link, function(res, status, xhr) {
+            if (status === "error") {
+                console.error( xhr.status + " : " + xhr.statusText);
+            }
+        });
     });
 
     /* Filter content type */
