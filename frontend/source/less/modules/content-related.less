@@ -17,16 +17,47 @@
 
     .content-related__list {
         font-family: @font-tertiary;
-        .font(small);
+        
+        &.__campaigns,
+        &.__events,
+        &.__files,
+        &.__links,
+        &.__persons {
+            a { 
+                .font(medium);
+                color: @color-secondary;
 
-        a { color: @color-secondary; }
+                &:link,
+                &:visited {
+                    color: @color-secondary;                    
+                }
+                &:hover {
+                    color: @color-primary;
+                }
+            }
+        }
 
         &.__images,
         &.__video {
             li {
                 display: inline;
                 float: left;
+                a { 
+                    .font(small);
+                    color: @color-secondary;
+
+                    &:hover {
+                        color: @color-primary;
+                    }
+                }
+
             }
+        }
+
+        .content-related__link-description {
+            display: block;
+            font-family: @font;
+            color: @color-grey--30;
         }
 
         .content-related__image {

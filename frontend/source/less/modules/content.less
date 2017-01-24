@@ -1,75 +1,66 @@
 .content {
     
-    .title {
-        margin: 2rem 0 3rem 0;
-        color: @color-grey--50;
-        .font(title-normal);
-        text-align: center;
-        font-weight: normal;
-
-        @media @screen-sm-max {
-            .font(title-small);
+    &.picture {
+        .content-type { margin-top: 2.6rem; }
+        img {
+            width: 100%;
         }
 
-        a {
-            color: @color-grey--50;
+        .content-intro {
+            margin-left: 4rem;
         }
     }
 
-    p, .intro {
+    .content-title {
+        .font(title-normal);
+        color: @color-grey--50;
+        font-weight: normal;
+        margin: 2rem 0 3rem 0;
+
+        @media @screen-sm-max {
+            .font(title-extra-small);
+        }
+    }
+    
+    .content-image {
+        img {
+            width: 100%;
+            margin: 1rem 0 3rem 0;
+        }
+    }
+
+    p.content-intro {
         .font(large);
         color: @color-grey--30;
         font-style: oblique;
-        //text-align: center;
+        margin: 0 0 4rem 12rem;
+
+        @media @screen-sm-max {
+            .font(medium);
+            margin-left: 3rem;
+        }
     }
-    .intro {
-        margin-bottom: 4rem;
+
+    p {
+        .font(base);
+        color: @color-grey--80;
+
+        a {
+            color: @color-primary;
+
+            &:hover, 
+            &:active {
+                text-decoration: underline;
+            }
+        }
         
         @media @screen-sm-max {
             .font(medium);
         }
     }
 
-    &.__video {
-
-        .content__video-still {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            
-            img {            
-                max-width: 100%;
-                margin: 0 auto;
-                height: auto;
-            }
-            .read-more {
-                margin-top: -12rem;
-                margin-bottom: 12rem;
-
-                @media @screen-sm-max {
-                    margin-top: -8rem;
-                    margin-bottom: 6rem;
-                }
-                @media @screen-xs-max {
-                    margin-top: -4rem;
-                    margin-bottom: 2rem;
-                }
-            }
-
-        }
-
-        .intro {
-            //margin-top: 16rem;  // 4 + 12 rem
-            
-            @media @screen-sm-max {
-                //margin-top: 9rem;
-            }
-            @media @screen-xs-max {
-                //margin-top: 6rem;
-            }
-        }
+    h2, h3, h4, h5, h6 {
+        color: @color-grey--50;
     }
 
 }

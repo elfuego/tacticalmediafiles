@@ -3,6 +3,7 @@ extends layout/page
 prepend variables
     - title = 'Collection'
     - bodyClass = 'collection'
+    - showFilter = true;
     - selected = 'all';
 
 append main
@@ -11,12 +12,12 @@ append main
             .col-md-2
             .col-md-8
     
-                h1.collection__content-type Collection
-                h2.collection__author Kurt Geiger
+                h1.collection-content-type Collection
+                h2.collection-author Kurt Geiger
                 
-                .collection__heading
-                    h3.collection__title The right to be offended
-                    p.collection__intro Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                .collection-heading
+                    h3.collection-title The right to be offended
+                    p.collection-intro Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             
             .col-md-2
 
@@ -24,11 +25,11 @@ append main
         .row
             .col-md-2
             .col-md-8
-                article.content
+                article.listitem
                     .content-type Article
-                    h2.title 
+                    h2.listitem-title 
                         a( href="article.html" ) NRA and Smith &amp; Wesson Partner to "Share the Safety" With All Americans
-                    p.intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
+                    p.listitem-intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
                     a.read-more( href="article.html" ) Read
                     +tags({
                             tag: 'Activism',
@@ -48,16 +49,16 @@ append main
         .row
             .col-md-2
             .col-md-8
-                article.content.__video
+                article.listitem.__video
                     .content-type Video
-                    h2.title 
+                    h2.listitem-title 
                         a( href="video.html" ) Lol cats in the kitchen
-                    .content__video-still
+                    .listitem-video-still
                         a( href="video.html" )
                             img( src='styles/images/Share_the_Security.jpg' width="640" )
                         a.read-more.__play( href="video.html" ) Play
                     
-                    p.intro Nuit Debout is a French social movement that began on March 31, 2016, arising out of protests against proposed neoliberal labor reforms known as the "Loi Travail," or the "El Khomri Law".
+                    p.listitem-intro Nuit Debout is a French social movement that began on March 31, 2016, arising out of protests against proposed neoliberal labor reforms known as the "Loi Travail," or the "El Khomri Law".
                     
                     +tags({
                             tag: 'Cats',

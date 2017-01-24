@@ -2,36 +2,25 @@ extends layout/page
 
 prepend variables
     - title = 'Video: Cat sits in bathroom with liquor in the back and oh oh oh it’s so'
-    - bodyClass = 'content video'
+    - bodyClass = 'content picture'
 
 append main
 
     article
-        header
-            .container.__video
+        header.__picture
+            .container
                 .row
                     .col-md-10.col-md-offset-1
-                        .video
-                            .video-background
-
-                                video( 
-                                    id="tmf-player"
-                                    poster="styles/images/lol-cat-16x9.png"
-                                    controls                        
-                                )
-                                    source( type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" )
-                                    source( type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" src="http://www.tacticalmediafiles.net/files/38/38884.NRA_and_SW_Share_the_Safety.mp4" )
-                                    source( type="video/webm;codecs=vp8,vorbis" src="http://www.tacticalmediafiles.net/files/38/38892.38884.NRA_and_SW_Share_the_Safety.webm" )
-
-                                a.read-more.__play( href="video.html" ) Play
+                        .picture 
+                            img( src="styles/images/occupy-sandy-banner-we-the-people.jpg" )
             .container    
                 .row
                     .col-md-1
-                    .col-md-2.start-xs.center-md
-                        .content-type Video
+                    .col-md-2.start-xs
+                        .content-type Picture
 
                     .col-md-6
-                            h1.video-title Cat sits in bathroom with liquor in the back and oh oh oh it’s so cute duh
+                            h1.content-title We are the people, we listen to your demands!
                             
                             +tags({
                                     tag: 'Activism',
@@ -47,7 +36,7 @@ append main
                                     url: 'list.html'
                                 })
 
-                            p.video-intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
+                            p.content-intro Amsterdam, Ho. - Ronald Reagan, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
                     
                     .col-md-2
         .container
