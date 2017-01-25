@@ -3,23 +3,23 @@ mixin tile(tile)
     if (tile.type == 'picture')
         article.tile.__picture
             .tile-content-type #{tile.type}
-            a.tile-inner( href="#" style="background-image: url('" + tile.image + "')" )
-                .tile-title #{tile.title}
+            a.tile-inner( href="picture.html" style="background-image: url('" + tile.image + "')" )
+                h2.tile-title #{tile.title}
 
     else if (tile.type == 'video')
         article.tile.__video
             .tile-content-type #{tile.type}
-            a.tile-inner( href="#" style="background-image: url('" + tile.image + "')" )
-                .tile-title #{tile.title}
+            a.tile-inner( href="video.html" style="background-image: url('" + tile.image + "')" )
+                h2.tile-title #{tile.title}
     
     else if (tile.type == 'person')
         article.tile.__person
             .tile-content-type #{tile.type}
-            a.tile-inner( href="#" style="background-image: url('" + tile.image + "')" )
-                .tile-title #{tile.title}
+            a.tile-inner( href="person.html" style="background-image: url('" + tile.image + "')" )
+                h2.tile-title #{tile.title}
     
     else
         article.tile
             .tile-content-type #{tile.type}
-            a.tile-inner( href="#" )
-                .tile-title #{tile.title}
+            a.tile-inner( href="article.html" )
+                h2.tile-title #{tile.title}
