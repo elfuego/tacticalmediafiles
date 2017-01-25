@@ -1,0 +1,27 @@
+.list {
+    
+    /* Toggle list view */
+
+    &.view-list {
+        .container {
+            &.__tiles {
+                display: none;
+            }
+            &.__list {
+                display: block;
+            }
+
+        }
+    }
+    &.view-tiles {
+        .container {
+            &.__tiles {
+                display: block;
+            }
+            &.__list {
+                display: none;
+            }
+        }
+    }
+
+}
