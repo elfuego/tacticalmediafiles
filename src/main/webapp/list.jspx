@@ -13,7 +13,7 @@
   <tmf:html
       cacheable="${cacheable}"
       filter="true"
-      styleClass="list">
+      styleClass="list view-list">
     
     
     <jsp:attribute name="title">${type_plural}</jsp:attribute>
@@ -26,14 +26,29 @@
 
           <mm:import id="max">20</mm:import>
           <mm:import externid="offset">0</mm:import>
-                    
+        
           <mm:listnodescontainer type="${type}">
             <mm:sortorder field="number" direction="DOWN" />
             
-            <div class="heading ___hidden">
-              <h1><mm:size id="total" /> ${type_plural}</h1>
+            <div class="heading __search-filter">
+              <div class="container">
+                <div class="row">    
+                  <div class="col-sm-3">
+                    <h1 class="search-filter-title __hidden"><mm:size id="total" /> ${type_plural}</h1>
+                  </div>
+                  <div class="col-sm-6"><!-- empty--></div>
+                  <div class="col-sm-3">
+                    <div class="search-filter-container">
+                      <label class="search-filter-label">View</label>
+                      <button class="search-filter-button __list" href="#" data-select-view-target="list">list</button>
+                      <button class="search-filter-button __grid __selected" href="#" data-select-view-target="grid">grid</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <section class="container">
+
+            <section class="container __list">
                           
                 <mm:maxnumber value="${max}" />
                 <mm:offset value="${offset}" />
@@ -47,11 +62,29 @@
                   </div>
                 </mm:listnodes>
                 
-                <tmf:pager total="${total}" max="${max}" offset="${offset}" />
             </section>
           </mm:listnodescontainer>
+
+          <section class="container __tiles">
           
-       	
+            <div class="row">
+              <mm:listnodescontainer type="${type}">
+                <mm:sortorder field="number" direction="DOWN" />
+                <mm:maxnumber value="${max}" />
+                <mm:offset value="${offset}" />
+                <mm:listnodes>
+                  <div class="col-sm-3">
+              
+                    <tmf:tile />
+              
+                  </div>
+                </mm:listnodes>
+              </mm:listnodescontainer>
+            </div>
+          </section>
+          
+          <tmf:pager total="${total}" max="${max}" offset="${offset}" />
+             	
     </jsp:attribute>
   </tmf:html>
 </jsp:root>

@@ -1,0 +1,81 @@
+<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="tile"
+      description="Item to be used in lists on this site, but as a tile."
+      />
+
+    <mm:nodeinfo type="type" id="typ" write="false" />
+    
+    <mm:escaper id="myfilesize" type="filesize">
+      <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
+    </mm:escaper>
+          
+    <c:choose>
+      <c:when test="${typ eq 'file'}">
+        <article class="tile __file">
+          <div class="tile-content-type">${typ}</div>
+          <mm:attachment>
+          <a class="tile-inner" href="${_}">
+            <div class="tile-title">
+              <mm:field name="title" />
+              <mm:field name="filename" />, <mm:field name="size" escape="myfilesize" />
+            </div>
+          </a>
+          </mm:attachment>
+        </article>
+      </c:when>
+      <c:when test="${typ eq 'picture'}">
+        <mm:import id="pict" reset="true"><mm:image mode="url" template="s(320)" /></mm:import>
+        <article class="tile __picture">
+          <div class="tile-content-type">${typ}</div>
+          <mm:link page="/picture" referids="_node@pic">
+            <a class="tile-inner" href="${_}" style="background-image:url(${pict})">
+              <div class="tile-title">
+                <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield>
+              </div>
+            </a>
+          </mm:link>
+        </article>
+      </c:when>
+      <c:when test="${typ eq 'video'}">
+       <mm:import id="pict" reset="true">${mm:link('/style/images/video-003.gif')}</mm:import>
+        <mm:relatednodes type="picture" max="1">
+          <mm:import id="pict" reset="true"><mm:image mode="url" template="s(320)" /></mm:import>
+        </mm:relatednodes>
+        <article class="tile __video">
+          <div class="tile-content-type">${typ}</div>
+          <mm:link page="media">
+            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+            <a class="tile-inner" href="${_}" style="background-image:url(${pict})">
+              <div class="tile-title">
+                <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield>
+              </div>
+            </a>
+          </mm:link>
+        </article>
+      </c:when>
+      <c:otherwise>
+        <article class="tile">
+          <div class="tile-content-type">${typ}</div>
+          <mm:link page="content">
+            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+            <a class="tile-inner" href="${_}">
+              <div class="tile-title">
+                <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield>
+                <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
+              </div>
+            </a>
+          </mm:link>
+        </article>
+      </c:otherwise>
+    </c:choose>
+
+</jsp:root>

@@ -21,7 +21,7 @@
   <tmf:html
       cacheable="${cacheable}"
       filter="true"
-      styleClass="search">
+      styleClass="view-list search">
     
     
     <jsp:attribute name="title">Searched with '${q}' in ${!empty type ? type : "all"}</jsp:attribute>
@@ -70,11 +70,24 @@
         module="lucene" name="search" id="results"
         referids="index,value,offset,max,fields?,sortfields?,filter?,extraconstraints?,analyzer?" />
 
-      
-      <div class="heading ___hidden">
-        <h1>Search results for '${q}'</h1>
+      <div class="heading __search-filter">
+        <div class="container">
+          <div class="row">    
+            <div class="col-sm-3">
+              <h1 class="search-filter-title __hidden">Search results for '${q}'</h1>
+            </div>
+            <div class="col-sm-6"><!-- empty--></div>
+            <div class="col-sm-3">
+              <div class="search-filter-container">
+                <label class="search-filter-label">View</label>
+                <button class="search-filter-button __list" href="#" data-select-view-target="list">list</button>
+                <button class="search-filter-button __grid __selected" href="#" data-select-view-target="grid">grid</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <section class="container">
+      <section class="container __list">
           
           <mm:listnodes referid="results" varStatus="status" id="content">
 			<mm:nodeinfo type="type" id="ty" write="false" />
@@ -129,11 +142,26 @@
               <div class="col-md-2"><!-- empty --></div>
             </div>
           </mm:listnodes>
-             
-          <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" write="false" />
-          <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" />
-      
+                   
       </section>
+      
+      <section class="container __tiles">
+        <div class="row">
+          <mm:listnodes referid="results" varStatus="status">
+            
+            <div class="col-sm-3">
+              
+              <tmf:tile />
+              
+            </div>
+          </mm:listnodes>
+        </div>
+      </section>
+      
+      <div class="container">
+        <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" write="false" />
+        <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" />
+      </div>
         
     </jsp:attribute>
   </tmf:html>
