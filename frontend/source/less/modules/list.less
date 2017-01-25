@@ -1,25 +1,45 @@
 .list {
     
-    /* Toggle list view */
+    /* Toggle list/grid view by body class view-list or view-tiles */
 
     &.view-list {
         .container {
+            display: block;
+            transition: opacity @trans-normal;
+
             &.__tiles {
-                display: none;
+                //display: none;
+                visibility: hidden;
+                transition: height 0 1s;
+                opacity: 0;
+                height: 0;
             }
             &.__list {
-                display: block;
+                //display: block;
+                visibility: visible;
+                transition: height 0;
+                opacity: 1;
             }
 
         }
     }
     &.view-tiles {
         .container {
+            display: block;
+            transition: opacity @trans-normal;
+
             &.__tiles {
-                display: block;
+                //display: block;
+                visibility: visible;
+                transition: height 0;
+                opacity: 1;
             }
             &.__list {
-                display: none;
+                //display: none;
+                visibility: hidden;
+                transition: height 0 1s;
+                opacity: 0;
+                height: 0;
             }
         }
     }
