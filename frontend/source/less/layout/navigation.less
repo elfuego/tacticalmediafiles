@@ -20,12 +20,8 @@
     width: 100%;
     line-height: 5rem;
 
-    .row > div {
-        min-height: 1rem;
-    }
-
     a, label {
-        font-size: 1.1rem;
+        .font(extra-small);
         letter-spacing: 0.2rem;
         text-transform: uppercase;
         vertical-align: middle;
@@ -52,8 +48,7 @@
         height: 3rem;
         border: none;
 
-        font-size: 1.1rem;
-        line-height: 2.1rem;
+        .font(extra-small);
 
         color: @color-secondary;
         letter-spacing: .2rem;
@@ -102,9 +97,9 @@
     .nav__filter-selected {    
         margin-left: 1rem;
         a {
+            .font(small);
             letter-spacing: 0;
             color: @color-primary;
-            font-size: 1.4rem;
             text-transform: lowercase;
             font-style: italic;
         }

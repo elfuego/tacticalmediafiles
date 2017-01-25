@@ -13,6 +13,7 @@
         $typeSelector = $('[data-select-results-type]'),
         $typeTarget = $('[data-select-results-type-target]'),
         $filterTarget = $('[data-select-results-filter-target]'),
+        $viewTarget = $('[data-select-view-target]'),
         $body = $('body');
 
 
@@ -60,6 +61,17 @@
     $closeSelector.on('click', function (ev) {
         ev.preventDefault();
         $body.toggleClass('show-overlay');
+    });
+
+    /* Toggle list between list and grid view. */
+    $viewTarget.on('click', function(ev) {
+        ev.preventDefault();
+        var kind = $(this).data('select-view-target');
+        if (kind === 'grid') {
+            $body.removeClass('view-list').addClass('view-tiles');
+        } else {
+            $body.removeClass('view-tiles').addClass('view-list');
+        }
     });
         
     /* Video player stuff */
