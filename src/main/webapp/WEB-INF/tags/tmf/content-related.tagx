@@ -279,24 +279,28 @@
             </div>
           </div>
           <div class="content-related row">
-            <ul>
-              <mm:relatednodes>
-                <mm:link page="media">
-                  <mm:frameworkparam name="component">tmf</mm:frameworkparam>
-                  <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-                  <a href="${_}" class="content-related__image">
-                    <mm:relatednodes type="picture" max="1">
-                      <mm:import id="image" reset="true"><mm:image mode="url" width="200" height="150" /></mm:import>
-                    </mm:relatednodes>
-                    <mm:notpresent referid="image">
-                      <mm:import id="image" reset="true">${mm:link('/style/images/video-003.gif')}</mm:import>
-                    </mm:notpresent>
-                    <div class="content-related__image-bg" style="background-image:url(${image})"><!-- empty --></div>
-                    <span><mm:field name="title" escape="inline" /></span>
-                  </a>
-                </mm:link>
-              </mm:relatednodes>
-            </ul>
+            <div class="col-md-11 col-md-offset-1">
+              <ul class="content-related__list __video">
+                <mm:relatednodes>
+                  <mm:link page="media">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <li>
+                      <a href="${_}" class="content-related__image">
+                        <mm:relatednodes type="picture" max="1">
+                          <mm:import id="image" reset="true"><mm:image mode="url" width="200" height="150" /></mm:import>
+                        </mm:relatednodes>
+                        <mm:notpresent referid="image">
+                          <mm:import id="image" reset="true">${mm:link('/style/images/video-003.gif')}</mm:import>
+                        </mm:notpresent>
+                        <div class="content-related__image-bg" style="background-image:url(${image})"><!-- empty --></div>
+                        <span><mm:field name="title" escape="inline" /></span>
+                      </a>
+                    </li>
+                  </mm:link>
+                </mm:relatednodes>
+              </ul>
+            </div>
           </div>
         </mm:isgreaterthan>
       </mm:size>
