@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<builder
+    xmlns="http://www.mmbase.org/xmlns/builder"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mmbase.org/xmlns/builder
+                        http://www.mmbase.org/xmlns/builder.xsd"
+    name="collection" maintainer="tacticalmediafiles.net" version="1" extends="content">
+  <searchage>999</searchage>
+  <names>
+    <singular xml:lang="en">Collection</singular>
+    <singular xml:lang="nl">Collectie</singular>
+    <plural xml:lang="nl">Collecties</plural>
+    <plural xml:lang="en">Collections</plural>
+  </names>
+  <descriptions>
+    <description xml:lang="nl">Verzameling van content: artikelen, videos, ...</description>
+    <description xml:lang="en">Content collection: articles, videos, ...</description>
+  </descriptions>
+  <properties>
+    <property name="max-nodes-from-query">1000</property>
+  </properties>
+  <fieldlist>
+  
+    
+    
+  </fieldlist>
+
+
+</builder>
