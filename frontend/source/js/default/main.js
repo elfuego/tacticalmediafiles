@@ -63,17 +63,34 @@
         $body.toggleClass('show-overlay');
     });
 
-    /* Toggle list between list and grid view. */
-    $viewTarget.on('click', function(ev) {
-        ev.preventDefault();
-        var kind = $(this).data('select-view-target');
-        if (kind === 'grid') {
-            $body.removeClass('view-list').addClass('view-tiles');
-        } else {
-            $body.removeClass('view-tiles').addClass('view-list');
-        }
-    });
+    /* List and grid (tiles) view */
+    if ($viewTarget.length > 0) {
         
+        var loc = document.location.href;
+        var fragIndex = loc.indexOf('#');
+        if (fragIndex > 0) {
+            var fragment = loc.substring(fragIndex + 1);
+            if (fragment === 'tiles' && $body.hasClass('view-list')) {
+                $body.removeClass('view-list').addClass('view-tiles');
+            } else {
+                $body.removeClass('view-tiles').addClass('view-list');
+            }            
+        }    
+        
+        /* Toggle list between list and grid view. */
+        $viewTarget.on('click', function(ev) {
+            ev.preventDefault();
+            var kind = $(this).data('select-view-target');
+            if (kind === 'grid') {
+                $body.removeClass('view-list').addClass('view-tiles');
+                document.location = '#tiles';
+            } else {
+                $body.removeClass('view-tiles').addClass('view-list');
+                document.location = '#list';
+            }
+        });
+    }
+
     /* Video player stuff */
     $('body').oiplayer({
         controls: 'dark top',
