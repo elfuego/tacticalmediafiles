@@ -57,6 +57,9 @@
       <mm:import id="max">20</mm:import>
       <mm:import externid="offset">0</mm:import>
       <c:if test="${offset lt 0}"><mm:import id="offset" reset="true">0</mm:import></c:if>
+      <c:if test="${empty q}">
+        <mm:import id="sortfields"> REVERSE:number </mm:import>
+      </c:if>
       
       <!-- extraconstraints: ${extraconstraints} -->
       <mm:function
@@ -93,6 +96,10 @@
 			<mm:nodeinfo type="type" id="ty" write="false" />
 
             <div class="row">
+              
+              <c:set var="score"><mm:field name="annotation:score" /></c:set>
+              <![CDATA[<!-- score: ${score} -->]]>
+                            
               <div class="col-md-2"><!-- empty --></div>
               <div class="col-md-8">
 

@@ -5,7 +5,7 @@
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
-  <mm:import externid="n" id="page">article_about</mm:import>
+  <mm:import externid="n" id="page">about</mm:import>
   <mm:import externid="cacheable" />
   
   <mm:node referid="page">
@@ -34,17 +34,18 @@
         <mm:param name="to" value="254" />
         <mm:param name="ellipsis" value="..." />
       </mm:escaper>
-      <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
-        <mm:relatednodes>
-          <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">, </mm:first>${keywords}</c:set>
-        </mm:relatednodes>
-      </mm:relatednodescontainer>
-      <mm:import id="meta_description"><mm:field name="intro" escape="wrapper,text/html/attribute" /></mm:import>
-      <c:if test="${!empty meta_description}"><meta name="description" content="${mm:escape('text/html/attribute',meta_description)}" /></c:if>
-      <c:if test="${!empty keywords}">
-         <meta name="keywords" content="${keywords}" />
-      </c:if>
-
+      <mm:node referid="page">
+        <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+          <mm:relatednodes>
+            <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">, </mm:first>${keywords}</c:set>
+          </mm:relatednodes>
+        </mm:relatednodescontainer>
+        <mm:import id="meta_description"><mm:field name="intro" escape="wrapper,text/html/attribute" /></mm:import>
+        <c:if test="${!empty meta_description}"><meta name="description" content="${mm:escape('text/html/attribute',meta_description)}" /></c:if>
+        <c:if test="${!empty keywords}">
+           <meta name="keywords" content="${keywords}" />
+        </c:if>
+      </mm:node>
     </jsp:attribute>
 
     <jsp:attribute name="body">

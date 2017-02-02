@@ -5,7 +5,7 @@
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
-  <mm:import externid="n" id="page">article_about</mm:import>
+  <mm:import externid="n" id="page">about</mm:import>
   <mm:import externid="cacheable"  />
   
   <mm:node referid="page">

@@ -53,12 +53,12 @@
                     <div class="video-background">
 
                       <mm:relatednodes type="picture" max="1">
-                        <mm:import id="poster"><mm:image width="480" height="360" crop="middle" /></mm:import>
+                        <mm:import id="poster"><mm:image width="480" height="270" crop="middle" /></mm:import>
                       </mm:relatednodes>
                       <mm:relatednodescontainer type="mediafragments" role="related" searchdirs="destination">
                         <mm:maxnumber value="1" />
                         <mm:relatednodes>
-                          <tmf:video width="480" height="360" poster="${poster}" id="tmf-player" />
+                          <tmf:video poster="${poster}" id="tmf-player" />
                         </mm:relatednodes>
                       </mm:relatednodescontainer>
                       

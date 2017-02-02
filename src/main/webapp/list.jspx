@@ -83,7 +83,11 @@
             </div>
           </section>
           
-          <tmf:pager total="${total}" max="${max}" offset="${offset}" />
+
+          <div class="container">
+            <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" write="false" />
+            <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" />
+          </div>
              	
     </jsp:attribute>
   </tmf:html>
