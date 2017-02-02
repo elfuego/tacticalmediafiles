@@ -152,6 +152,8 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
                     String nm = cloud.getNode(nr).getNodeManager().getName();
                     if (nm.equals("person")) {
                         result.append("/person.jspx?n=").append(nr);
+                    } else if (nm.equals("collection")) {
+                        result.append("/collection.jspx?n=").append(nr);
                     } else {
                         result.append("/content.jspx?n=").append(nr);
                     }
