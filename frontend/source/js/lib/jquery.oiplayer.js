@@ -652,7 +652,7 @@
                         $(img).remove();
                     }
                     if (src) {
-                        return '<img class="preview ' + player.type + '" src="' + src + '" width="' + player.width + '" height="' + player.height + '" alt="click to play" title="click to play" />';
+                        return '<img class="preview ' + player.type + '" src="' + src + '" alt="click to play" title="click to play" />';
                     }
                 }
 
@@ -982,7 +982,7 @@
         this.width = $(this.player).attr('width') > 0 ? parseInt($(this.player).attr('width')) : $(this.player).closest('div').width();
         //var default_height = $(this.player).closest('div').height();
         //if (this.type == 'audio') { default_height = 32; }
-        //this.height = $(this.player).attr('height') > 0 ? parseInt($(this.player).attr('height')) : default_height;
+        this.height = $(this.player).attr('height') > 0 ? parseInt($(this.player).attr('height')) : '';
         if (this.type == 'audio') {
             $(this.player).removeAttr('width').removeAttr('height');
         }
