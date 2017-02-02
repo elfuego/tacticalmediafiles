@@ -33,7 +33,7 @@
         var link = $('meta[name="context-root"]').attr('content') +
                     'api/keywords.ol.jspx?letter=' +
                     $(this).data('select-results-letter').toLowerCase();
-        //console.log('link: ' + link);
+        
         $topicsTarget.load(link, function(res, status, xhr) {
             if (status === "error") {
                 console.error( xhr.status + " : " + xhr.statusText);
@@ -105,7 +105,6 @@
     });
 
     $('.oiplayer').bind('oiplayerplay', function(ev, player) {
-        //console.log("I started playing: " + $(player.el).attr('id'));
         $('a.__play').fadeOut('fast');
     });
 
