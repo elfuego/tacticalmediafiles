@@ -20,21 +20,43 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        overflow: hidden;   // cut off preview images that are too large
 
         video {
             max-width: 100%;
             height: auto;
             background-size: cover;
             background-position: center;
+
+            @media @screen-xs {
+                width: 68rem;
+            }
+            @media @screen-sm {
+                width: 76.8rem;
+            }
+            @media @screen-md {
+                width: 102.4rem;
+            }
+            @media @screen-lg {
+                width: 168rem;
+            }
+            @media @screen-xl {
+                width: 100%;
+            }
         }
 
         .oiplayer {
-            margin: 0 auto;
             max-width: 100%;
             height: auto;
+            margin: 0 auto;
             background-size: cover;
             background-position: center;
             background-repeat: none;
+
+            .preview {
+                width: 100%;
+                height: auto;
+            }
         }
         .oipcontrols {
             background-color: rgba(0, 0, 0, .65);
