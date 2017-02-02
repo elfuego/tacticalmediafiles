@@ -74,6 +74,30 @@
             </div>
           </div>
 
+          <div class="container collections">
+            <div class="row">
+              <div class="col-md-2"><!-- empty --></div>
+              <div class="col-md-8">
+                <h2>Collections</h2>
+                <mm:listnodescontainer type="collection">
+                  <ul>
+                  <mm:listnodes>
+                    <li>
+                      <mm:link page="content">
+                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                        <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                        <em><mm:field name="subtitle" /></em>
+                        <h3><a href="${_}"><mm:field name="title" /></a></h3>
+                      </mm:link>
+                    </li>
+                  </mm:listnodes>
+                  </ul>
+                </mm:listnodescontainer>
+              </div>
+              <div class="col-md-2"><a class="close" href="#close" title="Close" data-select-results-close="close"></a></div>
+            </div>
+          </div>          
+
           <div class="container filter">
             <div class="row">
               <div class="col-md-2"><!-- empty --></div>
@@ -95,6 +119,5 @@
           </div>          
                   
         </div>        
-      </div>
-    
+      </div> 
 </jsp:root>

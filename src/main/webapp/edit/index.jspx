@@ -138,6 +138,24 @@
 </tr>
 
 <tr>
+    <td>Collections</td>
+    <td class="link" >
+    
+    <mm:link page="$list">
+      <mm:param name="wizard">TMF/collection</mm:param>
+      <mm:param name="nodepath">collection</mm:param>
+      <mm:param name="orderby">number</mm:param>
+      <mm:param name="directions">down</mm:param>
+      <mm:param name="fields">number,title,subtitle</mm:param>
+      <mm:param name="searchfields">title,subtitle</mm:param>
+      <a href="${_}"><img alt="&gt;" src="${mm:link('/mmbase/style/images/next.gif')}"  /></a>
+    </mm:link>
+
+    </td>
+    <td><p>Add and manage collections.</p></td>
+</tr>
+
+<tr>
     <td>Campaigns</td>
     <td class="link" ><!-- <a href="<mm:url referids="referrer,language" page="${ew}/list.jsp?wizard=TMF/campaign&nodepath=campaign&orderby=number&directions=down&fields=title,subtitle&searchfields=title,subtitle" />"><img alt="&gt;" src="../mmbase/style/images/next.gif" /></a> -->
     

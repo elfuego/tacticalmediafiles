@@ -49,21 +49,38 @@
     <jsp:attribute name="body">
       <mm:node referid="page">
       
-        <section class="heading __collection" style="background-image:url('styles/images/raster-lightgrey.png')">
+        <section class="heading __collection" style="background-image:url(${mm:link('/styles/images/raster-lightgrey.png')})">
           <div class="row">
             <div class="col-md-2"><!-- empty --></div>
             <div class="col-md-8">
               <h1 class="collection-content-type">Collection</h1>
-              <h2 class="collection-author">Kurt Geiger</h2>
+              <h2 class="collection-author"><mm:field name="subtitle" /></h2>
               <div class="collection-heading">
-                <h3 class="collection-title">The right to be offended</h3>
-                <p class="collection-intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <h3 class="collection-title"><mm:field name="title" /></h3>
+                <mm:field name="intro" escape="paragraph(collection-intro)" />
               </div>
             </div>
             <div class="col-md-2"><!-- empty --></div>
           </div>
         </section>
-        
+
+        <mm:relatednodescontainer type="content" role="related" searchdirs="destination">
+            <mm:sortorder field="number" direction="DOWN" />
+            
+            <section class="container __list">
+                          
+              <mm:relatednodes>
+                <div class="row">
+                  <div class="col-md-2"><!-- empty --></div>
+                  <div class="col-md-8">
+                    <tmf:listitem />
+                  </div>
+                  <div class="col-md-2"><!-- empty --></div>
+                </div>
+              </mm:relatednodes>
+                            
+            </section>
+          </mm:relatednodescontainer>
                 
       </mm:node>
     </jsp:attribute>

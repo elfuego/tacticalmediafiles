@@ -31,7 +31,7 @@
         </article>
       </c:when>
       <c:when test="${typ eq 'picture'}">
-        <mm:import id="pict" reset="true"><mm:image mode="url" template="s(320)" /></mm:import>
+        <mm:import id="pict" reset="true"><mm:image mode="url" width="240" height="240" crop="middle" /></mm:import>
         <article class="tile __picture">
           <div class="tile-content-type">${typ}</div>
           <mm:link page="/picture" referids="_node@pic">
@@ -46,7 +46,7 @@
       <c:when test="${typ eq 'video'}">
        <mm:import id="pict" reset="true">${mm:link('/style/images/video-003.gif')}</mm:import>
         <mm:relatednodes type="picture" max="1">
-          <mm:import id="pict" reset="true"><mm:image mode="url" template="s(320)" /></mm:import>
+          <mm:import id="pict" reset="true"><mm:image mode="url" width="240" height="240" crop="middle" /></mm:import>
         </mm:relatednodes>
         <article class="tile __video">
           <div class="tile-content-type">${typ}</div>

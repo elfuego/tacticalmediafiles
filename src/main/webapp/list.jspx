@@ -41,7 +41,7 @@
                     <div class="search-filter-container">
                       <label class="search-filter-label">View</label>
                       <button class="search-filter-button __list" href="#" data-select-view-target="list">list</button>
-                      <button class="search-filter-button __grid __selected" href="#" data-select-view-target="grid">grid</button>
+                      <button class="search-filter-button __grid" href="#" data-select-view-target="grid">grid</button>
                     </div>
                   </div>
                 </div>
@@ -50,18 +50,25 @@
 
             <section class="container __list">
                           
-                <mm:maxnumber value="${max}" />
-                <mm:offset value="${offset}" />
-                <mm:listnodes>
-                  <div class="row">
-                    <div class="col-md-2"><!-- empty --></div>
-                    <div class="col-md-8">
-                      <tmf:listitem />
-                    </div>
-                    <div class="col-md-2"><!-- empty --></div>
+              <mm:maxnumber value="${max}" />
+              <mm:offset value="${offset}" />
+              <mm:listnodes>
+                <div class="row">
+                  <div class="col-md-2"><!-- empty --></div>
+                  <div class="col-md-8">
+                    <tmf:listitem />
                   </div>
-                </mm:listnodes>
-                
+                  <div class="col-md-2"><!-- empty --></div>
+                </div>
+              </mm:listnodes>
+              
+              <div class="row">
+                <div class="col-md-12">
+                  <mm:url absolute="true" id="baseurl" escapeamps="false" write="false" />
+                  <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" fragment="#list" />
+                </div>
+              </div>
+              
             </section>
           </mm:listnodescontainer>
 
@@ -81,14 +88,14 @@
                 </mm:listnodes>
               </mm:listnodescontainer>
             </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <mm:url absolute="true" id="baseurl2" escapeamps="false" write="false" />
+                <tmf:pager baseurl="${baseurl2}" total="${total}" max="${max}" offset="${offset}" fragment="#tiles" />
+              </div>
+            </div>
           </section>
-          
-
-          <div class="container">
-            <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" write="false" />
-            <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" />
-          </div>
-             	
+                       	
     </jsp:attribute>
   </tmf:html>
 </jsp:root>

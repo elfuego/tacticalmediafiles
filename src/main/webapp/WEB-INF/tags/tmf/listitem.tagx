@@ -25,7 +25,7 @@
           
             <mm:import id="image" reset="true">${mm:link('/style/images/video-003.gif')}</mm:import>
             <mm:relatednodes type="picture" max="1">
-              <mm:import id="image" reset="true"><mm:image mode="url" width="640" height="360" /></mm:import>
+              <mm:import id="image" reset="true"><mm:image mode="url" width="640" height="360" crop="middle" /></mm:import>
             </mm:relatednodes>
 
             <div class="listitem-video-still">

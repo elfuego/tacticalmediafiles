@@ -150,6 +150,13 @@
             </div>
           </mm:listnodes>
                    
+          <div class="row">
+            <div class="col-md-12">
+              <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" write="false" />
+              <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" fragment="#list" />
+            </div>
+          </div>
+
       </section>
       
       <section class="container __tiles">
@@ -163,12 +170,12 @@
             </div>
           </mm:listnodes>
         </div>
+        <div class="row">
+          <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl2" escapeamps="false" write="false" />
+          <tmf:pager baseurl="${baseurl2}" total="${total}" max="${max}" offset="${offset}" fragment="#tiles" />
+        </div>
       </section>
       
-      <div class="container">
-        <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" write="false" />
-        <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" />
-      </div>
         
     </jsp:attribute>
   </tmf:html>

@@ -73,7 +73,6 @@
       </mm:size>
     </mm:relatednodescontainer>
     
-
     <!-- event -->
     <mm:relatednodescontainer role="posrel" type="event" searchdirs="source">
       <mm:size>
@@ -132,7 +131,7 @@
       </mm:size>
     </mm:relatednodescontainer>
 
-    <!-- articles author -->
+    <!-- articles: posrel -->
     <mm:relatednodescontainer role="posrel" type="article" searchdirs="source">
       <mm:size>
         <mm:isgreaterthan value="0">
@@ -161,7 +160,7 @@
       </mm:size>
     </mm:relatednodescontainer>
     
-    <!-- articles author -->
+    <!-- articles: author -->
     <mm:relatednodescontainer role="author" type="article" searchdirs="source">
       <mm:size>
         <mm:isgreaterthan value="0">
@@ -190,7 +189,7 @@
       </mm:size>
     </mm:relatednodescontainer>
 
-    <!-- articles author -->
+    <!-- articles: related -->
     <mm:relatednodescontainer role="related" type="article" searchdirs="destination">
       <mm:size>
         <mm:isgreaterthan value="0">
