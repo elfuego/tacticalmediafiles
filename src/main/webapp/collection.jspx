@@ -21,8 +21,9 @@
   </mm:escaper>
            
   <tmf:html
-      cacheable="${cacheable}"
-      styleClass="collection">
+      cacheable="${cacheable}" 
+      filter="true"
+      styleClass="collection view-list">
     
     <jsp:attribute name="title"><mm:write referid="page_title" escape="inline" /></jsp:attribute>
     
@@ -54,7 +55,7 @@
             <div class="col-md-2"><!-- empty --></div>
             <div class="col-md-8">
               <h1 class="collection-content-type">Collection</h1>
-              <h2 class="collection-author"><mm:field name="subtitle" /></h2>
+              <h2 class="collection-author"><mm:field name="author" /></h2>
               <div class="collection-heading">
                 <h3 class="collection-title"><mm:field name="title" /></h3>
                 <mm:field name="intro" escape="paragraph(collection-intro)" />
@@ -64,23 +65,28 @@
           </div>
         </section>
 
-        <mm:relatednodescontainer type="content" role="related" searchdirs="destination">
-            <mm:sortorder field="number" direction="DOWN" />
+        <mm:listrelationscontainer role="posrel" searchdir="destination">
+          <mm:sortorder field="posrel.pos" />
+          <mm:listrelations>
+            <!-- item <mm:field name="pos" /> in this collection -->
+            <mm:relatednode> 
             
-            <section class="container __list">
+              <section class="container __list">
                           
-              <mm:relatednodes>
-                <div class="row">
-                  <div class="col-md-2"><!-- empty --></div>
-                  <div class="col-md-8">
-                    <tmf:listitem />
+                  <div class="row">
+                    <div class="col-md-2"> </div>
+                    <div class="col-md-8">
+                        
+                      <tmf:listitem />
+                      
+                    </div>
+                    <div class="col-md-2"> </div>
                   </div>
-                  <div class="col-md-2"><!-- empty --></div>
-                </div>
-              </mm:relatednodes>
                             
-            </section>
-          </mm:relatednodescontainer>
+              </section>
+            </mm:relatednode>
+          </mm:listrelations>
+        </mm:listrelationscontainer>
                 
       </mm:node>
     </jsp:attribute>

@@ -39,6 +39,38 @@
         </article>
         
       </c:when>
+      <c:when test="${nodetype eq 'picture'}">
+        
+        <article class="listitem __picture">
+          <mm:link page="/picture" referids="_node@pic">
+            <div class="content-type">picture</div>
+            <h2 class="listitem-title"><a href="${_}"><mm:field name="title" /></a></h2>
+            <div class="listitem-picture">
+              <a href="${_}"><mm:image mode="img" width="640" height="360" /></a>
+              <a class="read-more" href="${_}">View</a>
+            </div>
+          </mm:link>
+        </article>
+        
+      </c:when>
+      <c:when test="${nodetype eq 'file'}">
+    
+        <article class="listitem __file">
+          <div class="content-type">file</div>
+          <mm:attachment>
+            <h2 class="listitem-title"><a href="${_}" class="medium"><mm:field name="title" /></a></h2>
+            <div class="listitem-intro">
+              <span class="filelabel"> 
+                <a href="${_}"><mm:field name="filename" /></a>, <mm:field name="size" escape="myfilesize" />
+              </span>
+              <mm:field name="description">
+                <mm:isnotempty><br /><mm:write escape="tagstripper" /></mm:isnotempty>
+              </mm:field>
+            </div>
+          </mm:attachment>
+        </article>
+
+      </c:when>
       <c:otherwise>
 
         <article class="listitem">

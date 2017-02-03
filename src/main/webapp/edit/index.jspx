@@ -146,8 +146,8 @@
       <mm:param name="nodepath">collection</mm:param>
       <mm:param name="orderby">number</mm:param>
       <mm:param name="directions">down</mm:param>
-      <mm:param name="fields">number,title,subtitle</mm:param>
-      <mm:param name="searchfields">title,subtitle</mm:param>
+      <mm:param name="fields">number,title,author,created</mm:param>
+      <mm:param name="searchfields">title,author</mm:param>
       <a href="${_}"><img alt="&gt;" src="${mm:link('/mmbase/style/images/next.gif')}"  /></a>
     </mm:link>
 

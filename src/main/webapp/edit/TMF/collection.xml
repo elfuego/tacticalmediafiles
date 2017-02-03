@@ -22,25 +22,7 @@
 				<field name="keyword" />
 			</object>
 		</relation>	
-		<relation role="related" searchdir="destination" destination="organisation">
-			<object>
-				<field name="name" />
-				<field name="subtitle" />
-			</object>
-		</relation>
-		<relation role="related" searchdir="destination" destination="person">
-			<object>
-				<field name="prefix" />
-				<field name="firstname" />
-				<field name="sirname" />
-			</object>
-		</relation>
-		<relation role="related" searchdir="destination" destination="event">
-			<object>
-				<field name="title" />
-				<field name="subtitle" />
-			</object>
-		</relation>
+		
 		<relation role="posrel" searchdir="destination" destination="picture">
 			<object>
 				<field name="title"/>
@@ -48,27 +30,14 @@
 				<field name="filename"/>
 			</object>
 		</relation>
-		<relation role="related" searchdir="destination" destination="video">
+		<relation role="posrel" searchdir="destination" destination="video">
 			<object>
 				<field name="title"/>
 				<field name="description"/>
 				<field name="handle"/>
 			</object>
 		</relation>
-		<relation role="related" searchdir="destination" destination="file">
-			<object>
-				<field name="title"/>
-				<field name="description"/>
-				<field name="filename"/>
-			</object>
-		</relation>					
-		<relation role="related" searchdir="destination" destination="url">
-			<object>
-				<field name="title" />
-				<field name="url" />
-			</object>
-		</relation>
-		<relation role="related" searchdir="destination" destination="article">
+		<relation role="posrel" searchdir="destination" destination="article">
 			<object>
 				<field name="title" />
 				<field name="subtitle" />
@@ -82,18 +51,18 @@
 		<title xml:lang="nl">Collectie</title>
 		
 		<field name="title" dtrequired="true" />
-		<field name="subtitle">
+		<field name="author">
           <prompt xml:lang="en">Author</prompt>
           <prompt xml:lang="nl">Auteur</prompt>
           <description xml:lang="en">Author of this collection</description>
           <description xml:lang="nl">Auteur of samensteller van deze collectie</description>
 		</field>
-		<field name="intro" ftype="html" dttype="html" rows="20" />
-		<field name="body" rows="25" ftype="html" dttype="html" />
+		<field name="created" ftype="data" />
+		<field name="intro" ftype="html" dttype="html" rows="10" />
+		<field name="body" rows="20" ftype="html" dttype="html" />
 		
 		<list include="TMF/list_keyword.xml" />
-		<list include="TMF/list_picture.xml" />
-		<list include="TMF/list_article.xml" />
+		
 	</form-schema>
 		
 		
@@ -101,15 +70,12 @@
 		
 	<form-schema id="relations">
 	
-		<title xml:lang="en">Other relations</title>
-		<title xml:lang="nl">Overige relaties</title>
+		<title xml:lang="en">Relations</title>
+		<title xml:lang="nl">Relaties</title>
 		
-		<list include="TMF/list_event.xml" />
-		<list include="TMF/list_person.xml" />
-		<list include="TMF/list_organisation.xml" />
-		<list include="TMF/list_url.xml" />
-		<list include="TMF/list_video.xml" />
-		<list include="TMF/list_file.xml" />
+		<list include="TMF/posrel_article.xml" />
+		<list include="TMF/posrel_picture.xml" />
+		<list include="TMF/posrel_video.xml" />
 		
 	</form-schema>
 </wizard-schema>

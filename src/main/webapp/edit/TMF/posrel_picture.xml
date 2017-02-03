@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" 
+    "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+ 
+<list role="posrel" 
+    destinationtype="picture" 
+    ordertype="number" 
+    orderby="field[@name='pos']">
+    
+    <title xml:lang="en">Pictures</title>
+    <title xml:lang="nl">Afbeeldingen</title>
+
+    <item displaytype="image">
+        <field name="title" ftype="data">
+            <prompt xml:lang="en">Title:</prompt>
+            <prompt xml:lang="nl">Titel:</prompt>
+        </field>
+        
+        <field name="description" ftype="data">
+            <prompt xml:lang="en">Description:</prompt>
+            <prompt xml:lang="nl">Beschrijving:</prompt>
+        </field>
+         
+        <field fdatapath="field[@name='pos']" ftype="line">
+          <prompt>Positie</prompt>
+          <description xml:lang="en">Ordering of this item</description>
+          <description xml:lang="nl">Ordening van dit item</description>
+        </field>
+        
+        <field ftype="startwizard" wizardname="TMF/picture" inline="true" />
+    </item>
+    
+    <command name="search" nodepath="picture" fields="handle,title,description" age="-1">
+        <prompt xml:lang="en">Search pictures</prompt>
+        <prompt xml:lang="nl">Zoek afbeeldingen</prompt>
+        <search-filter>
+            <name xml:lang="en">About:</name>
+            <name xml:lang="nl">Over:</name>
+            <search-fields>title|description</search-fields>
+        </search-filter>
+    </command>
+    <command name="startwizard" inline="true" wizardname="TMF/picture" objectnumber="new" />
+    
+    <action type="add">
+        <relation role="posrel" destinationtype="picture">
+            <field name="pos">{sum(//relation[@role='posrel' and @lastitem='true' and object/@type='picture']/field[@name='pos'])+{$pos}}</field>
+        </relation>
+    </action>
+</list>	
