@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.mmbase.org/xmlns/builder
                         http://www.mmbase.org/xmlns/builder.xsd"
-    name="collection" maintainer="tacticalmediafiles.net" version="1" extends="content">
+    name="collection" maintainer="tacticalmediafiles.net" version="1" extends="object">
   <searchage>999</searchage>
   <names>
     <singular xml:lang="en">Collection</singular>
@@ -21,10 +21,113 @@
     <property name="max-nodes-from-query">1000</property>
   </properties>
   <fieldlist>
-  
+
+    <field name="title">
+      <descriptions>
+        <description xml:lang="en">Title</description>
+        <description xml:lang="nl">Titel</description>
+      </descriptions>
+      <gui>
+        <guiname xml:lang="en">Title</guiname>
+        <guiname xml:lang="nl">Titel</guiname>
+      </gui>
+      <editor>
+        <positions>
+          <input>1</input>
+          <list>1</list>
+          <search>1</search>
+        </positions>
+      </editor>
+      <datatype base="line" xmlns="http://www.mmbase.org/xmlns/datatypes">
+        <required value="false">
+          <description xml:lang="nl">Dit is een verplicht veld</description>
+          <description xml:lang="en">This is a required field</description>
+        </required>
+        <maxLength value="255" />
+      </datatype>
+    </field>
+
+    <field name="author">
+      <descriptions>
+        <description xml:lang="en">Author of this collection</description>
+        <description xml:lang="nl">Auteur of samensteller van deze collectie</description>
+      </descriptions>
+      <gui>
+        <guiname xml:lang="nl">Auteur</guiname>
+        <guiname xml:lang="en">Author</guiname>
+      </gui>
+      <editor>
+        <positions>
+          <input>2</input>
+          <list>2</list>
+          <search>2</search>
+        </positions>
+      </editor>
+      <datatype base="line" xmlns="http://www.mmbase.org/xmlns/datatypes">
+        <maxLength value="255" />
+      </datatype>
+    </field>
+
+    <field name="created" readonly="true" state="system">
+      <descriptions>
+        <description xml:lang="en">Date of creation</description>
+        <description xml:lang="nl">Datum van aanmaak</description>
+      </descriptions>
+      <gui>
+        <guiname xml:lang="nl">Aangemaak datum</guiname>
+        <guiname xml:lang="en">Creation date</guiname>
+      </gui>
+      <editor>
+        <positions>
+          <input>3</input>
+          <list>3</list>
+          <search>3</search>
+        </positions>
+      </editor>
+      <datatype base="created" xmlns="http://www.mmbase.org/xmlns/datatypes">
+        <default value="now" />
+      </datatype>
+    </field>
+
+    <field name="intro">
+      <descriptions>
+        <description xml:lang="en">Intro or short description</description>
+        <description xml:lang="nl">Inleiding of intro </description>
+      </descriptions>
+      <gui>
+        <guiname xml:lang="nl">Inleiding</guiname>
+        <guiname xml:lang="en">Intro</guiname>
+      </gui>
+      <editor>
+        <positions>
+          <input>7</input>
+          <search>7</search>
+        </positions>
+      </editor>
+      <datatype base="field" xmlns="http://www.mmbase.org/xmlns/datatypes">
+        <maxLength value="2048" />
+      </datatype>
+    </field>
     
-    
+    <field name="body">
+      <descriptions>
+        <description xml:lang="en">Body text</description>
+        <description xml:lang="nl">Hoofd tekst</description>
+      </descriptions>
+      <gui>
+        <guiname xml:lang="nl">Artikel</guiname>
+        <guiname xml:lang="en">Article</guiname>
+      </gui>
+      <editor>
+        <positions>
+          <input>8</input>
+          <search>8</search>
+        </positions>
+      </editor>
+      <datatype base="field" xmlns="http://www.mmbase.org/xmlns/datatypes">
+        <maxLength value="64000" />
+      </datatype>
+    </field>
+
   </fieldlist>
-
-
 </builder>
