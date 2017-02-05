@@ -158,8 +158,10 @@
           </mm:listnodes>
         </div>
         <div class="row">
-          <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl2" escapeamps="false" write="false" />
-          <tmf:pager baseurl="${baseurl2}" total="${total}" max="${max}" offset="${offset}" fragment="#tiles" />
+          <div class="col-md-12">
+            <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl2" escapeamps="false" write="false" />
+            <tmf:pager baseurl="${baseurl2}" total="${total}" max="${max}" offset="${offset}" fragment="#tiles" />
+          </div>
         </div>
       </section>
       
