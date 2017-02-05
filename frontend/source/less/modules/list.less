@@ -6,17 +6,15 @@ body.search {
     &.view-list {
         .container {
             display: block;
-            transition: opacity @trans-normal;
+            transition: opacity @trans-slow-material;
 
             &.__tiles {
-                //display: none;
                 visibility: hidden;
-                transition: height 0 1s;
+                //transition: height 0 1s;
                 opacity: 0;
                 height: 0;
             }
             &.__list {
-                //display: block;
                 visibility: visible;
                 transition: height 0;
                 opacity: 1;
@@ -27,7 +25,7 @@ body.search {
     &.view-tiles {
         .container {
             display: block;
-            transition: opacity @trans-normal;
+            transition: opacity @trans-slow-material;
 
             &.__tiles {
                 //display: block;
@@ -38,10 +36,12 @@ body.search {
             &.__list {
                 //display: none;
                 visibility: hidden;
-                transition: height 0 1s;
+                //transition: height 0 1s;
                 opacity: 0;
                 height: 0;
+                overflow: hidden;
             }
+            
         }
     }
 

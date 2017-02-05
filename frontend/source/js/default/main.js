@@ -26,23 +26,23 @@
         $overlay.find('.container').hide();
         $overlay.find('.' + over).show();
     });
-    
+
     /* Select char in overlay and load its topics */
-    $topicLetterSelector.on('click', function(ev) {
+    $topicLetterSelector.on('click', function (ev) {
         ev.preventDefault();
         var link = $('meta[name="context-root"]').attr('content') +
-                    'api/keywords.ol.jspx?letter=' +
-                    $(this).data('select-results-letter').toLowerCase();
-        
-        $topicsTarget.load(link, function(res, status, xhr) {
+            'api/keywords.ol.jspx?letter=' +
+            $(this).data('select-results-letter').toLowerCase();
+
+        $topicsTarget.load(link, function (res, status, xhr) {
             if (status === "error") {
-                console.error( xhr.status + " : " + xhr.statusText);
+                console.error(xhr.status + " : " + xhr.statusText);
             }
         });
     });
 
     /* Filter content type */
-    $typeSelector.on('click', function(ev){
+    $typeSelector.on('click', function (ev) {
         ev.preventDefault();
         var type = $(this).data('select-results-type').toLowerCase();
         $body.toggleClass('show-overlay');
@@ -65,28 +65,35 @@
 
     /* List and grid (tiles) view */
     if ($viewTarget.length > 0) {
-        
+
+        var showList = function () {
+            $body.removeClass('view-tiles').addClass('view-list');
+            document.location = '#list';
+        };
+        var showTiles = function () {
+            $body.removeClass('view-list').addClass('view-tiles');
+            document.location = '#tiles';
+        };
+
         var loc = document.location.href;
         var fragIndex = loc.indexOf('#');
         if (fragIndex > 0) {
             var fragment = loc.substring(fragIndex + 1);
             if (fragment === 'tiles' && $body.hasClass('view-list')) {
-                $body.removeClass('view-list').addClass('view-tiles');
+                showTiles();
             } else {
-                $body.removeClass('view-tiles').addClass('view-list');
-            }            
-        }    
-        
+                showList();
+            }
+        }
+
         /* Toggle list between list and grid view. */
-        $viewTarget.on('click', function(ev) {
+        $viewTarget.on('click', function (ev) {
             ev.preventDefault();
             var kind = $(this).data('select-view-target');
             if (kind === 'grid') {
-                $body.removeClass('view-list').addClass('view-tiles');
-                document.location = '#tiles';
+                showTiles();
             } else {
-                $body.removeClass('view-tiles').addClass('view-list');
-                document.location = '#list';
+                showList();
             }
         });
     }
@@ -98,13 +105,13 @@
         show: false
     });
 
-    $('a.__play').click(function(ev) {
+    $('a.__play').click(function (ev) {
         ev.preventDefault();
         $.fn.oiplayer('start', 'oip_ea_id_tmf-player');
         $(this).fadeOut('fast');
     });
 
-    $('.oiplayer').bind('oiplayerplay', function(ev, player) {
+    $('.oiplayer').bind('oiplayerplay', function (ev, player) {
         $('a.__play').fadeOut('fast');
     });
 
