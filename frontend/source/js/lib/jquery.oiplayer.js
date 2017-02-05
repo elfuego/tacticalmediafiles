@@ -110,8 +110,8 @@
                         $(current).find('.html5warning').hide();
                     }
 
-                    var poster = createPoster(div, player);
-                    $(div).prepend(poster);
+                    //var poster = createPoster(div, player);
+                    //$(div).prepend(poster);
                     $(div).height(player.height).width(player.width);
                     //console.log("ctrls: " + config.controls + " , " + player.url);
                     if (config.controls && player.url !== undefined) {
