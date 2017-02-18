@@ -72,6 +72,8 @@
       <mm:nodelistfunction
         module="lucene" name="search" id="results"
         referids="index,value,offset,max,fields?,sortfields?,filter?,extraconstraints?,analyzer?" />
+      <!-- base url for pagers -->
+      <mm:url page="/search" referids="q?,type@t" absolute="true" id="baseurl" escapeamps="false" write="false" />
 
       <div class="heading __search-filter">
         <div class="container">
@@ -139,7 +141,6 @@
                    
           <div class="row">
             <div class="col-md-12">
-              <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl" escapeamps="false" write="false" />
               <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" fragment="#list" />
             </div>
           </div>
@@ -159,8 +160,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <mm:url page="/search" referids="q?,type?" absolute="true" id="baseurl2" escapeamps="false" write="false" />
-            <tmf:pager baseurl="${baseurl2}" total="${total}" max="${max}" offset="${offset}" fragment="#tiles" />
+            <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" fragment="#tiles" />
           </div>
         </div>
       </section>

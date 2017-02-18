@@ -26,6 +26,8 @@
 
           <mm:import id="max">20</mm:import>
           <mm:import externid="offset">0</mm:import>
+          <!-- base url for pagers -->
+          <mm:url absolute="true" id="baseurl" escapeamps="false" write="false" />
         
           <mm:listnodescontainer type="${type}">
             <mm:sortorder field="number" direction="DOWN" />
@@ -64,7 +66,6 @@
               
               <div class="row">
                 <div class="col-md-12">
-                  <mm:url absolute="true" id="baseurl" escapeamps="false" write="false" />
                   <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" fragment="#list" />
                 </div>
               </div>
@@ -90,8 +91,7 @@
             </div>
             <div class="row">
               <div class="col-xs-12">
-                <mm:url absolute="true" id="baseurl2" escapeamps="false" write="false" />
-                <tmf:pager baseurl="${baseurl2}" total="${total}" max="${max}" offset="${offset}" fragment="#tiles" />
+                <tmf:pager baseurl="${baseurl}" total="${total}" max="${max}" offset="${offset}" fragment="#tiles" />
               </div>
             </div>
           </section>
