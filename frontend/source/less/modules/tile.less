@@ -20,17 +20,34 @@
     .tile-inner {
         height: 21rem;
         padding: 1rem;
+        position: relative;
+
+        // &:before {
+        //     content: '';
+        //     position: absolute;
+        //     top: 0;
+        //     bottom: 0;
+        //     left: 0;
+        //     right: 0;
+        //     background: fade(black, 25%);
+        //     background: linear-gradient(to bottom, fade(black, 70%) 0, fade(black, 0%) 90%);
+        // }
+
         background-size: cover;
         background-position: center;
         background-repeat: none;
+        
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         
         .tile-title {
-            .font(title-small);
+            .font(title-normal);
             font-weight: normal;
-            color: @color-grey--90;
+            z-index: @index-2;
+            //color: @color-grey--90;
+            color: white;
+            //text-shadow: 0.1rem 0.1rem 0.2rem @color-grey--90;
             text-align: center;
             
             overflow: hidden;
@@ -40,10 +57,10 @@
             -webkit-box-orient: vertical;
 
             @media @screen-lg-max {
-                .font(medium);
+                .font(title-small);
             }
             @media @screen-sm-max {
-                .font(title-extra-small);
+                .font(title-normal);
             }
         }
 
@@ -54,11 +71,9 @@
         }
     }
 
-    &.__picture,
-    &.__person,
-    &.__video {
+    &.__file {
         .tile-title {
-            color: white;
+            //color: @color-grey--90;
         }
     }
 
