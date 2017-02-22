@@ -78,7 +78,7 @@
             <mm:frameworkparam name="component">tmf</mm:frameworkparam>
             <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
             <a class="tile-inner" href="${_}" style="background-image:url(${pict})">
-              <div class="tile-title">
+              <div class="tile-title ${empty pict ? '__nobackground' : '__background'}">
                 <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield>
                 <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
               </div>
