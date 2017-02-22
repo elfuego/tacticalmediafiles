@@ -94,9 +94,9 @@
                   </mm:hasrelationmanager>
                   
                   <div class="content-info__text">
-                    <div class="author"> 
                       <mm:hasrelationmanager sourcemanager="$nodetype" destinationmanager="person" role="author">
                         <mm:relatednodescontainer type="person" role="author" searchdirs="destination">
+                        <div class="author"> 
                           <mm:relatednodes>
                             <mm:link page="content">
                               <mm:frameworkparam name="component">tmf</mm:frameworkparam>
@@ -105,11 +105,13 @@
                               <mm:last inverse="true">, </mm:last>
                             </mm:link>
                           </mm:relatednodes>
+                        </div>
                         </mm:relatednodescontainer>
                       </mm:hasrelationmanager>
-                    </div>
                     <div class="date">
-                      <mm:field name="created"><mm:time format="MMMM dd, yyyy" /></mm:field>
+                      <mm:locale language="en-US">
+                        <mm:field name="created"><mm:time format="MMMM dd, yyyy" /></mm:field>
+                      </mm:locale>
                     </div>                    
                     <tmf:tags />
                   </div>

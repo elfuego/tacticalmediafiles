@@ -90,7 +90,7 @@
               </a>
             </h2>
             <mm:field name="intro" escape="paragraph(listitem-intro)" />
-            <a class="read-more" href="${_}">Read</a>
+            <a class="read-more" href="${_}">${nodetype eq 'collection' ? 'View' : 'Read'}</a>
 
             <tmf:tags />
     

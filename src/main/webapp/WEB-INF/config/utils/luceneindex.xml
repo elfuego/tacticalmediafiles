@@ -88,6 +88,37 @@
         <mmsq:field name="keyword" />
       </mmsq:relatednodes>
 	</list>
+	
+	<list type="collection">
+      <mmsq:field name="otype"  alias="otype" />
+      <mmsq:field name="title"	boost="3" />
+      <mmsq:field name="author" boost="2" />
+      <mmsq:field name="intro" />
+      <mmsq:field name="body" />
+      <mmsq:field name="created"  alias="created" />
+
+      <mmsq:relatednodes type="keyword">
+        <mmsq:field name="keyword" keyword="true" boost="4" />
+        <mmsq:field name="keyword" />
+      </mmsq:relatednodes>
+
+      <mmsq:relatednodes type="article">
+        <mmsq:field name="title" />
+      </mmsq:relatednodes>
+      <mmsq:relatednodes type="campaign">
+        <mmsq:field name="title" />
+      </mmsq:relatednodes>
+      <mmsq:relatednodes type="event">
+        <mmsq:field name="title" />
+      </mmsq:relatednodes>
+      <mmsq:relatednodes type="picture">
+        <mmsq:field name="title" />
+      </mmsq:relatednodes>
+      <mmsq:relatednodes type="video">
+        <mmsq:field name="title" />
+      </mmsq:relatednodes>
+      
+	</list>
 
   </index>
 
