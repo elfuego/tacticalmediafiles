@@ -78,6 +78,9 @@
                   <h1 class="video-title">${media_title}</h1>
                   <tmf:tags />
                   <mm:field name="description" escape="paragraph(video-intro)" />                  
+                  <p class="video-intro">
+                    <mm:locale language="en-US"><mm:field name="created"><mm:time format="MMMM dd, yyyy" /></mm:field></mm:locale>
+                  </p> 
                 </div>
                 <div class="col-md-2"><!-- empty --></div>
               </div>
