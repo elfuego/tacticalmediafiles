@@ -49,45 +49,84 @@
 
     <jsp:attribute name="body">
       <mm:node referid="page">
+        <mm:relatednodescontainer type="picture" role="related" searchdirs="destination">
+          <mm:maxnumber value="1" />
+          <mm:relatednodes>
+            <mm:import id="imglink" reset="true"><mm:image template="s(480)+part(0,0,480,360)" mode="url" /></mm:import>
+          </mm:relatednodes>
+        </mm:relatednodescontainer>
+
       
-        <section class="heading __collection" style="background-image:url(${mm:link('/styles/images/raster-lightgrey.png')})">
-          <div class="row">
-            <div class="col-md-2"><!-- empty --></div>
-            <div class="col-md-8">
-              <h1 class="collection-content-type">Collection</h1>
-              <h2 class="collection-author"><mm:field name="author" /></h2>
-              <div class="collection-heading">
-                <h3 class="collection-title"><mm:field name="title" /></h3>
-                <mm:field name="intro" escape="paragraph(collection-intro)" />
+        <section class="heading __collection" style="background-image:url('${imglink}')">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-2"><!-- empty --></div>
+              <div class="col-md-8">
+                <h1 class="collection-content-type">Collection</h1>
+                <h2 class="collection-author"><mm:field name="author" /></h2>
+                <div class="collection-heading">
+                  <h3 class="collection-title"><mm:field name="title" /></h3>
+                  <mm:field name="intro" escape="paragraph(collection-intro)" />
+                </div>
               </div>
+              <div class="col-md-2"><!-- empty --></div>
             </div>
-            <div class="col-md-2"><!-- empty --></div>
           </div>
         </section>
-
+        <section class="heading __search-filter">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-9"><!-- empty --></div>
+              <div class="col-sm-3">
+                <div class="search-filter-container">
+                  <label class="search-filter-label">View</label>
+                  <button class="search-filter-button __list" href="#" data-select-view-target="list">list</button>
+                  <button class="search-filter-button __grid" href="#" data-select-view-target="grid">grid</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <mm:listrelationscontainer role="posrel" searchdir="destination">
           <mm:sortorder field="posrel.pos" />
-          <mm:listrelations>
+          <section class="container __list">
+          <mm:listrelations id="the_list">
             <!-- item <mm:field name="pos" /> in this collection -->
             <mm:relatednode> 
             
-              <section class="container __list">
-                          
-                  <div class="row">
-                    <div class="col-md-2"> </div>
-                    <div class="col-md-8">
-                        
-                      <tmf:listitem />
-                      
-                    </div>
-                    <div class="col-md-2"> </div>
-                  </div>
+              <div class="row">
+                <div class="col-md-2"> </div>
+                <div class="col-md-8">
+                    
+                  <tmf:listitem />
+                  
+                </div>
+                <div class="col-md-2"> </div>
+              </div>
                             
-              </section>
             </mm:relatednode>
           </mm:listrelations>
+          </section>
         </mm:listrelationscontainer>
+        
+        <section class="container __tiles">
+          <div class="row">
+            <mm:listrelations referid="the_list">
+              <!-- item <mm:field name="pos" /> in this collection -->
+              <mm:relatednode> 
                 
+                <div class="col-sm-3">
+                  
+                  <tmf:tile />
+                  
+                </div>
+                
+              </mm:relatednode>
+            </mm:listrelations>
+          </div>
+        </section>
+        
       </mm:node>
     </jsp:attribute>
   </tmf:html>

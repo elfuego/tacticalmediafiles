@@ -44,10 +44,13 @@
         </article>
       </c:when>
       <c:when test="${typ eq 'video'}">
-       <mm:import id="pict" reset="true">${mm:link('/style/images/video-003.gif')}</mm:import>
-        <mm:relatednodes type="picture" max="1">
-          <mm:import id="pict" reset="true"><mm:image mode="url" width="240" height="240" crop="middle" /></mm:import>
-        </mm:relatednodes>
+        <mm:import id="pict" reset="true">${mm:link('/style/images/video-003.gif')}</mm:import>
+        <mm:relatednodescontainer type="picture" role="posrel">
+          <mm:maxnumber value="1" />
+          <mm:relatednodes>
+            <mm:import id="pict" reset="true"><mm:image mode="url" width="240" height="240" crop="middle" /></mm:import>
+          </mm:relatednodes>
+        </mm:relatednodescontainer>
         <article class="tile __video">
           <div class="tile-content-type">${typ}</div>
           <mm:link page="media">
@@ -62,12 +65,19 @@
         </article>
       </c:when>
       <c:otherwise>
+        <mm:import id="pict" reset="true"></mm:import>
+        <mm:relatednodescontainer type="picture" role="posrel">
+          <mm:maxnumber value="1" />
+          <mm:relatednodes>
+            <mm:import id="pict" reset="true"><mm:image mode="url" width="240" height="240" crop="middle" /></mm:import>
+          </mm:relatednodes>
+        </mm:relatednodescontainer>
         <article class="tile">
           <div class="tile-content-type">${typ}</div>
           <mm:link page="content">
             <mm:frameworkparam name="component">tmf</mm:frameworkparam>
             <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
-            <a class="tile-inner" href="${_}">
+            <a class="tile-inner" href="${_}" style="background-image:url(${pict})">
               <div class="tile-title">
                 <mm:hasfield name="title"><mm:field name="title" /></mm:hasfield>
                 <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>

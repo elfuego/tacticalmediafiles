@@ -81,11 +81,11 @@
                 <mm:maxnumber value="${max}" />
                 <mm:offset value="${offset}" />
                 <mm:listnodes>
+                  
                   <div class="col-sm-3">
-              
                     <tmf:tile />
-              
                   </div>
+                  
                 </mm:listnodes>
               </mm:listnodescontainer>
             </div>

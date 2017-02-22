@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE application PUBLIC "-//MMBase//DTD application config 1.1//EN" 
 	"http://www.mmbase.org/dtd/application_1_1.dtd">
-<application name="TMF2" maintainer="tacticalmediafiles.net" version="5" auto-deploy="false">
+<application name="TMF2" maintainer="tacticalmediafiles.net" version="6" auto-deploy="false">
   <requirements>
     <requires name="Resources" maintainer="mmbase.org" version="1" />
     <requires name="Media" maintainer="mediaproject.mmbase.org" version="1" />
@@ -142,8 +142,12 @@
     <relation from="video" to="mediafragments" type="related" />
     <relation from="video" to="keyword"        type="related" />
     
+    <relation from="collection" to="picture" type="related" />
     <relation from="collection" to="keyword" type="related" />
     <relation from="collection" to="article" type="posrel" />
+    <relation from="collection" to="campaign" type="posrel" />
+    <relation from="collection" to="event"   type="posrel" />
+    <relation from="collection" to="file"    type="posrel" />
     <relation from="collection" to="picture" type="posrel" />
     <relation from="collection" to="video"   type="posrel" />
   </allowedrelationlist>

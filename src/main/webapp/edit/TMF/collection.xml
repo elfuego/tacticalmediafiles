@@ -17,6 +17,12 @@
 	</action>
 	
 	<action type="load">
+		<relation role="related" searchdir="destination" destination="picture">
+			<object>
+				<field name="title" />
+			</object>
+		</relation>
+		
 		<relation role="related" searchdir="destination" destination="keyword">
 			<object>
 				<field name="keyword" />
@@ -43,6 +49,25 @@
 				<field name="subtitle" />
 			</object>
 		</relation>	
+		<relation role="posrel" searchdir="destination" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>	
+		<relation role="posrel" searchdir="destination" destination="campaign">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>	
+		<relation role="posrel" searchdir="destination" destination="file">
+			<object>
+				<field name="title" />
+				<field name="description" />
+				<field name="handle" />
+			</object>
+		</relation>	
 	</action>
 	
 	<form-schema id="collection">
@@ -62,6 +87,7 @@
 		<field name="body" rows="20" ftype="html" dttype="html" />
 		
 		<list include="TMF/list_keyword.xml" />
+		<list include="TMF/related_picture_max-one.xml" />
 		
 	</form-schema>
 		
@@ -76,6 +102,9 @@
 		<list include="TMF/posrel_article.xml" />
 		<list include="TMF/posrel_picture.xml" />
 		<list include="TMF/posrel_video.xml" />
+		<list include="TMF/posrel_event.xml" />
+		<list include="TMF/posrel_file.xml" />
+		<list include="TMF/posrel_campaign.xml" />
 		
 	</form-schema>
 </wizard-schema>
