@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE application PUBLIC "-//MMBase//DTD application config 1.1//EN" 
 	"http://www.mmbase.org/dtd/application_1_1.dtd">
-<application name="TMF2" maintainer="tacticalmediafiles.net" version="4" auto-deploy="false">
+<application name="TMF2" maintainer="tacticalmediafiles.net" version="6" auto-deploy="false">
   <requirements>
     <requires name="Resources" maintainer="mmbase.org" version="1" />
     <requires name="Media" maintainer="mediaproject.mmbase.org" version="1" />
@@ -29,6 +29,7 @@
     <builder maintainer="debalie.org"  version="1">campaign</builder>
     <builder maintainer="debalie.org"  version="1">address</builder>
     <builder maintainer="tacticalmediafiles.net" version="1">content</builder>
+    <builder maintainer="tacticalmediafiles.net" version="1">collection</builder>
     
     <builder maintainer="mmbase.org"  version="1">mediafragments</builder>
     <builder maintainer="mmbase.org"  version="1">mediasources</builder>
@@ -43,7 +44,6 @@
   </neededreldeflist>
  
   <allowedrelationlist>
-    <!-- article, campaign and event extend from content -->
     <relation from="content" to="type" type="related" />
     <relation from="content" to="person" type="related" />
     <relation from="content" to="dates" type="related" />
@@ -94,6 +94,8 @@
     <relation from="person" to="dates" type="related" />
     <relation from="person" to="address" type="related" />
     <relation from="person" to="article" type="related" />
+    <relation from="person" to="video" type="related" />
+    <relation from="person" to="file" type="related" />
     <relation from="event" to="file" type="related" />
     <relation from="person" to="organisation" type="related" />
     <relation from="person" to="event" type="related" />
@@ -116,6 +118,7 @@
     <relation from="fragment" to="event" type="related" />
     <relation from="fragment" to="organisation" type="related" />
     <relation from="fragment" to="article" type="related" />
+    <relation from="fragment" to="metadata" type="related" />
     <!-- <relation from="fragment" to="templates" type="related" /> -->
     <relation from="fragment" to="url" type="posrel" />
     <relation from="fragment" to="mediasources" type="related" />
@@ -137,12 +140,23 @@
     
     <!-- create new relationtype -->
     <relation from="video" to="mediafragments" type="related" />
+    <relation from="video" to="keyword"        type="related" />
+    
+    <relation from="collection" to="picture" type="related" />
+    <relation from="collection" to="keyword" type="related" />
+    <relation from="collection" to="article" type="posrel" />
+    <relation from="collection" to="campaign" type="posrel" />
+    <relation from="collection" to="event"   type="posrel" />
+    <relation from="collection" to="file"    type="posrel" />
+    <relation from="collection" to="picture" type="posrel" />
+    <relation from="collection" to="video"   type="posrel" />
   </allowedrelationlist>
 
   <datasourcelist>
     <datasource builder="person" path="TMF2/person.xml" />         
     <datasource builder="organisation" path="TMF2/organisation.xml" />   
     <datasource builder="type" path="TMF2/type.xml" />           
+    <datasource builder="collection" path="TMF2/collection.xml" />
     <datasource builder="copyright" path="TMF2/copyright.xml" />
     <datasource builder="picture" path="TMF2/picture.xml" />
     <datasource builder="article" path="TMF2/article.xml" />
@@ -176,9 +190,8 @@
     TMF2 installs builders and relations for the TMF archive website.
     This application uses and depends on the MMBase applications Resources, Media and Streams. 
     In it the original builder videofragments is renamed fragment
-    and media is renamed to video
-    to prevent conflicting with videofragments in Media.
+    and media is renamed to video to prevent conflicting with videofragments in Media.
   </description>
 
-  <install-notice>TMF2 installed.</install-notice>
+  <install-notice>TMF2 is installed.</install-notice>
 </application>
