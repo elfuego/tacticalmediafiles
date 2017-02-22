@@ -1,0 +1,179 @@
+.heading {
+    
+    &.__collection {
+        height: 57.4rem;
+        overflow: hidden;
+
+        @media @screen-md-max {
+            height: 40rem;
+        }
+        @media @screen-sm-max {
+            height: 36rem;
+        }
+
+        background-size: cover;
+        .container {
+            background-color: @color-grey-transparent;
+            padding: 4rem;
+            height: 100%;
+            
+            @media @screen-sm-max {
+                padding: 2rem;
+            }
+
+        }
+    }
+
+    &.__search-filter {
+        height: 7rem;
+    }
+
+    .collection-heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        height: 42rem;
+        margin: 2rem 0 0 0;
+
+        @media @screen-md-max {
+            height: 26rem;
+            margin: 1rem 0 0 0;
+        }
+        @media @screen-sm-max {
+            height: 24rem;
+            margin: 0rem 0 0 0;
+        }
+    }
+
+    h1 {
+        .font(small);
+
+        &.collection-content-type {
+            font-family: @font-secondary;
+            letter-spacing: .1rem;
+            text-transform: lowercase;
+            color: white;
+            text-align: center;
+            margin: 0 0 3rem 0;
+            
+            @media @screen-md-max {
+                margin-bottom: 1rem
+            }
+        }
+    }
+
+    h2.collection-author {
+        .font(medium);
+        font-family: @font-secondary;
+        letter-spacing: .1rem;
+        color: @color-primary;
+        text-align: center;
+        font-style: italic;
+    }
+
+    h3.collection-title {
+        .font(title-normal);
+        font-weight: normal;
+        text-align: center;
+        color: white;
+        
+        @media @screen-sm-max {
+            .font(large); 
+        }
+    }
+
+    p.collection-intro {
+        .font(large);
+        color: white;
+        font-style: oblique;
+        margin: 0;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+
+        @media @screen-md-max {
+            .font(base);
+        }
+        @media @screen-sm-max {
+            .font(medium);
+        }
+        @media @screen-xs-max {
+            .font(small);
+        }
+
+    }
+
+    .search-filter-title {
+        &.__hidden { display: none; }
+    }
+
+    .search-filter-container {
+        height: 7rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
+        
+        .search-filter-label {
+            .font(extra-small); 
+            font-family: @font-secondary;
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            color: @color-grey--40;
+            margin: .4rem 1rem 0 0;
+        }
+        .search-filter-button {
+            border: none;
+            background-color: white;
+            width: 3.4rem;
+            height: 3.4rem;
+            padding: .2rem;
+            color: white;
+            overflow: hidden;
+
+            margin-left: 1rem;
+            cursor: pointer;
+
+            &.__list {
+                &:before {
+                    .fa-icon();
+                    content: @fa-var-bars;
+                    color: @color-grey;
+                    font-size: 3rem;
+                }
+                .view-list & {
+                    &:before {
+                        color: @color-primary;
+                    }
+                }
+            }
+            &.__grid {
+                padding-top: 0.3rem;
+                &:before {
+                    .fa-icon();
+                    content: @fa-var-th-large;
+                    color: @color-grey;
+                    font-size: 3rem;
+                }
+                .view-tiles & {
+                    &:before {
+                        color: @color-primary;
+                    }
+                }
+            }
+            &.__selected {
+                &:before {
+                    //color: @color-primary;
+                }
+            }
+        }
+    }
+
+}

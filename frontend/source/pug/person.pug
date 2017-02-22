@@ -2,80 +2,43 @@ extends layout/page
 
 prepend variables
     - title = 'NRA and Smith & Wesson Partner to "Share the Safety" With All Americans'
-    - bodyClass = 'person'
-    - selected = 'people';
+    - bodyClass = 'content person'
 
 append main
 
-    .container
+    article.container
         .row
             .col-md-2
             .col-md-8
-                
-                article.__person
+                header
+                    .content-type Person
+                    h1.content-title Eric Cattenberg
+                    
                     .content-info.__person
-                        .row
-                            .col-md-2
-                                .content-type Person
-                            .col-md-10
-                                .content-info__image
-                                    img( src='styles/images/portrait-eric.png' alt="Eric Cattenberg" )
-                                h2.content-info__title Eric Cattenberg
+                        .content-info__image
+                            img( src='styles/images/portrait-eric.png' alt="Eric Cattenberg" width="240" )
+                        .content-info__related
+                            ul
+                                li
+                                    a( href="#files" ) 3 files
+                                li
+                                    a( href="#links" ) 4 links
+                                li
+                                    a( href="#videos" ) 1 video
+                                li
+                                    a( href="#images" ) 4 images
 
-                        p.content-info__text Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta #[a(href="#") nobis est eligendi] optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-
-        .row
+                    p.content-intro Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta #[a(href="#") nobis est eligendi] optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+            .col-md-2
+        
+        section.row
             .col-md-2
             .col-md-8
-                .content
-                    .content-type Article
-                    h2.title 
-                        a( href="article.html" ) NRA and Smith &amp; Wesson Partner to "Share the Safety" With All Americans
-                    p.intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
-                    a.read-more( href="article.html" ) Read
-                    +tags({
-                            tag: 'Activism',
-                            url: 'list.html'
-                        }, {
-                            tag: 'The Yesmen',
-                            url: 'list.html'
-                        }, {
-                            tag: 'Performance',
-                            url: 'list.html'
-                        }, {
-                            tag: 'Firearms',
-                            url: 'list.html'
-                        })
-                hr
-            .col-md-2
-        .row
-            .col-md-2
-            .col-md-8
-                .content
-                    .content-type Article
-                    h2.title 
-                        a( href="article.html" ) Nuit Debout
-                    p.intro Nuit Debout is a French social movement that began on March 31, 2016, arising out of protests against proposed neoliberal labor reforms known as the "Loi Travail," or the "El Khomri Law". The movement is centred at Paris's Place de la République, where protestors have held nightly assemblies following the
-                    a.read-more( href="article.html" ) Read
-                    +tags({
-                            tag: 'Campaign',
-                            url: 'list.html'
-                        }, {
-                            tag: 'Precarity',
-                            url: 'list.html'
-                        }, {
-                            tag: 'Art Of Campaigning',
-                            url: 'list.html'
-                        }, {
-                            tag: 'Labour',
-                            url: 'list.html'
-                        }, {
-                            tag: 'Street Protest',
-                            url: 'list.html'
-                        }, {
-                            tag: 'Economics',
-                            url: 'list.html'
-                        })
+                        
+                    p Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta #[a(href="#") nobis est eligendi] optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
 
             .col-md-2
+
+
+        
 

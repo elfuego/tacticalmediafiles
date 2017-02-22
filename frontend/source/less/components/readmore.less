@@ -1,9 +1,9 @@
 .read-more {
     background-color: @color-primary;
-    color: white;
     font-family: @font-secondary;
-    font-size: @font-small;
-    line-height: @line-height--large;
+    color: white;
+    .font(small);
+    line-height: 3.2rem;
     
     text-transform: uppercase;
     text-align: center;
@@ -15,7 +15,16 @@
 
     transition: @trans-normal-material;
 
+    @media @screen-sm-max {
+        .font(extra-small);
+        width: 8rem;
+    }
+
     &:hover {
         background-color: @color-primary-dark;
+    }
+
+    .__play {
+        
     }
 }

@@ -8,17 +8,18 @@
 // Black & white
 @color-black-transparent:           fade(#444, 96%);
 @color-white-transparent:           fade(white, 60%);
+@color-grey-transparent:            fade(#808080, 66%);
 @color-primary-transparent:         fade(@color-primary, 50%);
 @color-grey:                        #EFEFEF;
 
 // Grey
 @color-grey--10:                    #F0F0F0;
-@color-grey--20:                    #BBBBBB;
-@color-grey--30:                    #808080;
-@color-grey--40:                    #c4c4c4;
-@color-grey--50:                    #333333;
-@color-grey--60:                    #ccc;
+@color-grey--20:                    #ccc;
+@color-grey--30:                    #c4c4c4;
+@color-grey--40:                    #BBBBBB;
+@color-grey--70:                    #808080;
 @color-grey--80:                    #444;
+@color-grey--90:                    #333333;
 
 
 // Fonts
@@ -29,29 +30,47 @@
 @font-tertiary:                     'Helvetica Neue', Helvetica, sans-serif;
 
 // Font sizes
-@font-extra-small:                  1.2rem;
-@font-small:                        1.4rem;
-@font-medium:                       1.8rem;
-@font-base:                         2rem;
-@font-large:                        2.4rem;
 
-@font-title-extra-small:            2.4rem;
-@font-title-small:                  3.2rem;
-@font-title-normal:                 3.6rem;
-@font-title-main:                   4.2rem;
+@line-height--addition:             1.2rem;
 
-@line-height--addition:             .9rem;
-
-@line-height--base:                 @font-base + @line-height--addition;
-@line-height--small:                @font-small + @line-height--addition;
-@line-height--medium:               @font-medium + @line-height--addition;
-@line-height--large:                @font-large + @line-height--addition;
-
-@line-height--title-main:           @font-title-main + @line-height--addition;
-@line-height--title-normal:         @font-title-normal + @line-height--addition;
-@line-height--title-small:          @font-title-small + @line-height--addition;
-@line-height--title-extra-small:    @font-title-extra-small + @line-height--addition;
-
+.font(@size) {
+    & when (@size = extra-small) {
+        font-size: 1.2rem;
+        line-height: 1.2rem + @line-height--addition;
+    }
+    & when (@size = small) {
+        font-size: 1.4rem;
+        line-height: 1.4rem + @line-height--addition;
+    }
+    & when (@size = medium) {
+        font-size: 1.8rem;
+        line-height: 1.8rem + @line-height--addition;
+    }
+    & when (@size = base) {
+        font-size: 2.1rem;
+        line-height: 2.1rem + @line-height--addition;
+    }
+    & when (@size = large) {
+        font-size: 2.4rem;
+        line-height: 2.4rem + @line-height--addition;
+    }
+    & when (@size = title-extra-small) {
+        font-size: 2.4rem;
+        line-height: 2.4rem + @line-height--addition;
+    }
+    & when (@size = title-small) {
+        font-size: 3rem;
+        line-height: 3rem + @line-height--addition;
+    }
+    & when (@size = title-normal) {
+        font-size: 3.6rem;
+        line-height: 3.6rem + @line-height--addition;
+    }
+    & when (@size = title-main) {
+        font-size: 4.2rem;
+        line-height: 4.2rem + @line-height--addition;
+    }
+}
 
 // Border radius
 // -------------------------------
@@ -62,7 +81,8 @@
 // Box shadows
 // -------------------------------
 
-@box-shadow:                        0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.25);
+@shadow:                            0 .2rem .5rem 0 fade(black, 10%);
+@shadow-hover:                      0 .2rem 1.5rem 0 fade(black, 20%);
 
 
 // Text shadows
@@ -104,14 +124,14 @@
 // Z-indexes
 // -------------------------------
 @index-min:                         -1;
-@index-1:                           1;
-@index-2:                           2;
-@index-3:                           3;
-@index-4:                           4;
-@index-5:                           5;
-@index-6:                           6;
-@index-7:                           7;
-@index-8:                           8;
-@index-9:                           9;
-@index-10:                          10;
+@index-1:                           10;
+@index-2:                           20;
+@index-3:                           30;
+@index-4:                           40;
+@index-5:                           50;
+@index-6:                           60;
+@index-7:                           70;
+@index-8:                           80;
+@index-9:                           90;
+@index-10:                          100;
 @index-max:                         999;

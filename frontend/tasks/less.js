@@ -5,6 +5,7 @@ import config from '../config/default';
 import gulp         from 'gulp';
 import notify       from 'gulp-notify';
 import less         from 'gulp-less';
+import cleanCSS     from 'gulp-clean-css';
 import sourcemaps   from 'gulp-sourcemaps';
 import autoprefixer from 'gulp-autoprefixer';
 
@@ -19,6 +20,7 @@ export default () => {
         .pipe(autoprefixer({
             browsers: ['last 2 versions']
         }))
+        .pipe(cleanCSS())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.paths.test + '/' + config.paths.assets.css));
 

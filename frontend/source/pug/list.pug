@@ -2,20 +2,85 @@ extends layout/page
 
 prepend variables
     - title = 'Search'
-    - bodyClass = 'list'
+    - bodyClass = 'list view-list'
+    - showFilter = true;
     - selected = 'all';
 
 append main
+    .heading.__search-filter
+        .container
+            .row     
+                .col-sm-3
+                    h1.search-filter-title.__hidden Search results
+                .col-sm-3
+                .col-sm-3
+                .col-sm-3
+                    .search-filter-container
+                        label.search-filter-label View
+                        button.search-filter-button.__list( href="#" data-select-view-target="list" ) list
+                        button.search-filter-button.__grid.__selected( href="#" data-select-view-target="grid" ) grid
 
-    .container
+    
+    section.container.__tiles
+        .row     
+            .col-sm-3
+                +tile({
+                    'type': 'person',
+                    'title': 'Eric Cattenbergh',
+                    'image': 'styles/images/portrait-eric.png'
+                })
+            .col-sm-3
+                +tile({
+                    'type': 'article',
+                    'title': 'NRA and Smith & Wesson Partner to "Share the Safety" With All Americans'
+                })
+            .col-sm-3
+                +tile({
+                    'type': 'picture',
+                    'title': 'A new beginning',
+                    'image': 'styles/images/Share_the_Security.jpg'
+                })
+            .col-sm-3
+                +tile({
+                    'type': 'video',
+                    'title': 'A new beginning',
+                    'image': 'styles/images/Nuit_Debout_16.jpg'
+                })
+
+        .row
+            .col-md-3
+                +tile({
+                    'type': 'article',
+                    'title': 'NRA and Smith & Wesson Partner to "Share the Safety" With All Americans'
+                })
+            .col-md-3
+                +tile({
+                    'type': 'video',
+                    'title': 'A new beginning',
+                    'image': 'styles/images/Share_the_Security.jpg'
+                })
+            .col-md-3
+                +tile({
+                    'type': 'picture',
+                    'title': 'A new hope',
+                    'image': 'styles/images/Nuit_Debout_16.jpg'
+                })
+            .col-md-3
+                +tile({
+                    'type': 'article',
+                    'title': 'A new beginning'
+                })
+
+
+    section.container.__list
         .row
             .col-md-2
             .col-md-8
-                .content
+                article.listitem
                     .content-type Article
-                    h2.title 
+                    h2.listitem-title 
                         a( href="article.html" ) NRA and Smith &amp; Wesson Partner to "Share the Safety" With All Americans
-                    p.intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
+                    p.listitem-intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
                     a.read-more( href="article.html" ) Read
                     +tags({
                             tag: 'Activism',
@@ -35,11 +100,11 @@ append main
         .row
             .col-md-2
             .col-md-8
-                .content
+                article.listitem
                     .content-type Article
-                    h2.title 
+                    h2.listitem-title 
                         a( href="article.html" ) Nuit Debout
-                    p.intro Nuit Debout is a French social movement that began on March 31, 2016, arising out of protests against proposed neoliberal labor reforms known as the "Loi Travail," or the "El Khomri Law". The movement is centred at Paris's Place de la République, where protestors have held nightly assemblies following the
+                    p.listitem-intro Nuit Debout is a French social movement that began on March 31, 2016, arising out of protests against proposed neoliberal labor reforms known as the "Loi Travail," or the "El Khomri Law". The movement is centred at Paris's Place de la République, where protestors have held nightly assemblies following the
                     a.read-more( href="article.html" ) Read
                     +tags({
                             tag: 'Campaign',
@@ -62,4 +127,44 @@ append main
                         })
 
             .col-md-2
+
+        .row
+            .col-md-2
+            .col-md-8
+                article.listitem.__video
+                    .content-type Video
+                    h2.listitem-title 
+                        a( href="video.html" ) Lol cats in the kitchen
+
+                    .listitem-video-still
+                        a( href="video.html" )
+                            img( src='styles/images/lol-cat.png' )
+                        a.read-more( href="video.html" ) View
+                    
+                    +tags({
+                            tag: 'Mess',
+                            url: 'list.html'
+                        },{
+                            tag: 'Fun',
+                            url: 'list.html'
+                        },{
+                            tag: 'Soft',
+                            url: 'list.html'
+                        },{
+                            tag: 'Cool Aid',
+                            url: 'list.html'
+                        },{
+                            tag: 'Precarity',
+                            url: 'list.html'
+                        },{
+                            tag: 'Art Of Campaigning',
+                            url: 'list.html'
+                        },{
+                            tag: 'Cure it',
+                            url: 'list.html'
+                        })
+                hr
+            .col-md-2
+    
+
 

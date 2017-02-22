@@ -2,12 +2,15 @@ mixin carousel(...items)
     .slider( data-slider-featured="home-page" )
         each item in items
             - item.url = item.url || '#'
-            .slider-item
-                .item( style="background-image: url(" + item.image + ");" )
+            article.slider-item
+                .carousel-item( style="background-image: url(" + item.image + ");" )
                     .container
-                        p.item__type 
-                            strong featured #{item.type}
-                        h2.item__title 
+                        .carousel-item__type 
+                            strong #{item.type}
+                        h3.carousel-item__title 
                             a( href=item.url ) #{item.title}
-                        .item__read-more
-                            a.read-more( href=item.url ) Read
+                        .carousel-item__read-more
+                            if (item.type === 'video')
+                                a.read-more( href=item.url ) View
+                            else 
+                                a.read-more( href=item.url ) Read

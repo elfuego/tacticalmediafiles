@@ -2,41 +2,124 @@ extends layout/page
 
 prepend variables
     - title = 'Video: Cat sits in bathroom with liquor in the back and oh oh oh it’s so'
-    - bodyClass = 'video'
-    - selected = 'videos';
+    - bodyClass = 'content video'
 
 append main
 
-    .container.__video
-        .row
-            .col-md-10.col-md-offset-1
-                .video
-                    .video-background
-                        video( style="background-image:url(styles/images/lol-cat.png)" )
-    .container
-        .row
-            .col-md-1
-            .col-md-2.start-xs.center-md
-                .content-type Video
+    article
+        header
+            .container.__video
+                .row
+                    .col-md-10.col-md-offset-1
+                        .video
+                            .video-background
 
-            .col-md-6
-                h2.title Cat sits in bathroom with liquor in the back and oh oh oh it’s so cute duh
+                                video( 
+                                    id="oip_ea_id_tmf-player"
+                                    poster="styles/images/lol-cat-16x9.png"
+                                    controls
+                                    width
+                                    height
+                                )
+                                    source( type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" )
+                                    source( type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" src="http://www.tacticalmediafiles.net/files/38/38884.NRA_and_SW_Share_the_Safety.mp4" )
+                                    source( type="video/webm;codecs=vp8,vorbis" src="http://www.tacticalmediafiles.net/files/38/38892.38884.NRA_and_SW_Share_the_Safety.webm" )
+
+                                a.read-more.__play( href="video.html" ) Play
+            .container    
+                .row
+                    .col-md-1
+                    .col-md-2.start-xs.center-md
+                        .content-type Video
+
+                    .col-md-6
+                            h1.video-title Cat sits in bathroom with liquor in the back and oh oh oh it’s so cute duh
+                            
+                            +tags({
+                                    tag: 'Activism',
+                                    url: 'list.html'
+                                }, {
+                                    tag: 'The Yesmen',
+                                    url: 'list.html'
+                                }, {
+                                    tag: 'Performance',
+                                    url: 'list.html'
+                                }, {
+                                    tag: 'Firearms',
+                                    url: 'list.html'
+                                })
+
+                            p.video-intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
+                    
+                    .col-md-2
+        .container
+            .row
+                .col-md-2
+                .col-md-8
+                    p Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta #[a(href="#") nobis est eligendi] optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+                .col-md-2
+
+            aside
+                #links.content-related.row
+                    .col-md-2
+                    .col-md-8
+
+                        h4.content-related__title Links
+                        ul.content-related__list
+                            li
+                                a( href="https://nrapress.org/articles/20160622/nra-smith-wesson-partner-share-the-safety/" ) https://nrapress.org/articles/20160622/nra-smith-wesson-partner-share-the-safety/
+                            li
+                                a( href="https://nrapress.org" ) https://nrapress.org
+                    .col-md-2
                 
-                +tags({
-                        tag: 'Activism',
-                        url: 'list.html'
-                    }, {
-                        tag: 'The Yesmen',
-                        url: 'list.html'
-                    }, {
-                        tag: 'Performance',
-                        url: 'list.html'
-                    }, {
-                        tag: 'Firearms',
-                        url: 'list.html'
-                    })
+                #files.content-related.row
+                    .col-md-2
+                    .col-md-8
+                        h4.content-related__title Files
+                        ul.content-related__list
+                            li
+                                a( href="#" ) filename.zip
+                    .col-md-2
 
-                p.intro Simi Valley, Ca. - The NRA announced today, at the Ronald Reagan Presidential Library, a new program to get guns into the hands of statistically under-armed Americans—from homosexuals to the elderly to besieged urban communities—and make self-defense, rather than gun control, the protection of choice for all Americans.
 
-            .col-md-2
+                #videos.content-related.row
+                    .col-md-10.col-md-offset-2 
+                        h4.content-related__title.__video Video
+                .content-related.row
+                    .col-md-11.col-md-offset-1
+                        ul.content-related__list.__video
+                            li 
+                                a.content-related__image(href="video.html")
+                                    .content-related__image-bg( style="background-image: url(styles/images/Share_the_Security.jpg)" )
+                                    span Video description
+
+                
+                #images.content-related.row
+                    .col-md-10.col-md-offset-2 
+                        h4.content-related__title.__images Images
+                .content-related.row
+                    .col-md-11.col-md-offset-1
+
+                        ul.content-related__list.__images
+                            li 
+                                a.content-related__image(href="#")
+                                    .content-related__image-bg( style="background-image:url(styles/images/lol-cat.png)" )
+                                    span Image description
+                            li 
+                                a.content-related__image(href="#")
+                                    .content-related__image-bg( style="background-image:url(styles/images/lol-cat.png)" )
+                                    span Image description
+                            li 
+                                a.content-related__image(href="#")
+                                    .content-related__image-bg( style="background-image:url(styles/images/lol-cat.png)" )
+                                    span Image description
+                            li 
+                                a.content-related__image(href="#")
+                                    .content-related__image-bg( style="background-image:url(styles/images/lol-cat.png)" )
+                                    span Image description
+                            li 
+                                a.content-related__image(href="#")
+                                    .content-related__image-bg( style="background-image:url(styles/images/lol-cat.png)" )
+                                    span Image description
+
 

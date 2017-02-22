@@ -24,21 +24,6 @@
     	height: 100%;
     	overflow: scroll;
     }
-
-    a {
-    	color: @color-grey;
-    	
-    	&:link,
-    	&:visited {
-			color: @color-grey;
-    	}
-
-		&:hover, 
-		&:active {
-			color: white;
-			border-bottom: 1px solid white;
-		}
-    }
     
 	a.close {
 		position: absolute;
@@ -52,22 +37,24 @@
             font-size: 3rem;
             outline: none;
 		}
-		&:hover { 
-			color: @color-primary; 
-			border-bottom: none; 
-			transition: color @trans-normal-material;
+		&:hover { 			
+            &:before {
+                color: @color-primary;     
+                transition: color @trans-normal-material;
+            }
 		}
 	}
 
 
     h2 {
-        margin: 6rem 0 0 0;
-        color: white;
+        .font(extra-small);
         font-family: @font-secondary;
+        font-weight: normal;
         text-transform: uppercase;
         text-align: center;
-        font-size: @font-extra-small;
         letter-spacing: 0.2rem;
+        color: white;
+        margin: 6rem 0 0 0;
     }
 
     .collections {
@@ -77,16 +64,24 @@
 		    	margin: 6rem 0;
 
 		    	em {
+                    .font(small);
 			        font-family: @font-secondary;
-		    		font-size: @font-small;
 		    		display: block;
 		    		margin: 0 0 1rem 0;
 		    		color: @color-primary;
 		    	}
 		    	h3 {
-		    		color: @color-grey;
-		    		font-size: @font-title-small;
+		    		.font(title-small);
+                    color: @color-grey;
 		    		font-weight: normal;
+
+                    a {
+                        color: @color-grey;
+                        text-decoration: none;
+                        &:hover {
+                            color: @color-primary;
+                        }
+                    }
 
 		    	}
 		    }
@@ -94,48 +89,86 @@
 	    }
 	}
 
-	ul.alphabet {
-		margin: 3rem 0;
-		list-style: none;
-		text-align: center;
-	}
-
-	ul.alphabet li {
-		display: inline;
-		list-style: none;
-		font-family: @font-secondary;
-		font-size: @font-small;
-		a {
-			display: inline-block;
-			margin: 1rem 0.2rem;
-			line-height: 3.2rem;
-			width: 2.8rem;
-			height: 2.8rem;
-			background-color: @color-grey--60;
-			color: @color-grey--80;
-			transition: background-color @trans-normal-material, color @trans-normal-material;
-
-			&:hover {
-				color: white;
-				background-color: @color-primary; 
-				border-color: @color-primary;
-			}
-		}
+	ol.alphabet {
+        margin: 3rem 0;
+        list-style: none;
+        text-align: center;
+        
+        li {
+            display: inline;
+            list-style: none;
+            font-family: @font-secondary;
+            .font(small);
+    
+            a {
+                display: inline-block;
+                margin: 1rem 0.2rem;
+                line-height: 3.2rem;
+                width: 2.8rem;
+                height: 2.8rem;
+                background-color: @color-grey--20;
+                color: @color-grey--80;
+                transition: background-color @trans-normal-material, color @trans-normal-material;
+    
+                &:hover {
+                    color: white;
+                    background-color: @color-primary; 
+                    text-decoration: none;
+                    border-color: @color-primary;
+                }
+            }
+        }
 	}
 
 	.topics {
 		color: white;
 
-		ul.items {
-			list-style: none;
+		ol.items {
 			text-align: center;
-			li {
+			
+            li {
 				list-style: none;
 				display: inline;
-				font-size: @font-title-small;
-				line-height: @line-height--title-normal;
+				
+                .font(title-small);
 				margin: 2rem;
+
+                a {
+                    color: @color-grey;
+                    text-decoration: none;
+                    white-space: nowrap;
+                    &:hover {
+                        color: @color-primary;
+                    }
+                }
 			}
 		}
 	}
+
+    .filter {
+
+        ul {
+            text-align: center;
+            margin-top: 2rem;
+            
+            li {
+                
+                .font(small);
+                font-family: @font-secondary;
+                text-transform: lowercase;
+                font-style: italic;
+
+                margin-bottom: 1rem;
+
+                a {
+                    color: @color-primary;
+                    text-decoration: none;
+                    &:hover {
+                        color: @color-primary-dark;
+                    }
+                }
+            }
+        }
+    }
+
 }

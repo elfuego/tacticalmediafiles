@@ -16,7 +16,16 @@ import org.mmbase.util.transformers.Identifier;
 import org.mmbase.util.xml.UtilReader;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static java.net.URLEncoder.encode;
+
 
 /**
  * UrlConverter that can filter and create urls for pre configured pages and templates in TMF.
@@ -145,6 +154,11 @@ public class SiteUrlConverter extends DirectoryUrlConverter {
                     if (keyword == null || "".equals(keyword)) {
                         if (log.isDebugEnabled()) log.debug("no keyword, path now: " + path.toString());
                     } else {
+                        try {
+                            keyword = encode(keyword, "UTF-8");
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
                         path.append("?q=").append(keyword);
                         if (log.isDebugEnabled()) log.debug("keyword, path now: " + path.toString());
                     }
