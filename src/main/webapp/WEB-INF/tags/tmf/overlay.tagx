@@ -94,7 +94,7 @@
                   </ul>
                 </mm:listnodescontainer>
               </div>
-              <div class="col-md-2"><a class="close" href="#close" title="Close" data-select-results-close="close"></a></div>
+              <div class="col-md-2"><a class="close" href="#close" title="Close" data-select-results-close="close"><!-- empty --></a></div>
             </div>
           </div>          
 
@@ -114,7 +114,7 @@
                   <li><a href="#" data-select-results-type="campaign">Campaigns</a></li>
                 </ul>
               </div>
-              <div class="col-md-2"><a class="close" href="#close" title="Close" data-select-results-close="close"></a></div>
+              <div class="col-md-2"><a class="close" href="#close" title="Close" data-select-results-close="close"><!-- empty --></a></div>
             </div>
           </div>          
                   
