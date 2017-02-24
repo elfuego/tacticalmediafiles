@@ -42,12 +42,12 @@
         justify-content: flex-start;
         
         .tile-title {
-            .font(title-normal);
+            .font(title-small);
             font-weight: normal;
             z-index: @index-2;
             //color: @color-grey--90;
             color: white;
-            //text-shadow: 0.1rem 0.1rem 0.2rem @color-grey--90;
+            text-shadow: @text-shadow;
             text-align: center;
             
             overflow: hidden;
@@ -58,10 +58,11 @@
 
             &.__nobackground {
                 color: @color-grey--80;
+                text-shadow: none;
             }
 
             @media @screen-lg-max {
-                .font(title-small);
+                .font(title-extrasmall);
             }
             @media @screen-sm-max {
                 .font(title-normal);
@@ -77,7 +78,8 @@
 
     &.__file {
         .tile-title {
-            //color: @color-grey--90;
+            color: @color-grey--80;
+            text-shadow: none;
         }
     }
 

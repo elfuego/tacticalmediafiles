@@ -86,11 +86,14 @@
     }
 
     .content-info__related {
+        flex-shrink: 0;
         border-left: 0.1rem solid @color-grey--40;
         padding-left: 2rem;
+        
         @media @screen-sm-max {
             padding-left: 1rem;
         }
+        
         li {
             white-space: nowrap;
             line-height: 2rem;
