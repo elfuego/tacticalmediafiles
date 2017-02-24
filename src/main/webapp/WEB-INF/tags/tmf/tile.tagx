@@ -22,7 +22,7 @@
           <div class="tile-content-type">${typ}</div>
           <mm:attachment>
           <a class="tile-inner" href="${_}">
-            <div class="tile-title">
+            <div class="tile-title __nobackground">
               <mm:field name="title" />
               <mm:field name="filename" />, <mm:field name="size" escape="myfilesize" />
             </div>
