@@ -31,9 +31,9 @@
 		
 		<relation role="posrel" searchdir="destination" destination="picture">
 			<object>
-				<field name="title"/>
-				<field name="description"/>
-				<field name="filename"/>
+				<field name="title" />
+				<field name="description" />
+				<field name="handle" />
 			</object>
 		</relation>
 		<relation role="posrel" searchdir="destination" destination="video">

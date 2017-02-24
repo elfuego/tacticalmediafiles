@@ -18,13 +18,13 @@
 		</field>
 	</item>
     
-    <command name="search" nodepath="picture" age="-1" fields="title">
-        <prompt xml:lang="en">picture</prompt>
-        <prompt xml:lang="nl">picture</prompt> 
+    <command name="search" nodepath="picture" age="-1" fields="handle,title,description">
+        <prompt xml:lang="en">Search pictures</prompt>
+        <prompt xml:lang="nl">Zoek afbeeldingen</prompt> 
         <search-filter>
             <name xml:lang="en">Title:</name>
             <name xml:lang="nl">Titel:</name>
-            <search-fields>title</search-fields>
+            <search-fields>title|description</search-fields>
         </search-filter>
     </command>
     
