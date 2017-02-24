@@ -28,25 +28,6 @@
         height: 7rem;
     }
 
-    .collection-heading {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-
-        height: 42rem;
-        margin: 2rem 0 0 0;
-
-        @media @screen-md-max {
-            height: 26rem;
-            margin: 1rem 0 0 0;
-        }
-        @media @screen-sm-max {
-            height: 24rem;
-            margin: 0rem 0 0 0;
-        }
-    }
-
     h1 {
         .font(small);
 
@@ -62,51 +43,6 @@
                 margin-bottom: 1rem
             }
         }
-    }
-
-    h2.collection-author {
-        .font(medium);
-        font-family: @font-secondary;
-        letter-spacing: .1rem;
-        color: @color-primary;
-        text-align: center;
-        font-style: italic;
-    }
-
-    h3.collection-title {
-        .font(title-normal);
-        font-weight: normal;
-        text-align: center;
-        color: white;
-        
-        @media @screen-sm-max {
-            .font(large); 
-        }
-    }
-
-    p.collection-intro {
-        .font(large);
-        color: white;
-        font-style: oblique;
-        margin: 0;
-
-        display: -webkit-box;
-        -webkit-line-clamp: 8;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        word-wrap: break-word;
-
-        @media @screen-md-max {
-            .font(base);
-        }
-        @media @screen-sm-max {
-            .font(medium);
-        }
-        @media @screen-xs-max {
-            .font(small);
-        }
-
     }
 
     .search-filter-title {
