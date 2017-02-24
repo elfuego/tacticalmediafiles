@@ -60,7 +60,13 @@
     /* Close overlay */
     $closeSelector.on('click', function (ev) {
         ev.preventDefault();
-        $body.toggleClass('show-overlay');
+        $body.removeClass('show-overlay');
+    });
+
+    $(document).keyup(function(ev) {
+        if (ev.keyCode === 27) {
+            $body.removeClass('show-overlay');
+        }
     });
 
     /* List and grid (tiles) view */
