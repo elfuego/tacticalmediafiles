@@ -1,0 +1,22 @@
+extends layout/page
+
+prepend variables
+    - title = 'Error 404'
+    - bodyClass = 'error'
+
+append main
+
+    section
+        .container
+            .row
+                .col-sm-3
+                    img( data-target-switch src="styles/images/video-1.gif" width="100%" )
+                .col-sm-9
+                    h2.error-title Error
+                    h3.error-subtitle MMBase-1_9 2014-05-14T09:49 (r46705)
+                    p.error-intro Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta #[a(href="#") nobis est eligendi] optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+
+                    p 
+                        a( href="/" ) home
+
+

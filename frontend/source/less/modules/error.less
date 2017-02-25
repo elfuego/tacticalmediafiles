@@ -1,0 +1,47 @@
+.error {
+
+    .error-title {
+        .font(title-normal);
+        color: @color-grey--90;
+        font-weight: normal;
+        text-align: center;
+        margin: 4rem 0;
+    }
+
+    .error-intro {
+        .font(base);
+        font-style: oblique;
+
+        color: @color-grey--70;
+        font-style: oblique;
+        margin: 0 0 4rem 0;
+    }
+
+   .error-body {
+
+        margin: 4rem 0 2rem 0;
+
+
+
+    }
+
+    p {
+        .font(medium);
+        color: @color-grey--80;
+
+        a {
+            color: @color-primary;
+
+            &:hover, 
+            &:active {
+                text-decoration: underline;
+                color: @color-primary-dark;
+            }
+        }
+        
+        @media @screen-sm-max {
+            .font(normal);
+        }
+    }
+
+}

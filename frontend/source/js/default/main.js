@@ -14,6 +14,7 @@
         $typeTarget = $('[data-select-results-type-target]'),
         $filterTarget = $('[data-select-results-filter-target]'),
         $viewTarget = $('[data-select-view-target]'),
+        $switchTarget = $('[data-target-switch]'),
         $body = $('body');
 
 
@@ -102,6 +103,22 @@
                 showList();
             }
         });
+    }
+
+    // error page animation
+    if ($switchTarget.length) {
+        var interval = setInterval(function(){
+            var src = $switchTarget.attr('src');
+            var num = 1;
+            var mat = src.match(/\d+/g);
+            if (mat.length > 0) {
+                num = parseInt( mat[(mat.length - 1)] );
+            }
+            // styles/images/video-1.gif
+            src = src.substr(0, src.indexOf('.gif') - 1);
+            num = (num > 3 ? 1 : num + 1);  // just 4 images
+            $switchTarget.attr('src', src + num + '.gif');
+        }, 3333);
     }
 
     /* Video player stuff */
