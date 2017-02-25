@@ -16,30 +16,29 @@
 <head>
   <mm:import id="title">Error ${requestScope['javax.servlet.error.status_code']}</mm:import>
   <title>${title} - Tactical Media Files</title>
-  <meta name="description" content="Tactical Media Files" />
-  <meta name="keywords" content="" />
-  <meta name="robots" content="all" />
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
-  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
-  <!--[if IE]>
-    <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/ie.css')}" />
-  <![endif]-->
+  <link href="${mm:link('/favicon.png')}" rel="shortcut icon" />
+  <link href="${mm:link('/styles/css/styles.css')}" rel="stylesheet" type="text/css" />
   <mm:link id="thispage">
     <meta http-equiv="refresh" content="60; URL=${_}" />
   </mm:link>
 </head>
 <body class="error">
-<div class="GlobalContainer">
-  <tmf:top-container />
-  <div class="ArticleContainer">
-	
-	<tmf:header-simple title="${title}" />
+<div class="page-layout">
+  <tmf:header />
+  <main class="page-layout__main" id="main">
+    <div class="main-content">
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <img data-target-switch="" src="${mm:link('/styles/images/video-1.gif')}" width="100%" />
+            </div>
+            <div class="col-sm-9">
     
-    <h2>503 This web-site is temporary unavailable</h2>
-    <h3><mm:cloudinfo type="mmbaseversion" /></h3>
+    <h2 class="error-title">503 This web-site is temporary unavailable</h2>
+    <h3 class="error-subtitle"><mm:cloudinfo type="mmbaseversion" /></h3>
 
-    <p>
+    <p class="error-intro">
       <em><mm:time time="now" format=":FULL.FULL" /></em> - This web-site is currently unavailable. <br />
       Please come back later or <a href="${thispage}">reload this page</a>.
     </p>
@@ -50,9 +49,17 @@
       successfully started.
     </p>
     
-    <div class="clearBoth"><!-- empty --></div>
-  </div><!-- EOF .ArticleContainer -->
-</div><!-- EOF .GlobalContainer -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <tmf:footer />
+</div>
+
+<script src="${mm:link('/styles/js/main.js')}"><!-- empty --></script>
+
 
 </body>
 </html>

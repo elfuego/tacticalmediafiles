@@ -13,25 +13,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
 <head>
   <title>Bad Request - Tactical Media Files</title>
-  <meta name="description" content="Tactical Media Files" />
-  <meta name="keywords" content="" />
-  <meta name="robots" content="all" />
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
-  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
-  <!--[if IE]>
-    <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/ie.css')}" />
-  <![endif]-->
+  <link href="${mm:link('/favicon.png')}" rel="shortcut icon" />
+  <link href="${mm:link('/styles/css/styles.css')}" rel="stylesheet" type="text/css" />
 </head>
 <body class="error">
-<div class="GlobalContainer">
-  <tmf:top-container />
-  <div class="ArticleContainer">
+<div class="page-layout">
+  <tmf:header />
+  <main class="page-layout__main" id="main">
+    <div class="main-content">
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <img data-target-switch="" src="${mm:link('/styles/images/video-1.gif')}" width="100%" />
+            </div>
+            <div class="col-sm-9">
 	
-	<tmf:header-simple title="400 - Bad request" />
-    
-    <h3><jsp:expression>org.mmbase.Version.get()</jsp:expression></h3>
-    <p>
+	<h2 class="error-title">400 - Bad request</h2>
+    <h3 class="error-subtitle"><jsp:expression>org.mmbase.Version.get()</jsp:expression></h3>
+    <p class="error-intro">
       <jsp:scriptlet>
         String msg = (String) request.getAttribute("org.mmbase.servlet.error.message");
         if (msg == null) {
@@ -39,12 +39,19 @@
         }
         if (msg != null) out.println(msg);
       </jsp:scriptlet>
-      <br /><a href="${mm:link('/')}">home</a>
     </p>
+    <p><a href="${mm:link('/')}">home</a></p>
 
-    <div class="clearBoth"><!-- empty --></div>
-  </div><!-- EOF .ArticleContainer -->
-</div><!-- EOF .GlobalContainer -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <tmf:footer />
+</div>
+
+<script src="${mm:link('/styles/js/main.js')}"><!-- empty --></script>
 
 </body>
 </html>
