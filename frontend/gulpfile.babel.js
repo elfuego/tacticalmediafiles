@@ -31,6 +31,8 @@ gulp.task('html', taskHTML);
 import taskStyles from './tasks/less';
 gulp.task('styles', taskStyles);
 
+import taskStylesProd from './tasks/less-production';
+gulp.task('styles-production', taskStylesProd);
 
 // Task: Assets
 
@@ -114,5 +116,5 @@ gulp.task('develop', ['html', 'styles', 'js', 'assets'], () => {
     // gulp.start('browser-sync');
 });
 
-gulp.task('production',['html', 'styles', 'js-lint', 'js-production', 'assets']);
+gulp.task('production',['html', 'styles-production', 'js-lint', 'js-production', 'assets']);
 
