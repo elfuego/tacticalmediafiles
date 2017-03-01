@@ -56,6 +56,9 @@ gulp.task('assets', ['favicon', 'fonts', 'images', 'icons']);
 import taskJS from './tasks/js';
 gulp.task('js', taskJS);
 
+import taskJSProd from './tasks/js-production';
+gulp.task('js-production', taskJSProd);
+
 // js lint and beautifier tasks
 
 import taskJSLint from './tasks/js-lint';
@@ -110,3 +113,6 @@ gulp.task('develop', ['html', 'styles', 'js', 'assets'], () => {
 
     // gulp.start('browser-sync');
 });
+
+gulp.task('production',['html', 'styles', 'js-lint', 'js-production', 'assets']);
+
