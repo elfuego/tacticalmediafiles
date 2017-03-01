@@ -11,28 +11,35 @@
 
 .navigation {
     font-family: @font-secondary;
-    position: relative;
-    left: 0;
-    top: 0;
+    .font(extra-small);
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    //position: relative;
+    //left: 0;
+    //top: 0;
     
     z-index: 1;
     background: @color-grey;
     width: 100%;
-    line-height: 5rem;
+    //line-height: 5rem;
 
     .row > div {
         min-height: 1rem;
     }
     
     a, label {
-        .font(extra-small);
-        letter-spacing: 0.2rem;
-        text-transform: uppercase;
-        vertical-align: middle;
         color: @color-grey--40;
+        margin-top: .3rem;
     }
     .nav__topics {
-        @media @screen-sm-max { margin-top: 1rem; }
+        @media @screen-sm-max { 
+            margin-top: 1rem;
+        }
+        @media @screen-xs { margin-left: 0; }
+        @media @screen-sm { margin-left: 5rem; }
+        @media @screen-md { margin-left: 6rem; }
         margin-right: 1rem;
     }
     .nav__collections {
@@ -50,7 +57,7 @@
 
     input, button {
         position: absolute;
-        top: .9rem;
+        top: 1rem;
         height: 3rem;
         border: none;
 
@@ -63,6 +70,7 @@
     }
     input.nav__search-input {
         left: 0;
+        padding-top: .4rem;
         width: 24rem;
 
         @media @screen-md-max {
@@ -76,6 +84,7 @@
         -webkit-border-radius: 0rem;
     }
     button.nav__search-button { 
+        padding-top: .5rem;
         right: 0;
         width: 4.2rem;
         
@@ -100,7 +109,8 @@
         color: @color-secondary;
     }
 
-    .nav__filter-selected {    
+    .nav__filter-selected {
+        margin-top: .2rem;
         margin-left: 1rem;
         a {
             .font(small);

@@ -22,16 +22,19 @@
         padding: 1rem;
         position: relative;
 
-        // &:before {
-        //     content: '';
-        //     position: absolute;
-        //     top: 0;
-        //     bottom: 0;
-        //     left: 0;
-        //     right: 0;
-        //     background: fade(black, 25%);
-        //     background: linear-gradient(to bottom, fade(black, 70%) 0, fade(black, 0%) 90%);
-        // }
+        &.__background {
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                //background: fade(black, 25%);
+                //background: rgba(33, 33, 33, .6);
+                background: linear-gradient(to bottom, fade(#212121,80%) 0, fade(#212121, 0%) 80%);
+            }
+        }
 
         background-size: cover;
         background-position: center;
@@ -44,10 +47,8 @@
         .tile-title {
             .font(title-small);
             font-weight: normal;
-            z-index: @index-2;
-            //color: @color-grey--90;
+            position: absolute;
             color: white;
-            text-shadow: @text-shadow;
             text-align: center;
             
             overflow: hidden;
