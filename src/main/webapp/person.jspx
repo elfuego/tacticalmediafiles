@@ -80,7 +80,6 @@
                   </div>
                 </div>
                 <mm:field name="intro" escape="paragraph(content-intro)" />
-                <mm:field name="biografy" escape="paragraph" />
               </header>
             </div>
           </div>
