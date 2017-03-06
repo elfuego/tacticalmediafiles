@@ -24,7 +24,7 @@
           <a class="tile-inner __nobackground" href="${_}">
             <div class="tile-title __nobackground">
               <mm:field name="title" />
-              <mm:field name="filename" />, <mm:field name="size" escape="myfilesize" />
+              <span class="filename"><mm:field name="filename" />, <mm:field name="size" escape="myfilesize" /></span>
             </div>
           </a>
           </mm:attachment>
