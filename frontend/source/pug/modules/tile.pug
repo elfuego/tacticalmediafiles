@@ -18,6 +18,13 @@ mixin tile(tile)
             a.tile-inner.__background( href="person.html" style="background-image: url('" + tile.image + "')" )
                 h2.tile-title #{tile.title}
     
+    else if (tile.type == 'file')
+        article.tile.__person
+            .tile-content-type #{tile.type}
+            a.tile-inner.__nobackground( href="person.html" )
+                h2.tile-title.__nobackground #{tile.title} 
+                    span.filename Tweets_the_Streets_Introduction_And_Even_MoreText.pdf, 1283,8 KiB
+    
     else
         article.tile
             .tile-content-type #{tile.type}

@@ -51,12 +51,20 @@
             color: white;
             text-align: center;
             align-self: center;
+            width: 90%;
             
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
+
+            .filename {
+                .font(small);
+                display: inline-block;
+                word-wrap: break-word;
+                width: 90%;
+            }
 
             &.__nobackground {
                 color: @color-grey--80;
