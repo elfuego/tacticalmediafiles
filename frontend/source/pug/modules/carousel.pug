@@ -10,4 +10,7 @@ mixin carousel(...items)
                         h3.carousel-item__title 
                             a( href=item.url ) #{item.title}
                         .carousel-item__read-more
-                            a.read-more( href=item.url ) Read
+                            if (item.type === 'video')
+                                a.read-more( href=item.url ) View
+                            else 
+                                a.read-more( href=item.url ) Read

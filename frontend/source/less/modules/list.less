@@ -1,0 +1,47 @@
+body {
+    
+    /* Toggle list/grid view by body class view-list or view-tiles */
+
+    &.view-list {
+        .container {
+            display: block;
+            transition: opacity @trans-slow-material;
+
+            &.__tiles {
+                visibility: hidden;
+                //transition: height 0 1s;
+                opacity: 0;
+                height: 0;
+            }
+            &.__list {
+                visibility: visible;
+                transition: height 0;
+                opacity: 1;
+            }
+
+        }
+    }
+    &.view-tiles {
+        .container {
+            display: block;
+            transition: opacity @trans-slow-material;
+
+            &.__tiles {
+                //display: block;
+                visibility: visible;
+                transition: height 0;
+                opacity: 1;
+            }
+            &.__list {
+                //display: none;
+                visibility: hidden;
+                //transition: height 0 1s;
+                opacity: 0;
+                height: 0;
+                overflow: hidden;
+            }
+            
+        }
+    }
+
+}

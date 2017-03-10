@@ -2,14 +2,77 @@ extends layout/page
 
 prepend variables
     - title = 'Search'
-    - bodyClass = 'list'
+    - bodyClass = 'list view-list'
     - showFilter = true;
     - selected = 'all';
 
 append main
-    .heading.___hidden
-        h1 Search results
-    section.container
+    .heading.__search-filter
+        .container
+            .row     
+                .col-sm-3
+                    h1.search-filter-title.__hidden Search results
+                .col-sm-3
+                .col-sm-3
+                .col-sm-3
+                    .search-filter-container
+                        label.search-filter-label View
+                        button.search-filter-button.__list( href="#" data-select-view-target="list" ) list
+                        button.search-filter-button.__grid.__selected( href="#" data-select-view-target="grid" ) grid
+
+    
+    section.container.__tiles
+        .row     
+            .col-sm-3
+                +tile({
+                    'type': 'person',
+                    'title': 'Eric Cattenbergh',
+                    'image': 'styles/images/portrait-eric.png'
+                })
+            .col-sm-3
+                +tile({
+                    'type': 'article',
+                    'title': 'NRA and Smith & Wesson Partner to "Share the Safety" With All Americans'
+                })
+            .col-sm-3
+                +tile({
+                    'type': 'picture',
+                    'title': 'A new beginning',
+                    'image': 'styles/images/Share_the_Security.jpg'
+                })
+            .col-sm-3
+                +tile({
+                    'type': 'video',
+                    'title': 'A new beginning',
+                    'image': 'styles/images/Nuit_Debout_16.jpg'
+                })
+
+        .row
+            .col-md-3
+                +tile({
+                    'type': 'article',
+                    'title': 'NRA and Smith & Wesson Partner to "Share the Safety" With All Americans'
+                })
+            .col-md-3
+                +tile({
+                    'type': 'video',
+                    'title': 'NRA and Smith & Wesson Partner to "Share the Safety" With All Americans',
+                    'image': 'styles/images/Share_the_Security.jpg'
+                })
+            .col-md-3
+                +tile({
+                    'type': 'picture',
+                    'title': 'A new hope',
+                    'image': 'styles/images/Nuit_Debout_16.jpg'
+                })
+            .col-md-3
+                +tile({
+                    'type': 'file',
+                    'title': 'A new beginning'
+                })
+
+
+    section.container.__list
         .row
             .col-md-2
             .col-md-8
@@ -102,3 +165,6 @@ append main
                         })
                 hr
             .col-md-2
+    
+
+

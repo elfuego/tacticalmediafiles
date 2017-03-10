@@ -1,0 +1,96 @@
+.container {
+    &.tiles {
+        margin-top: 2rem;
+    }
+}
+
+.tile {
+    background-color: @color-grey;
+    height: 26rem;
+    margin-bottom: 2rem;
+
+    .tile-content-type {
+        color: @color-primary;
+        font-family: @font-secondary;
+        font-style: italic;
+        text-transform: lowercase;
+        text-align: center;
+        padding: 1rem; 
+    }
+    .tile-inner {
+        height: 21rem;
+        padding: 1rem;
+        position: relative;
+
+        &.__background {
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                //background: fade(black, 25%);
+                //background: rgba(33, 33, 33, .6);
+                background: linear-gradient(to bottom, fade(#212121,80%) 0, fade(#212121, 0%) 80%);
+            }
+        }
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: none;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        
+        .tile-title {
+            .font(title-small);
+            font-weight: normal;
+            position: absolute;
+            color: white;
+            text-align: center;
+            align-self: center;
+            width: 90%;
+            
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+
+            .filename {
+                .font(small);
+                display: inline-block;
+                word-wrap: break-word;
+                width: 90%;
+            }
+
+            &.__nobackground {
+                color: @color-grey--80;
+                text-shadow: none;
+            }
+
+            @media @screen-lg-max {
+                .font(title-extrasmall);
+            }
+            @media @screen-sm-max {
+                .font(title-normal);
+            }
+        }
+
+        &:hover {
+            .tile-title {
+               color: @color-primary;
+            }
+        }
+    }
+
+    &.__file {
+        .tile-title {
+            color: @color-grey--80;
+            text-shadow: none;
+        }
+    }
+
+}

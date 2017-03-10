@@ -5,6 +5,10 @@
             background-color: black;
             max-width: 100%;
             padding: 0;
+
+            .row {
+                margin: 0;
+            }
         }
     }
 
@@ -16,24 +20,43 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        overflow: hidden;   // cut off preview images that are too large
 
         video {
-            width: 100%;
-            // background-size: cover;
-            // background-position: center;
-            // background-repeat: none;
+            max-width: 100%;
+            height: auto;
+            background-size: cover;
+            background-position: center;
 
-            // width: 64rem;
-            // height: 36rem;
-
-            // @media @screen-md-max {
-            //     width: 32rem;
-            //     height: 18rem;
+            @media @screen-xs {
+                width: 68rem;
+            }
+            @media @screen-sm {
+                width: 76.8rem;
+            }
+            @media @screen-md {
+                width: 102.4rem;
+            }
+            @media @screen-lg {
+                width: 168rem;
+            }
+            // @media @screen-xl {
+            //     width: 100%;
             // }
         }
 
         .oiplayer {
+            max-width: 100%;
+            height: auto;
             margin: 0 auto;
+            background-size: cover;
+            background-position: center;
+            background-repeat: none;
+
+            .preview {
+                width: 100%;
+                height: auto;
+            }
         }
         .oipcontrols {
             background-color: rgba(0, 0, 0, .65);
@@ -124,7 +147,7 @@
             left: 0;
             right: 0;
             bottom: 8rem;
-            z-index: @index-9;
+            z-index: @index-4;
 
             @media @screen-md-max {
                 bottom: 6rem;
@@ -138,7 +161,7 @@
 
     .video-title {
         .font(title-normal);
-        color: @color-grey--50;
+        color: @color-grey--90;
         font-weight: normal;
         margin: 2rem 0 3rem 0;
     }
@@ -154,7 +177,7 @@
     p.video-intro {
         .font(large);
         margin: 0 0 4rem  0;
-        color: @color-grey--30;
+        color: @color-grey--70;
         font-style: oblique;
 
         @media @screen-sm-max {
@@ -163,7 +186,7 @@
     }
 
     p {
-        color: @color-grey--50;
+        color: @color-grey--90;
         .font(base);
     }
 

@@ -5,13 +5,13 @@
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
 
-  <mm:import externid="n" id="page">article_about</mm:import>
-  <mm:import externid="cacheable"  />
+  <mm:import externid="n" id="page">about</mm:import>
+  <mm:import externid="cacheable" />
   
   <mm:node referid="page">
-    <mm:nodeinfo type="type" id="type" write="false" />
+    <mm:nodeinfo type="type" id="nodetype" write="false" />
     <c:choose>
-      <c:when test="${type eq 'person'}">
+      <c:when test="${nodetype eq 'person'}">
         <mm:import id="page_title"><mm:field name="firstname" /> <mm:field name="sirname" /></mm:import>
       </c:when>
       <c:otherwise>
@@ -19,10 +19,11 @@
       </c:otherwise>
     </c:choose>
   </mm:node>
-  
+           
   <tmf:html
       cacheable="${cacheable}"
-      styleClass="${type}">
+      styleClass="content ${nodetype}"
+      filter="false">
     
     <jsp:attribute name="title"><mm:write referid="page_title" escape="inline" /></jsp:attribute>
     
@@ -33,81 +34,120 @@
         <mm:param name="to" value="254" />
         <mm:param name="ellipsis" value="..." />
       </mm:escaper>
-      <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
-        <mm:relatednodes>
-          <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">, </mm:first>${keywords}</c:set>
-        </mm:relatednodes>
-      </mm:relatednodescontainer>
-      <mm:import id="meta_description"><mm:field name="intro" escape="wrapper,text/html/attribute" /></mm:import>
-      <c:if test="${!empty meta_description}"><meta name="description" content="${mm:escape('text/html/attribute',meta_description)}" /></c:if>
-      <c:if test="${!empty keywords}">
-         <meta name="keywords" content="${keywords}" />
-      </c:if>
-
+      <mm:node referid="page">
+        <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+          <mm:relatednodes>
+            <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">, </mm:first>${keywords}</c:set>
+          </mm:relatednodes>
+        </mm:relatednodescontainer>
+        <mm:import id="meta_description"><mm:field name="intro" escape="wrapper,text/html/attribute" /></mm:import>
+        <c:if test="${!empty meta_description}"><meta name="description" content="${mm:escape('text/html/attribute',meta_description)}" /></c:if>
+        <c:if test="${!empty keywords}">
+           <meta name="keywords" content="${keywords}" />
+        </c:if>
+      </mm:node>
     </jsp:attribute>
 
     <jsp:attribute name="body">
       <mm:node referid="page">
-        <div class="ArticleContainer">
-        
-          <tmf:header-article />
-
-          <div class="ArticleContent">
-
-            <!-- All the stuff on the left of an article -->
-
-            <tmf:article-relations />
+      
+        <article class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <!-- mm:relatednodescontainer path="posrel,picture">
+                <mm:sortorder field="posrel.pos" />
+                <mm:maxnumber value="1" />
+                <mm:relatednodes>
+                  <mm:link page="/picture" referids="_node@pic">
+                    <a href="${_}" class=" "><mm:image styleClass="" mode="img" width="240" height="240" /></a>
+                  </mm:link>
+                </mm:relatednodes>
+              </mm:relatednodescontainer -->                
+            </div>
+            <div class="col-md-8">
+              <header>
+                <div class="content-type">${nodetype}</div>
+                <h2 class="content-title">${page_title}</h2>
+                <div class="content-info">
+                  
+                  <!-- image of (first) author -->
+                  <mm:hasrelationmanager sourcemanager="$nodetype" destinationmanager="person" role="author">
+                    <mm:relatednodescontainer type="person" role="author" searchdirs="destination">
+                      <mm:maxnumber value="1" />
+                      <mm:relatednodes>
+                        <mm:link page="content">
+                          <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                          <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                          
+                          <mm:relatednodescontainer type="picture" role="posrel" searchdirs="destination">
+                            <mm:maxnumber value="1" />
+                            <mm:relatednodes>
+                              <div class="content-info__image">
+                                <a href="${_}"><mm:image mode="img" width="240" height="240" crop="middle" /></a>
+                              </div>
+                            </mm:relatednodes>
+                          </mm:relatednodescontainer>
+                          
+                        </mm:link>
+                      </mm:relatednodes>
+                    </mm:relatednodescontainer>
+                  </mm:hasrelationmanager>
+                  
+                  <div class="content-info__text">
+                      <mm:hasrelationmanager sourcemanager="$nodetype" destinationmanager="person" role="author">
+                        <mm:relatednodescontainer type="person" role="author" searchdirs="destination">
+                        <div class="author"> 
+                          <mm:relatednodes>
+                            <mm:link page="content">
+                              <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                              <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                              <a href="${_}"><mm:field name="firstname" /> <mm:field name="sirname" /></a>
+                              <mm:last inverse="true">, </mm:last>
+                            </mm:link>
+                          </mm:relatednodes>
+                        </div>
+                        </mm:relatednodescontainer>
+                      </mm:hasrelationmanager>
+                    <div class="date">
+                      <mm:locale language="en-US">
+                        <mm:field name="created"><mm:time format="MMMM dd, yyyy" /></mm:field>
+                      </mm:locale>
+                    </div>                    
+                    <tmf:tags />
+                  </div>
+                  
+                  <div class="content-info__related">
+                    <tmf:content-info-related />
+                  </div>
+                </div>
+                
+                <mm:field name="intro" escape="paragraph(content-intro)" />
+              </header>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
           
-            <!-- posrel,picture -->
-            <mm:relatednodescontainer path="posrel,picture">
-              <div class="ArticleLinksContainer">
-                  <div class="ArticleLeftLine"><!-- empty --></div>
-                  <div class="ArticleLinksLabel first"><img src="${mm:link('/style/images/labels/images.gif')}" alt="Images" /></div>
-              </div>
-
-              <mm:sortorder field="posrel.pos" />
-              <mm:relatednodes>		
-
-				<div class="ArticleImageContainer">
-				  <div class="ArticleImageLabel">
-					<p class="filelabel"><mm:field name="title" /></p>
-                	<mm:link page="/picture" referids="_node@pic">
-					  <a href="${_}"><mm:image mode="img" template="s(414)" /></a>
-					</mm:link>
-					<!-- <a title="Leaks" href="http://www.tacticalmediafiles.net/picture.jsp?objectnumber=48386" target="_new"><img src="./artikel2_files/wikilogo_square.jpg" /></a> -->
-				  </div>
-				</div>
-
-              </mm:relatednodes>
-              <div class="ArticleImage"><img src="${mm:link('/style/images/x.gif')}" alt="X" /></div>
-            </mm:relatednodescontainer>
-            <!-- EOF posrel,picture -->
-
-            <!-- End of Left Stuff -->
+          <section class="row">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+                <c:choose>
+                  <c:when test="${nodetype eq 'person'}">
+                    <mm:field name="biografy" escape="paragraph" />
+                  </c:when>
+                  <c:otherwise>
+                    <mm:field name="body" escape="paragraph" />
+                  </c:otherwise>
+                </c:choose>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </section>
+        
+          <aside>
+            <tmf:content-related />
+          </aside>
           
-        
-            <div style="padding-left: 280px ;">
-                <p class="Text">
-
-				  <c:choose>
-					<c:when test="${type eq 'person'}">
-	                  <mm:field name="biografy" escape="paragraph(Text)" />
-					</c:when>
-					<c:otherwise>
-	                  <mm:field name="body" escape="paragraph(Text)" />
-					</c:otherwise>
-				  </c:choose>
-                </p>
-            </div><!-- EOF .Text -->
-
-            <div style="text-align: right; margin-top: 15px ;"><img src="${mm:link('/style/images/x-blue.gif')}" alt="X" /></div>
-            <div class="clearBoth"><!-- empty --></div>
-            <div class="clearBoth"><!-- empty --></div>
-            <div class="ArticleSpacer"><!-- empty --></div>
-        
-          </div><!-- EOF .ArticleContent -->
-
-        </div><!-- EOF .ArticleContainer -->
+        </article>
+                
       </mm:node>
     </jsp:attribute>
   </tmf:html>

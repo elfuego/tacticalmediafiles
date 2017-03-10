@@ -15,9 +15,11 @@ append main
                             .video-background
 
                                 video( 
-                                    id="tmf-player"
+                                    id="oip_ea_id_tmf-player"
                                     poster="styles/images/lol-cat-16x9.png"
-                                    controls                        
+                                    controls
+                                    width
+                                    height
                                 )
                                     source( type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" src="http://www.tacticalmediafiles.net/files/38/38889.38884.NRA_and_SW_Share_the_Safety.mp4" )
                                     source( type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" src="http://www.tacticalmediafiles.net/files/38/38884.NRA_and_SW_Share_the_Safety.mp4" )
@@ -63,7 +65,7 @@ append main
                     .col-md-8
 
                         h4.content-related__title Links
-                        ul.content-related__list
+                        ul.content-related__list.__links
                             li
                                 a( href="https://nrapress.org/articles/20160622/nra-smith-wesson-partner-share-the-safety/" ) https://nrapress.org/articles/20160622/nra-smith-wesson-partner-share-the-safety/
                             li

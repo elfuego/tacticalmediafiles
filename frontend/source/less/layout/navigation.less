@@ -11,35 +11,44 @@
 
 .navigation {
     font-family: @font-secondary;
-    position: relative;
-    left: 0;
-    top: 0;
+    .font(extra-small);
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    //position: relative;
+    //left: 0;
+    //top: 0;
     
     z-index: 1;
     background: @color-grey;
     width: 100%;
-    line-height: 5rem;
+    //line-height: 5rem;
 
     .row > div {
         min-height: 1rem;
     }
-
+    
     a, label {
-        font-size: 1.1rem;
-        letter-spacing: 0.2rem;
-        text-transform: uppercase;
-        vertical-align: middle;
-        color: @color-grey--20;
+        color: @color-grey--40;
+        margin-top: .3rem;
     }
     .nav__topics {
+        @media @screen-sm-max { 
+            margin-top: 1rem;
+        }
+        @media @screen-xs { margin-left: 0; }
+        @media @screen-sm { margin-left: 5rem; }
+        @media @screen-md { margin-left: 6rem; }
         margin-right: 1rem;
     }
     .nav__collections {
+        @media @screen-sm-max { margin-top: 1rem; }
         margin-left: 1rem;
     }
     .nav__search {
         position: relative;
-        height: 2.8rem;
+        height: 5rem;
         width: 28.2rem;
         overflow: hidden;
     }
@@ -48,12 +57,11 @@
 
     input, button {
         position: absolute;
-        top: 0;
+        top: 1rem;
         height: 3rem;
         border: none;
 
-        font-size: 1.1rem;
-        line-height: 2.1rem;
+        .font(extra-small);
 
         color: @color-secondary;
         letter-spacing: .2rem;
@@ -62,6 +70,7 @@
     }
     input.nav__search-input {
         left: 0;
+        padding-top: .4rem;
         width: 24rem;
 
         @media @screen-md-max {
@@ -75,11 +84,12 @@
         -webkit-border-radius: 0rem;
     }
     button.nav__search-button { 
+        padding-top: .5rem;
         right: 0;
         width: 4.2rem;
         
         color: black;
-        background-color: @color-grey--40;
+        background-color: @color-grey--30;
         cursor: pointer;
     }
 
@@ -99,12 +109,13 @@
         color: @color-secondary;
     }
 
-    .nav__filter-selected {    
+    .nav__filter-selected {
+        margin-top: .2rem;
         margin-left: 1rem;
         a {
+            .font(small);
             letter-spacing: 0;
             color: @color-primary;
-            font-size: 1.4rem;
             text-transform: lowercase;
             font-style: italic;
         }

@@ -1,0 +1,123 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="overlay"
+      description="Content for overlays"
+      />
+  
+      <div class="overlay" data-select-results="">
+        <div class="overlay-content">
+          <div class="container topics">
+            <div class="row">
+              <div class="col-md-12">
+                <a class="close" href="#close" title="Close" data-select-results-close="close"><!-- empty --></a>
+                <h2>Topics</h2>
+                <ol class="alphabet">
+                  <li><a href="A" data-select-results-letter="A">A</a></li>
+                  <li><a href="B" data-select-results-letter="B">B</a></li>
+                  <li><a href="C" data-select-results-letter="C">C</a></li>
+                  <li><a href="D" data-select-results-letter="D">D</a></li>
+                  <li><a href="E" data-select-results-letter="E">E</a></li>
+                  <li><a href="F" data-select-results-letter="F">F</a></li>
+                  <li><a href="G" data-select-results-letter="G">G</a></li>
+                  <li><a href="H" data-select-results-letter="H">H</a></li>
+                  <li><a href="I" data-select-results-letter="I">I</a></li>
+                  <li><a href="J" data-select-results-letter="J">J</a></li>
+                  <li><a href="K" data-select-results-letter="K">K</a></li>
+                  <li><a href="L" data-select-results-letter="L">L</a></li>
+                  <li><a href="M" data-select-results-letter="M">M</a></li>
+                  <li><a href="N" data-select-results-letter="N">N</a></li>
+                  <li><a href="O" data-select-results-letter="O">O</a></li>
+                  <li><a href="P" data-select-results-letter="P">P</a></li>
+                  <li><a href="Q" data-select-results-letter="Q">Q</a></li>
+                  <li><a href="R" data-select-results-letter="R">R</a></li>
+                  <li><a href="S" data-select-results-letter="S">S</a></li>
+                  <li><a href="T" data-select-results-letter="T">T</a></li>
+                  <li><a href="U" data-select-results-letter="U">U</a></li>
+                  <li><a href="V" data-select-results-letter="V">V</a></li>
+                  <li><a href="W" data-select-results-letter="W">W</a></li>
+                  <li><a href="X" data-select-results-letter="X">X</a></li>
+                  <li><a href="Y" data-select-results-letter="Y">Y</a></li>
+                  <li><a href="Z" data-select-results-letter="Z">Z</a></li>
+                </ol>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2"><!-- empty --></div>
+              <div class="col-md-8">
+                <div class="topics-target" data-select-results-topics-target="">
+                  <mm:listnodescontainer type="keyword">
+                    <mm:constraint field="keyword" value="a%" operator="LIKE" />
+                    <mm:maxnumber value="99" />
+                    <mm:sortorder field="keyword" direction="UP" />
+                    <ol class="items">
+                      <mm:listnodes>
+                        <li> 
+                          <mm:link page="pages">
+                            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                            <mm:frameworkparam name="page">search</mm:frameworkparam>
+                            <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+                            <a href="${_}"><mm:field name="keyword" /></a>
+                          </mm:link>
+                         </li>
+                      </mm:listnodes>
+                    </ol>
+                  </mm:listnodescontainer>
+                </div>
+
+              </div>
+              <div class="col-md2"><!-- empty --></div>
+            </div>
+          </div>
+
+          <div class="container collections">
+            <div class="row">
+              <div class="col-md-2"><!-- empty --></div>
+              <div class="col-md-8">
+                <h2>Collections</h2>
+                <mm:listnodescontainer type="collection">
+                  <ul>
+                  <mm:listnodes>
+                    <li>
+                      <mm:link page="content">
+                        <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                        <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                        <em><mm:field name="author" /></em>
+                        <h3><a href="${_}"><mm:field name="title" /></a></h3>
+                      </mm:link>
+                    </li>
+                  </mm:listnodes>
+                  </ul>
+                </mm:listnodescontainer>
+              </div>
+              <div class="col-md-2"><a class="close" href="#close" title="Close" data-select-results-close="close"><!-- empty --></a></div>
+            </div>
+          </div>          
+
+          <div class="container filter">
+            <div class="row">
+              <div class="col-md-2"><!-- empty --></div>
+              <div class="col-md-8">
+                <h2>Filter</h2>
+                <ul>
+                  <li><a href="#" data-select-results-type="all">All</a></li>
+                  <li><a href="#" data-select-results-type="article">Articles</a></li>
+                  <li><a href="#" data-select-results-type="video">Videos</a></li>
+                  <li><a href="#" data-select-results-type="file">Files</a></li>
+                  <li><a href="#" data-select-results-type="picture">Pictures</a></li>
+                  <li><a href="#" data-select-results-type="person">People</a></li>
+                  <li><a href="#" data-select-results-type="event">Events</a></li>
+                  <li><a href="#" data-select-results-type="campaign">Campaigns</a></li>
+                </ul>
+              </div>
+              <div class="col-md-2"><a class="close" href="#close" title="Close" data-select-results-close="close"><!-- empty --></a></div>
+            </div>
+          </div>          
+                  
+        </div>        
+      </div> 
+</jsp:root>

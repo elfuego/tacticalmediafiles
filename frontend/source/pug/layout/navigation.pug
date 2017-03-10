@@ -5,7 +5,7 @@ nav.navigation
     form( action="list.html" id="form" ).container
         input( type="hidden" name="type" data-select-results-type-target="" )
         .row
-            .col-sm-3.start-sm.center-xs.col-sm-offset-1
+            .col-sm-4.middle-xs.center-xs.start-sm
                 a.nav__topics( href="#topics" data-select-overlay="topics" ) Topics
                 a.nav__collections( href="#collections" data-select-overlay="collections" ) Collections
             .col-sm-4.middle-xs.center-xs
@@ -13,7 +13,7 @@ nav.navigation
                     label.nav__search-label( for="search" hidden ) Search
                     input.nav__search-input( id="search" type="text" placeholder="Search the archive" )
                     button.nav__search-button Go
-            .col-sm-2.middle-xs.center-xs.end-sm
+            .col-sm-4.middle-xs.center-xs.end-sm
                 if showFilter
                     a.nav__filter( href="#filter" data-select-overlay="filter" ) Filter
                     span.nav__filter-selected 

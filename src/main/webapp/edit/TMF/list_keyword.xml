@@ -2,21 +2,21 @@
 <!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
 
 <list role="related" destination="keyword">
-			<item>
-				<field name="keyword" ftype="data" />				
-			</item>	
-			
-			<command name="search" nodepath="keyword" fields="keyword" age="-1">
-				<prompt xml:lang="en">Search keyword</prompt>
-				<prompt xml:lang="nl">Zoek trefwoord</prompt>
-				<search-filter>
-					<name xml:lang="en">Keyword:</name>
-					<name xml:lang="nl">Trefwoord:</name>
-					<search-fields>keyword</search-fields>
-				</search-filter>				
-	    </command>
-			<command name="startwizard" inline="true" wizardname="TMF/keyword" objectnumber="new" />
-			<action type="create">
-				<relation destination="keyword" role="related" />
-			</action>				
-		</list>
+    <item>
+        <field name="keyword" ftype="data" />				
+    </item>	
+    
+    <command name="search" nodepath="keyword" fields="keyword" age="-1">
+        <prompt xml:lang="en">Search keyword</prompt>
+        <prompt xml:lang="nl">Zoek trefwoord</prompt>
+        <search-filter>
+            <name xml:lang="en">Keyword:</name>
+            <name xml:lang="nl">Trefwoord:</name>
+            <search-fields>keyword</search-fields>
+        </search-filter>				
+    </command>
+    <command name="startwizard" inline="true" wizardname="TMF/keyword" objectnumber="new" />
+    <action type="create">
+        <relation destination="keyword" role="related" />
+    </action>				
+</list>

@@ -1,0 +1,103 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="listitem"
+      description="Item to be used in lists on this site."
+      />
+    
+    <mm:nodeinfo type="type" id="nodetype" write="false" />
+    
+    <c:choose>
+      <c:when test="${nodetype eq 'video'}">
+  
+        <article class="listitem __video">
+          <mm:link page="media">
+            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+          
+            <div class="content-type">Video</div>
+            <h2 class="listitem-title"><a href="${_}"><mm:field name="title" escape="inline" /></a></h2>
+          
+            <mm:import id="image" reset="true">${mm:link('/style/images/video-003.gif')}</mm:import>
+            <mm:relatednodes type="picture" max="1">
+              <mm:import id="image" reset="true"><mm:image mode="url" width="640" height="360" crop="middle" /></mm:import>
+            </mm:relatednodes>
+
+            <div class="listitem-video-still">
+              <a href="${_}"><img src="${image}" /></a>
+              <a class="read-more" href="${_}">View</a>
+            </div>
+            
+            <tmf:tags />
+
+          </mm:link>
+        </article>
+        
+      </c:when>
+      <c:when test="${nodetype eq 'picture'}">
+        
+        <article class="listitem __picture">
+          <mm:link page="/picture" referids="_node@pic">
+            <div class="content-type">picture</div>
+            <h2 class="listitem-title"><a href="${_}"><mm:field name="title" /></a></h2>
+            <div class="listitem-picture">
+              <a href="${_}"><mm:image mode="img" width="640" height="360" /></a>
+              <a class="read-more" href="${_}">View</a>
+            </div>
+          </mm:link>
+        </article>
+        
+      </c:when>
+      <c:when test="${nodetype eq 'file'}">
+        
+        <mm:escaper id="myfilesize" type="filesize">
+          <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
+        </mm:escaper>
+    
+        <article class="listitem __file">
+          <div class="content-type">file</div>
+          <mm:attachment>
+            <h2 class="listitem-title"><a href="${_}" class="medium"><mm:field name="title" /></a></h2>
+            <div class="listitem-intro">
+              <span class="filelabel"> 
+                <a href="${_}"><mm:field name="filename" /></a>, <mm:field name="size" escape="myfilesize" />
+              </span>
+              <mm:field name="description">
+                <mm:isnotempty><br /><mm:write escape="tagstripper" /></mm:isnotempty>
+              </mm:field>
+            </div>
+          </mm:attachment>
+        </article>
+
+      </c:when>
+      <c:otherwise>
+
+        <article class="listitem">
+          <mm:link page="content">
+            <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+            <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+            
+            <div class="content-type">${nodetype}</div>
+            <h2 class="listitem-title">
+              <a href="${_}">
+                <mm:hasfield name="title"><mm:field name="title" escape="inline" /></mm:hasfield> 
+                <mm:hasfield name="firstname"><mm:field name="firstname"/></mm:hasfield> <mm:hasfield name="prefix"><mm:field name="prefix"/></mm:hasfield> <mm:hasfield name="sirname"><mm:field name="sirname"/></mm:hasfield>
+              </a>
+            </h2>
+            <mm:field name="intro" escape="paragraph(listitem-intro)" />
+            <a class="read-more" href="${_}">${nodetype eq 'collection' ? 'View' : 'Read'}</a>
+
+            <tmf:tags />
+    
+          </mm:link>
+        </article>
+        
+      </c:otherwise>
+    </c:choose>
+    
+</jsp:root>

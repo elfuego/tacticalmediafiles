@@ -18,6 +18,10 @@
       description="Extra style class that can be added to the body"
       />
   <jsp:directive.attribute name="cacheable" type="java.lang.Boolean" />
+  <jsp:directive.attribute type="java.lang.Boolean"
+      name="filter"
+      description="To display filter options next to search"
+      />
 
   <jsp:directive.attribute name="body"  fragment="true" required="true" />
   <jsp:directive.attribute name="left"  fragment="true" />
@@ -38,11 +42,13 @@
     <mm:cloud method="${cacheable ? 'anonymous' : 'asis'}">
 
       <html
-          lang="${requestScope['javax.servlet.jsp.jstl.fmt.locale.request']}"
-          xml:lang="${requestScope['javax.servlet.jsp.jstl.fmt.locale.request']}"
+          lang="en"
+          xml:lang="en"
           xmlns="http://www.w3.org/1999/xhtml">
 
         <mm:import id="page" externid="n" />
+        <mm:import externid="q" />
+        <mm:import externid="t" />
 
         <c:if test="${! empty page}">
           <mm:node id="page" referid="page" />
@@ -81,25 +87,29 @@
         </tmf:head>
 
         <body class="${styleClass}">
-          <div class="GlobalContainer">
-            
-            <tmf:top-container />
-
-            <c:choose>
-              <c:when test="${empty page}">
-                <jsp:invoke fragment="body"  /> 
-              </c:when>
-              <c:otherwise>
-                <mm:node referid="page">
-                  <jsp:invoke fragment="body"  />
-                </mm:node>
-              </c:otherwise>
-            </c:choose>
-            
+          <div class="page-layout">
+            <a id="skip-link" href="#main">Skip to main content</a>
+            <tmf:header q="${q}" filter="${filter}" type="${t}" />
+            <main class="page-layout__main" id="main">
+              <div class="main-content">
+                <c:choose>
+                  <c:when test="${empty page}">
+                    <jsp:invoke fragment="body"  />
+                  </c:when>
+                  <c:otherwise>
+                    <mm:node referid="page">
+                      <jsp:invoke fragment="body"  />
+                    </mm:node>
+                  </c:otherwise>
+                </c:choose>
+              </div>
+            </main>
             <tmf:footer />
+            <tmf:overlay />
             <tmf:googleanalytics />
           
           </div>
+          <script src="${mm:link('/styles/js/main.js')}"><!-- empty --></script>
         </body>
       </html>
     </mm:cloud>

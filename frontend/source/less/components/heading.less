@@ -2,7 +2,7 @@
     
     &.__collection {
         height: 57.4rem;
-        padding: 4rem;
+        overflow: hidden;
 
         @media @screen-md-max {
             height: 40rem;
@@ -10,25 +10,22 @@
         @media @screen-sm-max {
             height: 36rem;
         }
+
+        background-size: cover;
+        .container {
+            background-color: @color-grey-transparent;
+            padding: 4rem;
+            height: 100%;
+            
+            @media @screen-sm-max {
+                padding: 2rem;
+            }
+
+        }
     }
 
-    .collection-heading {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-
-        height: 42rem;
-        margin: 3rem 0 0 0;
-
-        @media @screen-md-max {
-            height: 26rem;
-            margin: 2rem 0 0 0;
-        }
-        @media @screen-sm-max {
-            height: 24rem;
-            margin: 0rem 0 0 0;
-        }
+    &.__search-filter {
+        height: 7rem;
     }
 
     h1 {
@@ -48,46 +45,71 @@
         }
     }
 
-    h2.collection-author {
-        .font(medium);
-        font-family: @font-secondary;
-        letter-spacing: .1rem;
-        color: @color-primary;
-        text-align: center;
+    .search-filter-title {
+        &.__hidden { display: none; }
     }
 
-    h3.collection-title {
-        .font(title-normal);
-        font-weight: normal;
-        text-align: center;
-        color: white;
+    .search-filter-container {
+        height: 7rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
         
-        @media @screen-sm-max {
-            .font(large); 
+        .search-filter-label {
+            .font(extra-small); 
+            font-family: @font-secondary;
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            color: @color-grey--40;
+            margin: .4rem 1rem 0 0;
         }
-    }
+        .search-filter-button {
+            border: none;
+            background-color: white;
+            width: 3.4rem;
+            height: 3.4rem;
+            padding: .2rem;
+            color: white;
+            overflow: hidden;
 
-    p.collection-intro {
-        .font(large);
-        color: white;
-        font-style: oblique;
-        margin: 0;
+            margin-left: 1rem;
+            cursor: pointer;
 
-        display: -webkit-box;
-        -webkit-line-clamp: 12;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        word-wrap: break-word;
-
-        @media @screen-md-max {
-            .font(base);
+            &.__list {
+                &:before {
+                    .fa-icon();
+                    content: @fa-var-bars;
+                    color: @color-grey;
+                    font-size: 3rem;
+                }
+                .view-list & {
+                    &:before {
+                        color: @color-primary;
+                    }
+                }
+            }
+            &.__grid {
+                padding-top: 0.3rem;
+                &:before {
+                    .fa-icon();
+                    content: @fa-var-th-large;
+                    color: @color-grey;
+                    font-size: 3rem;
+                }
+                .view-tiles & {
+                    &:before {
+                        color: @color-primary;
+                    }
+                }
+            }
+            &.__selected {
+                &:before {
+                    //color: @color-primary;
+                }
+            }
         }
-        @media @screen-sm-max {
-            -webkit-line-clamp: 7;
-            .font(medium);
-        }
-
     }
 
 }
