@@ -1,0 +1,56 @@
+@media print {
+
+    html {
+        font-size: 8px;
+    }
+
+    // does this work?
+    body > *:not(main) {
+        display: none;
+    }
+    // this works at least
+    header nav, footer {
+        display: none;
+    }
+    // hide some specific items
+    .read-more,
+    .heading .search-filter-container,
+    .pager
+     {
+        display: none;
+    }
+    // image and video sizes
+    img, video,
+    .video .video-background video,
+    .listitem.__picture .listitem-picture img, 
+    .listitem.__picture .listitem-video-still img, 
+    .listitem.__video .listitem-picture img, 
+    .listitem.__video .listitem-video-still img    
+    { max-width: 48rem; }
+    // less margin on some
+    .main-content {
+        .content-type, .tags, hr {
+            margin-top: 2rem;
+        }
+    }
+    // print the urls of links
+    p a:after, 
+    ul.__links a:after {
+        content: " <" attr(href) ">";
+        font-size: 80%;
+        color: @color-grey--80;
+    }
+    // but not the #links
+    a[href^="#"]:after {
+        display: none;
+    }
+    // forces printing of background images (webkit only)
+    .content-related__image-bg {
+        -webkit-print-color-adjust: exact;
+    }
+    // page margin
+    @page {
+        margin: 1.5cm;
+    }
+
+}

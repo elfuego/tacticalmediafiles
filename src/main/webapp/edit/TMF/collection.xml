@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE wizard-schema PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<wizard-schema id="collection">
+	<title xml:lang="en">Collection Wizard</title>
+	<title xml:lang="nl">Collectie Wizard</title>
+	
+	<action type="create">
+		<object type="collection" />
+	</action>
+	
+	<action type="delete">
+		<prompt xml:lang="en">Are you sure you want to remove this collection?</prompt>
+		<prompt xml:lang="nl">Weet je zeker dat je deze collectie wilt verwijderen?</prompt>
+		<description xml:lang="en">Remove Collection</description>
+		<description xml:lang="nl">Collectie verwijderen</description>
+	</action>
+	
+	<action type="load">
+		<relation role="related" searchdir="destination" destination="picture">
+			<object>
+				<field name="title" />
+			</object>
+		</relation>
+		
+		<relation role="related" searchdir="destination" destination="keyword">
+			<object>
+				<field name="keyword" />
+			</object>
+		</relation>	
+		
+		<relation role="posrel" searchdir="destination" destination="picture">
+			<object>
+				<field name="title" />
+				<field name="description" />
+				<field name="handle" />
+			</object>
+		</relation>
+		<relation role="posrel" searchdir="destination" destination="video">
+			<object>
+				<field name="title"/>
+				<field name="description"/>
+				<field name="handle"/>
+			</object>
+		</relation>
+		<relation role="posrel" searchdir="destination" destination="article">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>	
+		<relation role="posrel" searchdir="destination" destination="event">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>	
+		<relation role="posrel" searchdir="destination" destination="campaign">
+			<object>
+				<field name="title" />
+				<field name="subtitle" />
+			</object>
+		</relation>	
+		<relation role="posrel" searchdir="destination" destination="file">
+			<object>
+				<field name="title" />
+				<field name="description" />
+				<field name="handle" />
+			</object>
+		</relation>	
+	</action>
+	
+	<form-schema id="collection">
+		
+		<title xml:lang="en">Collection</title>
+		<title xml:lang="nl">Collectie</title>
+		
+		<field name="title" dtrequired="true" />
+		<field name="author">
+          <prompt xml:lang="en">Author</prompt>
+          <prompt xml:lang="nl">Auteur</prompt>
+          <description xml:lang="en">Author of this collection</description>
+          <description xml:lang="nl">Auteur of samensteller van deze collectie</description>
+		</field>
+		<field name="created" ftype="data" />
+		<field name="intro" ftype="html" dttype="html" rows="10" />
+		<field name="body" rows="20" ftype="html" dttype="html" />
+		
+		<list include="TMF/list_keyword.xml" />
+		<list include="TMF/related_picture_max-one.xml" />
+		
+	</form-schema>
+		
+		
+		
+		
+	<form-schema id="relations">
+	
+		<title xml:lang="en">Relations</title>
+		<title xml:lang="nl">Relaties</title>
+		
+		<list include="TMF/posrel_article.xml" />
+		<list include="TMF/posrel_picture.xml" />
+		<list include="TMF/posrel_video.xml" />
+		<list include="TMF/posrel_event.xml" />
+		<list include="TMF/posrel_file.xml" />
+		<list include="TMF/posrel_campaign.xml" />
+		
+	</form-schema>
+</wizard-schema>

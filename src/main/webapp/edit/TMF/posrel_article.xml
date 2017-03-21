@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" 
+    "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<list role="posrel" 
+    destinationtype="article" 
+    ordertype="number"
+    minoccurs="0" maxoccurs="*" 
+    orderby="field[@name='pos']">
+    
+    <title xml:lang="en">Articles</title>
+    <title xml:lang="nl">Artikelen</title>
+
+    <item>
+        <field name="title" ftype="data">
+            <prompt xml:lang="en">Title</prompt>
+            <prompt xml:lang="nl">Titel</prompt>
+        </field>
+        <field name="subtitle" ftype="data">
+            <prompt xml:lang="en">Subtitle</prompt>
+            <prompt xml:lang="nl">Subtitel</prompt>
+        </field>
+        <field fdatapath="field[@name='pos']" ftype="line">
+          <prompt>Positie</prompt>
+          <description xml:lang="en">Ordering of this item</description>
+          <description xml:lang="nl">Ordening van dit item</description>
+        </field>
+        <field ftype="startwizard" wizardname="TMF/article" inline="true" />
+    </item>
+
+    <command name="search" nodepath="article" fields="title,subtitle" age="-1">
+        <prompt xml:lang="en">Search articles</prompt>
+        <prompt xml:lang="nl">Zoek artikelen</prompt>
+        <search-filter>
+            <name xml:lang="en">Title:</name>
+            <name xml:lang="nl">Titel:</name>
+            <search-fields>title</search-fields>
+        </search-filter>
+        <search-filter>
+            <name xml:lang="en">Subtitle:</name>
+            <name xml:lang="nl">Subtitel:</name>
+            <search-fields>subtitle</search-fields>
+        </search-filter>
+    </command>
+    <command name="startwizard" inline="true" wizardname="TMF/article" objectnumber="new" />
+    <action type="create">
+        <relation destinationtype="article" role="posrel">
+            <field name="pos">{sum(//relation[@role='posrel' and @lastitem='true' and object/@type='article']/field[@name='pos'])+{$pos}}</field>
+        </relation>
+    </action>
+</list>

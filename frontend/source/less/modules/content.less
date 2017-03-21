@@ -1,50 +1,67 @@
 .content {
     
-    text-align: center;
+    &.picture {
+        .content-type { margin-top: 2.6rem; }
+        img {
+            width: 100%;
+            height: auto;
+        }
 
-    .title {
-        margin: 2rem 0 3rem 0;
-        color: @color-grey--50;
-        font-size: @font-title-normal;
-        line-height: @line-height--title-normal;
-        text-align: center;
+        .content-intro {
+            margin-left: 4rem;
+        }
+    }
+
+    .content-title {
+        .font(title-normal);
+        color: @color-grey--90;
         font-weight: normal;
+        margin: 2rem 0 3rem 0;
+
+        @media @screen-sm-max {
+            .font(title-extra-small);
+        }
+    }
+    
+    .content-image {
+        img {
+            width: 100%;
+            margin: 1rem 0 3rem 0;
+        }
+    }
+
+    p.content-intro {
+        .font(large);
+        color: @color-grey--70;
+        font-style: oblique;
+        margin: 0 0 4rem 12rem;
+
+        @media @screen-sm-max {
+            .font(medium);
+            margin-left: 3rem;
+        }
+    }
+
+    p {
+        .font(base);
+        color: @color-grey--80;
 
         a {
-            color: @color-grey--50;
+            color: @color-primary;
+
+            &:hover, 
+            &:active {
+                text-decoration: underline;
+            }
+        }
+        
+        @media @screen-sm-max {
+            .font(medium);
         }
     }
 
-    p, .intro {
-        font-size: @font-large;
-        line-height: @line-height--large;
-        color: @color-grey--30;
-        font-style: oblique;
-        text-align: center;
-    }
-    .intro {
-        margin-bottom: 4rem;
+    h2, h3, h4, h5, h6 {
+        color: @color-grey--90;
     }
 
-    &.__video {    
-        .intro {
-            margin-top: 4rem;
-        }
-    }
-
-    .content__video {
-        position: relative;
-
-        video {
-            width: 100%;
-            //height: 36rem;
-        }
-
-        .read-more {
-            position: absolute;
-            bottom: 6rem;
-            left: 50% - 9rem;
-        }
-
-    }
 }

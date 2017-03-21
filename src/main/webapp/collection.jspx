@@ -1,0 +1,151 @@
+<jsp:root
+    version="2.0"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0">
+
+  <mm:import externid="n" id="page">about</mm:import>
+  <mm:import externid="cacheable"  />
+  
+  <mm:node referid="page">
+    <mm:nodeinfo type="type" id="nodetype" write="false" />
+    <!-- @TODO: redirect to 404 when not of type collection -->
+    <mm:field name="title" id="page_title" write="false" />
+  </mm:node>
+
+  <mm:escaper type="substring" id="wrap_intro">
+    <mm:param name="from" value="0" />
+    <mm:param name="to" value="128" />
+    <mm:param name="ellipsis" value="..." />
+  </mm:escaper>
+           
+  <tmf:html
+      cacheable="${cacheable}" 
+      filter="true"
+      styleClass="collection view-list">
+    
+    <jsp:attribute name="title"><mm:write referid="page_title" escape="inline" /></jsp:attribute>
+    
+    <jsp:attribute name="head">
+       
+      <mm:escaper id="wrapper" type="substring">
+        <mm:param name="from" value="0" />
+        <mm:param name="to" value="254" />
+        <mm:param name="ellipsis" value="..." />
+      </mm:escaper>
+      <mm:relatednodescontainer type="keyword" searchdirs="destination" role="related">
+        <mm:relatednodes>
+          <c:set var="keywords"><mm:field name="keyword" /><mm:first inverse="true">, </mm:first>${keywords}</c:set>
+        </mm:relatednodes>
+      </mm:relatednodescontainer>
+      <mm:import id="meta_description"><mm:field name="intro" escape="wrapper,text/html/attribute" /></mm:import>
+      <c:if test="${!empty meta_description}"><meta name="description" content="${mm:escape('text/html/attribute',meta_description)}" /></c:if>
+      <c:if test="${!empty keywords}">
+         <meta name="keywords" content="${keywords}" />
+      </c:if>
+
+    </jsp:attribute>
+
+    <jsp:attribute name="body">
+      <mm:node referid="page">
+        <mm:relatednodescontainer type="picture" role="related" searchdirs="destination">
+          <mm:maxnumber value="1" />
+          <mm:relatednodes>
+            <mm:import id="imglink" reset="true"><mm:image template="s(480)+part(0,0,480,360)" mode="url" /></mm:import>
+          </mm:relatednodes>
+        </mm:relatednodescontainer>
+
+      
+        <section class="heading __collection" style="background-image:url('${imglink}')">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-2"><!-- empty --></div>
+              <div class="col-md-8">
+                <h1 class="collection-content-type">Collection</h1>
+                <h2 class="collection-author"><mm:field name="author" /></h2>
+                <div class="collection-heading">
+                  <h3 class="collection-title"><mm:field name="title" /></h3>
+                  <mm:field name="intro" escape="paragraph(collection-intro)" />
+                </div>
+              </div>
+              <div class="col-md-2"><!-- empty --></div>
+            </div>
+          </div>
+        </section>
+        
+        <mm:field name="body">
+          <mm:isnotempty>
+            <section>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-2"><!-- empty --></div>
+                  <div class="col-md-8">
+                    <div class="collection-body"><mm:write escape="paragraph" /></div>
+                    <hr />
+                  </div>
+                  <div class="col-md-2"><!-- empty --></div>
+                </div>
+              </div>
+            </section>
+          </mm:isnotempty>
+        </mm:field>
+                
+        <section class="heading __search-filter">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-9"><!-- empty --></div>
+              <div class="col-sm-3">
+                <div class="search-filter-container">
+                  <label class="search-filter-label">View</label>
+                  <button class="search-filter-button __list" href="#" data-select-view-target="list">list</button>
+                  <button class="search-filter-button __grid" href="#" data-select-view-target="grid">grid</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <mm:listrelationscontainer role="posrel" searchdir="destination">
+          <mm:sortorder field="posrel.pos" />
+          <section class="container __list">
+          <mm:listrelations id="the_list">
+            <!-- item <mm:field name="pos" /> in this collection -->
+            <mm:relatednode> 
+            
+              <div class="row">
+                <div class="col-md-2"> </div>
+                <div class="col-md-8">
+                    
+                  <tmf:listitem />
+                  
+                </div>
+                <div class="col-md-2"> </div>
+              </div>
+                            
+            </mm:relatednode>
+          </mm:listrelations>
+          </section>
+        </mm:listrelationscontainer>
+        
+        <section class="container __tiles">
+          <div class="row">
+            <mm:listrelations referid="the_list">
+              <!-- item <mm:field name="pos" /> in this collection -->
+              <mm:relatednode> 
+                
+                <div class="col-sm-3">
+                  
+                  <tmf:tile />
+                  
+                </div>
+                
+              </mm:relatednode>
+            </mm:listrelations>
+          </div>
+        </section>
+        
+      </mm:node>
+    </jsp:attribute>
+  </tmf:html>
+</jsp:root>

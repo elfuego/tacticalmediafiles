@@ -1,0 +1,339 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="content-related"
+      description="Content that is related to this article (content)"
+      />
+  
+    <mm:escaper id="myfilesize" type="filesize">
+      <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
+    </mm:escaper>
+
+    <mm:escaper type="substring" id="wrap_intro">
+      <mm:param name="from" value="0" />
+      <mm:param name="to" value="128" />
+      <mm:param name="ellipsis" value="..." />
+    </mm:escaper>
+      
+    <!-- campaign -->
+    <mm:relatednodescontainer role="related" type="campaign" searchdirs="source">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="campaigns">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Campaigns</h4>
+              <ul class="content-related__list __campaigns">
+              <mm:relatednodes>
+                <li>
+                  <mm:link page="content">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <mm:field name="subtitle"><mm:isnotempty><span class="content-related__link-description"><mm:write /></span></mm:isnotempty></mm:field>
+                  </mm:link>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+
+    <!-- campaign: posrel -->
+    <mm:relatednodescontainer role="posrel" type="campaign" searchdirs="source">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="campaigns">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Campaigns</h4>
+              <ul class="content-related__list __campaigns">
+              <mm:relatednodes>
+                <li>
+                  <mm:link page="content">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <mm:field name="subtitle"><mm:isnotempty><span class="content-related__link-description"><mm:write /></span></mm:isnotempty></mm:field>
+                  </mm:link>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+    
+    <!-- event -->
+    <mm:relatednodescontainer role="posrel" type="event" searchdirs="source">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="events">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Events</h4>
+              <ul class="content-related__list __events">
+              <mm:relatednodes>
+                <li>
+                  <mm:link page="content">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <mm:field name="intro">
+                      <mm:isnotempty><span class="content-related__link-description"><mm:write escape="tagstripper, wrap_intro" /></span></mm:isnotempty>
+                    </mm:field>
+                  </mm:link>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+    
+    <!-- event -->
+    <mm:relatednodescontainer role="related" type="event" searchdirs="source">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="events">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Events</h4>
+              <ul class="content-related__list __events">
+              <mm:relatednodes>
+                <li>
+                  <mm:link page="content">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <mm:field name="intro">
+                      <mm:isnotempty><span class="content-related__link-description"><mm:write escape="tagstripper, wrap_intro" /></span></mm:isnotempty>
+                    </mm:field>
+                  </mm:link>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+
+    <!-- articles: posrel -->
+    <mm:relatednodescontainer role="posrel" type="article" searchdirs="source">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="articles">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Articles</h4>
+              <ul class="content-related__list __articles">
+              <mm:relatednodes>
+                <li>
+                  <mm:link page="content">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <mm:field name="intro">
+                      <mm:isnotempty><span class="content-related__link-description"><mm:write escape="tagstripper, wrap_intro" /></span></mm:isnotempty>
+                    </mm:field>
+                  </mm:link>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+    
+    <!-- articles: author -->
+    <mm:relatednodescontainer role="author" type="article" searchdirs="source">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="articles">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Articles</h4>
+              <ul class="content-related__list __articles">
+              <mm:relatednodes>
+                <li>
+                  <mm:link page="content">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <mm:field name="intro">
+                      <mm:isnotempty><span class="content-related__link-description"><mm:write escape="tagstripper, wrap_intro" /></span></mm:isnotempty>
+                    </mm:field>
+                  </mm:link>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+
+    <!-- articles: related -->
+    <mm:relatednodescontainer role="related" type="article" searchdirs="destination">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="articles">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Articles</h4>
+              <ul class="content-related__list __articles">
+              <mm:relatednodes>
+                <li>
+                  <mm:link page="content">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <mm:field name="intro">
+                      <mm:isnotempty><span class="content-related__link-description"><mm:write escape="tagstripper, wrap_intro" /></span></mm:isnotempty>
+                    </mm:field>
+                  </mm:link>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+        
+    <!-- url -->
+    <mm:relatednodescontainer role="related" type="url" searchdirs="destination">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="links">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Links</h4>
+              <ul class="content-related__list __links">
+              <mm:relatednodes>
+                <li>
+                  <a href="${_node.url}"><mm:field name="title" /></a>
+                  <mm:field name="description"><mm:isnotempty>
+                    <span class="content-related__link-description"><mm:write /></span>
+                  </mm:isnotempty></mm:field>
+                </li>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+
+    <!-- files -->
+    <mm:relatednodescontainer role="related" type="file" searchdirs="destination">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="row content-related" id="files">
+            <div class="col-md-2"><!-- empty --></div>
+            <div class="col-md-8">
+              <h4 class="content-related__title">Files</h4>
+              <ul class="content-related__list __files">
+              <mm:relatednodes>
+                <mm:attachment>
+                  <li>
+                    <a href="${_}"><mm:field name="title" /></a>
+                    <span class="content-related__link-description"><mm:field name="filename" />, <mm:field name="size" escape="myfilesize" /></span>
+                  </li>
+                </mm:attachment>
+              </mm:relatednodes>
+              </ul>
+            </div>
+            <div class="col-md-2"><!-- empty --></div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+
+    <!-- video -->
+    <mm:relatednodescontainer role="related" type="video" searchdirs="destination">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="videos">
+            <div class="col-md-10 col-md-offset-2"> 
+              <h4 class="content-related__title __video">Video</h4>
+            </div>
+          </div>
+          <div class="content-related row">
+            <div class="col-md-11 col-md-offset-1">
+              <ul class="content-related__list __video">
+                <mm:relatednodes>
+                  <mm:link page="media">
+                    <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+                    <mm:frameworkparam name="n">${_node}</mm:frameworkparam>
+                    <li>
+                      <a href="${_}" class="content-related__image">
+                        <mm:relatednodes type="picture" max="1">
+                          <mm:import id="image" reset="true"><mm:image mode="url" width="200" height="150" /></mm:import>
+                        </mm:relatednodes>
+                        <mm:notpresent referid="image">
+                          <mm:import id="image" reset="true">${mm:link('/style/images/video-003.gif')}</mm:import>
+                        </mm:notpresent>
+                        <div class="content-related__image-bg" style="background-image:url(${image})"><!-- empty --></div>
+                        <span><mm:field name="title" escape="inline" /></span>
+                      </a>
+                    </li>
+                  </mm:link>
+                </mm:relatednodes>
+              </ul>
+            </div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+
+    <!-- picture -->
+    <mm:relatednodescontainer path="posrel,picture">
+      <mm:size>
+        <mm:isgreaterthan value="0">
+          <div class="content-related row" id="images">
+            <div class="col-md-10 col-md-offset-2"> 
+              <h4 class="content-related__title __images">Images</h4>
+            </div>
+          </div>
+          <div class="content-related row">
+            <div class="col-md-11 col-md-offset-1">
+              <ul class="content-related__list __images">
+              <mm:sortorder field="posrel.pos" />
+              <mm:relatednodes>		
+                <mm:link page="/picture" referids="_node@pic">
+                  <mm:import id="image" reset="true"><mm:image mode="url" width="200" height="150" /></mm:import>
+                  <li>
+                    <a href="${_}" class="content-related__image">
+                      <div class="content-related__image-bg" style="background-image:url(${image})"><!-- empty --></div>
+                      <span><mm:field name="title" /></span>
+                    </a>
+                  </li>
+                </mm:link>
+              </mm:relatednodes>
+              </ul>
+            </div>
+          </div>
+        </mm:isgreaterthan>
+      </mm:size>
+    </mm:relatednodescontainer>
+    
+</jsp:root>

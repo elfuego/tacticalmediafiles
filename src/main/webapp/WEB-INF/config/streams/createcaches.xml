@@ -10,7 +10,7 @@
      to distribute tasks among multiple machines.
     -->
   <localhost max_simultaneous_transcoders="1"  stage="recognizer" />
-  <localhost max_simultaneous_transcoders="1"  stage="transcoder" />
+  <localhost max_simultaneous_transcoders="3"  stage="transcoder" />
   <!--
   <server max_simultaneous_transcoders="2" host="someotherhost.org" port="1679" stage="transcoder" />
   -->
@@ -44,7 +44,6 @@
       <param name="abitrate">128k</param>
       <param name="audioChannels">2</param>
       <param name="async">1</param>
-      <param name="-vf">scale=-1:288</param>
       <param name="-strict">-2</param><!-- because of aac -->
     </class>
     <loganalyzer name="org.mmbase.streams.transcoders.FFMpegAnalyzer" />
@@ -62,7 +61,6 @@
       <param name="-threads">0</param>
       <param name="audioChannels">2</param>
       <param name="async">1</param>
-      <param name="-vf">scale=-1:288</param>
     </class>
     <loganalyzer name="org.mmbase.streams.transcoders.FFMpegAnalyzer" />
   </transcoder>

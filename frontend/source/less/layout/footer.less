@@ -3,12 +3,13 @@
     min-height: 8rem;
     background-color: @color-grey;
 	padding: 3rem 0 1rem 0;
+	
+	.font(medium);
 	font-family: @font-secondary;
 	text-transform: uppercase;
 
 	.footer-inner {
-		line-height: @line-height--medium;
-		font-size: @font-small;
+		line-height: 3.2rem;
 		margin-bottom: 3rem;
 
 		@media @screen-sm-max {
@@ -16,6 +17,7 @@
 			min-height: auto;
 			padding-top: 0.2rem;
 			margin-top: 1rem;
+			.font(base);
 		}
 
 		.footer__navigation {
@@ -23,19 +25,21 @@
 		}
 
 		.footer__link {
-			color: @color-grey--20;
-			font-size: @font-small;
+			font-family: @font-tertiary;
+			color: @color-grey--40;
+			letter-spacing: .1rem;
 			text-decoration: none;
-			font-weight: 200;
 
 			&:hover {
-				text-decoration: underline;
+				color: @color-primary;
 			}
 
 		}
 
 		strong {
-			color: black;
+			.font(small);
+			color: @color-grey--90;
+			letter-spacing: .2rem;
 		}
 
 	}

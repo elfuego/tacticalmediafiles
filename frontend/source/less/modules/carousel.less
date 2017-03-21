@@ -18,8 +18,7 @@
 			bottom: 0;
 			width: 100%;
 			display: block;
-			background: fade(#454545, 60%);
-			// background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 85%, rgba(0, 0, 0, 0.2) 100%);
+			background: rgba(33, 33, 33, .6);
 		}
     	position: relative;
     	top: 0;
@@ -30,18 +29,16 @@
 	    	height: 40rem;
 	    }
 		
-    	.item {
+    	.carousel-item {
 	    	background-size: cover;
 
 	    	.container {
+	    		position: relative;
 	    		height: 63rem;
 			    
 			    @media @screen-md-max {
 			    	height: 40rem;
 			    }
-
-
-	    		position: relative;
 
 	    		display: flex;
 	    		flex-direction: column;
@@ -49,45 +46,44 @@
 	    		align-items: center;
 	    	}
 
-    		.item__type {
+    		.carousel-item__type {
     			width: 100%;
-    			position: absolute;
-    			top: 22rem;
-    			left: 0;
+    			//position: absolute;
+    			//top: 22rem;
+    			//left: 0;
 		        
+		        .font(medium);
 		        color: @color-primary;
 		        font-family: @font-secondary;
-		        font-size: @font-medium;
 		        font-style: italic;
 		        text-transform: lowercase;
 		        text-align: center;
 
 			    @media @screen-md-max {
-			    	top: 12rem;
+			    	//top: 12rem;
 			    }
-
+		        @media @screen-sm-max {
+		            .font(small);
+		        }
     		}
     		
-    		.item__title {
+    		.carousel-item__title {
     			width: 100%;
-		        padding: 0 8rem;
+		        padding: 3rem 8rem;
 
+		        .font(title-main);
 		        color: white;
-		        font-size: @font-title-normal;
-		        line-height: @line-height--title-normal;
 		        text-align: center;
 		        font-weight: normal;
-		        text-shadow: 0.1rem 0.1rem 0.2rem @color-grey--50;
+		        //text-shadow: 0.1rem 0.1rem 0.2rem @color-grey--90;
 
 			    @media @screen-md-max {
-			    	padding: 0 5rem;
-			    	font-size: @font-title-small;
-			    	line-height: @line-height--large;
+			    	.font(title-normal);
+			    	padding: 2rem 5rem;
 			    }
 			    @media @screen-sm-max {
-			    	padding: 0 3rem;
-			    	font-size: @font-title-extra-small;
-			    	//line-height: @line-height--large;
+			    	.font(title-extra-small);
+			    	padding: 1rem 3rem;
 			    }
 		        
 		        a {
@@ -95,15 +91,15 @@
 		        }
     		}
 
-    		.item__read-more {
-    			position: absolute;
-    			left: 0;
-    			right: 0;
-    			bottom: 16rem;
+    		.carousel-item__read-more {
+    			//position: absolute;
+    			//left: 0;
+    			//right: 0;
+    			//bottom: 16rem;
     			text-align: center;
 
 			    @media @screen-md-max {
-			    	bottom: 7rem;
+			    	//bottom: 7rem;
 			    }
     		}
     		

@@ -31,6 +31,8 @@ gulp.task('html', taskHTML);
 import taskStyles from './tasks/less';
 gulp.task('styles', taskStyles);
 
+import taskStylesProd from './tasks/less-production';
+gulp.task('styles-production', taskStylesProd);
 
 // Task: Assets
 
@@ -46,7 +48,7 @@ gulp.task('icons', taskIcons);
 import taskImages from './tasks/images';
 gulp.task('images', taskImages);
 
-gulp.task('assets', ['favicon', 'fonts', 'images']);
+gulp.task('assets', ['favicon', 'fonts', 'images', 'icons']);
 
 
 //
@@ -55,6 +57,9 @@ gulp.task('assets', ['favicon', 'fonts', 'images']);
 
 import taskJS from './tasks/js';
 gulp.task('js', taskJS);
+
+import taskJSProd from './tasks/js-production';
+gulp.task('js-production', taskJSProd);
 
 // js lint and beautifier tasks
 
@@ -94,7 +99,7 @@ gulp.task('develop', ['html', 'styles', 'js', 'assets'], () => {
             ignored: '*.txt'
         },
         files: [
-            config.paths.test + "/**/*.*"
+             config.paths.test + "/**/*.*"
         ],
         browser: "google chrome",
         reloadDelay: 250,
@@ -105,7 +110,11 @@ gulp.task('develop', ['html', 'styles', 'js', 'assets'], () => {
     gulp.watch([config.paths.source + '/less/**/*.less'],   ['styles-watch']);
     gulp.watch([config.paths.source + '/js/**/*.js'],       ['js-watch']);
     gulp.watch([config.paths.source + '/fonts/**/*', 
+                config.paths.source + '/icons/**/*', 
                 config.paths.source + '/images/**/*'],      ['assets-watch']);
 
     // gulp.start('browser-sync');
 });
+
+gulp.task('production',['html', 'styles-production', 'js-lint', 'js-production', 'assets']);
+

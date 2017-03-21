@@ -17,11 +17,12 @@ html( lang="en" )
 
         link( rel="icon" href="/favicon.png" )
 
-        link( rel="apple-touch-icon", sizes="152x152", href="/apple-touch-icon.png" )
-        link( rel="icon", type="image/png", href="/favicon-32x32.png", sizes="32x32" )
-        link( rel="icon", type="image/png", href="/favicon-16x16.png", sizes="16x16" )
+        link( rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png" )
+        link( rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" )
+        link( rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" )
 
         meta( name="viewport" content="width=device-width,initial-scale=1.0" )
+        meta( name="context-root" content="" )
 
         link( href=config.paths.assets.css+"/styles.css" rel="stylesheet" type="text/css" )
 
@@ -39,7 +40,7 @@ html( lang="en" )
             footer.page-layout__footer
                 include footer
 
-            .overlay( data-select-results )
+            .overlay( data-select-results="overlay" )
                 include overlay
             
         script( src=config.paths.assets.js+"/main.js" )

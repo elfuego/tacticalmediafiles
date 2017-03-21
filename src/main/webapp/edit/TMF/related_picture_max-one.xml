@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//MMBase/DTD editwizard 1.0//EN" "http://www.mmbase.org/dtd/wizard-schema_1_0.dtd">
+
+<list role="related" destination="picture"
+    minoccurs="0" maxoccurs="1">
+	
+	<title>Picture</title>
+	
+	<item displaymode="section" displaytype="image">
+		<title></title>
+		<description></description>
+		<field name="title" ftype="data" >
+		  <prompt>Name</prompt>
+		</field>
+		<field fdatapath="." ftype="startwizard" inline="true" 
+		    objectnumber="{object/@number}" wizardname="TMF/picture">
+			<prompt></prompt>
+		</field>
+	</item>
+    
+    <command name="search" nodepath="picture" age="-1" fields="handle,title,description">
+        <prompt xml:lang="en">Search pictures</prompt>
+        <prompt xml:lang="nl">Zoek afbeeldingen</prompt> 
+        <search-filter>
+            <name xml:lang="en">Title:</name>
+            <name xml:lang="nl">Titel:</name>
+            <search-fields>title|description</search-fields>
+        </search-filter>
+    </command>
+    
+    <command name="startwizard" inline="true" wizardname="TMF/picture" objectnumber="new" />
+
+    <action type="create">
+        <relation destination="picture" role="related" />
+    </action>
+</list>

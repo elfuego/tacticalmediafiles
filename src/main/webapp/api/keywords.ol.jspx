@@ -1,0 +1,40 @@
+<mm:content
+    expires="0"
+    language="${empty param.locale ? 'nl' : param.locale}"
+    type="text/html" 
+    encoding="UTF-8"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
+    postprocessor="none">
+    
+    <jsp:output omit-xml-declaration="true" />
+    <jsp:output doctype-root-element="HTML" 
+        doctype-system="about:legacy-compat" />
+
+    
+  <mm:cloud method="asis">
+
+    <mm:import externid="letter">a</mm:import>
+
+    <mm:listnodescontainer type="keyword">
+      <mm:constraint field="keyword" value="${letter}%" operator="LIKE" />
+      <mm:maxnumber value="99" />
+      <mm:sortorder field="keyword" direction="UP" />
+      <ol class="items">
+        <mm:listnodes>
+          <li> 
+            <mm:link page="pages">
+              <mm:frameworkparam name="component">tmf</mm:frameworkparam>
+              <mm:frameworkparam name="page">search</mm:frameworkparam>
+              <mm:frameworkparam name="keyword"><mm:field name="keyword" /></mm:frameworkparam>
+              <a href="${_}"><mm:field name="keyword" /></a>
+            </mm:link> 
+          </li>
+        </mm:listnodes>
+      </ol>
+    </mm:listnodescontainer>
+
+  </mm:cloud>
+</mm:content>

@@ -27,13 +27,12 @@
 }
 
 .icon-char(@filename) {
-    @chevron-down: "\E001";
-    @chevron-left: "\E002";
-    @chevron-right: "\E003";
-    @chevron-up: "\E004";
-    @close: "\E005";
-    @home: "\E006";
-    @slider-dot: "\E007";
+    @fullscreen: "\E001";
+    @mute: "\E002";
+    @pause: "\E003";
+    @play: "\E004";
+    @position: "\E005";
+    @sound: "\E006";
     
     content: @@filename;
 }
@@ -51,31 +50,27 @@
 // Icons
 //
 
-.icon-chevron-down:before {
+.icon-fullscreen:before {
     content: "\E001";
 }
 
-.icon-chevron-left:before {
+.icon-mute:before {
     content: "\E002";
 }
 
-.icon-chevron-right:before {
+.icon-pause:before {
     content: "\E003";
 }
 
-.icon-chevron-up:before {
+.icon-play:before {
     content: "\E004";
 }
 
-.icon-close:before {
+.icon-position:before {
     content: "\E005";
 }
 
-.icon-home:before {
+.icon-sound:before {
     content: "\E006";
-}
-
-.icon-slider-dot:before {
-    content: "\E007";
 }
 

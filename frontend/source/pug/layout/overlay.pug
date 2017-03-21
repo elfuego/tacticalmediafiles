@@ -4,18 +4,19 @@
             .col-md-12
                 a.close( href="#close" title="Close" data-select-results-close="close" )
                 h2 Topics
-                ul.alphabet
+                ol.alphabet
                     each val in ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-                        li 
-                            a( href=val ) #{val}
+                        li
+                            a( href=val data-select-results-letter=val ) #{val}
 
         .row
             .col-md-2
             .col-md-8
-                ul.items
-                    each val in ["9/11", "accident", "act up", "activism", "AIDSaids", "Al Jazeera", "amsterdam", "anarchist", "bookfair 2010", "anonymous", "archiveart", "art of campaigning", "austerity", "Austria", "avantgarde", "avatar"]
-                        li
-                            a( href=val ) #{val}
+                .topics-target( data-select-results-topics-target="" )
+                    ol.items
+                        each val in ["9/11", "accident", "act up", "activism", "AIDSaids", "Al Jazeera", "amsterdam", "anarchist", "bookfair 2010", "anonymous", "archiveart", "art of campaigning", "austerity", "Austria", "avantgarde", "avatar"]
+                            li
+                                a( href=val ) #{val}
             
             .col-md2
 
@@ -29,27 +30,54 @@
                     li 
                         em Anna Devon
                         h3 
-                            a( href="#" ) So called gun safety
+                            a( href="collection.html" ) So called gun safety
                     li
                         em Mike Lanning
                         h3 
-                            a( href="#" ) There’s no such thing as free beer
+                            a( href="collection.html" ) There’s no such thing as free beer
                     li
                         em Kurt Geiger
                         h3 
-                            a( href="#" ) The right to be offended
+                            a( href="collection.html" ) The right to be offended
                     li
                         em Fran Fanny
                         h3 
-                            a( href="#" ) East-west parallels
+                            a( href="collection.html" ) East-west parallels
                     li
                         em Lady Gaga
                         h3 
-                            a( href="#" ) Confusing unrealities
+                            a( href="collection.html" ) Confusing unrealities
                     li
                         em Mister X
                         h3 
-                            a( href="#" ) Now I’m out of collection titles
+                            a( href="collection.html" ) Now I’m out of collection titles
+
+            .col-md-2
+                a.close( href="#close" title="Close" data-select-results-close="close" )
+
+    
+    .container.filter
+        .row
+            .col-md-2
+            .col-md-8
+                h2 Filter
+                ul
+                    li
+                        a( href="#" data-select-results-type="all" ) All
+                    li
+                        a( href="#" data-select-results-type="article" ) Articles
+                    li
+                        a( href="#" data-select-results-type="video" ) Videos
+                    li
+                        a( href="#" data-select-results-type="file" ) Files
+                    li
+                        a( href="#" data-select-results-type="picture" ) Pictures
+                    li
+                        a( href="#" data-select-results-type="person" ) People
+                    li
+                        a( href="#" data-select-results-type="event" ) Events
+                    li
+                        a( href="#" data-select-results-type="campaign" ) Campaigns
 
             .col-md-2
                 a.close( href="#close" title="Close" data-select-results-close="close" )

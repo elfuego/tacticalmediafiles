@@ -16,15 +16,8 @@
 <head>
   <mm:import id="title">Error ${requestScope['javax.servlet.error.status_code']}</mm:import>
   <title>${title} - Tactical Media Files</title>
-  <meta name="description" content="Tactical Media Files" />
-  <meta name="keywords" content="" />
-  <meta name="robots" content="all" />
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
-  <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
-  <!--[if IE]>
-    <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/ie.css')}" />
-  <![endif]-->
+  <link href="${mm:link('/favicon.png')}" rel="shortcut icon" />
+  <link href="${mm:link('/styles/css/styles.css')}" rel="stylesheet" type="text/css" />
   <script type="text/javascript" language="javascript">
 	function show() {
 		document.getElementById('error').style.display = 'block';
@@ -50,30 +43,42 @@
   </style>
 </head>
 <body class="error">
-<div class="GlobalContainer">
-  <tmf:top-container />
-  <div class="ArticleContainer">
-	
-	<tmf:header-simple title="${title}" />
+<div class="page-layout">
+  <tmf:header />
+  <main class="page-layout__main" id="main">
+    <div class="main-content">
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <img data-target-switch="" src="${mm:link('/styles/images/video-1.gif')}" width="100%" />
+            </div>
+            <div class="col-sm-9">
+                
+                <h2 class="error-title">${title}</h2>
+                <h3 class="error-subtitle">
+                  <mm:escape escape="text/xml">Error ${requestScope['javax.servlet.error.status_code']} -  ${requestScope['javax.servlet.error.exception_type']}</mm:escape>
+                </h3>
+                <p class="error-intro">
+                  <mm:escape escape="text/xml">${requestScope['javax.servlet.error.message']}</mm:escape>
+                </p>
+                <p>Please contact your system administrator about this.</p>
+                <hr />
+                <a id="show" href="javascript:show();">Show error</a>
+                <div id="error" style="display:none;">
+                  <a href="javascript:hide();">Hide error</a>
+                  <pre><mm:exception exception="${requestScope['javax.servlet.error.exception']}" /></pre>
+                </div>
     
-    <h3>
-      <mm:escape escape="text/xml">Error ${requestScope['javax.servlet.error.status_code']} -  ${requestScope['javax.servlet.error.exception_type']}</mm:escape>
-    </h3>
-    <p>
-      <mm:escape escape="text/xml">${requestScope['javax.servlet.error.message']}</mm:escape>
-    </p>
-	<a id="show" href="javascript:show();">Show error</a>
-	<div id="error" style="display:none;">
-	  <a href="javascript:hide();">Hide error</a>
-	  <pre><mm:exception exception="${requestScope['javax.servlet.error.exception']}" /></pre>
-	</div>
-	<hr />
-	<p>Please contact your system administrator about this.</p>
-    
-    <div class="clearBoth"><!-- empty --></div>
-  </div><!-- EOF .ArticleContainer -->
-</div><!-- EOF .GlobalContainer -->
-
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <tmf:footer />
+</div>
+<script src="${mm:link('/styles/js/main.js')}"><!-- empty --></script>
 </body>
 </html>
 </mm:cloud>

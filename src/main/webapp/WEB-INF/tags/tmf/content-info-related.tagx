@@ -1,0 +1,72 @@
+﻿<jsp:root
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+  version="2.0">
+  
+  <jsp:directive.tag
+      display-name="content-info-related"
+      description="Related content to this article (content) only displaying number of..."
+      />
+  
+
+    <ul>
+      <mm:relatednodescontainer role="author" type="article" searchdirs="source">
+        <mm:size>
+          <mm:isgreaterthan value="0">
+            <li><a href="#articles">${_} ${_ gt 1 ? 'articles' : 'article'}</a></li>
+          </mm:isgreaterthan>
+        </mm:size>
+      </mm:relatednodescontainer>
+      <mm:relatednodescontainer role="related" type="file" searchdirs="destination">
+        <mm:size>
+          <mm:isgreaterthan value="0">
+            <li><a href="#files">${_} ${_ gt 1 ? 'files' : 'file'}</a></li>
+          </mm:isgreaterthan>
+        </mm:size>
+      </mm:relatednodescontainer>
+      <mm:relatednodescontainer role="related" type="url" searchdirs="destination">
+        <mm:size>
+          <mm:isgreaterthan value="0">
+            <li><a href="#links">${_} ${_ gt 1 ? 'links' : 'link'}</a></li>
+          </mm:isgreaterthan>
+        </mm:size>
+      </mm:relatednodescontainer>
+      <mm:relatednodescontainer role="related" type="video" searchdirs="destination">
+        <mm:size>
+          <mm:isgreaterthan value="0">
+            <li><a href="#videos">${_} ${_ gt 1 ? 'videos' : 'video'}</a></li>
+          </mm:isgreaterthan>
+        </mm:size>
+      </mm:relatednodescontainer>
+      <mm:relatednodescontainer path="posrel,picture">
+        <mm:size>
+          <mm:isgreaterthan value="0">
+            <li><a href="#images">${_} ${_ gt 1 ? 'images' : 'image'}</a></li>
+          </mm:isgreaterthan>
+        </mm:size>
+      </mm:relatednodescontainer>
+      <mm:relatednodescontainer role="related" type="campaign" searchdirs="source">
+        <mm:size>
+          <mm:isgreaterthan value="0">
+            <li><a href="#campaigns">${_} ${_ gt 1 ? 'campaigns' : 'campaign'}</a></li>
+          </mm:isgreaterthan>
+        </mm:size>
+      </mm:relatednodescontainer>
+      <mm:relatednodescontainer role="related" type="event" searchdirs="source">
+        <mm:size>
+          <mm:isgreaterthan value="0">
+            <li><a href="#events">${_} ${_ gt 1 ? 'events' : 'event'}</a></li>
+          </mm:isgreaterthan>
+        </mm:size>
+      </mm:relatednodescontainer>
+      <!-- mm:relatednodescontainer role="related" type="person" searchdirs="source">
+        <mm:size>
+          <mm:isgreaterthan value="0">
+            <li><a href="#persons">${_} ${_ gt 1 ? 'persons' : 'person'}</a></li>
+          </mm:isgreaterthan>
+        </mm:size>
+      </mm:relatednodescontainer -->
+    </ul>
+    
+</jsp:root>

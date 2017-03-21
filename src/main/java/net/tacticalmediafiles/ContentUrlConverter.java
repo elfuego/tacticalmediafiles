@@ -5,7 +5,11 @@ package net.tacticalmediafiles;
 import org.mmbase.bridge.Cloud;
 import org.mmbase.bridge.Node;
 import org.mmbase.bridge.NodeManager;
-import org.mmbase.framework.*;
+import org.mmbase.framework.Block;
+import org.mmbase.framework.Component;
+import org.mmbase.framework.ComponentRepository;
+import org.mmbase.framework.Framework;
+import org.mmbase.framework.FrameworkException;
 import org.mmbase.framework.basic.BasicFramework;
 import org.mmbase.framework.basic.BasicUrl;
 import org.mmbase.framework.basic.DirectoryUrlConverter;
@@ -129,7 +133,7 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
 
         StringBuilder result = new StringBuilder();
         if (path.size() == 0) {
-            result.append("/list.jspx?t=" + type);
+            result.append("/list.jspx?t=").append(type);
         } else {
             Cloud cloud = frameworkParameters.get(Parameter.CLOUD);
 
@@ -145,14 +149,15 @@ public class ContentUrlConverter extends DirectoryUrlConverter {
                         log.warn("Node #" + nr + " not of type " + type);
                         return Url.NOT;
                     }
-                    //String typ = cloud.getNode(nr).getNodeManager().getName();
-                    //if (typ.equals("person")) {
-                    //    result.append("/person.jspx?n=");
-                    //} else {
-                        result.append("/content.jspx?n=");
-                    //}
+                    String nm = cloud.getNode(nr).getNodeManager().getName();
+                    if (nm.equals("person")) {
+                        result.append("/person.jspx?n=").append(nr);
+                    } else if (nm.equals("collection")) {
+                        result.append("/collection.jspx?n=").append(nr);
+                    } else {
+                        result.append("/content.jspx?n=").append(nr);
+                    }
 
-                    result.append(nr);
                 } else {
                     return Url.NOT;
                 }

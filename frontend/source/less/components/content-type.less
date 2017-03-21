@@ -6,7 +6,11 @@
     text-transform: lowercase;
     text-align: center;
 
-    article & {
+    @media @screen-sm-max {
+        .font(small);
+    }
+
+    .content & {
         text-align: left;
     }
 }

@@ -9,5 +9,42 @@
       description="Footer of this site."
       />
   
-  <div id="footer"> <!-- empty --> </div>
+    <footer class="page-layout__footer">
+      <div class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-2"><!-- empty --></div>
+            <div class="col-sm-3 center-xs start-sm">
+              <div class="footer-inner"><strong>Tactical Media Files</strong>
+                <ul class="footer__navigation">
+                  <li><a class="footer__link" href="${mm:link('/articles/about')}">About</a></li>
+                  <li><a class="footer__link" href="http://blog.tacticalmediafiles.net/" target="_blank">Blog</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-3 center-xs start-sm">
+              <div class="footer-inner"><strong>Filter archive</strong>
+                <ul class="footer__navigation">
+                  <li><a class="footer__link" href="${mm:link('/articles')}">Articles</a></li>
+                  <li><a class="footer__link" href="${mm:link('/videos')}">Videos</a></li>
+                  <li><a class="footer__link" href="${mm:link('/events')}">Events</a></li>
+                  <li><a class="footer__link" href="${mm:link('/campaigns')}">Campaigns</a></li>
+                  <li><a class="footer__link" href="${mm:link('/persons')}">People</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-3 center-xs start-sm">
+              <div class="footer-inner"><strong>Browse archive</strong>
+                <ul class="footer__navigation">
+                  <li><a class="footer__link" data-select-overlay="collections" href="#collections">By collection</a></li>
+                  <li><a class="footer__link" data-select-overlay="topics" href="#topics">By topic</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-1"><!-- empty --></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
 </jsp:root>
