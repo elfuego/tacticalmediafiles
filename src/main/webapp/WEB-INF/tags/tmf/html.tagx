@@ -106,7 +106,6 @@
             </main>
             <tmf:footer />
             <tmf:overlay />
-            <tmf:googleanalytics />
           
           </div>
           <script src="${mm:link('/styles/js/main.js')}"><!-- empty --></script>
