@@ -5,6 +5,8 @@ const webpack = require('webpack');
 const PugPlugin  = require('pug-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+const jqueryPath = path.resolve(__dirname, 'source/js/lib/jquery-3.1.1.min.js');
+
 module.exports = (env, argv) => {
   const isProd = argv && argv.mode === 'production';
 
@@ -38,8 +40,8 @@ module.exports = (env, argv) => {
       }),
       // Make $ and jQuery available as globals for legacy jQuery plugins
       new webpack.ProvidePlugin({
-        $:      path.resolve(__dirname, 'source/js/lib/jquery-3.1.1.min.js'),
-        jQuery: path.resolve(__dirname, 'source/js/lib/jquery-3.1.1.min.js'),
+        $:      jqueryPath,
+        jQuery: jqueryPath,
       }),
       // Copy static assets — fonts and icons are only referenced from CSS (url:false),
       // images are also needed for CSS url() references (e.g. oiplayer)
@@ -101,7 +103,7 @@ module.exports = (env, argv) => {
       static: {
         directory: path.resolve(__dirname, 'public'),
       },
-      watchFiles: ['source/**/*'],
+      watchFiles: ['source/**/*.{pug,less,js}'],
       open: {
         app: { name: 'google chrome' },
       },
