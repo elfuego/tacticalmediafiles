@@ -1,28 +1,19 @@
 <?xml version="1.0"?>
-<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
-<!--This resouce configuration points to the test database-->
-<Configure class="org.mortbay.jetty.webapp.WebAppContext">
-
-  <Set name="sessionHandler">
-   <New class="org.mortbay.jetty.servlet.SessionHandler">
-     <Arg>
-       <New class="org.mortbay.jetty.servlet.HashSessionManager">
-         <Set name="storeDirectory">data/sessions/</Set>
-       </New>
-     </Arg>
-   </New>
- </Set>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "https://jetty.org/configure_10_0.dtd">
+<!--This resource configuration points to the test database-->
+<Configure id="tmf" class="org.eclipse.jetty.webapp.WebAppContext">
 
   <!--
       When using jetty:run use an hsql database in the directory 'data'.
   -->
 <!--
-  <New  class="org.mortbay.jetty.plus.naming.EnvEntry">
+  <New  class="org.eclipse.jetty.plus.jndi.EnvEntry">
     <Arg type="java.lang.String">mmbase/mmbaseroot/database</Arg>
     <Arg type="java.lang.String">hsqldb_csv</Arg>
     <Arg type="boolean">true</Arg>
   </New>
-  <New class="org.mortbay.jetty.plus.naming.Resource">
+  <New class="org.eclipse.jetty.plus.jndi.Resource">
+    <Arg></Arg>
     <Arg>jdbc/MMBase</Arg>
     <Arg>
       <New class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -36,21 +27,22 @@
 -->
   <!--
       a mysql configuration
-      
+
       GRANT ALL PRIVILEGES ON tmf2.* TO mmbase IDENTIFIED BY 'admin2k' WITH GRANT OPTION;
   -->
-  <New  class="org.mortbay.jetty.plus.naming.EnvEntry">
+  <New  class="org.eclipse.jetty.plus.jndi.EnvEntry">
     <Arg type="java.lang.String">mmbase/mmbaseroot/database</Arg>
     <Arg type="java.lang.String">mysql_with_views</Arg>
     <Arg type="boolean">true</Arg>
   </New>
 
-  <New class="org.mortbay.jetty.plus.naming.Resource">
+  <New class="org.eclipse.jetty.plus.jndi.Resource">
+    <Arg></Arg>
     <Arg>jdbc/MMBase</Arg>
     <Arg>
       <New class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <Set name="driverClass">com.mysql.jdbc.Driver</Set>
-        <Set name="jdbcUrl">jdbc:mysql://localhost:3306/tmf2?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</Set>
+        <Set name="jdbcUrl">jdbc:mariadb://localhost:3306/tmf2?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</Set>
         <Set name="user">mmbase</Set>
         <Set name="password">admin2k</Set>
       </New>
@@ -58,16 +50,16 @@
    </New>
 
    <!--
-       Put all mmbase date files there too.
+       Put all mmbase data files there too.
    -->
-  <New  class="org.mortbay.jetty.plus.naming.EnvEntry">
+  <New  class="org.eclipse.jetty.plus.jndi.EnvEntry">
     <Arg type="java.lang.String">mmbase/mmbaseroot/datadir</Arg>
     <Arg type="java.lang.String">data</Arg>
     <Arg type="boolean">true</Arg>
   </New>
 
   <!--
-  <New  class="org.mortbay.jetty.plus.naming.EnvEntry">
+  <New  class="org.eclipse.jetty.plus.jndi.EnvEntry">
     <Arg type="java.lang.String">org.mmbase.streams.transcoders.FFMpeg2TheoraTranscoder/path</Arg>
     <Arg type="java.lang.String">/usr/bin/</Arg>
     <Arg type="boolean">true</Arg>
@@ -75,13 +67,13 @@
   -->
 
 
-  <New  class="org.mortbay.jetty.plus.naming.EnvEntry">
+  <New  class="org.eclipse.jetty.plus.jndi.EnvEntry">
     <Arg type="java.lang.String">mmbase/rmmci/port</Arg>
     <Arg type="java.lang.String">1111</Arg>
     <Arg type="boolean">true</Arg>
   </New>
 
-  <New  class="org.mortbay.jetty.plus.naming.EnvEntry">
+  <New  class="org.eclipse.jetty.plus.jndi.EnvEntry">
     <Arg type="java.lang.String">mmbase/rmmci/RMIRegistryServer</Arg>
     <Arg type="java.lang.String">localhost</Arg>
     <Arg type="boolean">true</Arg>
@@ -92,7 +84,7 @@
       When using jetty log everything on the console.
   -->
 
-  <New  class="org.mortbay.jetty.plus.naming.EnvEntry">
+  <New  class="org.eclipse.jetty.plus.jndi.EnvEntry">
     <Arg type="java.lang.String">mmbase-config/log/log4j.xml</Arg>
     <Arg type="java.lang.String">/WEB-INF/config/log/console.xml</Arg>
     <Arg type="boolean">true</Arg>
@@ -104,7 +96,7 @@
        which 'trancodes' faster, and  reliably to something which doesn't actually work, btw.
        -->
   <!--
-  <New  class="org.mortbay.jetty.plus.naming.EnvEntry">
+  <New  class="org.eclipse.jetty.plus.jndi.EnvEntry">
     <Arg type="java.lang.String">mmbase-config/streams/createcaches.xml</Arg>
     <Arg type="java.lang.String">/WEB-INF/config/streams/mock_createcaches.xml</Arg>
     <Arg type="boolean">true</Arg>
@@ -112,10 +104,11 @@
   -->
 
 
-  <New class="org.mortbay.jetty.plus.naming.Resource">
+  <New class="org.eclipse.jetty.plus.jndi.Resource">
+    <Arg></Arg>
     <Arg>mail/Session</Arg>
     <Arg>
-      <New class="org.mortbay.naming.factories.MailSessionReference">
+      <New class="org.eclipse.jetty.jndi.factories.MailSessionReference">
         <Set name="user">mihxiltest@gmail.com</Set>
         <Set name="password">ask mihxil</Set>
         <Set name="properties">
@@ -125,7 +118,6 @@
             <Put name="mail.smtp.auth">true</Put>
             <Put name="mail.smtp.starttls.enable">true</Put>
             <Put name="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</Put>
-
           </New>
         </Set>
       </New>
