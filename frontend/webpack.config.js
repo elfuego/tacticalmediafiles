@@ -1,3 +1,4 @@
+
 'use strict';
 
 const path    = require('path');
@@ -5,7 +6,7 @@ const webpack = require('webpack');
 const PugPlugin  = require('pug-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const jqueryPath = path.resolve(__dirname, 'source/js/lib/jquery-3.1.1.min.js');
+const jqueryPath = path.resolve(__dirname, 'source/js/lib/jquery-4.0.0.min.js');
 
 module.exports = (env, argv) => {
   const isProd = argv && argv.mode === 'production';

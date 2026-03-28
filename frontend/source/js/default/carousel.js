@@ -2,12 +2,10 @@
 
     'use strict';
 
-    var $slickSlider = $('.slider'),
-        $featuredItems = $("[data-slider-featured]");
+    /* slick is a jQuery plugin — jQuery is required for the .slick() call */
+    if (document.querySelector('.slider')) {
 
-    if ($slickSlider.length) {
-
-        $featuredItems.slick({
+        $('[data-slider-featured]').slick({
             slidesToShow: 1,
             cssEase: 'ease-out',
             speed: 350,
