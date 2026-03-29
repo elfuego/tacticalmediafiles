@@ -180,8 +180,7 @@
   </relationsourcelist>
 
   <contextsourcelist>
-	<contextsource path="TMF2/backup.xml" type="depth" goal="backup" />
-    <!-- <contextsource path="/tmp" type="full" goal="backup" /> -->
+    <contextsource path="TMF2/backup.xml" type="depth" goal="backup" />
   </contextsourcelist>
 
   <afterdeployment />
