@@ -1,0 +1,7 @@
+# robots.txt for https://www.tacticalmediafiles.net
+
+User-agent: *
+Disallow: /test/
+
+User-agent: *
+Crawl-delay: 10         # seconds
