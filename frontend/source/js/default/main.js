@@ -4,39 +4,36 @@ import OIPlayer from '../lib/oiplayer.js';
 
     'use strict';
 
-    /**
-     * Data selectors and targets.
-     */
-    var overlaySelector = document.querySelectorAll('[data-select-overlay]'),
-        overlay         = document.querySelector('[data-select-results]'),
-        closeSelector   = document.querySelectorAll('[data-select-results-close]'),
+    var overlaySelector     = document.querySelectorAll('[data-select-overlay]'),
+        overlay             = document.querySelector('[data-select-results]'),
+        overlayContainers   = overlay ? overlay.querySelectorAll('.container') : [],
+        closeSelector       = document.querySelectorAll('[data-select-results-close]'),
         topicLetterSelector = document.querySelectorAll('[data-select-results-letter]'),
-        topicsTarget    = document.querySelector('[data-select-results-topics-target]'),
-        typeSelector    = document.querySelectorAll('[data-select-results-type]'),
-        typeTarget      = document.querySelector('[data-select-results-type-target]'),
-        filterTarget    = document.querySelector('[data-select-results-filter-target]'),
-        viewTarget      = document.querySelectorAll('[data-select-view-target]'),
-        switchTarget    = document.querySelector('[data-target-switch]'),
-        body            = document.body;
+        topicsTarget        = document.querySelector('[data-select-results-topics-target]'),
+        typeSelector        = document.querySelectorAll('[data-select-results-type]'),
+        typeTarget          = document.querySelector('[data-select-results-type-target]'),
+        filterTarget        = document.querySelector('[data-select-results-filter-target]'),
+        viewTarget          = document.querySelectorAll('[data-select-view-target]'),
+        switchTarget        = document.querySelector('[data-target-switch]'),
+        filterForm          = document.getElementById('form'),
+        contextRoot         = document.querySelector('meta[name="context-root"]') &&
+                              document.querySelector('meta[name="context-root"]').getAttribute('content'),
+        body                = document.body;
 
 
-    /* Open overlay: data attribute corresponds with classname of overlay */
     overlaySelector.forEach(function (el) {
         el.addEventListener('click', function (ev) {
             ev.preventDefault();
-
             var over = this.dataset.selectOverlay;
             body.classList.toggle('show-overlay');
-            overlay.querySelectorAll('.container').forEach(function (c) { c.style.display = 'none'; });
+            overlayContainers.forEach(function (c) { c.style.display = 'none'; });
             overlay.querySelector('.' + over).style.display = '';
         });
     });
 
-    /* Select char in overlay and load its topics */
     topicLetterSelector.forEach(function (el) {
         el.addEventListener('click', function (ev) {
             ev.preventDefault();
-            var contextRoot = document.querySelector('meta[name="context-root"]').getAttribute('content');
             var link = contextRoot + 'api/keywords.ol.jspx?letter=' +
                 this.dataset.selectResultsLetter.toLowerCase();
 
@@ -50,7 +47,6 @@ import OIPlayer from '../lib/oiplayer.js';
         });
     });
 
-    /* Filter content type */
     typeSelector.forEach(function (el) {
         el.addEventListener('click', function (ev) {
             ev.preventDefault();
@@ -64,11 +60,10 @@ import OIPlayer from '../lib/oiplayer.js';
             } else {
                 filterTarget.textContent = type + 's';
             }
-            document.getElementById('form').submit();
+            filterForm.submit();
         });
     });
 
-    /* Close overlay */
     closeSelector.forEach(function (el) {
         el.addEventListener('click', function (ev) {
             ev.preventDefault();
@@ -77,61 +72,43 @@ import OIPlayer from '../lib/oiplayer.js';
     });
 
     document.addEventListener('keyup', function (ev) {
-        if (ev.key === 'Escape') {
+        if (ev.key === 'Escape' && body.classList.contains('show-overlay')) {
             body.classList.remove('show-overlay');
         }
     });
 
-    /* List and grid (tiles) view */
+    /* List / grid (tiles) view toggle */
     if (viewTarget.length > 0) {
 
-        var showList = function () {
-            body.classList.remove('view-tiles');
-            body.classList.add('view-list');
-            document.location = '#list';
-        };
-        var showTiles = function () {
-            body.classList.remove('view-list');
-            body.classList.add('view-tiles');
-            document.location = '#tiles';
+        var setView = function (mode) {
+            body.classList.remove(mode === 'list' ? 'view-tiles' : 'view-list');
+            body.classList.add('view-' + mode);
+            document.location = '#' + mode;
         };
 
         var loc = document.location.href;
         var fragIndex = loc.indexOf('#');
         if (fragIndex > 0) {
             var fragment = loc.substring(fragIndex + 1);
-            if (fragment === 'tiles' && body.classList.contains('view-list')) {
-                showTiles();
-            } else {
-                showList();
-            }
+            setView(fragment === 'tiles' && body.classList.contains('view-list') ? 'tiles' : 'list');
         }
 
-        /* Toggle list between list and grid view. */
         viewTarget.forEach(function (el) {
             el.addEventListener('click', function (ev) {
                 ev.preventDefault();
-                if (this.dataset.selectViewTarget === 'grid') {
-                    showTiles();
-                } else {
-                    showList();
-                }
+                setView(this.dataset.selectViewTarget === 'grid' ? 'tiles' : 'list');
             });
         });
     }
 
-    // error page animation
+    // Cycle through 4 animated GIFs on the error page (images are named video-1.gif … video-4.gif)
     if (switchTarget) {
         setInterval(function () {
             var src = switchTarget.getAttribute('src');
-            var num = 1;
             var mat = src.match(/\d+/g);
-            if (mat && mat.length > 0) {
-                num = parseInt(mat[mat.length - 1]);
-            }
-            // styles/images/video-1.gif
+            var num = mat && mat.length > 0 ? parseInt(mat[mat.length - 1]) : 1;
             src = src.substring(0, src.indexOf('.gif') - 1);
-            num = (num > 3 ? 1 : num + 1);  // just 4 images
+            num = (num > 3 ? 1 : num + 1);
             switchTarget.setAttribute('src', src + num + '.gif');
         }, 3333);
     }
@@ -142,11 +119,11 @@ import OIPlayer from '../lib/oiplayer.js';
         players.set(el, new OIPlayer(el, { controls: 'dark top' }));
     });
 
-    var playBtn = document.querySelector('a.__play');
+    var tmfMedia = document.querySelector('.oip_ea_id_tmf-player');
+    var playBtn  = document.querySelector('a.__play');
     if (playBtn) {
         playBtn.addEventListener('click', function (ev) {
             ev.preventDefault();
-            var tmfMedia = document.querySelector('.oip_ea_id_tmf-player');
             if (tmfMedia) players.get(tmfMedia).play();
             this.style.display = 'none';
         });
