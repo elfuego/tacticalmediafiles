@@ -84,11 +84,11 @@
   <filter>
     <filter-name>CorsFilter</filter-name>
     <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+    <init-param>
+      <param-name>cors.allowed.origins</param-name>
+      <param-value>/*</param-value>
+    </init-param>
   </filter>
-  <filter-mapping>
-    <filter-name>CorsFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
 
   <filter>
     <filter-name>httpHeaderSecurity</filter-name>
@@ -122,10 +122,12 @@
       <param-value>true</param-value>
     </init-param> 
   </filter>
-  <init-param>
-    <param-name>cors.allowed.origins</param-name>
-    <param-value>/*</param-value>
-  </init-param>
+
+  <filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
   <filter-mapping>
     <filter-name>httpHeaderSecurity</filter-name>  
     <url-pattern>/*</url-pattern>
