@@ -3,7 +3,7 @@
 <!--This resource configuration points to the test database-->
 <Configure id="tmf" class="org.eclipse.jetty.webapp.WebAppContext">
 
-  <!--
+<!--
       When using jetty:run use an hsql database in the directory 'data'.
   -->
 <!--
@@ -11,9 +11,8 @@
     <Arg type="java.lang.String">mmbase/mmbaseroot/database</Arg>
     <Arg type="java.lang.String">hsqldb_csv</Arg>
     <Arg type="boolean">true</Arg>
-  </New>
-  <New class="org.eclipse.jetty.plus.jndi.Resource">
-    <Arg></Arg>
+  </New>-->
+<!--  <New class="org.eclipse.jetty.plus.naming.Resource">
     <Arg>jdbc/MMBase</Arg>
     <Arg>
       <New class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -23,13 +22,14 @@
         <Set name="password"></Set>
       </New>
     </Arg>
-   </New>
--->
+   </New>-->
+
   <!--
       a mysql configuration
 
       GRANT ALL PRIVILEGES ON tmf2.* TO mmbase IDENTIFIED BY 'admin2k' WITH GRANT OPTION;
   -->
+
   <New  class="org.eclipse.jetty.plus.jndi.EnvEntry">
     <Arg type="java.lang.String">mmbase/mmbaseroot/database</Arg>
     <Arg type="java.lang.String">mysql_with_views</Arg>
@@ -48,7 +48,6 @@
       </New>
     </Arg>
    </New>
-
    <!--
        Put all mmbase data files there too.
    -->
@@ -96,7 +95,7 @@
        which 'trancodes' faster, and  reliably to something which doesn't actually work, btw.
        -->
   <!--
-  <New  class="org.eclipse.jetty.plus.jndi.EnvEntry">
+  <New  class="org.eclipse.jetty.plus.naming.EnvEntry">
     <Arg type="java.lang.String">mmbase-config/streams/createcaches.xml</Arg>
     <Arg type="java.lang.String">/WEB-INF/config/streams/mock_createcaches.xml</Arg>
     <Arg type="boolean">true</Arg>
@@ -110,7 +109,7 @@
     <Arg>
       <New class="org.eclipse.jetty.jndi.factories.MailSessionReference">
         <Set name="user">mihxiltest@gmail.com</Set>
-        <Set name="password">ask mihxil</Set>
+        <Set name="password">mmbase</Set>
         <Set name="properties">
           <New class="java.util.Properties">
             <Put name="mail.smtp.host">smtp.gmail.com</Put>
@@ -124,5 +123,5 @@
     </Arg>
   </New>
 
-
 </Configure>
+
