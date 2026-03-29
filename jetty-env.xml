@@ -41,7 +41,7 @@
     <Arg>jdbc/MMBase</Arg>
     <Arg>
       <New class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <Set name="driverClass">com.mysql.jdbc.Driver</Set>
+        <Set name="driverClass">org.mariadb.jdbc.Driver</Set>
         <Set name="jdbcUrl">jdbc:mariadb://localhost:3306/tmf2?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</Set>
         <Set name="user">mmbase</Set>
         <Set name="password">admin2k</Set>
