@@ -5,7 +5,7 @@
 ]>
 
 
-<log4j:configuration  debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/" >
+<log4j:configuration  debug="false" xmlns:log4j="https://jakarta.apache.org/log4j/" >
 
   <appender name="logfile" class="org.apache.log4j.ConsoleAppender" >
     <param name="Encoding"   value="UTF-8" />

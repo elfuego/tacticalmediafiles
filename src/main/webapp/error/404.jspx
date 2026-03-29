@@ -1,16 +1,16 @@
 <mm:content 
-    xmlns:jsp="http://java.sun.com/JSP/Page"
-    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:jsp="https://java.sun.com/JSP/Page"
+    xmlns:c="https://java.sun.com/jsp/jstl/core"
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
-    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:mm="https://www.mmbase.org/mmbase-taglib-2.0"
     expires="120" type="text/html" language="client" postprocessor="none">
 <jsp:output doctype-root-element="html"
       doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
-      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+      doctype-system="https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
 <jsp:scriptlet>response.setStatus(404);</jsp:scriptlet>
 <mm:cloud>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="nl">
 <head>
   <title>404 : Page not found - Tactical Media Files</title>
   <meta name="description" content="Tactical Media Files error page" />

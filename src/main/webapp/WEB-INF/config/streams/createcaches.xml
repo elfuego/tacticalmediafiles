@@ -1,7 +1,7 @@
 <createcaches
-    xmlns="http://www.mmbase.org/xmlns/createcaches"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.mmbase.org/xmlns/createcaches http://www.mmbase.org/xmlns/createcaches.xsd"
+    xmlns="https://www.mmbase.org/xmlns/createcaches"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://www.mmbase.org/xmlns/createcaches https://www.mmbase.org/xmlns/createcaches.xsd"
     >
 
   <!--

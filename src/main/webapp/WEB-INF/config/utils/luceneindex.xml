@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <luceneindex
-    xmlns="http://www.mmbase.org/xmlns/luceneindex"
-    xmlns:mmsq="http://www.mmbase.org/xmlns/searchquery"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.mmbase.org/xmlns/luceneindex http://www.mmbase.org/xmlns/luceneindex.xsd">
+    xmlns="https://www.mmbase.org/xmlns/luceneindex"
+    xmlns:mmsq="https://www.mmbase.org/xmlns/searchquery"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://www.mmbase.org/xmlns/luceneindex https://www.mmbase.org/xmlns/luceneindex.xsd">
 
   <index name="content">
     <description>Lucene index for content in TMF</description>

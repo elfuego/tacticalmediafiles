@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
 <framework
     class="org.mmbase.framework.basic.BasicFramework"
-    xmlns="http://www.mmbase.org/xmlns/framework"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.mmbase.org/xmlns/framework
-                        http://www.mmbase.org/xmlns/framework.xsd">
+    xmlns="https://www.mmbase.org/xmlns/framework"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://www.mmbase.org/xmlns/framework
+                        https://www.mmbase.org/xmlns/framework.xsd">
   <!--
       In this file the classes of the UrlConverters need to be listed in the order
       in which they are to be chained.

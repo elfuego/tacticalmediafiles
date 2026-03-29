@@ -1,9 +1,9 @@
 <jsp:root
     version="2.0"
-    xmlns:c="http://java.sun.com/jsp/jstl/core"
-    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-    xmlns:jsp="http://java.sun.com/JSP/Page"
-    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:c="https://java.sun.com/jsp/jstl/core"
+    xmlns:fn="https://java.sun.com/jsp/jstl/functions"
+    xmlns:jsp="https://java.sun.com/JSP/Page"
+    xmlns:mm="https://www.mmbase.org/mmbase-taglib-2.0"
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf">
 
   <jsp:directive.tag

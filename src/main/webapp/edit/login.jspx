@@ -1,12 +1,12 @@
 <mm:content 
-    xmlns:jsp="http://java.sun.com/JSP/Page"
-    xmlns:mm="http://www.mmbase.org/mmbase-taglib-2.0"
+    xmlns:jsp="https://java.sun.com/JSP/Page"
+    xmlns:mm="https://www.mmbase.org/mmbase-taglib-2.0"
     xmlns:tmf="urn:jsptagdir:/WEB-INF/tags/tmf"
     expires="0" type="text/html" language="client" postprocessor="none">
 <jsp:output doctype-root-element="html"
       doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
-      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+      doctype-system="https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="nl">
 <head>
   <title>TMF editors - Login</title>
   

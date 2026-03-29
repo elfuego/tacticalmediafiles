@@ -3,11 +3,11 @@
     name="tmf"
     defaultblock="list"
     version="1"
-    xmlns="http://www.mmbase.org/xmlns/component"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.mmbase.org/xmlns/component
-                        http://www.mmbase.org/xmlns/component.xsd">
+    xmlns="https://www.mmbase.org/xmlns/component"
+    xmlns:xi="https://www.w3.org/2001/XInclude"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://www.mmbase.org/xmlns/component
+                        https://www.mmbase.org/xmlns/component.xsd">
 
   <description xml:lang="en">Tactical Media Files</description>
   <description xml:lang="nl">Tactical Media Files</description>
