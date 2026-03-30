@@ -19,6 +19,11 @@
   </context-param>
 
   <context-param>
+    <param-name>mmbase.taglib.function.nonExistance</param-name>
+    <param-value>exception</param-value>
+  </context-param>
+
+  <context-param>
     <param-name>stall-server</param-name>
     <param-value>false</param-value>
   </context-param>
@@ -46,8 +51,6 @@
     <filter-name>FrameworkFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-
 
   <!-- The base MMBase servlet informs about the current MMBase version -->
   <servlet>
@@ -212,7 +215,7 @@
     <env-entry-type>java.lang.String</env-entry-type>
     <env-entry-value>true</env-entry-value>
   </env-entry>
-	<resource-ref>
+    <!--	<resource-ref>
 		<description>
 			Datasource for the MMBase Database. This datasource must be
 			configured in the application server.
@@ -221,6 +224,5 @@
 		<res-ref-name>jdbc/MMBase</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
-	</resource-ref>
-
+	</resource-ref> -->
 </web-app>

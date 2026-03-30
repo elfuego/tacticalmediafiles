@@ -18,7 +18,12 @@
      <mmbase.version.postfix>-SNAPSHOT</mmbase.version.postfix>
      <mmbase.version>${mmbase.version.number}${mmbase.version.postfix}</mmbase.version>
      <base.version>${mmbase.version.number}${mmbase.version.postfix}</base.version>
-     <saxon.version>9.1.0.6</saxon.version>
+     <saxon.version>8.7</saxon.version>
+
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
   <build>
