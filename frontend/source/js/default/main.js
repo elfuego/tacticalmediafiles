@@ -1,13 +1,17 @@
+import OIPlayer from '../lib/oiplayer';
+
 (function () {
 
     'use strict';
 
+    console.log('RUN');
+
     /**
      * Data selecters and targets.
      */
-    var $overlaySelector = $('[data-select-overlay]'),
-        $overlay = $('[data-select-results]'),
-        $closeSelector = $('[data-select-results-close]'),
+    const overlaySelector = document.querySelectorAll('[data-select-overlay]');
+    const overlay = document.querySelector('[data-select-results]');
+    const closeSelector = document.querySelectorAll('[data-select-results-close]');
         $topicLetterSelector = $('[data-select-results-letter]'),
         $topicsTarget = $('[data-select-results-topics-target]'),
         $typeSelector = $('[data-select-results-type]'),
@@ -16,8 +20,7 @@
         $viewTarget = $('[data-select-view-target]'),
         $switchTarget = $('[data-target-switch]'),
         $body = $('body');
-
-
+    
     /* Open overlay: data attribute corresponds with classname of overlay */
     $overlaySelector.on('click', function (ev) {
         ev.preventDefault();
@@ -122,11 +125,17 @@
     }
 
     /* Video player stuff */
-    $('body').oiplayer({
-        controls: 'dark top',
-        log: 'error',
-        show: false
+    var players = new Map();
+    document.querySelectorAll('video, audio').forEach(function (el) {
+        console.log('l', el);
+        players.set(el, new OIPlayer(el, { controls: 'dark top' }));
     });
+
+    // $('body').oiplayer({
+    //     controls: 'dark top',
+    //     log: 'error',
+    //     show: false
+    // });
 
     $('a.__play').click(function (ev) {
         ev.preventDefault();
