@@ -8,6 +8,11 @@
     	margin-bottom: 12rem;
     }
 
+	.slider {
+		position: relative;
+		overflow: hidden;
+	}
+
 	.slider-item {
 		&:before {
 			content: '';
@@ -20,10 +25,16 @@
 			display: block;
 			background: rgba(33, 33, 33, .6);
 		}
-    	position: relative;
+    	position: absolute;
     	top: 0;
+    	left: 0;
+    	display: none;
     	width: 100%;
     	height: 63rem;
+
+    	&.is-active {
+    		display: block;
+    	}
 	    
 	    @media @screen-md-max {
 	    	height: 40rem;
