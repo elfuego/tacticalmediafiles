@@ -18,7 +18,8 @@
     <!-- MMBase 1.9 -->
     <mmbase.version>${mmbase.version.number}${mmbase.version.postfix}</mmbase.version>
     <mmbase.streams.version>${mmbase.version}</mmbase.streams.version>
-    <mmbase.base-webapp.version>${mmbase.version}</mmbase.base-webapp.version>
+    <base.version>${mmbase.version}</base.version>
+    <mmbase.base-webapp.version>${base.version}</mmbase.base-webapp.version>
 
     <saxon.version>8.7</saxon.version><!-- 9.1.0.6 or 8.7 -->
     <mmsite.version>1.1</mmsite.version>
