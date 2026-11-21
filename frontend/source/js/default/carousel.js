@@ -6,7 +6,11 @@
     if (!slider) return;
 
     const items = Array.from(slider.querySelectorAll('.slider-item'));
-    if (items.length < 2) return;
+    if (items.length === 0) return;
+    if (items.length === 1) {
+        items[0].classList.add('is-active');
+        return;
+    }
 
     let current = 0;
     let timer = null;
@@ -24,7 +28,11 @@
 
     const startAutoplay = () => {
         clearInterval(timer);
-        timer = setInterval(next, 10000);
+        timer = setInterval(() => {
+            if (!slider.matches(':hover') && !slider.contains(document.activeElement)) {
+                next();
+            }
+        }, 10000);
     };
     const stopAutoplay = () => clearInterval(timer);
 
@@ -57,6 +65,8 @@
         return li;
     });
 
+    prevBtn.classList.add('slick-arrow');
+    nextBtn.classList.add('slick-arrow');
     slider.appendChild(prevBtn);
     slider.appendChild(nextBtn);
     slider.appendChild(dotsEl);
