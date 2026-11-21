@@ -42,8 +42,8 @@
     <mm:param name="binaryPrefixes">${empty initParam['mmbase.filesize.binaryPrefixes'] ? true : initParam['mmbase.filesize.binaryPrefixes']}</mm:param>
   </mm:escaper>
 
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/styles/css/tmf.css')}" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/styles/css/tmf2.css')}" />
   <link rel="icon" href="${mm:link('/favicon.ico')}" type="image/x-icon" />
   <link rel="shortcut icon" href="${mm:link('/favicon.ico')}" type="image/x-icon" />
   <style type="text/css">
