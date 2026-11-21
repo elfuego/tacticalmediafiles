@@ -53,7 +53,7 @@ module.exports = {
           // url:false — CSS font/image URLs are output-relative paths designed
           // for the old Gulp layout; CopyPlugin places them in the right spots
           { loader: 'css-loader', options: { url: false } },
-          'less-loader',
+          { loader: 'less-loader', options: { lessOptions: { relativeUrls: false, rewriteUrls: 'off' } } },
         ],
       },
       {
