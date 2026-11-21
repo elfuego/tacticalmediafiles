@@ -14,7 +14,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>TMF Editors</title>
-  <jsp:include page="/mmbase/jquery/jquery.jspx" />
   <jsp:directive.include file="/mmbase/validation/javascript.jspxf" />
   <mm:validation
 	  submit="#submit_upload" />

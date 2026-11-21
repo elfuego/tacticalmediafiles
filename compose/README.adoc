@@ -1,0 +1,16 @@
+= TMF with docker compose
+
+Build the war and the image first, from the project root:
+
+----
+make docker
+----
+
+Then, from this directory:
+
+----
+docker compose up
+----
+
+The example configuration in `configs/`, `db.env` and `tmf.xml` is only meant for local use.
+Use `localhost.env` instead of `db.env` to talk to a MariaDB running on the host.

@@ -12,8 +12,8 @@
   <description>Tactical Media Files on MMBase 1.9</description>
 
   <properties>
-     <mmbase.version.number>1.9</mmbase.version.number>
-     <mmbase.version.postfix>-SNAPSHOT</mmbase.version.postfix>
+     <mmbase.version.number>1.9.7</mmbase.version.number>
+     <mmbase.version.postfix>-rc3</mmbase.version.postfix>
 
     <!-- MMBase 1.9 -->
     <mmbase.version>${mmbase.version.number}${mmbase.version.postfix}</mmbase.version>
@@ -114,6 +114,15 @@
         <configuration>
           <webApp>
             <jettyEnvXml>${basedir}/jetty-env.xml</jettyEnvXml>
+            <configurationClasses>
+              <configurationClass>org.eclipse.jetty.maven.plugin.MavenWebInfConfiguration</configurationClass>
+              <configurationClass>org.eclipse.jetty.webapp.WebXmlConfiguration</configurationClass>
+              <configurationClass>org.eclipse.jetty.maven.plugin.MavenMetaInfConfiguration</configurationClass>
+              <configurationClass>org.eclipse.jetty.webapp.FragmentConfiguration</configurationClass>
+              <configurationClass>org.eclipse.jetty.plus.webapp.EnvConfiguration</configurationClass>
+              <configurationClass>org.eclipse.jetty.plus.webapp.PlusConfiguration</configurationClass>
+              <configurationClass>org.eclipse.jetty.webapp.JettyWebXmlConfiguration</configurationClass>
+            </configurationClasses>
           </webApp>
           <systemProperties>
             <basedir>${project.basedir}</basedir>
