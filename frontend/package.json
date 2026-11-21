@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "webpack",
+    "dist": "webpack --mode production",
     "start": "webpack serve --open",
     "chrome": "webpack serve --open-app-name chrome"
   },
