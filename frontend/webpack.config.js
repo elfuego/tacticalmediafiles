@@ -1,22 +1,10 @@
 'use strict';
 
 const path = require('path');
-const PugPlugin = require('pug-plugin');
+const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: {
-    // Insert your PUG templates here
-    index: './source/pug/index.pug',
-    article: './source/pug/article.pug',
-    list: './source/pug/list.pug',
-    video: './source/pug/video.pug',
-    videos: './source/pug/videos.pug',
-    collection: './source/pug/collection.pug',
-    picture: './source/pug/picture.pug',
-    person: './source/pug/person.pug',
-    error: './source/pug/error.pug',
-  },
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'styles/js/[name].js',
@@ -25,10 +13,26 @@ module.exports = {
   },
   mode: 'development',
   plugins: [
-    new PugPlugin({
+    new HtmlBundlerPlugin({
+      entry: {
+        // Insert your PUG templates here
+        index: './source/pug/index.pug',
+        article: './source/pug/article.pug',
+        list: './source/pug/list.pug',
+        video: './source/pug/video.pug',
+        videos: './source/pug/videos.pug',
+        collection: './source/pug/collection.pug',
+        picture: './source/pug/picture.pug',
+        person: './source/pug/person.pug',
+        error: './source/pug/error.pug',
+      },
+      preprocessor: 'pug',
       // pretty: 'auto',
       //☝🏽 Format HTML (only in dev mode)
       data: { config: require('./config/default.json') },
+      js: {
+        filename: 'styles/js/[name].js'
+      },
       css: {
         filename: 'styles/css/[name].css'
       },
