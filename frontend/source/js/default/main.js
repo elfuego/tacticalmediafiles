@@ -38,7 +38,10 @@ import './carousel';
             const contextRoot = document.querySelector('meta[name="context-root"]')?.getAttribute('content') || '';
             const link = contextRoot + 'api/keywords.ol.jspx?letter=' + el.dataset.selectResultsLetter.toLowerCase();
             fetch(link)
-                .then(res => res.text())
+                .then(res => {
+                    if (!res.ok) throw new Error(res.status + ' : ' + res.statusText);
+                    return res.text();
+                })
                 .then(html => { topicsTarget.innerHTML = html; })
                 .catch(err => console.error(err));
         });
@@ -143,7 +146,9 @@ import './carousel';
         playBtn.addEventListener('click', function (ev) {
             ev.preventDefault();
             const videoEl = document.querySelector('video, audio');
-            if (videoEl) videoEl.play();
+            if (videoEl) {
+                players.get(videoEl).play();
+            }
             playBtn.style.display = 'none';
         });
         document.querySelectorAll('video, audio').forEach(function (el) {
@@ -152,5 +157,4 @@ import './carousel';
             });
         });
     }
-
 })();
