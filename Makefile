@@ -16,6 +16,7 @@ help:     ## Show this help.
 
 build: target/tmf-$(VERSION).war  ## Build the war file (in docker)
 
+.PHONY: target/tmf-$(VERSION).war
 target/tmf-$(VERSION).war:  ## Build the war file (in docker)
 	docker run -it -v $(PWD):/work -v $(M2):/root/.m2 $(BUILDIMAGE) $(args)
 
@@ -27,8 +28,7 @@ docker: target/tmf-$(VERSION).war  ## Build a docker image locally
 	docker build . -t $(IMAGE)
 
 run: docker  ## Run the application locally in docker
-	mkdir -p data share
-	docker run -i -p 8080:8080 -v $(PWD)/share:/share -v $(PWD)/data:/data $(IMAGE)
+	docker compose -f compose/docker-compose.yaml up
 
 inspect: docker  ## Call 'docker inspect'
 	docker inspect $(IMAGE)
