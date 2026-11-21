@@ -93,7 +93,7 @@
 <div id="newvideo">
 <mm:node number="$nr">
   
-  <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="95" /></a> 
+  <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/styles/images/logo-tmf.svg')}" alt="Tactical Media Files" width="95" /></a> 
   <h1 class="Title">Video Editor: <mm:field name="title" /></h1>
   <p>
     <a href="${mm:link('/edit/')}">editors</a> |

@@ -39,7 +39,7 @@
 <mm:import id="list">${wizards}/list.jsp</mm:import>
 <mm:import id="wizard">${wizards}/wizard.jsp</mm:import>
 
-<a href="${mm:link('/')}"><img class="logo" src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="95" /></a> 
+<a href="${mm:link('/')}"><img class="logo" src="${mm:link('/styles/images/logo-tmf.svg')}" alt="Tactical Media Files" width="95" /></a> 
 
 <h1 class="Title">TMF Editors</h1>
 <p>
