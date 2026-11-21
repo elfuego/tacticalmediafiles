@@ -38,6 +38,5 @@ services:
     ports:
       - "8025:8025" # web ui showing the mails that were sent
 
-  volumes:
-    tmf-db:
-  
+volumes:
+  tmf-db:
