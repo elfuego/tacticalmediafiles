@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context
+   swallowOutput="false"
+   allowLinking="true"
+   antiResourceLocking="false"
+   privileged="false" >
+
+  <!--
+  This is an example configuration file, which is used in
+     docker-compose.yaml
+  The mentioned hosts in this file ('db', 'mailserver') correspond to the services
+  in the docker-compose file
+  -->
+
+  <Environment name="mmbase-config/security/admins.properties"
+               value="file:///configs/admins.properties" type="java.lang.String" />
+
+  <Environment name="mmbase/mmbaseroot/datadir" value="/share/tmf" type="java.lang.String" />
+
+  <Environment name="mmbase/mmbaseroot/database" value="mysql_with_views" type="java.lang.String" />
+  <Environment name="mmbase/mmbaseroot/machinename" value="MMBase TMF" type="java.lang.String" />
+  <Resource name="jdbc/MMBase"
+            auth="Container" type="javax.sql.DataSource"
+            maxTotal="96" maxIdle="8" maxWaitMillis="10000"
+            username="${MYSQL_USERNAME}"
+            password="${MYSQL_PWD}"
+            driverClassName="org.mariadb.jdbc.Driver"
+            url="jdbc:mariadb://${MYSQL_HOST}:3306/${MYSQL_DATABASE}?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8" />
+
+  <Resource name="mail/Session" auth="Container"
+            type="javax.mail.Session"
+            mail.smtp.host="mailserver"
+            mail.smtp.port="1025" />
+
+  <Environment name="mmbase/sendmail/onlyto"
+               value="(?ix).*"
+               type="java.lang.String" />
+
+</Context>

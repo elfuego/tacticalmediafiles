@@ -1,0 +1,42 @@
+---
+name: TMF
+services:
+  tmf:
+    hostname: tmf1
+    depends_on:
+      db:
+        condition: service_started
+      mailserver:
+        condition: service_started
+    image: tmf:latest
+    pull_policy: never
+    container_name: web
+    restart: unless-stopped
+    ports:
+      - "${TMF_PORT:-8080}:8080" # web
+    volumes:
+      - ./tmf.xml:/usr/local/tomcat/conf/Catalina/localhost/ROOT.xml:ro
+      - ./configs:/configs:ro
+      - ./share:/share
+    environment:
+      TZ: "Europe/Amsterdam"
+    env_file:
+      - db.env
+  db:
+    image: mariadb
+    environment:
+      MYSQL_USER: tmf
+      MYSQL_DATABASE: tmf2
+    env_file:
+      - db.env
+    volumes:
+      - tmf-db:/var/lib/mysql
+
+  mailserver:
+    image: axllent/mailpit
+    restart: always
+    ports:
+      - "127.0.0.1:8025:8025" # web ui showing the mails that were sent
+
+volumes:
+  tmf-db:

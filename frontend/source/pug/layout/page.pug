@@ -24,7 +24,7 @@ html( lang="en" )
         meta( name="viewport" content="width=device-width,initial-scale=1.0" )
         meta( name="context-root" content="" )
 
-        link( href=config.paths.assets.css+"/styles.css" rel="stylesheet" type="text/css" )
+        link( href="../less/styles.less" rel="stylesheet" type="text/css" )
 
     body( class=bodyClass )
         .page-layout
@@ -43,5 +43,4 @@ html( lang="en" )
             .overlay( data-select-results="overlay" )
                 include overlay
             
-        script( src=config.paths.assets.js+"/main.js" )
-            
+        script( src="../js/default/main.js" )

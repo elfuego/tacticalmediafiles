@@ -14,7 +14,8 @@
             .col-md-8
                 .topics-target( data-select-results-topics-target="" )
                     ol.items
-                        each val in ["9/11", "accident", "act up", "activism", "AIDSaids", "Al Jazeera", "amsterdam", "anarchist", "bookfair 2010", "anonymous", "archiveart", "art of campaigning", "austerity", "Austria", "avantgarde", "avatar"]
+                        - var keywords = ["9/11", "accident", "act up", "activism", "AIDSaids", "Al Jazeera", "amsterdam", "anarchist", "bookfair 2010", "anonymous", "archiveart", "art of campaigning", "austerity", "Austria", "avantgarde", "avatar"]
+                        each val in keywords
                             li
                                 a( href=val ) #{val}
             

@@ -13,8 +13,8 @@
 <head>
   <title>TMF editors - Logged out</title>
   
-  <link href="${mm:link('/style/css/tmf.css')}" rel="stylesheet" type="text/css" />
-  <link href="${mm:link('/style/css/tmf2.css')}" rel="stylesheet" type="text/css" />
+  <link href="${mm:link('/styles/css/tmf.css')}" rel="stylesheet" type="text/css" />
+  <link href="${mm:link('/styles/css/tmf2.css')}" rel="stylesheet" type="text/css" />
   <link href="${mm:link('/favicon.ico')}" rel="shortcut icon" />
 <style type="text/css">
   .login { margin-left: 80px; }

@@ -15,8 +15,8 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>TMF Editors</title>
 
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf.css')}" />
-  <link rel="stylesheet" type="text/css" href="${mm:link('/style/css/tmf2.css')}" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/styles/css/tmf.css')}" />
+  <link rel="stylesheet" type="text/css" href="${mm:link('/styles/css/tmf2.css')}" />
   <link rel="icon" href="${mm:link('/favicon.ico')}" type="image/x-icon" />
   <link rel="shortcut icon" href="${mm:link('/favicon.ico')}" type="image/x-icon" />
   <style type="text/css">
@@ -29,7 +29,7 @@
 </head>
 <body>
 
-  <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/style/images/tmf-logo.gif')}" alt="Tactical Media Files" width="95" /></a>
+  <a href="${mm:link('/')}"><img class="logo" src="${mm:link('/styles/images/logo-tmf.svg')}" alt="Tactical Media Files" width="95" /></a>
   
   <h1 class="Title">TMF Video Editors</h1>
   <p>
