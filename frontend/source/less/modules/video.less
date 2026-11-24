@@ -1,193 +1,203 @@
 .video {
-    
-    .container {
-        &.__video {
-            background-color: black;
-            max-width: 100%;
-            padding: 0;
+  .container {
+    &__video {
+      background-color: orange;
+      max-width: 100%;
+      padding: 0;
 
-            .row {
-                margin: 0;
-            }
-        }
+      .row {
+        margin: 0;
+      }
+    }
+  }
+
+  .video-background {
+    background-color: black;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden; // cut off preview images that are too large
+
+    video {
+      max-width: 100%;
+      height: auto;
+      background-size: cover;
+      background-position: center;
+
+      @media @screen-xs {
+        width: 68rem;
+      }
+      @media @screen-sm {
+        width: 76.8rem;
+      }
+      @media @screen-md {
+        width: 102.4rem;
+      }
+      @media @screen-lg {
+        width: 168rem;
+      }
+      // @media @screen-xl {
+      //     width: 100%;
+      // }
     }
 
-    
-    .video-background {
-        background-color: black;
-        
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        overflow: hidden;   // cut off preview images that are too large
+    figure.oiplayer {
+      --oiplayer-font-size: 1.6rem;
+      --oiplayer-button-size: 4rem;
+      --oiplayer-icon-size: calc(var(--oiplayer-button-size) * 0.55);
+      --oiplayer-bar-height: 2rem;
+      --oiplayer-bar-border-radius: 2rem;
 
-        video {
-            max-width: 100%;
-            height: auto;
-            background-size: cover;
-            background-position: center;
-
-            @media @screen-xs {
-                width: 68rem;
-            }
-            @media @screen-sm {
-                width: 76.8rem;
-            }
-            @media @screen-md {
-                width: 102.4rem;
-            }
-            @media @screen-lg {
-                width: 168rem;
-            }
-            // @media @screen-xl {
-            //     width: 100%;
-            // }
-        }
-
-        .oiplayer {
-            max-width: 100%;
-            height: auto;
-            margin: 0 auto;
-            background-size: cover;
-            background-position: center;
-            background-repeat: none;
-
-            .preview {
-                width: 100%;
-                height: auto;
-            }
-        }
-        .oipcontrols {
-            background-color: rgba(0, 0, 0, .65);
-            color: white;
-            border-radius: 0;
-            line-height: 22px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .play {
-            a {
-                color: @color-primary;
-                &:hover {
-                    color: @color-primary-dark;
-                }
-                &:before {
-                    .fa-icon();
-                    content: @fa-var-play;
-                    font-size: 2.2rem;
-                    outline: none;
-                }
-            }
-            &.pause {               
-                a {
-                    color: @color-primary;
-                    &:hover {
-                        color: @color-primary-dark;
-                    }
-                    &:before {
-                        .fa-icon();
-                        content: @fa-var-pause;
-                        font-size: 2.2rem;
-                        outline: none;
-                    }
-                }
-            }
-        }
-        .sound {
-            a {
-                color: @color-primary;
-                &:hover {
-                    color: @color-primary-dark;                        
-                }
-                &:before {
-                    .fa-icon();
-                    content: @fa-var-volume-up;
-                    font-size: 2.2rem;
-                    outline: none;
-                }
-            }
-            &.muted {
-                right: 2rem;
-                a {
-                    color: @color-primary;
-                    &:hover {
-                        color: @color-primary-dark;
-                    }
-                    &:before {
-                        .fa-icon();
-                        content: @fa-var-volume-off;
-                        font-size: 2.2rem;
-                        outline: none;
-                    }
-                }
-            }
-        }
-        .screen {
-            a {
-                color: @color-primary;
-                &:hover {
-                    color: @color-primary-dark;                        
-                }
-            }
-
-        }
-        .pos {
-            a {
-                background-color: @color-primary;
-
-                &:hover {
-                    background-color: @color-primary-dark;                        
-                }
-            }
-        }
-
-        .read-more {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 8rem;
-            z-index: @index-4;
-
-            @media @screen-md-max {
-                bottom: 6rem;
-            }
-            @media @screen-sm-max {
-                bottom: 4rem;
-            }
-        }
-
+      &.dark {
+        --oiplayer-color: #008bce;
+        --oiplayer-played-position-color: #008bce;
+      }
     }
 
-    .video-title {
-        .font(title-normal);
-        color: @color-grey--90;
-        font-weight: normal;
-        margin: 2rem 0 3rem 0;
+    .oiplayer {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      background-size: cover;
+      background-position: center;
+      background-repeat: none;
+
+      .preview {
+        width: 100%;
+        height: auto;
+      }
     }
 
-    .content-type {
-        margin-top: 2rem;
+    .oipcontrols {
+      background-color: rgba(0, 0, 0, 0.65);
+      color: white;
+      border-radius: 0;
+      line-height: 22px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .tags { 
-        text-align: left;
-    }
-
-    p.video-intro {
-        .font(large);
-        margin: 0 0 4rem  0;
-        color: @color-grey--70;
-        font-style: oblique;
-
-        @media @screen-sm-max {
-            .font(medium);
+    .play {
+      a {
+        color: @color-primary;
+        &:hover {
+          color: @color-primary-dark;
         }
+        &:before {
+          .fa-icon();
+          content: @fa-var-play;
+          font-size: 2.2rem;
+          outline: none;
+        }
+      }
+      &.pause {
+        a {
+          color: @color-primary;
+          &:hover {
+            color: @color-primary-dark;
+          }
+          &:before {
+            .fa-icon();
+            content: @fa-var-pause;
+            font-size: 2.2rem;
+            outline: none;
+          }
+        }
+      }
+    }
+    .sound {
+      a {
+        color: @color-primary;
+        &:hover {
+          color: @color-primary-dark;
+        }
+        &:before {
+          .fa-icon();
+          content: @fa-var-volume-up;
+          font-size: 2.2rem;
+          outline: none;
+        }
+      }
+      &.muted {
+        right: 2rem;
+        a {
+          color: @color-primary;
+          &:hover {
+            color: @color-primary-dark;
+          }
+          &:before {
+            .fa-icon();
+            content: @fa-var-volume-off;
+            font-size: 2.2rem;
+            outline: none;
+          }
+        }
+      }
+    }
+    .screen {
+      a {
+        color: @color-primary;
+        &:hover {
+          color: @color-primary-dark;
+        }
+      }
+    }
+    .pos {
+      a {
+        background-color: @color-primary;
+
+        &:hover {
+          background-color: @color-primary-dark;
+        }
+      }
     }
 
-    p {
-        color: @color-grey--90;
-        .font(base);
-    }
+    .read-more {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 8rem;
+      z-index: @index-4;
 
+      @media @screen-md-max {
+        bottom: 6rem;
+      }
+      @media @screen-sm-max {
+        bottom: 4rem;
+      }
+    }
+  }
+
+  .video-title {
+    .font(title-normal);
+    color: @color-grey--90;
+    font-weight: normal;
+    margin: 2rem 0 3rem 0;
+  }
+
+  .content-type {
+    margin-top: 2rem;
+  }
+
+  .tags {
+    text-align: left;
+  }
+
+  p.video-intro {
+    .font(large);
+    margin: 0 0 4rem 0;
+    color: @color-grey--70;
+    font-style: oblique;
+
+    @media @screen-sm-max {
+      .font(medium);
+    }
+  }
+
+  p {
+    color: @color-grey--90;
+    .font(base);
+  }
 }

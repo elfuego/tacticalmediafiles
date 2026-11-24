@@ -16,6 +16,8 @@ figure.oiplayer {
   --oiplayer-background-color-top: rgba(255, 255, 255, 0.9);
 
   --oiplayer-button-size: 2rem;
+  // height of the svg icons in the buttons, follows the button size
+  --oiplayer-icon-size: calc(var(--oiplayer-button-size) * 0.9);
   --oiplayer-font-size: 1rem;
   --oiplayer-bar-height: 0.75rem;
   --oiplayer-bar-border-radius: 0.6rem;
@@ -208,6 +210,8 @@ figure.oiplayer {
 
       svg {
         display: block;
+        height: var(--oiplayer-icon-size);
+        width: auto;
       }
     }
 
@@ -306,8 +310,8 @@ figure.oiplayer {
     }
 
     .screen > button > svg {
-      width: 24px;
-      height: 16px;
+      // a bit smaller
+      height: calc(var(--oiplayer-icon-size) * 0.85);
     }
 
     .sound > button {
