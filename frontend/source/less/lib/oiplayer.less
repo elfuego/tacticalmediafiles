@@ -16,8 +16,7 @@ figure.oiplayer {
   --oiplayer-background-color-top: rgba(255, 255, 255, 0.9);
 
   --oiplayer-button-size: 2rem;
-  // height of the svg icons in the buttons, follows the button size
-  --oiplayer-icon-size: calc(var(--oiplayer-button-size) * 0.9);
+  --oiplayer-icon-size: 1.2rem;
   --oiplayer-font-size: 1rem;
   --oiplayer-bar-height: 0.75rem;
   --oiplayer-bar-border-radius: 0.6rem;
@@ -233,7 +232,6 @@ figure.oiplayer {
 
         [data-button-play-icon="paused"] {
           display: inline-block;
-          margin-left: 2px;
         }
       }
     }
@@ -315,12 +313,9 @@ figure.oiplayer {
     }
 
     .sound > button {
-      justify-content: flex-end;
-
       &[data-button-volume="on"] {
         [data-button-volume-icon="on"] {
           display: inline-block;
-          margin-right: 0.3rem;
         }
 
         [data-button-volume-icon="muted"] {
@@ -335,7 +330,6 @@ figure.oiplayer {
 
         [data-button-volume-icon="muted"] {
           display: inline-block;
-          margin-right: 0.5rem;
         }
       }
     }
